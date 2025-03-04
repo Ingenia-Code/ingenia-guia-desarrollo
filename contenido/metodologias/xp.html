@@ -1,0 +1,692 @@
+<h1>Extreme Programming (XP)</h1>
+
+<p>Extreme Programming (XP) es una metodología ágil de desarrollo de software que se enfoca en mejorar la calidad del software y la capacidad de respuesta a los requisitos cambiantes de los clientes. XP se distingue por su énfasis en la excelencia técnica y las prácticas de programación de alta calidad.</p>
+
+<div class="card">
+    <h2>Historia y Fundamentos</h2>
+    
+    <p>Extreme Programming fue formulada por Kent Beck a finales de los años 90, mientras trabajaba en el proyecto Chrysler Comprehensive Compensation System. XP se desarrolló como respuesta a los problemas causados por los ciclos de desarrollo largos de los modelos tradicionales.</p>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Valores de XP</h3>
+            <ul class="feature-list">
+                <li><strong>Comunicación:</strong> Comunicación constante entre el equipo y el cliente</li>
+                <li><strong>Simplicidad:</strong> Hacer lo más simple que podría funcionar</li>
+                <li><strong>Retroalimentación:</strong> Ciclos de feedback rápidos y constantes</li>
+                <li><strong>Coraje:</strong> Disposición para realizar cambios importantes y decir la verdad</li>
+                <li><strong>Respeto:</strong> Respeto mutuo entre todos los miembros del equipo</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Principios clave</h3>
+            <ul class="feature-list">
+                <li><strong>Feedback rápido:</strong> Minimizar el tiempo entre acción y retroalimentación</li>
+                <li><strong>Asumir simplicidad:</strong> Tratar cada problema como si pudiera resolverse de forma simple</li>
+                <li><strong>Cambio incremental:</strong> Realizar cambios pequeños y frecuentes</li>
+                <li><strong>Abrazar el cambio:</strong> Ver el cambio como una oportunidad, no como una amenaza</li>
+                <li><strong>Trabajo de calidad:</strong> La calidad nunca debe sacrificarse</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h2>Prácticas de XP</h2>
+
+<div class="card">
+    <p>XP se define por un conjunto de prácticas que trabajan en conjunto para crear un entorno de desarrollo altamente productivo y enfocado en la calidad.</p>
+    
+    <div class="grid-container-3">
+        <div class="card">
+            <h3>Programación en Parejas</h3>
+            <p>Todo el código de producción es escrito por dos programadores trabajando juntos en una sola máquina.</p>
+            
+            <h4>Beneficios:</h4>
+            <ul class="feature-list">
+                <li>Mejor diseño y código</li>
+                <li>Menos errores</li>
+                <li>Transferencia de conocimiento</li>
+                <li>Mejora de habilidades sociales</li>
+                <li>Propiedad colectiva del código</li>
+            </ul>
+            
+            <h4>Implementación:</h4>
+            <ul class="feature-list">
+                <li>Rotar parejas frecuentemente</li>
+                <li>Alternar roles de "conductor" y "navegador"</li>
+                <li>Comunicación constante</li>
+                <li>Combinar desarrolladores con diferentes niveles de experiencia</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h3>Desarrollo Guiado por Pruebas (TDD)</h3>
+            <p>Los programadores escriben pruebas automatizadas antes de escribir el código de producción.</p>
+            
+            <h4>El ciclo Red-Green-Refactor:</h4>
+            <ul class="feature-list">
+                <li><strong>Red:</strong> Escribir una prueba que falle</li>
+                <li><strong>Green:</strong> Implementar código que haga pasar la prueba</li>
+                <li><strong>Refactor:</strong> Mejorar el código manteniendo las pruebas en verde</li>
+            </ul>
+            
+            <h4>Beneficios:</h4>
+            <ul class="feature-list">
+                <li>Código más limpio y mantenible</li>
+                <li>Menos errores y bugs</li>
+                <li>Documentación viva del código</li>
+                <li>Diseño orientado a la interfaz</li>
+                <li>Refactorización segura</li>
+            </ul>
+            
+            <h4>Ejemplo de TDD:</h4>
+            <pre><code class="lang-python"># 1. Escribir la prueba (Red)
+def test_add_numbers():
+    calculator = Calculator()
+    assert calculator.add(2, 3) == 5
+
+# 2. Implementar la solución (Green)
+class Calculator:
+    def add(self, a, b):
+        return a + b
+        
+# 3. Refactorizar si es necesario</code></pre>
+        </div>
+        
+        <div class="card">
+            <h3>Integración Continua</h3>
+            <p>Los cambios de código se integran en el repositorio principal varias veces al día, verificando su correcto funcionamiento.</p>
+            
+            <h4>Principios:</h4>
+            <ul class="feature-list">
+                <li>Mantener un repositorio único</li>
+                <li>Automatizar la compilación</li>
+                <li>Pruebas automatizadas</li>
+                <li>Todos confirman diariamente</li>
+                <li>Cada confirmación debe construirse en el servidor de integración</li>
+                <li>Mantener la construcción rápida</li>
+                <li>Probar en un clon del entorno de producción</li>
+            </ul>
+            
+            <h4>Beneficios:</h4>
+            <ul class="feature-list">
+                <li>Detección temprana de problemas</li>
+                <li>Conflictos de integración reducidos</li>
+                <li>Menos tiempo de depuración</li>
+                <li>Siempre hay una versión funcional disponible</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="grid-container-3 mt-4">
+        <div class="card">
+            <h3>Diseño Simple</h3>
+            <p>El diseño más simple que satisface los requisitos actuales es el mejor.</p>
+            
+            <h4>Criterios para un diseño simple:</h4>
+            <ol class="feature-list">
+                <li>Pasa todas las pruebas</li>
+                <li>No contiene duplicación</li>
+                <li>Expresa la intención del programador</li>
+                <li>Minimiza el número de clases y métodos</li>
+            </ol>
+            
+            <h4>Principios:</h4>
+            <ul class="feature-list">
+                <li>"YAGNI" (You Aren't Gonna Need It)</li>
+                <li>"DRY" (Don't Repeat Yourself)</li>
+                <li>"KISS" (Keep It Simple, Stupid)</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h3>Refactorización</h3>
+            <p>Mejora continua del diseño del código sin cambiar su comportamiento.</p>
+            
+            <h4>Cuando refactorizar:</h4>
+            <ul class="feature-list">
+                <li>Código duplicado</li>
+                <li>Métodos o clases demasiado largas</li>
+                <li>Nombres poco descriptivos</li>
+                <li>Código difícil de entender</li>
+                <li>Al agregar nueva funcionalidad</li>
+            </ul>
+            
+            <h4>Reglas de seguridad:</h4>
+            <ul class="feature-list">
+                <li>Nunca refactorizar sin pruebas</li>
+                <li>Hacer pequeños cambios</li>
+                <li>Ejecutar pruebas frecuentemente</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h3>Propiedad Colectiva del Código</h3>
+            <p>Cualquier desarrollador puede cambiar cualquier parte del código en cualquier momento.</p>
+            
+            <h4>Principios:</h4>
+            <ul class="feature-list">
+                <li>Todo el código pertenece a todo el equipo</li>
+                <li>Cualquiera puede mejorar cualquier parte del sistema</li>
+                <li>Deben respetarse las convenciones del equipo</li>
+                <li>Las pruebas deben pasar antes de confirmar cambios</li>
+            </ul>
+            
+            <h4>Beneficios:</h4>
+            <ul class="feature-list">
+                <li>Distribución del conocimiento</li>
+                <li>Reducción de puntos únicos de fallo</li>
+                <li>Mayor calidad del código</li>
+                <li>Menor tiempo de resolución de problemas</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="grid-container mt-4">
+        <div class="card">
+            <h3>Cliente en el Sitio</h3>
+            <p>Un representante del cliente está disponible a tiempo completo para el equipo.</p>
+            
+            <h4>Responsabilidades del cliente:</h4>
+            <ul class="feature-list">
+                <li>Definir las historias de usuario</li>
+                <li>Establecer prioridades</li>
+                <li>Responder preguntas</li>
+                <li>Proporcionar feedback</li>
+                <li>Participar en las planificaciones</li>
+                <li>Verificar el software</li>
+            </ul>
+            
+            <h4>Adaptaciones modernas:</h4>
+            <p>En equipos distribuidos, se puede implementar mediante:</p>
+            <ul class="feature-list">
+                <li>Videoconferencias diarias</li>
+                <li>Herramientas de colaboración en tiempo real</li>
+                <li>Product Owner dedicado (en Scrum)</li>
+                <li>Acceso directo y rápido al cliente vía chat</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h3>Estándares de Codificación</h3>
+            <p>El equipo sigue un conjunto común de normas y prácticas de codificación.</p>
+            
+            <h4>Áreas cubiertas:</h4>
+            <ul class="feature-list">
+                <li>Convenciones de nomenclatura</li>
+                <li>Formato y estilo de código</li>
+                <li>Comentarios y documentación</li>
+                <li>Manejo de errores</li>
+                <li>Niveles de logging</li>
+                <li>Organización de archivos</li>
+            </ul>
+            
+            <h4>Implementación:</h4>
+            <ul class="feature-list">
+                <li>Linters y formatters automatizados</li>
+                <li>Code reviews</li>
+                <li>Programación en parejas</li>
+                <li>Herramientas CI que verifican estándares</li>
+            </ul>
+            
+            <h4>Ejemplo de configuración (ESLint para JavaScript):</h4>
+            <pre><code class="lang-json">{
+  "extends": "airbnb",
+  "rules": {
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "indent": ["error", 2],
+    "no-console": "warn",
+    "max-len": ["error", { "code": 100 }]
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  }
+}</code></pre>
+        </div>
+    </div>
+</div>
+
+<h2>El Ciclo de Vida XP</h2>
+
+<div class="card">
+    <p>XP organiza el desarrollo en iteraciones cortas con un ciclo de vida bien definido.</p>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Fases de una iteración XP</h3>
+            <ol class="feature-list">
+                <li><strong>Planificación:</strong> Cliente y desarrolladores definen historias de usuario y prioridades</li>
+                <li><strong>Diseño:</strong> Diseño simple para la funcionalidad requerida</li>
+                <li><strong>Codificación:</strong> Implementación con TDD y programación en parejas</li>
+                <li><strong>Pruebas:</strong> Pruebas unitarias y de aceptación automatizadas</li>
+            </ol>
+            
+            <h3 class="mt-4">Prácticas de planificación</h3>
+            <ul class="feature-list">
+                <li><strong>Planning Game:</strong> Asignar valor y costo a las historias de usuario</li>
+                <li><strong>Iteraciones cortas:</strong> 1-2 semanas de duración</li>
+                <li><strong>Releases pequeñas:</strong> Entregas frecuentes de funcionalidad completa</li>
+                <li><strong>Velocity:</strong> Medición de capacidad del equipo basada en iteraciones anteriores</li>
+                <li><strong>Stand-up meetings:</strong> Reuniones diarias breves</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Historias de Usuario en XP</h3>
+            <p>Las historias de usuario son la unidad básica de funcionalidad en XP.</p>
+            
+            <h4>Características:</h4>
+            <ul class="feature-list">
+                <li>Escritas por el cliente en su lenguaje</li>
+                <li>Breves (tarjeta de 3x5)</li>
+                <li>Estiman esfuerzo en "puntos de historia"</li>
+                <li>Incluyen criterios de aceptación</li>
+                <li>Son negociables</li>
+            </ul>
+            
+            <h4>Formato típico:</h4>
+            <pre><code class="lang-text">Título: Buscar productos por nombre
+
+Como un comprador
+Quiero poder buscar productos por nombre
+Para encontrar rápidamente lo que estoy buscando
+
+Criterios de aceptación:
+- Mostrar resultados mientras se escribe (búsqueda incremental)
+- Mostrar mensaje cuando no hay resultados
+- Mostrar máximo 10 resultados por página
+- La búsqueda debe ser insensible a mayúsculas/minúsculas
+
+Estimación: 3 puntos</code></pre>
+        </div>
+    </div>
+</div>
+
+<h2>Test-Driven Development (TDD)</h2>
+
+<div class="card">
+    <p>El Desarrollo Guiado por Pruebas (TDD) es una práctica fundamental en XP que consiste en escribir pruebas automatizadas antes del código de producción.</p>
+    
+    <div class="grid-container">
+        <div>
+            <h3>El ciclo Red-Green-Refactor</h3>
+            <ol class="feature-list">
+                <li><strong>Red:</strong> Escribir una prueba que falle</li>
+                <li><strong>Green:</strong> Escribir el código más simple que haga pasar la prueba</li>
+                <li><strong>Refactor:</strong> Mejorar el código sin cambiar su comportamiento</li>
+            </ol>
+            
+            <h3 class="mt-4">Tipos de pruebas en XP</h3>
+            <ul class="feature-list">
+                <li><strong>Pruebas unitarias:</strong> Verifican componentes individuales</li>
+                <li><strong>Pruebas de integración:</strong> Verifican la interacción entre componentes</li>
+                <li><strong>Pruebas de aceptación:</strong> Verifican que las historias de usuario estén completas</li>
+            </ul>
+            
+            <h3 class="mt-4">Beneficios de TDD</h3>
+            <ul class="feature-list">
+                <li>Código más mantenible y menos propenso a bugs</li>
+                <li>Diseño más modular y desacoplado</li>
+                <li>Documentación ejecutable</li>
+                <li>Refactorización segura</li>
+                <li>Mayor confianza en el código</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Ejemplo completo de TDD</h3>
+            <p>Implementación de una función para validar contraseñas:</p>
+            
+            <h4>1. Escribir la primera prueba (Red):</h4>
+            <pre><code class="lang-javascript">// passwordValidator.test.js
+const { isValidPassword } = require('./passwordValidator');
+
+test('rejects passwords shorter than 8 characters', () => {
+  expect(isValidPassword('short')).toBe(false);
+});</code></pre>
+            
+            <h4>2. Implementar el código más simple (Green):</h4>
+            <pre><code class="lang-javascript">// passwordValidator.js
+function isValidPassword(password) {
+  return password.length >= 8;
+}
+
+module.exports = { isValidPassword };</code></pre>
+            
+            <h4>3. Agregar más pruebas:</h4>
+            <pre><code class="lang-javascript">test('rejects passwords without numbers', () => {
+  expect(isValidPassword('onlyletters')).toBe(false);
+});
+
+test('rejects passwords without uppercase letters', () => {
+  expect(isValidPassword('lowercase123')).toBe(false);
+});
+
+test('accepts valid passwords', () => {
+  expect(isValidPassword('Valid123Password')).toBe(true);
+});</code></pre>
+            
+            <h4>4. Actualizar la implementación:</h4>
+            <pre><code class="lang-javascript">function isValidPassword(password) {
+  // Mínimo 8 caracteres
+  if (password.length < 8) return false;
+  
+  // Al menos un número
+  if (!/\d/.test(password)) return false;
+  
+  // Al menos una letra mayúscula
+  if (!/[A-Z]/.test(password)) return false;
+  
+  return true;
+}</code></pre>
+            
+            <h4>5. Refactorizar:</h4>
+            <pre><code class="lang-javascript">function isValidPassword(password) {
+  const minLength = 8;
+  const hasNumber = /\d/.test(password);
+  const hasUppercase = /[A-Z]/.test(password);
+  
+  return password.length >= minLength && 
+         hasNumber && 
+         hasUppercase;
+}</code></pre>
+        </div>
+    </div>
+</div>
+
+<h2>Comparativa con otras metodologías ágiles</h2>
+
+<div class="card">
+    <table>
+        <thead>
+            <tr>
+                <th>Aspecto</th>
+                <th>Extreme Programming (XP)</th>
+                <th>Scrum</th>
+                <th>Kanban</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Enfoque principal</td>
+                <td>Excelencia técnica y calidad del código</td>
+                <td>Gestión del proyecto y entrega de valor</td>
+                <td>Flujo de trabajo y mejora continua</td>
+            </tr>
+            <tr>
+                <td>Prácticas técnicas</td>
+                <td>Muy detalladas y prescriptivas</td>
+                <td>No especifica prácticas técnicas</td>
+                <td>No especifica prácticas técnicas</td>
+            </tr>
+            <tr>
+                <td>Iteraciones</td>
+                <td>1-2 semanas, timeboxed</td>
+                <td>2-4 semanas (sprints), timeboxed</td>
+                <td>Flujo continuo, sin iteraciones fijas</td>
+            </tr>
+            <tr>
+                <td>Roles</td>
+                <td>Coach, Cliente, Programador, Tester</td>
+                <td>Scrum Master, Product Owner, Development Team</td>
+                <td>No prescribe roles específicos</td>
+            </tr>
+            <tr>
+                <td>Cambios en iteración</td>
+                <td>Permite cambios en la iteración</td>
+                <td>No permite cambios durante el sprint</td>
+                <td>Permite cambios en cualquier momento</td>
+            </tr>
+            <tr>
+                <td>Métricas clave</td>
+                <td>Velocidad, cobertura de pruebas</td>
+                <td>Velocidad, burndown charts</td>
+                <td>Lead time, cycle time, WIP</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 class="mt-4">¿Cuándo usar XP?</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Escenarios ideales para XP</h4>
+            <ul class="feature-list">
+                <li>Equipos pequeños (2-12 desarrolladores)</li>
+                <li>Requisitos cambiantes o poco claros</li>
+                <li>Proyectos de alto riesgo técnico</li>
+                <li>Cuando la calidad del código es crítica</li>
+                <li>Equipos con buena capacidad técnica</li>
+                <li>Cliente disponible y comprometido</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Desafíos para implementar XP</h4>
+            <ul class="feature-list">
+                <li>Resistencia a prácticas como programación en parejas</li>
+                <li>Equipos distribuidos geográficamente</li>
+                <li>Falta de compromiso de la gerencia</li>
+                <li>Equipos grandes</li>
+                <li>Regulaciones estrictas o entornos altamente controlados</li>
+                <li>Cliente no disponible o no comprometido</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Combinando metodologías</h3>
+    <p>Muchas organizaciones exitosas combinan elementos de diferentes metodologías:</p>
+    
+    <ul class="feature-list">
+        <li><strong>Scrum + XP:</strong> Estructura de Scrum con prácticas técnicas de XP</li>
+        <li><strong>XP + Kanban:</strong> Prácticas técnicas de XP con flujo visual de Kanban</li>
+        <li><strong>Disciplined Agile:</strong> Enfoque híbrido que incorpora múltiples metodologías</li>
+    </ul>
+</div>
+
+<h2>Implementación de XP en equipos modernos</h2>
+
+<div class="card">
+    <h3>Adaptación para equipos distribuidos</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Desafíos:</h4>
+            <ul class="feature-list">
+                <li>Programación en parejas remotas</li>
+                <li>Comunicación efectiva</li>
+                <li>Feedback rápido</li>
+                <li>Diferencias horarias</li>
+                <li>Diferencias culturales</li>
+            </ul>
+            
+            <h4>Herramientas para XP distribuido:</h4>
+            <ul class="feature-list">
+                <li><strong>VS Code Live Share:</strong> Programación en parejas remota</li>
+                <li><strong>Slack/Teams:</strong> Comunicación en tiempo real</li>
+                <li><strong>Miro/Mural:</strong> Colaboración visual</li>
+                <li><strong>GitHub/GitLab:</strong> Integración continua</li>
+                <li><strong>Automated Testing:</strong> Jenkins, GitHub Actions</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Mejores prácticas:</h4>
+            <ul class="feature-list">
+                <li><strong>Establecer horarios de solapamiento:</strong> Garantizar tiempo de trabajo conjunto</li>
+                <li><strong>Comunicación asíncrona de calidad:</strong> Documentación clara</li>
+                <li><strong>Automatización:</strong> CI/CD, pruebas automatizadas, reportes</li>
+                <li><strong>Sesiones diarias de programación en pareja:</strong> Programadas con antelación</li>
+                <li><strong>Cultura de Code Review exhaustivo:</strong> Como alternativa a la programación en parejas</li>
+                <li><strong>Herramientas de presencia virtual:</strong> Videollamadas abiertas durante la jornada</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">XP y DevOps</h3>
+    
+    <p>XP y DevOps son altamente complementarios:</p>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Sinergia XP-DevOps:</h4>
+            <ul class="feature-list">
+                <li><strong>Integración Continua:</strong> Central en ambos</li>
+                <li><strong>Automatización:</strong> TDD y CI/CD</li>
+                <li><strong>Colaboración:</strong> Equipos multifuncionales</li>
+                <li><strong>Calidad del código:</strong> Fundamental para ambos</li>
+                <li><strong>Feedback rápido:</strong> Ciclos cortos</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Implementación conjunta:</h4>
+            <ul class="feature-list">
+                <li><strong>Infrastructure as Code:</strong> Aplicar TDD a infraestructura</li>
+                <li><strong>Monitoring as Code:</strong> Automatizar configuración de monitoreo</li>
+                <li><strong>Feature Flags:</strong> Facilitar entregas continuas</li>
+                <li><strong>Testing en producción:</strong> A/B testing, canary releases</li>
+                <li><strong>Cultura DevXP:</strong> Fusión de las mejores prácticas</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Implementación gradual de XP</h3>
+    
+    <p>La adopción de XP puede ser gradual, comenzando con prácticas de mayor impacto.</p>
+    
+    <ol class="feature-list">
+        <li><strong>Fase 1: Pruebas automatizadas</strong>
+            <ul>
+                <li>Implementar pruebas unitarias</li>
+                <li>Configurar integración continua</li>
+                <li>Establecer cobertura mínima</li>
+            </ul>
+        </li>
+        <li><strong>Fase 2: Calidad del código</strong>
+            <ul>
+                <li>Establecer estándares de codificación</li>
+                <li>Implementar revisiones de código</li>
+                <li>Introducir refactorización regular</li>
+            </ul>
+        </li>
+        <li><strong>Fase 3: Desarrollo en colaboración</strong>
+            <ul>
+                <li>Introducir programación en parejas (parcialmente)</li>
+                <li>Implementar propiedad colectiva del código</li>
+                <li>Integrar al cliente en el proceso</li>
+            </ul>
+        </li>
+        <li><strong>Fase 4: Planificación ágil</strong>
+            <ul>
+                <li>Implementar iteraciones cortas</li>
+                <li>Utilizar historias de usuario</li>
+                <li>Planning game y estimaciones</li>
+            </ul>
+        </li>
+        <li><strong>Fase 5: XP completo</strong>
+            <ul>
+                <li>TDD consistente</li>
+                <li>40 horas semanales sostenibles</li>
+                <li>Programación en parejas habitual</li>
+                <li>Refinamiento continuo del proceso</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+<h2>Herramientas para XP</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div>
+            <h3>Control de versiones</h3>
+            <ul class="feature-list">
+                <li><strong>Git:</strong> Sistema distribuido, ideal para integración continua y branches</li>
+                <li><strong>GitHub/GitLab/Bitbucket:</strong> Plataformas colaborativas con CI/CD</li>
+            </ul>
+            
+            <h3 class="mt-4">Testing</h3>
+            <ul class="feature-list">
+                <li><strong>JUnit/TestNG:</strong> Tests unitarios en Java</li>
+                <li><strong>Jest/Mocha:</strong> Tests para JavaScript</li>
+                <li><strong>pytest/unittest:</strong> Testing en Python</li>
+                <li><strong>NUnit/xUnit:</strong> Testing en .NET</li>
+                <li><strong>Cucumber:</strong> BDD y pruebas de aceptación</li>
+            </ul>
+            
+            <h3 class="mt-4">Integración Continua</h3>
+            <ul class="feature-list">
+                <li><strong>Jenkins:</strong> Servidor de automatización open source</li>
+                <li><strong>GitHub Actions:</strong> CI/CD integrado en GitHub</li>
+                <li><strong>CircleCI/TravisCI:</strong> CI en la nube</li>
+                <li><strong>TeamCity:</strong> CI con análisis de cobertura</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Calidad de código</h3>
+            <ul class="feature-list">
+                <li><strong>SonarQube:</strong> Análisis estático y métricas de calidad</li>
+                <li><strong>ESLint/Prettier:</strong> Linting y formato para JavaScript</li>
+                <li><strong>Checkstyle/PMD:</strong> Análisis para Java</li>
+                <li><strong>Pylint/Black:</strong> Linting y formato para Python</li>
+                <li><strong>CodeClimate:</strong> Análisis automatizado</li>
+            </ul>
+            
+            <h3 class="mt-4">Programación en parejas</h3>
+            <ul class="feature-list">
+                <li><strong>VS Code Live Share:</strong> Colaboración en tiempo real</li>
+                <li><strong>JetBrains Code With Me:</strong> Para IDEs de JetBrains</li>
+                <li><strong>Tuple:</strong> Herramienta especializada para pair programming</li>
+                <li><strong>Pop:</strong> Pair programming para equipos remotos</li>
+            </ul>
+            
+            <h3 class="mt-4">Gestión de proyectos</h3>
+            <ul class="feature-list">
+                <li><strong>Trello:</strong> Tablero Kanban simple</li>
+                <li><strong>Jira:</strong> Gestión de historias de usuario</li>
+                <li><strong>Pivotal Tracker:</strong> Orientado a XP y prácticas ágiles</li>
+                <li><strong>Linear:</strong> Herramienta moderna para equipos ágiles</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h2>Recursos y Certificaciones</h2>
+
+<div class="card">
+    <h3>Libros recomendados</h3>
+    
+    <ul class="feature-list">
+        <li>"Extreme Programming Explained: Embrace Change" - Kent Beck</li>
+        <li>"Test Driven Development: By Example" - Kent Beck</li>
+        <li>"Refactoring: Improving the Design of Existing Code" - Martin Fowler</li>
+        <li>"Pair Programming Illuminated" - Laurie Williams, Robert Kessler</li>
+        <li>"Clean Code: A Handbook of Agile Software Craftsmanship" - Robert C. Martin</li>
+    </ul>
+    
+    <h3 class="mt-4">Comunidades y recursos online</h3>
+    
+    <ul class="feature-list">
+        <li><a href="http://www.extremeprogramming.org/" target="_blank">Extreme Programming</a> - Recurso oficial</li>
+        <li><a href="https://ronjeffries.com/" target="_blank">Ron Jeffries' Blog</a> - Uno de los creadores de XP</li>
+        <li><a href="https://martinfowler.com/" target="_blank">Martin Fowler's Site</a> - Artículos sobre XP y prácticas ágiles</li>
+        <li><a href="https://xprogramming.com/" target="_blank">XProgramming</a> - Recursos e historias de Kent Beck</li>
+    </ul>
+    
+    <h3 class="mt-4">Certificaciones relacionadas</h3>
+    
+    <p>Aunque XP no tiene un camino de certificación específico como Scrum, estas certificaciones cubren aspectos de XP:</p>
+    
+    <ul class="feature-list">
+        <li>ICAgile Certified Professional in Agile Programming (ICP-PRG)</li>
+        <li>Certified Scrum Developer (CSD)</li>
+        <li>PMI Agile Certified Practitioner (PMI-ACP)</li>
+        <li>Certified Test-Driven Development (CTDD)</li>
+    </ul>
+</div>

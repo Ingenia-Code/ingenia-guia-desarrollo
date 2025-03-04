@@ -1,0 +1,795 @@
+<h1>Herramientas Cloud</h1>
+
+<p>DevOps es una filosofía que combina desarrollo (Dev) y operaciones de TI (Ops) para acortar el ciclo de vida de desarrollo y proporcionar entrega continua con alta calidad. Las herramientas DevOps son fundamentales para implementar esta filosofía en la práctica.</p>
+
+<div class="card">
+    <h2>Ciclo de vida DevOps</h2>
+    
+    <div class="grid-container">
+        <div>
+            <img src="https://via.placeholder.com/450x200" alt="Ciclo DevOps" style="width: 100%; height: auto;">
+        </div>
+        
+        <div>
+            <h3>Etapas principales</h3>
+            <ul class="feature-list">
+                <li><strong>Planificación:</strong> Definición de requisitos y planificación de sprints</li>
+                <li><strong>Desarrollo:</strong> Codificación y revisión de código</li>
+                <li><strong>Integración:</strong> Combinación del código con el repositorio principal</li>
+                <li><strong>Pruebas:</strong> Testing automatizado</li>
+                <li><strong>Despliegue:</strong> Implementación en entornos de producción</li>
+                <li><strong>Operación:</strong> Gestión y monitoreo de la aplicación en producción</li>
+                <li><strong>Monitoreo:</strong> Seguimiento del rendimiento y detección de problemas</li>
+                <li><strong>Feedback:</strong> Recopilación de información para mejorar el ciclo</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h2>Integración Continua (CI)</h2>
+
+<div class="card">
+    <p>La integración continua (CI) es una práctica de desarrollo donde los desarrolladores integran código en un repositorio compartido de forma frecuente. Cada integración se verifica mediante una compilación automatizada y pruebas para detectar errores lo antes posible.</p>
+    
+    <div class="grid-container">
+        <div class="card">
+            <h3>Jenkins</h3>
+            <p>Servidor de automatización open source que permite a los desarrolladores construir, probar y desplegar su software de manera confiable.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li>Automatización de compilación, prueba y despliegue</li>
+                <li>Extensible a través de más de 1500 plugins</li>
+                <li>Integración con prácticamente cualquier herramienta del ecosistema DevOps</li>
+                <li>Pipelines definidos como código (Jenkinsfile)</li>
+                <li>Soporte para arquitecturas master-slave</li>
+                <li>Dashboard web para monitoreo</li>
+            </ul>
+            
+            <h4>Ejemplo de Jenkinsfile:</h4>
+            <pre><code class="lang-groovy">pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh 'npm install'
+                sh 'npm run build'
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
+        
+        stage('Deploy') {
+            when {
+                branch 'master'
+            }
+            steps {
+                sh 'npm run deploy'
+            }
+        }
+    }
+    
+    post {
+        always {
+            junit 'test-results/*.xml'
+        }
+        success {
+            echo 'Build successful!'
+            slackSend(color: 'good', message: "Build successful: ${env.JOB_NAME} #${env.BUILD_NUMBER}")
+        }
+        failure {
+            echo 'Build failed!'
+            slackSend(color: 'danger', message: "Build failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}")
+        }
+    }
+}</code></pre>
+            
+            <p><strong>Precio:</strong> Gratuito (open source)</p>
+            <a href="https://www.jenkins.io/" target="_blank">Sitio oficial</a>
+        </div>
+        
+        <div class="card">
+            <h3>GitHub Actions</h3>
+            <p>Herramienta de CI/CD integrada en GitHub que permite automatizar flujos de trabajo directamente desde el repositorio.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li>Integración nativa con GitHub</li>
+                <li>Workflows definidos como código en YAML</li>
+                <li>Numerosas acciones predefinidas en el marketplace</li>
+                <li>Ejecución en múltiples entornos (Linux, macOS, Windows)</li>
+                <li>Secretos y variables de entorno securizados</li>
+                <li>Triggers basados en eventos de GitHub</li>
+            </ul>
+            
+            <h4>Ejemplo de workflow:</h4>
+            <pre><code class="lang-yaml">name: Node.js CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run tests
+      run: npm test
+    
+    - name: Build
+      run: npm run build
+    
+    - name: Deploy to production
+      if: github.ref == 'refs/heads/main' && matrix.node-version == '16.x'
+      uses: some-deployment-action@v1
+      with:
+        api-token: ${{ secrets.DEPLOY_TOKEN }}</code></pre>
+            
+            <p><strong>Precio:</strong> Gratuito para repos públicos, minutos limitados para privados</p>
+            <a href="https://github.com/features/actions" target="_blank">Sitio oficial</a>
+        </div>
+    </div>
+    
+    <div class="grid-container mt-4">
+        <div class="card">
+            <h3>GitLab CI</h3>
+            <p>Herramienta de CI/CD integrada en la plataforma GitLab.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li>Parte integral de la plataforma GitLab</li>
+                <li>CI/CD definido como código en archivo .gitlab-ci.yml</li>
+                <li>Ejecución distribuida con GitLab Runners</li>
+                <li>Múltiples runners en distintos entornos</li>
+                <li>Pipeline visualization</li>
+                <li>Auto DevOps para configuración automática</li>
+            </ul>
+            
+            <p><strong>Precio:</strong> Varias capas, desde gratuito hasta Enterprise</p>
+            <a href="https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/" target="_blank">Sitio oficial</a>
+        </div>
+        
+        <div class="card">
+            <h3>CircleCI</h3>
+            <p>Plataforma de CI/CD basada en la nube.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li>Configuración como código en YAML</li>
+                <li>Paralelismo en tests</li>
+                <li>Caché inteligente</li>
+                <li>Entornos personalizables</li>
+                <li>Orbs reutilizables (paquetes de configuración)</li>
+                <li>Inferencia automática de configuración</li>
+            </ul>
+            
+            <p><strong>Precio:</strong> Gratuito (limitado), desde $15/mes</p>
+            <a href="https://circleci.com/" target="_blank">Sitio oficial</a>
+        </div>
+    </div>
+</div>
+
+<h2>Contenedores y Orquestación</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div class="card">
+            <h3>Docker</h3>
+            <p>Plataforma para desarrollar, enviar y ejecutar aplicaciones en contenedores.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li>Contenedores ligeros y portables</li>
+                <li>Aislamiento de dependencias y entorno</li>
+                <li>Definición como código (Dockerfile)</li>
+                <li>Docker Hub para compartir imágenes</li>
+                <li>Docker Compose para multi-contenedores</li>
+                <li>Networking para comunicación entre contenedores</li>
+            </ul>
+            
+            <h4>Ejemplo de Dockerfile:</h4>
+            <pre><code class="lang-dockerfile">FROM node:16-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install --production
+
+COPY . .
+
+RUN npm run build
+
+EXPOSE 3000
+
+CMD ["npm", "start"]</code></pre>
+            
+            <h4>Ejemplo de Docker Compose:</h4>
+            <pre><code class="lang-yaml">version: '3.8'
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - API_URL=http://backend:4000
+
+  backend:
+    build: ./backend
+    ports:
+      - "4000:4000"
+    depends_on:
+      - database
+    environment:
+      - DB_HOST=database
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=secret
+      - DB_NAME=app
+
+  database:
+    image: postgres:13
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=app
+
+volumes:
+  db-data:</code></pre>
+            
+            <p><strong>Precio:</strong> Gratuito (Community), Pago (Enterprise)</p>
+            <a href="https://www.docker.com/" target="_blank">Sitio oficial</a>
+        </div>
+        
+        <div class="card">
+            <h3>Kubernetes</h3>
+            <p>Sistema de orquestación de contenedores para automatizar el despliegue, escalado y gestión de aplicaciones.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li>Escalado automático horizontal</li>
+                <li>Balanceo de carga incorporado</li>
+                <li>Auto-healing de contenedores</li>
+                <li>Rolling updates y rollbacks</li>
+                <li>Service discovery y gestión de configuración</li>
+                <li>Storage orchestration</li>
+                <li>Gestión declarativa basada en YAML</li>
+            </ul>
+            
+            <h4>Ejemplo de Kubernetes Deployment:</h4>
+            <pre><code class="lang-yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: myapp/frontend:latest
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: "512Mi"
+          requests:
+            cpu: "0.2"
+            memory: "256Mi"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5</code></pre>
+            
+            <p><strong>Precio:</strong> Gratuito (open source), servicios gestionados tienen costos variables</p>
+            <a href="https://kubernetes.io/" target="_blank">Sitio oficial</a>
+        </div>
+    </div>
+</div>
+
+<h2>Infraestructura como Código (IaC)</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div class="card">
+            <h3>Terraform</h3>
+            <p>Herramienta para construir, cambiar y versionar infraestructura de manera segura y eficiente.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li>Definición declarativa de infraestructura</li>
+                <li>Soporte para múltiples proveedores cloud</li>
+                <li>Plan de ejecución antes de aplicar cambios</li>
+                <li>Gestión de estado de la infraestructura</li>
+                <li>Módulos reutilizables</li>
+                <li>Dependencias implícitas</li>
+            </ul>
+            
+            <h4>Ejemplo de configuración:</h4>
+            <pre><code class="lang-hcl">provider "aws" {
+  region = "us-west-2"
+}
+
+resource "aws_vpc" "main" {
+  cidr_block = "10.0.0.0/16"
+  
+  tags = {
+    Name = "main-vpc"
+    Environment = "production"
+  }
+}
+
+resource "aws_subnet" "public" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.0.1.0/24"
+  availability_zone = "us-west-2a"
+  
+  tags = {
+    Name = "public-subnet"
+  }
+}
+
+resource "aws_instance" "web" {
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = "t2.micro"
+  subnet_id     = aws_subnet.public.id
+  
+  tags = {
+    Name = "web-server"
+  }
+}</code></pre>
+            
+            <p><strong>Precio:</strong> Gratuito (open source), Terraform Cloud tiene opciones de pago</p>
+            <a href="https://www.terraform.io/" target="_blank">Sitio oficial</a>
+        </div>
+        
+        <div class="card">
+            <h3>Ansible</h3>
+            <p>Herramienta de automatización para configuración, gestión y despliegue de aplicaciones.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li>Sin agentes (usa SSH)</li>
+                <li>Lenguaje declarativo (YAML)</li>
+                <li>Cientos de módulos predefinidos</li>
+                <li>Playbooks reutilizables</li>
+                <li>Idempotencia (ejecuciones múltiples son seguras)</li>
+                <li>Inventario flexible</li>
+            </ul>
+            
+            <h4>Ejemplo de Playbook:</h4>
+            <pre><code class="lang-yaml">---
+- name: Configure web servers
+  hosts: webservers
+  become: true
+  vars:
+    http_port: 80
+    max_clients: 200
+  
+  tasks:
+    - name: Ensure nginx is installed
+      apt:
+        name: nginx
+        state: present
+    
+    - name: Copy nginx configuration
+      template:
+        src: nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+      notify:
+        - restart nginx
+    
+    - name: Ensure nginx is running
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+  
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted</code></pre>
+            
+            <p><strong>Precio:</strong> Gratuito (Community), Ansible Tower/AWX (interfaz gráfica)</p>
+            <a href="https://www.ansible.com/" target="_blank">Sitio oficial</a>
+        </div>
+    </div>
+</div>
+
+<h2>Monitoreo y Observabilidad</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div class="card">
+            <h3>Prometheus</h3>
+            <p>Sistema de monitoreo y alerta de código abierto, originalmente construido en SoundCloud.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li>Modelo de datos multidimensional</li>
+                <li>Lenguaje de consulta flexible (PromQL)</li>
+                <li>No depende de almacenamiento distribuido</li>
+                <li>Recopilación de métricas via HTTP pull</li>
+                <li>Visualización y dashboards (con Grafana)</li>
+                <li>Service discovery</li>
+            </ul>
+            
+            <p><strong>Precio:</strong> Gratuito (open source)</p>
+            <a href="https://prometheus.io/" target="_blank">Sitio oficial</a>
+        </div>
+        
+        <div class="card">
+            <h3>Grafana</h3>
+            <p>Plataforma de análisis y visualización para métricas, logs y trazas.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li>Dashboards personalizables</li>
+                <li>Soporte para múltiples fuentes de datos</li>
+                <li>Alertas y notificaciones</li>
+                <li>Anotaciones</li>
+                <li>Visualizaciones avanzadas</li>
+                <li>Exploración de logs</li>
+            </ul>
+            
+            <p><strong>Precio:</strong> Gratuito (open source), Cloud (plan de pago)</p>
+            <a href="https://grafana.com/" target="_blank">Sitio oficial</a>
+        </div>
+    </div>
+    
+    <div class="grid-container mt-4">
+        <div class="card">
+            <h3>ELK Stack</h3>
+            <p>Conjunto de herramientas para búsqueda, análisis y visualización de logs (Elasticsearch, Logstash, Kibana).</p>
+            
+            <h4>Componentes:</h4>
+            <ul class="feature-list">
+                <li><strong>Elasticsearch:</strong> Motor de búsqueda y análisis</li>
+                <li><strong>Logstash:</strong> Procesamiento de datos y logs</li>
+                <li><strong>Kibana:</strong> Visualización y exploración de datos</li>
+                <li><strong>Beats:</strong> Transportadores de datos ligeros</li>
+            </ul>
+            
+            <p><strong>Precio:</strong> Open source (licencia Elastic), opción Cloud (pago)</p>
+            <a href="https://www.elastic.co/elastic-stack" target="_blank">Sitio oficial</a>
+        </div>
+        
+        <div class="card">
+            <h3>Datadog</h3>
+            <p>Plataforma de monitoreo y análisis para aplicaciones y servicios cloud.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li>Monitoreo unificado (infraestructura, aplicaciones, logs)</li>
+                <li>APM (Application Performance Monitoring)</li>
+                <li>Más de 450 integraciones</li>
+                <li>Dashboards personalizables</li>
+                <li>Alertas inteligentes</li>
+                <li>Análisis de causa raíz</li>
+            </ul>
+            
+            <p><strong>Precio:</strong> Por host/función, desde $15/host/mes</p>
+            <a href="https://www.datadoghq.com/" target="_blank">Sitio oficial</a>
+        </div>
+    </div>
+</div>
+
+<h2>Seguridad en DevOps (DevSecOps)</h2>
+
+<div class="card">
+    <p>DevSecOps integra la seguridad en todas las etapas del ciclo de vida de DevOps, asegurando que la seguridad sea un aspecto central del desarrollo desde el inicio.</p>
+    
+    <div class="grid-container">
+        <div class="card">
+            <h3>SonarQube</h3>
+            <p>Plataforma para inspección continua de la calidad del código y seguridad.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li>Análisis estático de código</li>
+                <li>Detección de vulnerabilidades</li>
+                <li>Code smells y deuda técnica</li>
+                <li>Integración con CI/CD</li>
+                <li>Quality Gate para establecer umbrales</li>
+                <li>Soporte para más de 20 lenguajes</li>
+            </ul>
+            
+            <p><strong>Precio:</strong> Community (gratuito), Developer y Enterprise (pago)</p>
+            <a href="https://www.sonarqube.org/" target="_blank">Sitio oficial</a>
+        </div>
+        
+        <div class="card">
+            <h3>OWASP ZAP</h3>
+            <p>Herramienta de pruebas de penetración de aplicaciones web.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li>Escaneo activo y pasivo</li>
+                <li>Escaneo automatizado</li>
+                <li>API REST</li>
+                <li>Intercepción de tráfico web</li>
+                <li>Fuzzing integrado</li>
+                <li>Scripts en varios lenguajes</li>
+            </ul>
+            
+            <p><strong>Precio:</strong> Gratuito (open source)</p>
+            <a href="https://www.zaproxy.org/" target="_blank">Sitio oficial</a>
+        </div>
+    </div>
+</div>
+
+<h2>Gestión de Configuración</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div class="card">
+            <h3>Git</h3>
+            <p>Sistema de control de versiones distribuido.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li>Branching y merging eficientes</li>
+                <li>Trabajo distribuido</li>
+                <li>Integridad de datos</li>
+                <li>Staging area</li>
+                <li>Workflows flexibles</li>
+            </ul>
+            
+            <h4>Workflows comunes:</h4>
+            <ul class="feature-list">
+                <li><strong>Gitflow:</strong> Branches de feature, develop, release, master</li>
+                <li><strong>GitHub Flow:</strong> Modelo simplificado basado en pull requests</li>
+                <li><strong>GitLab Flow:</strong> Combinación con entornos de despliegue</li>
+                <li><strong>Trunk-Based Development:</strong> Todos trabajan en una rama principal</li>
+            </ul>
+            
+            <p><strong>Precio:</strong> Gratuito (open source)</p>
+            <a href="https://git-scm.com/" target="_blank">Sitio oficial</a>
+        </div>
+        
+        <div class="card">
+            <h3>Consul</h3>
+            <p>Herramienta para service discovery, configuración y segmentación de redes.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li>Service discovery</li>
+                <li>Key-value store</li>
+                <li>Health checking</li>
+                <li>Multi-datacenter</li>
+                <li>Service mesh</li>
+            </ul>
+            
+            <p><strong>Precio:</strong> Open source (gratuito), Enterprise (pago)</p>
+            <a href="https://www.consul.io/" target="_blank">Sitio oficial</a>
+        </div>
+    </div>
+</div>
+
+<h2>Implementando DevOps en tu organización</h2>
+
+<div class="card">
+    <h3>Mejores prácticas</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Aspectos culturales</h4>
+            <ul class="feature-list">
+                <li><strong>Promover colaboración:</strong> Eliminar silos entre equipos</li>
+                <li><strong>Cultura de experimentación:</strong> Permitir fallar rápido y aprender</li>
+                <li><strong>Automatización primero:</strong> Automatizar todo lo repetitivo</li>
+                <li><strong>Métricas y visibilidad:</strong> No se puede mejorar lo que no se mide</li>
+                <li><strong>Responsabilidad compartida:</strong> "You build it, you run it"</li>
+                <li><strong>Mejora continua:</strong> Retroalimentación constante</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Aspectos técnicos</h4>
+            <ul class="feature-list">
+                <li><strong>Infraestructura como código:</strong> Versionar toda la infraestructura</li>
+                <li><strong>Pipelines automatizados:</strong> CI/CD para todo</li>
+                <li><strong>Containerización:</strong> Aplicaciones en contenedores</li>
+                <li><strong>Microservicios:</strong> Descomponer aplicaciones monolíticas</li>
+                <li><strong>Monitoreo completo:</strong> Logs, métricas y trazas</li>
+                <li><strong>Seguridad embebida:</strong> Security as Code</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Plan de implementación gradual</h3>
+    
+    <ol class="feature-list">
+        <li><strong>Evaluación:</strong> Análisis del estado actual y gaps</li>
+        <li><strong>Equipo piloto:</strong> Seleccionar un equipo inicial</li>
+        <li><strong>Automatización básica:</strong> CI/CD para una aplicación simple</li>
+        <li><strong>Métricas iniciales:</strong> Establecer KPIs y objetivos</li>
+        <li><strong>Expansión gradual:</strong> Incorporar más equipos y prácticas</li>
+        <li><strong>Estandarización:</strong> Definir patrones y plataformas comunes</li>
+        <li><strong>Centro de excelencia:</strong> Equipo dedicado a promover mejores prácticas</li>
+        <li><strong>Madurez:</strong> DevOps como parte integral de la cultura</li>
+    </ol>
+    
+    <h3 class="mt-4">KPIs para DevOps</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Métrica</th>
+                <th>Descripción</th>
+                <th>Objetivo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Frecuencia de despliegue</td>
+                <td>Número de despliegues a producción</td>
+                <td>Incrementar</td>
+            </tr>
+            <tr>
+                <td>Lead time</td>
+                <td>Tiempo desde commit hasta producción</td>
+                <td>Reducir</td>
+            </tr>
+            <tr>
+                <td>Tiempo de recuperación</td>
+                <td>Tiempo para recuperarse de un fallo</td>
+                <td>Reducir</td>
+            </tr>
+            <tr>
+                <td>Tasa de fallos</td>
+                <td>Porcentaje de despliegues que causan fallos</td>
+                <td>Reducir</td>
+            </tr>
+            <tr>
+                <td>Cobertura de pruebas</td>
+                <td>Código cubierto por pruebas automatizadas</td>
+                <td>Incrementar</td>
+            </tr>
+            <tr>
+                <td>Tiempo de ciclo</td>
+                <td>Tiempo para implementar un cambio completo</td>
+                <td>Reducir</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h2>DevOps en diferentes plataformas cloud</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div class="card">
+            <h3>AWS DevOps</h3>
+            <ul class="feature-list">
+                <li><strong>AWS CodePipeline:</strong> Servicio de CI/CD</li>
+                <li><strong>AWS CodeBuild:</strong> Servicio de compilación</li>
+                <li><strong>AWS CodeDeploy:</strong> Servicio de despliegue automatizado</li>
+                <li><strong>AWS CodeCommit:</strong> Servicio de control de versiones</li>
+                <li><strong>AWS CloudFormation:</strong> Infraestructura como código</li>
+                <li><strong>AWS CloudWatch:</strong> Monitoreo y observabilidad</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h3>Azure DevOps</h3>
+            <ul class="feature-list">
+                <li><strong>Azure Pipelines:</strong> CI/CD para cualquier plataforma</li>
+                <li><strong>Azure Repos:</strong> Repositorios de código Git</li>
+                <li><strong>Azure Boards:</strong> Gestión de proyectos ágiles</li>
+                <li><strong>Azure Test Plans:</strong> Pruebas manuales y automatizadas</li>
+                <li><strong>Azure Artifacts:</strong> Repositorio de paquetes</li>
+                <li><strong>Azure Resource Manager:</strong> IaC para Azure</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="grid-container mt-4">
+        <div class="card">
+            <h3>Google Cloud DevOps</h3>
+            <ul class="feature-list">
+                <li><strong>Cloud Build:</strong> CI/CD serverless</li>
+                <li><strong>Cloud Source Repositories:</strong> Git privado</li>
+                <li><strong>Artifact Registry:</strong> Gestión de artefactos</li>
+                <li><strong>Cloud Deploy:</strong> Entrega continua</li>
+                <li><strong>Cloud Monitoring:</strong> Monitoreo y alertas</li>
+                <li><strong>Cloud Logging:</strong> Logs centralizados</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h3>Prácticas multiplataforma</h3>
+            <ul class="feature-list">
+                <li>Usar herramientas agnósticas del proveedor (Terraform, Kubernetes)</li>
+                <li>Implementar patrones consistentes entre nubes</li>
+                <li>Unificar monitoreo y observabilidad</li>
+                <li>Abstraer diferencias con capas de abstracción</li>
+                <li>Documentar diferencias y particularidades</li>
+                <li>Evitar dependencias estrictas de un proveedor</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h2>Recursos adicionales</h2>
+
+<div class="card">
+    <h3>Libros recomendados</h3>
+    <ul class="feature-list">
+        <li>"The Phoenix Project" - Gene Kim, Kevin Behr, George Spafford</li>
+        <li>"Accelerate" - Nicole Forsgren, Jez Humble, Gene Kim</li>
+        <li>"Continuous Delivery" - Jez Humble, David Farley</li>
+        <li>"The DevOps Handbook" - Gene Kim, Jez Humble, Patrick Debois, John Willis</li>
+        <li>"Site Reliability Engineering" - Google</li>
+    </ul>
+    
+    <h3 class="mt-4">Comunidades y conferencias</h3>
+    <ul class="feature-list">
+        <li>DevOpsDays (conferencias locales en todo el mundo)</li>
+        <li>KubeCon + CloudNativeCon</li>
+        <li>DevOps Enterprise Summit</li>
+        <li>HashiConf</li>
+        <li>AWS re:Invent, Microsoft Build, Google Cloud Next</li>
+    </ul>
+    
+    <h3 class="mt-4">Certificaciones</h3>
+    <ul class="feature-list">
+        <li>AWS Certified DevOps Engineer</li>
+        <li>Microsoft Certified: DevOps Engineer Expert</li>
+        <li>Google Professional Cloud DevOps Engineer</li>
+        <li>Docker Certified Associate</li>
+        <li>Certified Kubernetes Administrator (CKA)</li>
+        <li>HashiCorp Certified: Terraform Associate</li>
+    </ul>
+</div>
