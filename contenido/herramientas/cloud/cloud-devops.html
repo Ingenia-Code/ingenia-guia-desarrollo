@@ -1,0 +1,863 @@
+<h1>DevOps y CI/CD</h1>
+
+<p>DevOps es una filosofía que combina prácticas de desarrollo (Dev) y operaciones (Ops) para mejorar la colaboración y productividad mediante la automatización del flujo de trabajo de integración, pruebas, entrega y despliegue de software. Las herramientas CI/CD (Integración Continua/Entrega Continua) son componentes fundamentales de esta metodología.</p>
+
+<div class="card">
+    <h2>Principios de DevOps</h2>
+    
+    <div class="grid-container grid-container-3">
+        <div class="principle-card bg-blue-50 p-4 rounded-lg">
+            <h3>Automatización</h3>
+            <p>Automatizar todo el proceso de entrega de software para minimizar el error humano y aumentar la eficiencia.</p>
+        </div>
+        
+        <div class="principle-card bg-blue-50 p-4 rounded-lg">
+            <h3>Colaboración</h3>
+            <p>Eliminar silos entre equipos de desarrollo, operaciones y calidad para trabajar conjuntamente.</p>
+        </div>
+        
+        <div class="principle-card bg-blue-50 p-4 rounded-lg">
+            <h3>Integración Continua</h3>
+            <p>Integrar código frecuentemente con validación automática para detectar problemas temprano.</p>
+        </div>
+    </div>
+    
+    <div class="grid-container grid-container-3 mt-4">
+        <div class="principle-card bg-blue-50 p-4 rounded-lg">
+            <h3>Entrega Continua</h3>
+            <p>Mantener el software siempre en estado desplegable, con liberaciones frecuentes y confiables.</p>
+        </div>
+        
+        <div class="principle-card bg-blue-50 p-4 rounded-lg">
+            <h3>Infraestructura como Código</h3>
+            <p>Gestionar la infraestructura a través de código versionado, no configuración manual.</p>
+        </div>
+        
+        <div class="principle-card bg-blue-50 p-4 rounded-lg">
+            <h3>Monitoreo y Feedback</h3>
+            <p>Medir y observar constantemente el rendimiento para mejorar iterativamente.</p>
+        </div>
+    </div>
+</div>
+
+<h2>El Pipeline de CI/CD</h2>
+
+<div class="card">
+    <p>Un pipeline de CI/CD implementa la automatización para el ciclo de vida del desarrollo de software, desde la integración y prueba hasta la entrega y despliegue.</p>
+    
+    <div class="mt-4">
+        <img src="https://via.placeholder.com/800x200" alt="Diagrama de Pipeline CI/CD" style="width: 100%; height: auto;">
+        
+        <h3 class="mt-4">Etapas típicas de un pipeline</h3>
+        
+        <ol class="feature-list">
+            <li><strong>Source (Código fuente):</strong> Desarrollo y commit de código en el repositorio</li>
+            <li><strong>Build (Compilación):</strong> Compilación del código y generación de artefactos</li>
+            <li><strong>Test (Pruebas):</strong> Ejecución de pruebas unitarias, integración y E2E</li>
+            <li><strong>Analyze (Análisis):</strong> Análisis estático de código y revisión de seguridad</li>
+            <li><strong>Staging (Preproducción):</strong> Despliegue en entorno similar a producción</li>
+            <li><strong>Production (Producción):</strong> Despliegue a usuarios finales</li>
+            <li><strong>Monitor (Monitoreo):</strong> Evaluación continua del rendimiento y experiencia</li>
+        </ol>
+        
+        <h3 class="mt-4">Beneficios del pipeline CI/CD</h3>
+        
+        <ul class="feature-list">
+            <li><strong>Detección temprana de errores:</strong> Los problemas se encuentran al inicio del ciclo de desarrollo</li>
+            <li><strong>Feedback rápido:</strong> Los desarrolladores reciben retroalimentación inmediata sobre cambios</li>
+            <li><strong>Entregas más frecuentes:</strong> Facilita liberaciones pequeñas e incrementales</li>
+            <li><strong>Reducción de riesgos:</strong> Las implementaciones más pequeñas tienen menor impacto potencial</li>
+            <li><strong>Proceso repetible:</strong> El mismo proceso se ejecuta cada vez, eliminando variabilidad</li>
+            <li><strong>Mejor visibilidad:</strong> Todo el equipo puede ver el estado del software</li>
+        </ul>
+    </div>
+</div>
+
+<h2>Herramientas DevOps Populares</h2>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>Jenkins</h3>
+        <p>Servidor de automatización open source para crear pipelines de CI/CD flexibles y personalizables.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li>Altamente extensible con más de 1,500 plugins</li>
+            <li>Pipelines declarativos o programáticos</li>
+            <li>Agentes distribuidos para ejecución paralela</li>
+            <li>Amplio soporte para herramientas de construcción</li>
+            <li>Open source con comunidad activa</li>
+            <li>Integración con prácticamente cualquier herramienta</li>
+        </ul>
+        
+        <h4>Ejemplo de Jenkinsfile:</h4>
+        <pre><code class="lang-groovy">pipeline {
+    agent any
+    
+    environment {
+        DOCKER_REGISTRY = "myregistry.com"
+        APP_NAME = "myapp"
+        VERSION = "${env.BUILD_NUMBER}"
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh 'npm install'
+                sh 'npm run build'
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                sh 'npm run test'
+            }
+        }
+        
+        stage('Docker Build') {
+            steps {
+                sh "docker build -t ${DOCKER_REGISTRY}/${APP_NAME}:${VERSION} ."
+            }
+        }
+        
+        stage('Docker Push') {
+            steps {
+                withCredentials([string(credentialsId: 'docker-pwd', variable: 'DOCKER_PWD')]) {
+                    sh "docker login ${DOCKER_REGISTRY} -u user -p ${DOCKER_PWD}"
+                    sh "docker push ${DOCKER_REGISTRY}/${APP_NAME}:${VERSION}"
+                }
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                sh "kubectl set image deployment/${APP_NAME} ${APP_NAME}=${DOCKER_REGISTRY}/${APP_NAME}:${VERSION}"
+            }
+        }
+    }
+    
+    post {
+        success {
+            slackSend channel: '#deployments', color: 'good', message: "Deployment of ${APP_NAME}:${VERSION} successful!"
+        }
+        failure {
+            slackSend channel: '#deployments', color: 'danger', message: "Deployment of ${APP_NAME}:${VERSION} failed!"
+        }
+    }
+}</code></pre>
+        
+        <p><strong>Precio:</strong> Gratuito, open source</p>
+        <p><strong>Ideal para:</strong> Entornos empresariales con requisitos complejos de personalización</p>
+        <a href="https://www.jenkins.io/" target="_blank">Sitio oficial</a>
+    </div>
+    
+    <div class="card">
+        <h3>GitHub Actions</h3>
+        <p>Plataforma de CI/CD integrada directamente en GitHub que permite automatizar flujos de trabajo en respuesta a eventos dentro del repositorio.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li>Integración perfecta con GitHub</li>
+            <li>Configuración simple con archivos YAML</li>
+            <li>Mercado con miles de acciones predefinidas</li>
+            <li>Runners alojados o autohospedados</li>
+            <li>Triggers basados en eventos (push, PR, etc.)</li>
+            <li>Secretos y variables de entorno seguros</li>
+        </ul>
+        
+        <h4>Ejemplo de workflow:</h4>
+        <pre><code class="lang-yaml">name: Node.js CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build
+      run: npm run build
+    
+    - name: Test
+      run: npm test
+      
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-files
+        path: build/
+  
+  deploy:
+    needs: build-and-test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Download build artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: build-files
+        path: build
+        
+    - name: Deploy to production
+      uses: some-action/deploy@v1
+      with:
+        token: ${{ secrets.DEPLOY_TOKEN }}
+        target: production</code></pre>
+        
+        <p><strong>Precio:</strong> Gratuito para repositorios públicos, minutaje limitado para privados</p>
+        <p><strong>Ideal para:</strong> Proyectos alojados en GitHub con necesidades de CI/CD estándar</p>
+        <a href="https://github.com/features/actions" target="_blank">Sitio oficial</a>
+    </div>
+</div>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>GitLab CI/CD</h3>
+        <p>Suite completa de DevOps integrada en la plataforma GitLab, ofreciendo CI/CD como parte de un ecosistema unificado.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li>Solución completa de código a producción</li>
+            <li>Definición de pipeline como código (.gitlab-ci.yml)</li>
+            <li>Runners distribuidos y autogestionados</li>
+            <li>Registro de contenedores integrado</li>
+            <li>Entornos y despliegues automatizados</li>
+            <li>Integración de seguridad (SAST, DAST, etc.)</li>
+        </ul>
+        
+        <h4>Ejemplo de .gitlab-ci.yml:</h4>
+        <pre><code class="lang-yaml">stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+
+build:
+  stage: build
+  image: node:14
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+test:
+  stage: test
+  image: node:14
+  script:
+    - npm install
+    - npm run test
+  dependencies:
+    - build
+
+deploy_staging:
+  stage: deploy
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache curl
+  script:
+    - echo "Deploying to staging..."
+    - curl -X POST -F token=$DEPLOY_TOKEN -F ref=main https://gitlab.example.com/api/v4/projects/$CI_PROJECT_ID/trigger/pipeline
+  environment:
+    name: staging
+  only:
+    - main
+
+deploy_production:
+  stage: deploy
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache curl
+  script:
+    - echo "Deploying to production..."
+    - curl -X POST -F token=$DEPLOY_TOKEN -F ref=main https://gitlab.example.com/api/v4/projects/$CI_PROJECT_ID/trigger/pipeline
+  environment:
+    name: production
+  when: manual
+  only:
+    - tags</code></pre>
+        
+        <p><strong>Precio:</strong> Gratuito (Community Edition), desde $19/usuario/mes (Premium)</p>
+        <p><strong>Ideal para:</strong> Equipos que quieren una plataforma DevOps completa y unificada</p>
+        <a href="https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/" target="_blank">Sitio oficial</a>
+    </div>
+    
+    <div class="card">
+        <h3>Circle CI</h3>
+        <p>Plataforma de CI/CD basada en la nube, enfocada en velocidad, confiabilidad y facilidad de configuración.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li>Paralelismo para ejecución rápida</li>
+            <li>Caché inteligente entre ejecuciones</li>
+            <li>Orbs (paquetes reutilizables de configuración)</li>
+            <li>Workflows complejos y personalizables</li>
+            <li>Escalamiento dinámico de recursos</li>
+            <li>Soporte para Docker y máquinas virtuales</li>
+        </ul>
+        
+        <h4>Ejemplo de configuración:</h4>
+        <pre><code class="lang-yaml">version: 2.1
+
+orbs:
+  node: circleci/node@4.7
+  aws-cli: circleci/aws-cli@2.0
+
+jobs:
+  build-and-test:
+    docker:
+      - image: cimg/node:16.10
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          name: Run tests
+          command: npm test
+      - run:
+          name: Build app
+          command: npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build
+
+  deploy:
+    docker:
+      - image: cimg/python:3.9
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - aws-cli/setup:
+          profile-name: default
+      - run:
+          name: Deploy to S3
+          command: |
+            aws s3 sync build/ s3://my-bucket --delete
+      - run:
+          name: Invalidate CloudFront
+          command: |
+            aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION --paths "/*"
+
+workflows:
+  version: 2
+  build-test-deploy:
+    jobs:
+      - build-and-test
+      - deploy:
+          requires:
+            - build-and-test
+          filters:
+            branches:
+              only: main</code></pre>
+        
+        <p><strong>Precio:</strong> Gratuito (limitado), desde $30/mes</p>
+        <p><strong>Ideal para:</strong> Equipos que requieren CI/CD rápido y escalable sin mantenimiento de infraestructura</p>
+        <a href="https://circleci.com/" target="_blank">Sitio oficial</a>
+    </div>
+</div>
+
+<h2>Implementación de CI/CD en diferentes entornos</h2>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>CI/CD para aplicaciones web</h3>
+        
+        <h4>Requisitos típicos:</h4>
+        <ul class="feature-list">
+            <li>Compilación de assets (JS, CSS)</li>
+            <li>Tests unitarios y E2E</li>
+            <li>Análisis de calidad frontend (Lighthouse, etc.)</li>
+            <li>Despliegue a servidor web o CDN</li>
+            <li>Invalidación de caché</li>
+        </ul>
+        
+        <h4>Herramientas recomendadas:</h4>
+        <ul class="feature-list">
+            <li><strong>Testing:</strong> Jest, Cypress</li>
+            <li><strong>Linting:</strong> ESLint, Stylelint</li>
+            <li><strong>Building:</strong> Webpack, Vite, Rollup</li>
+            <li><strong>Despliegue:</strong> Netlify, Vercel, AWS S3+CloudFront</li>
+        </ul>
+        
+        <h4>Ejemplo: Despliegue automático con Netlify</h4>
+        <pre><code class="lang-toml"># netlify.toml
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[context.production]
+  environment = { NODE_ENV = "production" }
+
+[context.deploy-preview]
+  environment = { NODE_ENV = "staging" }
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200</code></pre>
+    </div>
+    
+    <div class="card">
+        <h3>CI/CD para microservicios con Kubernetes</h3>
+        
+        <h4>Requisitos típicos:</h4>
+        <ul class="feature-list">
+            <li>Construcción de imágenes Docker</li>
+            <li>Testing de cada microservicio</li>
+            <li>Pruebas de integración entre servicios</li>
+            <li>Despliegue gradual (canary, blue/green)</li>
+            <li>Rollback automático ante fallos</li>
+        </ul>
+        
+        <h4>Herramientas recomendadas:</h4>
+        <ul class="feature-list">
+            <li><strong>Containerización:</strong> Docker, BuildKit</li>
+            <li><strong>Orquestación:</strong> Kubernetes, Helm</li>
+            <li><strong>CI/CD:</strong> ArgoCD, Flux, Spinnaker</li>
+            <li><strong>Registros:</strong> Docker Hub, ECR, GCR</li>
+        </ul>
+        
+        <h4>Ejemplo: Despliegue GitOps con ArgoCD</h4>
+        <pre><code class="lang-yaml"># application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myapp
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/myorg/myapp-manifests.git
+    targetRevision: HEAD
+    path: kubernetes/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: myapp
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true</code></pre>
+    </div>
+</div>
+
+<h2>Infraestructura como Código (IaC)</h2>
+
+<div class="card">
+    <p>La Infraestructura como Código es una práctica clave de DevOps que permite gestionar y provisionar infraestructura a través de definiciones en archivos de configuración en lugar de configuración manual.</p>
+    
+    <h3 class="mt-4">Herramientas populares de IaC</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Herramienta</th>
+                <th>Tipo</th>
+                <th>Lenguaje</th>
+                <th>Características</th>
+                <th>Mejor para</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Terraform</td>
+                <td>Aprovisionamiento</td>
+                <td>HCL</td>
+                <td>Independiente de proveedor, planificación, estado</td>
+                <td>Multi-cloud, infraestructura completa</td>
+            </tr>
+            <tr>
+                <td>AWS CloudFormation</td>
+                <td>Aprovisionamiento</td>
+                <td>JSON/YAML</td>
+                <td>Integración AWS, servicios administrados</td>
+                <td>Entornos exclusivos de AWS</td>
+            </tr>
+            <tr>
+                <td>Ansible</td>
+                <td>Configuración</td>
+                <td>YAML</td>
+                <td>Sin agentes, procedural, roles</td>
+                <td>Configuración de servidores, orquestación</td>
+            </tr>
+            <tr>
+                <td>Puppet</td>
+                <td>Configuración</td>
+                <td>DSL propio</td>
+                <td>Declarativo, catálogo de recursos</td>
+                <td>Gestión de configuración a gran escala</td>
+            </tr>
+            <tr>
+                <td>Pulumi</td>
+                <td>Aprovisionamiento</td>
+                <td>Python, TS, Go, C#</td>
+                <td>Lenguajes de programación, multi-cloud</td>
+                <td>Equipos de desarrollo que prefieren lenguajes comunes</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 class="mt-4">Ejemplo con Terraform</h3>
+    
+    <pre><code class="lang-hcl">provider "aws" {
+  region = "us-west-2"
+}
+
+# VPC para alojar recursos
+resource "aws_vpc" "main" {
+  cidr_block = "10.0.0.0/16"
+  
+  tags = {
+    Name = "main-vpc"
+    Environment = "production"
+  }
+}
+
+# Subred pública
+resource "aws_subnet" "public" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = "10.0.1.0/24"
+  availability_zone = "us-west-2a"
+  map_public_ip_on_launch = true
+  
+  tags = {
+    Name = "public-subnet"
+  }
+}
+
+# Grupo de seguridad
+resource "aws_security_group" "web" {
+  name        = "web-sg"
+  description = "Allow web traffic"
+  vpc_id      = aws_vpc.main.id
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  
+  ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+# Instancia EC2
+resource "aws_instance" "web" {
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = "t2.micro"
+  subnet_id     = aws_subnet.public.id
+  vpc_security_group_ids = [aws_security_group.web.id]
+  
+  user_data = <<-EOF
+              #!/bin/bash
+              echo "Hello, World" > index.html
+              nohup python -m SimpleHTTPServer 80 &
+              EOF
+  
+  tags = {
+    Name = "web-server"
+  }
+}</code></pre>
+</div>
+
+<h2>Monitoreo y Observabilidad</h2>
+
+<div class="card">
+    <p>El monitoreo y la observabilidad son componentes esenciales para mantener sistemas fiables y detectar problemas rápidamente.</p>
+    
+    <h3 class="mt-4">Principales áreas de monitoreo</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Infraestructura</h4>
+            <ul class="feature-list">
+                <li>Uso de CPU, memoria, disco</li>
+                <li>Disponibilidad de servicio</li>
+                <li>Tiempos de respuesta</li>
+                <li>Métricas de red</li>
+            </ul>
+            
+            <h4>Aplicación</h4>
+            <ul class="feature-list">
+                <li>Métricas específicas de negocio</li>
+                <li>Latencia de operaciones</li>
+                <li>Tasas de error</li>
+                <li>Uso de recursos</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Usuario final</h4>
+            <ul class="feature-list">
+                <li>Tiempos de carga</li>
+                <li>Interacción con UI</li>
+                <li>Tasas de conversión</li>
+                <li>Abandono</li>
+            </ul>
+            
+            <h4>Seguridad</h4>
+            <ul class="feature-list">
+                <li>Intentos de autenticación</li>
+                <li>Patrones sospechosos</li>
+                <li>Cambios de configuración</li>
+                <li>Vulnerabilidades</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Herramientas populares</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Categoría</th>
+                <th>Herramientas</th>
+                <th>Enfoque</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Métricas</td>
+                <td>Prometheus, Grafana, Datadog</td>
+                <td>Recopilación y visualización de métricas</td>
+            </tr>
+            <tr>
+                <td>Logs</td>
+                <td>ELK Stack, Graylog, Loki</td>
+                <td>Agregación y análisis de logs</td>
+            </tr>
+            <tr>
+                <td>Trazas</td>
+                <td>Jaeger, Zipkin, X-Ray</td>
+                <td>Seguimiento de transacciones distribuidas</td>
+            </tr>
+            <tr>
+                <td>Alertas</td>
+                <td>PagerDuty, OpsGenie, Alertmanager</td>
+                <td>Notificación y gestión de incidentes</td>
+            </tr>
+            <tr>
+                <td>Experiencia usuario</td>
+                <td>New Relic, Dynatrace, AppDynamics</td>
+                <td>Monitoreo de experiencia de usuario y rendimiento</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 class="mt-4">Mejores prácticas de observabilidad</h3>
+    
+    <ul class="feature-list">
+        <li><strong>Instrumentación:</strong> Agregar puntos de observabilidad en código y sistemas</li>
+        <li><strong>Correlación:</strong> Conectar datos de diferentes fuentes para obtener vista completa</li>
+        <li><strong>Dashboards:</strong> Crear paneles visuales con KPIs clave</li>
+        <li><strong>Alertas accionables:</strong> Diseñar alertas con información clara sobre acciones a tomar</li>
+        <li><strong>Evitar fatiga de alertas:</strong> Reducir falsos positivos y ruido</li>
+        <li><strong>Postmortems:</strong> Analizar incidentes para mejorar sistemas y procesos</li>
+    </ul>
+</div>
+
+<h2>DevSecOps: Seguridad Integrada</h2>
+
+<div class="card">
+    <p>DevSecOps es la práctica de integrar la seguridad en todo el ciclo de vida de DevOps, asegurando que la seguridad sea considerada desde el inicio y no como una etapa final.</p>
+    
+    <h3 class="mt-4">Prácticas clave</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>SAST (Static Application Security Testing)</h4>
+            <p>Análisis de código estático para encontrar vulnerabilidades sin ejecutar la aplicación.</p>
+            <h5>Herramientas:</h5>
+            <ul class="feature-list">
+                <li>SonarQube</li>
+                <li>Checkmarx</li>
+                <li>Snyk Code</li>
+                <li>GitLab SAST</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>DAST (Dynamic Application Security Testing)</h4>
+            <p>Pruebas dinámicas que analizan la aplicación en ejecución para identificar vulnerabilidades.</p>
+            <h5>Herramientas:</h5>
+            <ul class="feature-list">
+                <li>OWASP ZAP</li>
+                <li>Burp Suite</li>
+                <li>Acunetix</li>
+                <li>GitLab DAST</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="grid-container mt-2">
+        <div>
+            <h4>SCA (Software Composition Analysis)</h4>
+            <p>Análisis de dependencias de terceros para identificar vulnerabilidades conocidas.</p>
+            <h5>Herramientas:</h5>
+            <ul class="feature-list">
+                <li>Snyk</li>
+                <li>WhiteSource</li>
+                <li>Dependabot</li>
+                <li>OWASP Dependency-Check</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Gestión de Secretos</h4>
+            <p>Protección de credenciales, tokens y otras información sensible.</p>
+            <h5>Herramientas:</h5>
+            <ul class="feature-list">
+                <li>HashiCorp Vault</li>
+                <li>AWS Secrets Manager</li>
+                <li>GitGuardian</li>
+                <li>git-secrets</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Integración de seguridad en CI/CD</h3>
+    
+    <pre><code class="lang-yaml"># Ejemplo: GitHub Action con escaneo de seguridad
+name: Security Scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Run SAST scan
+        uses: github/codeql-action/analyze@v2
+        with:
+          languages: javascript, python
+      
+      - name: Run dependency scan
+        uses: snyk/actions/node@master
+        with:
+          args: --all-projects
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      
+      - name: Run secrets scan
+        uses: gitleaks/gitleaks-action@v1.6.0
+      
+      - name: Run container scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'myapp:latest'
+          format: 'sarif'
+          output: 'trivy-results.sarif'</code></pre>
+</div>
+
+<h2>Recursos y certificaciones</h2>
+
+<div class="card">
+    <h3>Certificaciones DevOps</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Certificación</th>
+                <th>Organización</th>
+                <th>Enfoque</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>AWS Certified DevOps Engineer</td>
+                <td>Amazon Web Services</td>
+                <td>DevOps en entorno AWS</td>
+            </tr>
+            <tr>
+                <td>Azure DevOps Engineer Expert</td>
+                <td>Microsoft</td>
+                <td>DevOps en plataforma Azure</td>
+            </tr>
+            <tr>
+                <td>Certified Kubernetes Administrator (CKA)</td>
+                <td>Cloud Native Computing Foundation</td>
+                <td>Administración de Kubernetes</td>
+            </tr>
+            <tr>
+                <td>Docker Certified Associate</td>
+                <td>Docker</td>
+                <td>Containerización con Docker</td>
+            </tr>
+            <tr>
+                <td>Certified Jenkins Engineer</td>
+                <td>CloudBees</td>
+                <td>CI/CD con Jenkins</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 class="mt-4">Recursos de aprendizaje</h3>
+    
+    <ul class="feature-list">
+        <li><a href="https://roadmap.sh/devops" target="_blank">DevOps Roadmap</a> - Mapa de ruta para aprender DevOps</li>
+        <li><a href="https://www.devopsdays.org/" target="_blank">DevOpsDays</a> - Conferencias locales sobre DevOps</li>
+        <li><a href="https://12factor.net/" target="_blank">The Twelve-Factor App</a> - Metodología para construir aplicaciones SaaS</li>
+        <li><a href="https://kubernetes.io/docs/tutorials/" target="_blank">Tutoriales de Kubernetes</a> - Guías oficiales de Kubernetes</li>
+        <li><a href="https://www.terraform.io/docs/tutorials/" target="_blank">Tutoriales de Terraform</a> - Guías oficiales de Terraform</li>
+    </ul>
+    
+    <h3 class="mt-4">Libros recomendados</h3>
+    
+    <ul class="feature-list">
+        <li>"The Phoenix Project" - Gene Kim, Kevin Behr, George Spafford</li>
+        <li>"Accelerate: The Science of Lean Software and DevOps" - Nicole Forsgren, Jez Humble, Gene Kim</li>
+        <li>"DevOps Handbook" - Gene Kim, Jez Humble, Patrick Debois, John Willis</li>
+        <li>"Site Reliability Engineering" - Google</li>
+        <li>"Continuous Delivery" - Jez Humble, David Farley</li>
+    </ul>
+</div>

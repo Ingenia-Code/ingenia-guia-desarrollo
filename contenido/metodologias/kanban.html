@@ -1,0 +1,483 @@
+<h1>Método Kanban</h1>
+
+<p>Kanban es un método de gestión de trabajo que enfatiza la entrega continua sin sobrecargar al equipo de desarrollo. Se originó en Toyota como sistema para controlar la cadena de producción y ha sido ampliamente adoptado en desarrollo de software y otros campos.</p>
+
+<div class="card">
+    <h2>Principios Fundamentales</h2>
+    
+    <div class="grid-container grid-container-3">
+        <div class="principle-card bg-blue-50 p-4 rounded-lg">
+            <h3>1. Visualizar el trabajo</h3>
+            <p>Hacer visible el trabajo y las reglas para ejecutarlo. Esto ayuda a entender el flujo de trabajo y a identificar cuellos de botella o problemas.</p>
+        </div>
+        
+        <div class="principle-card bg-blue-50 p-4 rounded-lg">
+            <h3>2. Limitar el WIP</h3>
+            <p>Limitar la cantidad de trabajo en progreso (Work In Progress). Esto evita la sobrecarga del equipo y mejora el tiempo de entrega.</p>
+        </div>
+        
+        <div class="principle-card bg-blue-50 p-4 rounded-lg">
+            <h3>3. Gestionar el flujo</h3>
+            <p>Monitorear, analizar y optimizar el flujo de trabajo para hacerlo predecible y para identificar problemas.</p>
+        </div>
+    </div>
+    
+    <div class="grid-container grid-container-3 mt-4">
+        <div class="principle-card bg-blue-50 p-4 rounded-lg">
+            <h3>4. Hacer políticas explícitas</h3>
+            <p>Definir, publicar y comunicar las reglas y políticas que rigen cómo funciona el proceso.</p>
+        </div>
+        
+        <div class="principle-card bg-blue-50 p-4 rounded-lg">
+            <h3>5. Implementar ciclos de feedback</h3>
+            <p>Establecer mecanismos de retroalimentación para facilitar la colaboración y mejorar el proceso.</p>
+        </div>
+        
+        <div class="principle-card bg-blue-50 p-4 rounded-lg">
+            <h3>6. Mejorar colaborativamente</h3>
+            <p>Trabajar juntos para mejorar continuamente el sistema, usando métodos científicos y modelos compartidos.</p>
+        </div>
+    </div>
+</div>
+
+<h2>Tablero Kanban</h2>
+
+<div class="card">
+    <p>El tablero Kanban es la representación visual del flujo de trabajo. Cada columna representa un estado en el proceso, y cada tarjeta representa un elemento de trabajo.</p>
+    
+    <div class="mt-4">
+        <div class="grid-container-3">
+            <div class="kanban-column bg-gray-100 p-4 rounded">
+                <h3 class="font-bold mb-2">Pendiente</h3>
+                <div class="kanban-items space-y-2">
+                    <div class="bg-white p-2 rounded shadow-sm">
+                        Implementar autenticación
+                    </div>
+                    <div class="bg-white p-2 rounded shadow-sm">
+                        Diseñar página de inicio
+                    </div>
+                    <div class="bg-white p-2 rounded shadow-sm">
+                        Integrar API de pagos
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kanban-column bg-gray-100 p-4 rounded">
+                <h3 class="font-bold mb-2">En Proceso (WIP: 2)</h3>
+                <div class="kanban-items space-y-2">
+                    <div class="bg-white p-2 rounded shadow-sm">
+                        Optimizar consultas SQL
+                    </div>
+                    <div class="bg-white p-2 rounded shadow-sm">
+                        Crear componente de carrito
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kanban-column bg-gray-100 p-4 rounded">
+                <h3 class="font-bold mb-2">Revisión</h3>
+                <div class="kanban-items space-y-2">
+                    <div class="bg-white p-2 rounded shadow-sm">
+                        Implementar validaciones de formulario
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kanban-column bg-gray-100 p-4 rounded">
+                <h3 class="font-bold mb-2">Completado</h3>
+                <div class="kanban-items space-y-2">
+                    <div class="bg-white p-2 rounded shadow-sm">
+                        Configurar entorno CI/CD
+                    </div>
+                    <div class="bg-white p-2 rounded shadow-sm">
+                        Implementar inicio de sesión
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Elementos del tablero Kanban</h3>
+    <ul class="feature-list">
+        <li><strong>Columnas:</strong> Representan estados o etapas del proceso.</li>
+        <li><strong>Tarjetas:</strong> Representan elementos de trabajo o tareas.</li>
+        <li><strong>Límites WIP:</strong> Número máximo de elementos permitidos en cada columna.</li>
+        <li><strong>Swimlanes:</strong> Filas horizontales para categorizar los tipos de trabajo.</li>
+        <li><strong>Políticas:</strong> Reglas explícitas sobre cómo se mueve el trabajo entre columnas.</li>
+    </ul>
+</div>
+
+<h2>Métricas Kanban</h2>
+
+<div class="card">
+    <p>Kanban utiliza diversas métricas para medir el rendimiento del flujo de trabajo y buscar oportunidades de mejora.</p>
+    
+    <div class="grid-container">
+        <div class="metric-card">
+            <h3 class="font-bold mb-2">Lead Time (Tiempo de Entrega)</h3>
+            <p>Tiempo total desde que se crea hasta que se completa una tarea.</p>
+            <h4 class="mt-2">Cómo medirlo:</h4>
+            <p>Fecha de finalización - Fecha de creación</p>
+            <h4 class="mt-2">Interpretación:</h4>
+            <p>Un menor lead time indica un proceso más eficiente. La estabilidad del lead time indica un proceso predecible.</p>
+            
+            <div class="bg-gray-100 p-4 rounded mt-2">
+                <p class="text-sm">Ejemplo: Si una tarea se crea el 1 de enero y se completa el 10 de enero, el lead time es de 9 días.</p>
+            </div>
+        </div>
+        
+        <div class="metric-card">
+            <h3 class="font-bold mb-2">Cycle Time (Tiempo de Ciclo)</h3>
+            <p>Tiempo de trabajo activo en una tarea, desde que se comienza a trabajar hasta que se completa.</p>
+            <h4 class="mt-2">Cómo medirlo:</h4>
+            <p>Fecha de finalización - Fecha de inicio de trabajo</p>
+            <h4 class="mt-2">Interpretación:</h4>
+            <p>Mide la eficiencia interna del equipo. Un cycle time menor indica mayor eficiencia en el proceso de trabajo.</p>
+            
+            <div class="bg-gray-100 p-4 rounded mt-2">
+                <p class="text-sm">Ejemplo: Si se comienza a trabajar en una tarea el 5 de enero y se completa el 10 de enero, el cycle time es de 5 días.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="grid-container mt-4">
+        <div class="metric-card">
+            <h3 class="font-bold mb-2">Throughput (Rendimiento)</h3>
+            <p>Cantidad de tareas completadas por unidad de tiempo.</p>
+            <h4 class="mt-2">Cómo medirlo:</h4>
+            <p>Número de tarjetas que pasan a "Completado" en un período (día/semana/mes)</p>
+            <h4 class="mt-2">Interpretación:</h4>
+            <p>Indica la capacidad del equipo para entregar valor. Un throughput estable facilita la predicción.</p>
+            
+            <div class="bg-gray-100 p-4 rounded mt-2">
+                <p class="text-sm">Ejemplo: Si un equipo completa 20 tareas en un mes, su throughput es de 20 tareas/mes o aproximadamente 5 tareas/semana.</p>
+            </div>
+        </div>
+        
+        <div class="metric-card">
+            <h3 class="font-bold mb-2">Cumulative Flow Diagram (CFD)</h3>
+            <p>Visualización de cómo fluyen los elementos a través del sistema a lo largo del tiempo.</p>
+            <h4 class="mt-2">Cómo interpretarlo:</h4>
+            <ul class="feature-list">
+                <li>Bandas estables indican un flujo constante</li>
+                <li>Bandas ensanchadas muestran acumulación (cuellos de botella)</li>
+                <li>La distancia vertical indica el WIP</li>
+                <li>La distancia horizontal aproxima el lead time</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Visualización de métricas</h3>
+    <p>Las métricas de Kanban se suelen visualizar en diferentes gráficos:</p>
+    <ul class="feature-list">
+        <li><strong>Control Chart:</strong> Muestra el cycle time de elementos individuales a lo largo del tiempo, con líneas que marcan la media y desviación estándar.</li>
+        <li><strong>Cumulative Flow Diagram:</strong> Muestra la cantidad de elementos en cada estado a lo largo del tiempo, coloreados por estado.</li>
+        <li><strong>Lead Time Distribution:</strong> Histograma que muestra la distribución de lead times, útil para analizar la predictibilidad.</li>
+        <li><strong>Throughput Run Chart:</strong> Muestra la cantidad de elementos completados por unidad de tiempo.</li>
+    </ul>
+</div>
+
+<h2>Prácticas Recomendadas</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div>
+            <h3 class="font-bold mb-2">Políticas Explícitas</h3>
+            <p>Definir y publicar las reglas de operación del sistema Kanban.</p>
+            <ul class="feature-list">
+                <li>Definir criterios claros para cada columna</li>
+                <li>Establecer límites WIP y explica por qué</li>
+                <li>Documentar reglas de priorización</li>
+                <li>Definir clases de servicio para diferentes tipos de trabajo</li>
+                <li>Establecer política de "hecho" para cada etapa</li>
+            </ul>
+            
+            <h4 class="mt-2">Ejemplo:</h4>
+            <div class="bg-gray-100 p-4 rounded mt-2">
+                <p><strong>Política para "En Revisión":</strong></p>
+                <p>Para mover un elemento a "En Revisión", debe:</p>
+                <ul class="feature-list">
+                    <li>Tener todos los tests unitarios pasando</li>
+                    <li>Tener la documentación actualizada</li>
+                    <li>Cumplir con los estándares de código</li>
+                    <li>Tener una solicitud de pull/merge creada</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div>
+            <h3 class="font-bold mb-2">Reuniones de Seguimiento</h3>
+            <p>Cadencias de revisión para gestionar el flujo y mejorar el proceso.</p>
+            <ul class="feature-list">
+                <li><strong>Daily Standup:</strong> Breve reunión diaria para revisar el estado del tablero, identificar bloqueos y planificar el día.</li>
+                <li><strong>Replenishment Meeting:</strong> Reunión periódica (semanal/quincenal) para rellenar el backlog con nuevos elementos.</li>
+                <li><strong>Service Delivery Review:</strong> Revisión regular del rendimiento del servicio basada en métricas.</li>
+                <li><strong>Operations Review:</strong> Revisión de la efectividad de las políticas y procesos, puede ser mensual o trimestral.</li>
+                <li><strong>Risk Review:</strong> Revisión de riesgos potenciales y definición de estrategias de mitigación.</li>
+            </ul>
+            
+            <h4 class="mt-2">Formato para Daily Standup:</h4>
+            <div class="bg-gray-100 p-4 rounded mt-2">
+                <p><strong>Enfoque en el tablero, no en las personas:</strong></p>
+                <ul class="feature-list">
+                    <li>Empezar desde la derecha (completado) y moverse hacia la izquierda</li>
+                    <li>Identificar elementos bloqueados o en riesgo</li>
+                    <li>Discutir elementos que no se han movido recientemente</li>
+                    <li>Verificar si hay violaciones de los límites WIP</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2>Implementación de Kanban</h2>
+
+<div class="card">
+    <h3>Pasos para implementar Kanban en un equipo</h3>
+    
+    <ol class="feature-list">
+        <li><strong>Visualizar el flujo actual:</strong> Comienza mapeando el proceso actual tal como es, no como debería ser.</li>
+        <li><strong>Identificar los tipos de trabajo:</strong> Clasifica el trabajo por tipo, urgencia, o valor para el cliente.</li>
+        <li><strong>Definir límites WIP:</strong> Comienza con un límite conservador y ajusta según sea necesario.</li>
+        <li><strong>Definir políticas explícitas:</strong> Crea acuerdos sobre cómo se gestionará el trabajo.</li>
+        <li><strong>Implementar reuniones clave:</strong> Establece las cadencias de seguimiento y mejora.</li>
+        <li><strong>Medir y analizar:</strong> Comienza a recopilar métricas desde el primer día.</li>
+        <li><strong>Identificar cuellos de botella:</strong> Usa las métricas para encontrar oportunidades de mejora.</li>
+        <li><strong>Experimentar y evolucionar:</strong> Implementa mejoras y evalúa su impacto.</li>
+    </ol>
+    
+    <h3 class="mt-4">Evolución del sistema Kanban</h3>
+    
+    <p>Un sistema Kanban efectivo evoluciona con el tiempo. Esta evolución puede seguir estas etapas:</p>
+    
+    <div class="grid-container">
+        <div class="bg-gray-100 p-4 rounded">
+            <h4 class="font-bold">Etapa 1: Kanban de Equipo</h4>
+            <ul class="feature-list">
+                <li>Visualización del flujo de trabajo del equipo</li>
+                <li>Límites WIP básicos</li>
+                <li>Métricas simples</li>
+                <li>Enfoque en la entrega de valor</li>
+            </ul>
+        </div>
+        
+        <div class="bg-gray-100 p-4 rounded">
+            <h4 class="font-bold">Etapa 2: Kanban con Servicios</h4>
+            <ul class="feature-list">
+                <li>Definición de clases de servicio</li>
+                <li>Políticas explícitas detalladas</li>
+                <li>Métricas avanzadas</li>
+                <li>Gestión de flujo activa</li>
+                <li>Optimización continua</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="grid-container mt-2">
+        <div class="bg-gray-100 p-4 rounded">
+            <h4 class="font-bold">Etapa 3: Kanban de Entrega</h4>
+            <ul class="feature-list">
+                <li>Integración con otros equipos</li>
+                <li>Visualización de dependencias</li>
+                <li>Planificación basada en rendimiento</li>
+                <li>Predicción estadística</li>
+                <li>Optimización del flujo de valor</li>
+            </ul>
+        </div>
+        
+        <div class="bg-gray-100 p-4 rounded">
+            <h4 class="font-bold">Etapa 4: Kanban Empresarial</h4>
+            <ul class="feature-list">
+                <li>Coordinación entre múltiples equipos</li>
+                <li>Gestión de portafolio</li>
+                <li>Modelado de flujo integral</li>
+                <li>Optimización de la cadena de valor</li>
+                <li>Mejora continua a nivel organizacional</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h2>Kanban vs Scrum</h2>
+
+<div class="card">
+    <p>Kanban y Scrum son dos métodos ágiles populares, pero tienen diferencias significativas en su enfoque y aplicación:</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Aspecto</th>
+                <th>Kanban</th>
+                <th>Scrum</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Cadencia</td>
+                <td>Flujo continuo</td>
+                <td>Iterations/Sprints fijos</td>
+            </tr>
+            <tr>
+                <td>Entrega</td>
+                <td>Continua, según demanda</td>
+                <td>Al final de cada sprint</td>
+            </tr>
+            <tr>
+                <td>Roles</td>
+                <td>No prescribe roles específicos</td>
+                <td>Product Owner, Scrum Master, Development Team</td>
+            </tr>
+            <tr>
+                <td>Cambios</td>
+                <td>Se pueden hacer en cualquier momento</td>
+                <td>No se recomiendan durante el sprint</td>
+            </tr>
+            <tr>
+                <td>Métricas</td>
+                <td>Lead time, cycle time, throughput</td>
+                <td>Velocity, burndown chart</td>
+            </tr>
+            <tr>
+                <td>Reuniones</td>
+                <td>Según necesidad, cadencias flexibles</td>
+                <td>Ceremonias predefinidas</td>
+            </tr>
+            <tr>
+                <td>WIP</td>
+                <td>Limitado explícitamente</td>
+                <td>Limitado indirectamente por sprint backlog</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 class="mt-4">¿Cuándo usar cada uno?</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4 class="font-bold mb-2">Escenarios ideales para Kanban</h4>
+            <ul class="feature-list">
+                <li>Trabajo con prioridades cambiantes</li>
+                <li>Mantenimiento de sistemas</li>
+                <li>Equipos de soporte</li>
+                <li>Entornos de producción continua</li>
+                <li>Proyectos con entregas frecuentes</li>
+                <li>Cuando se busca mejorar un proceso existente</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4 class="font-bold mb-2">Escenarios ideales para Scrum</h4>
+            <ul class="feature-list">
+                <li>Desarrollo de productos nuevos</li>
+                <li>Equipos con menos experiencia en ágil</li>
+                <li>Proyectos con alcance definido</li>
+                <li>Cuando se necesita estructura y predictibilidad</li>
+                <li>Equipos que trabajan en múltiples proyectos</li>
+                <li>Cuando se busca cambiar radicalmente la forma de trabajar</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Combinando lo mejor de ambos: Scrumban</h3>
+    
+    <p>Scrumban es un enfoque híbrido que combina elementos de Scrum y Kanban:</p>
+    
+    <ul class="feature-list">
+        <li>Utiliza la estructura de roles y ceremonias de Scrum</li>
+        <li>Aplica los límites WIP y el flujo continuo de Kanban</li>
+        <li>Puede mantener sprints como cadencias de planificación, no como compromisos de alcance</li>
+        <li>Enfatiza las métricas de flujo de Kanban</li>
+        <li>Facilita la transición de Scrum a un enfoque más fluido</li>
+    </ul>
+</div>
+
+<h2>Herramientas para Kanban</h2>
+
+<div class="card">
+    <p>Existen numerosas herramientas que permiten implementar Kanban digital:</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Herramienta</th>
+                <th>Características destacadas</th>
+                <th>Mejor para</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Trello</td>
+                <td>Simple, visual, fácil de usar, power-ups</td>
+                <td>Equipos pequeños, casos de uso simples</td>
+                <td>Gratis - $10/usuario/mes</td>
+            </tr>
+            <tr>
+                <td>Linear</td>
+                <td>Rápida, moderna, integración con GitHub</td>
+                <td>Equipos de desarrollo de software</td>
+                <td>Gratis - $8/usuario/mes</td>
+            </tr>
+            <tr>
+                <td>Monday</td>
+                <td>Personalizable, múltiples vistas, automatizaciones</td>
+                <td>Equipos multidisciplinarios</td>
+                <td>$8-16/usuario/mes</td>
+            </tr>
+            <tr>
+                <td>Jira</td>
+                <td>Completa, escalable, configurable, reportes avanzados</td>
+                <td>Empresas grandes, flujos complejos</td>
+                <td>$7.75/usuario/mes</td>
+            </tr>
+            <tr>
+                <td>Azure DevOps</td>
+                <td>Integración con ecosistema MS, completa para DevOps</td>
+                <td>Equipos que usan herramientas Microsoft</td>
+                <td>Gratis - $6/usuario/mes</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 class="mt-4">Funcionalidades a buscar en una herramienta Kanban</h3>
+    
+    <ul class="feature-list">
+        <li><strong>Visualización flexible:</strong> Capacidad para personalizar columnas y swimlanes</li>
+        <li><strong>Límites WIP:</strong> Configuración y gestión visual de límites de trabajo en progreso</li>
+        <li><strong>Políticas de columna:</strong> Definición de reglas y criterios para cada estado</li>
+        <li><strong>Métricas y análisis:</strong> Creación de gráficos de flujo acumulado, control, etc.</li>
+        <li><strong>Gestión de clases de servicio:</strong> Diferenciar tipos de trabajo</li>
+        <li><strong>Integraciones:</strong> Conectar con otras herramientas del flujo de trabajo</li>
+        <li><strong>Automatizaciones:</strong> Reglas para mover tarjetas, notificaciones, etc.</li>
+    </ul>
+</div>
+
+<h2>Recursos de aprendizaje</h2>
+
+<div class="card">
+    <h3>Libros recomendados</h3>
+    
+    <ul class="feature-list">
+        <li>"Kanban: Successful Evolutionary Change for Your Technology Business" - David J. Anderson</li>
+        <li>"Actionable Agile Metrics for Predictability" - Daniel S. Vacanti</li>
+        <li>"Kanban in Action" - Marcus Hammarberg & Joakim Sunden</li>
+        <li>"Practical Kanban: From Team Focus to Creating Value" - Klaus Leopold</li>
+    </ul>
+    
+    <h3 class="mt-4">Comunidades y recursos online</h3>
+    
+    <ul class="feature-list">
+        <li><a href="https://kanban.university/" target="_blank">Kanban University</a> - Formación y recursos oficiales</li>
+        <li><a href="https://www.linkedin.com/groups/1524067/" target="_blank">Grupo LinkedIn: Kanban</a> - Comunidad activa</li>
+        <li><a href="https://leankanban.com/" target="_blank">Lean Kanban</a> - Conferencias y material educativo</li>
+    </ul>
+    
+    <h3 class="mt-4">Certificaciones</h3>
+    
+    <ul class="feature-list">
+        <li>Team Kanban Practitioner (TKP)</li>
+        <li>Kanban Management Professional (KMP)</li>
+        <li>Kanban Coaching Professional (KCP)</li>
+        <li>Accredited Kanban Trainer (AKT)</li>
+    </ul>
+</div>

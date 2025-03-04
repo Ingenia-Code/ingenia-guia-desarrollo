@@ -1,0 +1,621 @@
+<h1>Mermaid - Diagramas como Código</h1>
+
+<p>Mermaid es una herramienta de diagramación basada en JavaScript que permite crear diagramas y visualizaciones de manera sencilla mediante texto y código. Al usar una sintaxis similar a Markdown, Mermaid facilita la generación de diagramas directamente en documentación técnica, lo que mejora significativamente la colaboración entre desarrolladores.</p>
+
+<div class="card">
+    <h2>¿Por qué usar Mermaid?</h2>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Ventajas</h3>
+            <ul class="feature-list">
+                <li><strong>Diagramas como código:</strong> Los diagramas se definen en texto, lo que permite versionarlos con Git</li>
+                <li><strong>Fácil integración:</strong> Compatible con Markdown, wikis, y plataformas como GitHub, GitLab, Notion</li>
+                <li><strong>Sintaxis simple:</strong> Curva de aprendizaje baja comparada con herramientas visuales</li>
+                <li><strong>Variedad de diagramas:</strong> Soporta múltiples tipos de visualizaciones técnicas</li>
+                <li><strong>Automáticamente actualizados:</strong> Los diagramas se actualizan cuando se edita el código</li>
+                <li><strong>Open source:</strong> Gratuito y con comunidad activa</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Casos de uso ideales</h3>
+            <ul class="feature-list">
+                <li>Documentación técnica en repositorios de código</li>
+                <li>Wikis de equipo y documentación de proyectos</li>
+                <li>Arquitectura de software</li>
+                <li>Modelado de procesos</li>
+                <li>Secuencias y flujos</li>
+                <li>Planificación ágil</li>
+                <li>Documentos técnicos que requieren control de versiones</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h2>Tipos de diagramas soportados</h2>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>Diagramas de flujo</h3>
+        <p>Representan flujos de trabajo, algoritmos o procesos.</p>
+        
+        <h4>Ejemplo:</h4>
+        <pre><code class="lang-mermaid">```mermaid
+graph TD
+    A[Inicio] --> B{¿Es usuario registrado?}
+    B -->|Sí| C[Mostrar dashboard]
+    B -->|No| D[Mostrar página de registro]
+    C --> E[Finalizar]
+    D --> E
+```</code></pre>
+        
+        <h4>Sintaxis básica:</h4>
+        <ul class="feature-list">
+            <li><code>graph TD</code> - Dirección top-down (también: LR, RL, BT)</li>
+            <li><code>A[Texto]</code> - Nodo con forma rectangular</li>
+            <li><code>B{Texto}</code> - Nodo con forma de rombo (decisión)</li>
+            <li><code>A --> B</code> - Flecha conectando nodos</li>
+            <li><code>A -->|Texto| B</code> - Flecha con etiqueta</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h3>Diagramas de secuencia</h3>
+        <p>Muestran la interacción entre componentes o actores en orden temporal.</p>
+        
+        <h4>Ejemplo:</h4>
+        <pre><code class="lang-mermaid">```mermaid
+sequenceDiagram
+    participant Browser
+    participant API
+    participant Database
+    
+    Browser->>API: GET /products
+    activate API
+    API->>Database: Query products
+    activate Database
+    Database-->>API: Return products data
+    deactivate Database
+    API-->>Browser: Return JSON response
+    deactivate API
+```</code></pre>
+        
+        <h4>Sintaxis básica:</h4>
+        <ul class="feature-list">
+            <li><code>participant X</code> - Define un participante</li>
+            <li><code>X->>Y: Message</code> - Flecha sólida con mensaje</li>
+            <li><code>X-->>Y: Message</code> - Flecha punteada con mensaje</li>
+            <li><code>activate X</code> - Muestra activación de un participante</li>
+            <li><code>deactivate X</code> - Finaliza activación</li>
+            <li><code>Note over X,Y: Text</code> - Añade una nota sobre participantes</li>
+        </ul>
+    </div>
+</div>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>Diagramas de clase</h3>
+        <p>Representan la estructura de clases en programación orientada a objetos.</p>
+        
+        <h4>Ejemplo:</h4>
+        <pre><code class="lang-mermaid">```mermaid
+classDiagram
+    class User {
+        +String name
+        +String email
+        +String password
+        +register()
+        +login()
+    }
+    
+    class Admin {
+        +manageUsers()
+        +configureSite()
+    }
+    
+    class Customer {
+        +Cart cart
+        +addToCart()
+        +checkout()
+    }
+    
+    User <|-- Admin
+    User <|-- Customer
+```</code></pre>
+        
+        <h4>Sintaxis básica:</h4>
+        <ul class="feature-list">
+            <li><code>class ClassName</code> - Define una clase</li>
+            <li><code>ClassName1 <|-- ClassName2</code> - Herencia</li>
+            <li><code>ClassName1 *-- ClassName2</code> - Composición</li>
+            <li><code>ClassName1 o-- ClassName2</code> - Agregación</li>
+            <li><code>+method()</code> - Método público</li>
+            <li><code>-attribute</code> - Atributo privado</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h3>Diagramas de estado</h3>
+        <p>Ilustran los diferentes estados de un sistema y las transiciones entre ellos.</p>
+        
+        <h4>Ejemplo:</h4>
+        <pre><code class="lang-mermaid">```mermaid
+stateDiagram-v2
+    [*] --> Pending
+    Pending --> Processing: approve
+    Processing --> Completed: process
+    Processing --> Failed: error
+    Completed --> [*]
+    Failed --> Pending: retry
+```</code></pre>
+        
+        <h4>Sintaxis básica:</h4>
+        <ul class="feature-list">
+            <li><code>[*]</code> - Estado inicial o final</li>
+            <li><code>StateName</code> - Define un estado</li>
+            <li><code>State1 --> State2</code> - Transición entre estados</li>
+            <li><code>State1 --> State2: event</code> - Transición con nombre de evento</li>
+            <li><code>state "Description" as State1</code> - Estado con descripción</li>
+            <li><code>state State1 { [*] --> NestedState }</code> - Estados anidados</li>
+        </ul>
+    </div>
+</div>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>Diagramas Entidad-Relación</h3>
+        <p>Modelan entidades de base de datos y sus relaciones.</p>
+        
+        <h4>Ejemplo:</h4>
+        <pre><code class="lang-mermaid">```mermaid
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE_ITEM : contains
+    CUSTOMER {
+        string name
+        string email
+        string address
+    }
+    ORDER {
+        int order_id
+        date created_at
+        float total_amount
+    }
+    LINE_ITEM {
+        int line_id
+        int product_id
+        int quantity
+        float price
+    }
+```</code></pre>
+        
+        <h4>Sintaxis básica:</h4>
+        <ul class="feature-list">
+            <li><code>ENTITY_NAME</code> - Define una entidad</li>
+            <li><code>ENTITY_1 ||--o{ ENTITY_2 : relationship</code> - Define relación</li>
+            <li><code>ENTITY { attributes }</code> - Define atributos de entidad</li>
+            <li>Tipos de relación: <code>||--|{</code> (uno a muchos), <code>}|--|{</code> (muchos a muchos), etc.</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h3>Diagramas de Gantt</h3>
+        <p>Visualizan la programación y dependencias de proyectos.</p>
+        
+        <h4>Ejemplo:</h4>
+        <pre><code class="lang-mermaid">```mermaid
+gantt
+    title Proyecto de Desarrollo Web
+    dateFormat  YYYY-MM-DD
+    
+    section Planificación
+    Investigación          :done,    des1, 2023-01-01, 2023-01-07
+    Especificación         :active,  des2, 2023-01-08, 7d
+    
+    section Implementación
+    Desarrollo Frontend    :         des3, after des2, 14d
+    Desarrollo Backend     :         des4, after des2, 21d
+    
+    section Testing
+    Pruebas Unitarias      :         des5, after des3, 7d
+    Pruebas de Integración :         des6, after des4, 7d
+    
+    section Despliegue
+    Preparación            :         des7, after des6, 2d
+    Lanzamiento            :milestone, des8, after des7, 1d
+```</code></pre>
+        
+        <h4>Sintaxis básica:</h4>
+        <ul class="feature-list">
+            <li><code>title [texto]</code> - Título del diagrama</li>
+            <li><code>dateFormat [formato]</code> - Formato de fechas</li>
+            <li><code>section [nombre]</code> - Sección del proyecto</li>
+            <li><code>tarea :estado, id, fecha_inicio, duración/fecha_fin</code></li>
+            <li>Estados: <code>done</code>, <code>active</code>, <code>crit</code> (crítico)</li>
+            <li><code>after id</code> - Dependencia de otra tarea</li>
+        </ul>
+    </div>
+</div>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>Diagramas de tarta o pie</h3>
+        <p>Representan proporcionalmente datos como partes de un todo.</p>
+        
+        <h4>Ejemplo:</h4>
+        <pre><code class="lang-mermaid">```mermaid
+pie title Distribución de Tecnologías Frontend
+    "React" : 40
+    "Vue" : 30
+    "Angular" : 20
+    "Otros" : 10
+```</code></pre>
+        
+        <h4>Sintaxis básica:</h4>
+        <ul class="feature-list">
+            <li><code>pie title [texto]</code> - Título del diagrama</li>
+            <li><code>"etiqueta" : valor</code> - Define una sección</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h3>User Journey</h3>
+        <p>Mapea la experiencia de usuario a través de diferentes etapas.</p>
+        
+        <h4>Ejemplo:</h4>
+        <pre><code class="lang-mermaid">```mermaid
+journey
+    title Mi experiencia de compra online
+    section Búsqueda
+      Encontrar el sitio web: 5
+      Navegar por categorías: 3
+      Usar la búsqueda: 4
+    section Selección
+      Ver detalles del producto: 5
+      Leer reseñas: 3
+      Comparar opciones: 2
+    section Compra
+      Añadir al carrito: 5
+      Proceso de pago: 2
+      Confirmación: 5
+```</code></pre>
+        
+        <h4>Sintaxis básica:</h4>
+        <ul class="feature-list">
+            <li><code>journey</code> - Inicia el diagrama</li>
+            <li><code>title [texto]</code> - Título del journey</li>
+            <li><code>section [nombre]</code> - Define una sección o etapa</li>
+            <li><code>tarea: nivel</code> - Tarea con nivel de satisfacción (1-5)</li>
+        </ul>
+    </div>
+</div>
+
+<h2>Integrando Mermaid en tu entorno</h2>
+
+<div class="card">
+    <h3>Plataformas con soporte nativo</h3>
+    
+    <p>Mermaid está integrado nativamente en varias plataformas populares de desarrollo y documentación:</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Plataforma</th>
+                <th>Tipo de soporte</th>
+                <th>Cómo usarlo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GitHub</td>
+                <td>Nativo en Markdown</td>
+                <td>Usar sintaxis <code>```mermaid</code> en archivos MD</td>
+            </tr>
+            <tr>
+                <td>GitLab</td>
+                <td>Nativo en Markdown</td>
+                <td>Usar sintaxis <code>```mermaid</code> en archivos MD</td>
+            </tr>
+            <tr>
+                <td>Notion</td>
+                <td>Integrado</td>
+                <td>Usar bloque de código con lenguaje "Mermaid"</td>
+            </tr>
+            <tr>
+                <td>Confluence</td>
+                <td>Plugin</td>
+                <td>Instalar app "Mermaid Diagrams for Confluence"</td>
+            </tr>
+            <tr>
+                <td>VS Code</td>
+                <td>Extensiones</td>
+                <td>Instalar "Markdown Preview Mermaid Support" o similar</td>
+            </tr>
+            <tr>
+                <td>Obsidian</td>
+                <td>Nativo</td>
+                <td>Usar sintaxis <code>```mermaid</code> en notas</td>
+            </tr>
+            <tr>
+                <td>Docusaurus</td>
+                <td>Plugin</td>
+                <td>Configurar plugin <code>@docusaurus/theme-mermaid</code></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 class="mt-4">Mermaid Live Editor</h3>
+    
+    <p>El <a href="https://mermaid.live" target="_blank">Mermaid Live Editor</a> es una herramienta web que permite crear, editar y compartir diagramas Mermaid:</p>
+    
+    <ul class="feature-list">
+        <li>Editor en tiempo real con vista previa instantánea</li>
+        <li>Opciones de configuración y temas</li>
+        <li>Posibilidad de compartir diagrama mediante URL</li>
+        <li>Exportación a PNG, SVG y otras imágenes</li>
+        <li>Historial de cambios</li>
+        <li>No requiere instalación</li>
+    </ul>
+    
+    <h3 class="mt-4">Uso en documentación de API</h3>
+    
+    <pre><code class="lang-markdown">## Flujo de autenticación OAuth2
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant API
+    participant AuthServer
+    
+    Client->>API: 1. Request con client_id
+    API-->>Client: 2. Redirección a login
+    Client->>AuthServer: 3. Login de usuario
+    AuthServer-->>Client: 4. Código de autorización
+    Client->>API: 5. Cambio de código por token
+    API-->>Client: 6. Access token + refresh token
+```
+
+La autenticación sigue el flujo estándar OAuth2 donde:
+
+1. La aplicación cliente inicia la solicitud con su ID
+2. Se redirecciona al usuario al servidor de autenticación
+3. El usuario inicia sesión
+4. Se devuelve un código de autorización temporal
+5. El cliente intercambia este código por tokens
+6. Se devuelven los tokens de acceso y refresco</code></pre>
+</div>
+
+<h2>Técnicas avanzadas</h2>
+
+<div class="card">
+    <h3>Personalización de estilos</h3>
+    
+    <p>Mermaid permite personalizar los colores y estilos de los diagramas:</p>
+    
+    <pre><code class="lang-mermaid">```mermaid
+graph TD
+    %% Definición de estilos
+    classDef default fill:#f9f9f9,stroke:#333,stroke-width:1px
+    classDef important fill:#ffcccc,stroke:#ff0000,stroke-width:2px,color:#000
+    classDef success fill:#ccffcc,stroke:#00aa00
+    
+    A[Inicio] --> B{Verificar permisos}
+    B -->|Aprobado| C[Acceso concedido]
+    B -->|Denegado| D[Acceso denegado]
+    C --> E[Página principal]
+    D --> F[Página de error]
+    
+    %% Aplicación de estilos
+    class D,F important
+    class E success
+```</code></pre>
+    
+    <h4>Técnicas de estilizado:</h4>
+    <ul class="feature-list">
+        <li><code>classDef nombre estilo</code> - Define una clase con estilos</li>
+        <li><code>class nodo1,nodo2 nombre</code> - Aplica una clase a nodos</li>
+        <li><code>style nodo estilo</code> - Aplica estilo directamente a un nodo</li>
+        <li>Propiedades: <code>fill</code>, <code>stroke</code>, <code>stroke-width</code>, <code>color</code>, etc.</li>
+    </ul>
+    
+    <h3 class="mt-4">Subgráficos</h3>
+    
+    <p>Los subgráficos permiten agrupar nodos relacionados:</p>
+    
+    <pre><code class="lang-mermaid">```mermaid
+graph TB
+    subgraph Frontend
+        A[Página web] --> B[React Components]
+        B --> C[Redux Store]
+    end
+    
+    subgraph Backend
+        D[API Gateway] --> E[Microservicios]
+        E --> F[Base de datos]
+    end
+    
+    C --> D
+```</code></pre>
+    
+    <h4>Técnicas para subgráficos:</h4>
+    <ul class="feature-list">
+        <li><code>subgraph título ... end</code> - Define un subgráfico</li>
+        <li>Los subgráficos pueden anidarse</li>
+        <li>Los nodos dentro pueden conectarse con nodos externos</li>
+        <li>También se pueden estilizar con <code>style</code></li>
+    </ul>
+    
+    <h3 class="mt-4">Configuración de renderizado</h3>
+    
+    <p>Mermaid permite controlar el comportamiento del renderizado:</p>
+    
+    <pre><code class="lang-mermaid">```mermaid
+%%{init: { 
+  'theme': 'forest',
+  'themeVariables': {
+    'primaryColor': '#ff0000',
+    'primaryTextColor': '#fff',
+    'primaryBorderColor': '#000',
+    'lineColor': '#F8B229',
+    'secondaryColor': '#006100',
+    'tertiaryColor': '#fff'
+  }
+} }%%
+graph LR
+    A[Inicio] --> B[Proceso]
+    B --> C[Fin]
+```</code></pre>
+    
+    <h4>Opciones de configuración:</h4>
+    <ul class="feature-list">
+        <li><code>%%{init: { opciones } }%%</code> - Inicialización con opciones</li>
+        <li>Temas predefinidos: <code>default</code>, <code>forest</code>, <code>dark</code>, <code>neutral</code></li>
+        <li>Variables de tema para controlar colores específicos</li>
+        <li>Opciones de dirección y orientación</li>
+    </ul>
+</div>
+
+<h2>Consejos y mejores prácticas</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div>
+            <h3>Mejores prácticas</h3>
+            <ul class="feature-list">
+                <li><strong>Mantener simplicidad:</strong> Los diagramas más simples son más efectivos</li>
+                <li><strong>Usar comentarios:</strong> Documentar diagramas complejos con <code>%% comentario</code></li>
+                <li><strong>Consistencia visual:</strong> Mantener un estilo coherente en todos los diagramas</li>
+                <li><strong>Nombrar adecuadamente:</strong> Usar identificadores claros para nodos</li>
+                <li><strong>Dirección apropiada:</strong> Elegir la dirección (TD, LR) según el tipo de diagrama</li>
+                <li><strong>Evitar demasiados nodos:</strong> Dividir diagramas complejos en múltiples más pequeños</li>
+                <li><strong>Usar subgráficos:</strong> Agrupar elementos relacionados</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Consejos para documentación técnica</h3>
+            <ul class="feature-list">
+                <li><strong>Versionado con código:</strong> Almacenar diagramas junto con el código</li>
+                <li><strong>Automatizar generación:</strong> Actualizar diagramas en CI/CD</li>
+                <li><strong>Enlazar explicaciones:</strong> Referenciar partes del diagrama en el texto</li>
+                <li><strong>Niveles de abstracción:</strong> Ofrecer diagramas con diferentes niveles de detalle</li>
+                <li><strong>Actualizar regularmente:</strong> Mantener los diagramas sincronizados con el código</li>
+                <li><strong>Feedback visual:</strong> Usar colores para indicar estado (éxito, error, etc.)</li>
+                <li><strong>Integrar en Wiki:</strong> Incorporar diagramas en la documentación del equipo</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Limitaciones a considerar</h3>
+    
+    <ul class="feature-list">
+        <li><strong>Complejidad:</strong> No es ideal para diagramas extremadamente complejos</li>
+        <li><strong>Personalización limitada:</strong> Menos opciones de estilo que herramientas dedicadas</li>
+        <li><strong>Rendimiento:</strong> Diagramas muy grandes pueden ralentizar la renderización</li>
+        <li><strong>Curva de aprendizaje:</strong> Requiere aprender sintaxis específica</li>
+        <li><strong>Compatibilidad:</strong> No todas las plataformas soportan todas las características</li>
+    </ul>
+</div>
+
+<h2>Integraciones con herramientas de desarrollo</h2>
+
+<div class="card">
+    <h3>Integración con GitHub</h3>
+    
+    <p>GitHub admite diagramas Mermaid en archivos Markdown, incluyendo README, wikis, y comentarios de issues:</p>
+    
+    <pre><code class="lang-markdown"># Arquitectura del Sistema
+
+La siguiente arquitectura muestra los componentes principales del sistema:
+
+```mermaid
+flowchart TB
+    Client[Cliente Web/Mobile]
+    API[API Gateway]
+    Auth[Servicio Auth]
+    Users[Servicio Usuarios]
+    Products[Servicio Productos]
+    Orders[Servicio Pedidos]
+    DB[(Base de Datos)]
+    
+    Client --> API
+    API --> Auth
+    API --> Users
+    API --> Products
+    API --> Orders
+    Auth --> DB
+    Users --> DB
+    Products --> DB
+    Orders --> DB
+```
+
+Los servicios están implementados como microservicios independientes.</code></pre>
+    
+    <h3 class="mt-4">Automatización con CI/CD</h3>
+    
+    <p>Se puede automatizar la generación de diagramas como parte del proceso CI/CD:</p>
+    
+    <pre><code class="lang-yaml"># .github/workflows/generate-diagrams.yml
+name: Generate Diagrams
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'docs/**/*.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Install dependencies
+        run: npm install -g @mermaid-js/mermaid-cli
+      
+      - name: Generate diagrams
+        run: |
+          find docs -name "*.md" | xargs -I{} sh -c '
+            mmdc -i {} -o $(dirname {})/$(basename {} .md).png
+          '
+      
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: 'Update generated diagrams'
+          add: 'docs/**/*.png'</code></pre>
+    
+    <h3 class="mt-4">Extensión para Visual Studio Code</h3>
+    
+    <p>Para VS Code, existen varias extensiones útiles:</p>
+    
+    <ul class="feature-list">
+        <li><strong>Markdown Preview Mermaid Support:</strong> Vista previa de diagramas en Markdown</li>
+        <li><strong>Mermaid Markdown Syntax Highlighting:</strong> Resaltado de sintaxis</li>
+        <li><strong>Mermaid Editor:</strong> Editor dedicado con vista previa</li>
+        <li><strong>Mermaid Chart:</strong> Exportación a imágenes</li>
+    </ul>
+</div>
+
+<h2>Recursos de aprendizaje</h2>
+
+<div class="card">
+    <h3>Documentación oficial</h3>
+    <ul class="feature-list">
+        <li><a href="https://mermaid.js.org/intro/" target="_blank">Documentación Mermaid</a> - Guía completa con todos los tipos de diagramas</li>
+        <li><a href="https://mermaid.live/" target="_blank">Editor en vivo</a> - Herramienta interactiva para crear y probar diagramas</li>
+    </ul>
+    
+    <h3 class="mt-4">Tutoriales y guías</h3>
+    <ul class="feature-list">
+        <li><a href="https://github.com/mermaid-js/mermaid/blob/develop/README.md" target="_blank">README de GitHub</a> - Introducción rápida y ejemplos</li>
+        <li><a href="https://github.com/mermaid-js/mermaid/blob/develop/docs/tutorials/tutorials.md" target="_blank">Tutoriales</a> - Guías paso a paso para diferentes casos de uso</li>
+    </ul>
+    
+    <h3 class="mt-4">Muestras y plantillas</h3>
+    <ul class="feature-list">
+        <li><a href="https://github.com/mermaid-js/mermaid/tree/develop/demos" target="_blank">Ejemplos de demostración</a> - Colección de diagramas de ejemplo</li>
+        <li><a href="https://github.com/mermaid-js/mermaid-example-diagrams" target="_blank">Diagramas de ejemplo</a> - Repositorio con ejemplos diversos</li>
+    </ul>
+</div>
