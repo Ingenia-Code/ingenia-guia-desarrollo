@@ -1,0 +1,382 @@
+<h1>IDEs y Editores para Python</h1>
+
+<p>Python es uno de los lenguajes de programación más populares, utilizado en diversos campos como desarrollo web, ciencia de datos, machine learning, automatización y más. Un buen entorno de desarrollo (IDE) puede mejorar significativamente la productividad al trabajar con Python, proporcionando características como autocompletado inteligente, debugging avanzado y gestión de entornos virtuales.</p>
+
+<div class="card">
+    <h2>Comparativa de IDEs para Python</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>IDE/Editor</th>
+                <th>Tipo</th>
+                <th>Mejor para</th>
+                <th>Precio</th>
+                <th>Plataformas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>PyCharm</td>
+                <td>IDE completo</td>
+                <td>Desarrollo profesional, web, data science</td>
+                <td>Gratuito (Community) / $199/año (Professional)</td>
+                <td>Windows, macOS, Linux</td>
+            </tr>
+            <tr>
+                <td>VS Code + Extensiones</td>
+                <td>Editor extensible</td>
+                <td>Uso general, múltiples lenguajes</td>
+                <td>Gratuito</td>
+                <td>Windows, macOS, Linux</td>
+            </tr>
+            <tr>
+                <td>Spyder</td>
+                <td>IDE científico</td>
+                <td>Ciencia de datos, análisis numérico</td>
+                <td>Gratuito</td>
+                <td>Windows, macOS, Linux</td>
+            </tr>
+            <tr>
+                <td>Jupyter Notebook/Lab</td>
+                <td>Cuaderno interactivo</td>
+                <td>Exploración de datos, visualización, documentación</td>
+                <td>Gratuito</td>
+                <td>Navegador (todas las plataformas)</td>
+            </tr>
+            <tr>
+                <td>IDLE</td>
+                <td>IDE básico</td>
+                <td>Principiantes, funciones básicas</td>
+                <td>Gratuito (incluido con Python)</td>
+                <td>Windows, macOS, Linux</td>
+            </tr>
+            <tr>
+                <td>Thonny</td>
+                <td>IDE educativo</td>
+                <td>Principiantes, enseñanza</td>
+                <td>Gratuito</td>
+                <td>Windows, macOS, Linux</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h2>Principales IDEs y Editores para Python</h2>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>PyCharm</h3>
+        <p>IDE especializado para Python desarrollado por JetBrains, con dos ediciones: Community (gratuita) y Professional (de pago).</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li><strong>Autocompletado inteligente:</strong> Sugerencias contextuales para código</li>
+            <li><strong>Navegación avanzada:</strong> Salto a definiciones, búsqueda de usos</li>
+            <li><strong>Debugging potente:</strong> Breakpoints, evaluación de expresiones, visualización de datos</li>
+            <li><strong>Integración con VCS:</strong> Git, SVN, Mercurial</li>
+            <li><strong>Refactorización:</strong> Herramientas automatizadas para mejorar código</li>
+            <li><strong>Entornos virtuales:</strong> Gestión y configuración de virtualenv, Pipenv, etc.</li>
+            <li><strong>Análisis de código:</strong> Inspecciones, problemas potenciales, sugerencias</li>
+        </ul>
+        
+        <h4>Características de la edición Professional:</h4>
+        <ul class="feature-list">
+            <li>Soporte completo para frameworks web (Django, Flask, FastAPI)</li>
+            <li>Cliente de bases de datos y editor SQL</li>
+            <li>Soporte para desarrollo remoto</li>
+            <li>Herramientas científicas (Jupyter Notebook, Matplotlib, etc.)</li>
+            <li>Profiler para análisis de rendimiento</li>
+        </ul>
+        
+        <pre><code class="lang-python"># Ejemplo de proyecto Django en PyCharm
+# models.py
+from django.db import models
+
+class Product(models.Model):
+    name = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    stock = models.IntegerField(default=0)
+    
+    def __str__(self):
+        return self.name
+    
+    def is_available(self):
+        return self.stock > 0</code></pre>
+        
+        <p><strong>Ideal para:</strong> Desarrollo profesional, proyectos grandes, desarrollo web</p>
+        <p><a href="https://www.jetbrains.com/pycharm/" target="_blank">Sitio oficial</a></p>
+    </div>
+    
+    <div class="card">
+        <h3>Visual Studio Code + Extensiones Python</h3>
+        <p>Editor de código ligero pero potente con excelente soporte para Python mediante extensiones.</p>
+        
+        <h4>Extensiones recomendadas:</h4>
+        <ul class="feature-list">
+            <li><strong>Python (Microsoft):</strong> Soporte base para Python (indispensable)</li>
+            <li><strong>Pylance:</strong> Servidor de lenguaje para mejor autocompletado e inteligencia</li>
+            <li><strong>Python Test Explorer:</strong> Interfaz visual para tests</li>
+            <li><strong>Python Docstring Generator:</strong> Generación de documentación</li>
+            <li><strong>Python Indent:</strong> Mejora la indentación automática</li>
+            <li><strong>autoDocstring:</strong> Genera plantillas de docstring</li>
+            <li><strong>Python Preview:</strong> Visualización en tiempo real del código</li>
+        </ul>
+        
+        <h4>Configuración recomendada:</h4>
+        <pre><code class="lang-json">// settings.json
+{
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.formatting.provider": "black",
+    "python.analysis.typeCheckingMode": "basic",
+    "editor.formatOnSave": true,
+    "python.testing.pytestEnabled": true,
+    "python.venvPath": "${workspaceFolder}/.venv"
+}</code></pre>
+        
+        <p><strong>Ideal para:</strong> Desarrolladores que trabajan con múltiples lenguajes, proyectos pequeños a medianos</p>
+        <p><a href="https://code.visualstudio.com/" target="_blank">Sitio oficial de VS Code</a></p>
+    </div>
+</div>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>Spyder</h3>
+        <p>IDE científico diseñado específicamente para trabajo científico y de análisis de datos con Python.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li><strong>Explorador de variables:</strong> Inspección visual de variables y datos</li>
+            <li><strong>IPython integrado:</strong> Consola interactiva avanzada</li>
+            <li><strong>Integración con paquetes científicos:</strong> NumPy, SciPy, Pandas, Matplotlib</li>
+            <li><strong>Editor multinúcleo:</strong> Múltiples archivos en pestañas</li>
+            <li><strong>Perfilador integrado:</strong> Análisis de rendimiento del código</li>
+            <li><strong>Visor de plots:</strong> Visualización integrada de gráficos</li>
+            <li><strong>Explorador de archivos:</strong> Navegación del sistema de archivos</li>
+        </ul>
+        
+        <pre><code class="lang-python"># Ejemplo de análisis de datos con Spyder
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Cargar datos
+df = pd.read_csv('datos.csv')
+
+# Análisis estadístico
+print(df.describe())
+
+# Visualización
+plt.figure(figsize=(10, 6))
+plt.scatter(df['x'], df['y'])
+plt.title('Relación X vs Y')
+plt.xlabel('Variable X')
+plt.ylabel('Variable Y')
+plt.grid(True)
+plt.show()</code></pre>
+        
+        <p><strong>Ideal para:</strong> Científicos de datos, análisis numéricos, investigación</p>
+        <p><a href="https://www.spyder-ide.org/" target="_blank">Sitio oficial</a></p>
+    </div>
+    
+    <div class="card">
+        <h3>Jupyter Notebook/Lab</h3>
+        <p>Entorno interactivo basado en documentos que combina código, visualizaciones y texto narrativo.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li><strong>Celdas interactivas:</strong> Ejecutar código por partes</li>
+            <li><strong>Visualización integrada:</strong> Gráficos y tablas junto al código</li>
+            <li><strong>Texto en Markdown:</strong> Documentación y explicaciones</li>
+            <li><strong>Widgets interactivos:</strong> Controles dinámicos</li>
+            <li><strong>Múltiples kernels:</strong> Python, R, Julia, etc.</li>
+            <li><strong>Exportación:</strong> HTML, PDF, presentaciones</li>
+        </ul>
+        
+        <h4>JupyterLab vs Jupyter Notebook:</h4>
+        <p>JupyterLab es la nueva interfaz para Jupyter con más funcionalidades, incluyendo:</p>
+        <ul class="feature-list">
+            <li>Interfaz de múltiples documentos</li>
+            <li>Terminal integrada</li>
+            <li>Editor de texto completo</li>
+            <li>Visor de CSV y JSON</li>
+            <li>Sistema de extensiones</li>
+        </ul>
+        
+        <pre><code class="lang-python"># Ejemplo de celda Jupyter para análisis exploratorio
+import pandas as pd
+import seaborn as sns
+
+# Cargar datos
+data = pd.read_csv('titanic.csv')
+
+# Ver primeras filas
+display(data.head())
+
+# Estadísticas rápidas
+display(data.describe())
+
+# Visualización
+plt.figure(figsize=(10, 6))
+sns.countplot(x='Survived', hue='Sex', data=data)
+plt.title('Supervivencia por Género')
+plt.show()</code></pre>
+        
+        <p><strong>Ideal para:</strong> Prototipado, análisis exploratorio, visualización, educación</p>
+        <p><a href="https://jupyter.org/" target="_blank">Sitio oficial de Jupyter</a></p>
+    </div>
+</div>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>Thonny</h3>
+        <p>IDE Python diseñado específicamente para principiantes y educación.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li><strong>Interfaz simple:</strong> Sin distracciones</li>
+            <li><strong>Depurador paso a paso:</strong> Visualización de la ejecución</li>
+            <li><strong>Resaltado de variables:</strong> Ver cómo cambian valores</li>
+            <li><strong>Explicación de errores:</strong> Mensajes mejorados</li>
+            <li><strong>Gestión de paquetes:</strong> Interfaz gráfica para pip</li>
+            <li><strong>Modo simple:</strong> Menos funciones para principiantes</li>
+        </ul>
+        
+        <p><strong>Ideal para:</strong> Principiantes, entornos educativos, aprendizaje de Python</p>
+        <p><a href="https://thonny.org/" target="_blank">Sitio oficial</a></p>
+    </div>
+    
+    <div class="card">
+        <h3>PyDev (Eclipse)</h3>
+        <p>Plugin Python para Eclipse, proporciona un entorno de desarrollo completo.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li><strong>Integración con Eclipse:</strong> Funciona dentro del ecosistema Eclipse</li>
+            <li><strong>Debugging:</strong> Depurador integrado</li>
+            <li><strong>Refactorización:</strong> Herramientas para mejorar código</li>
+            <li><strong>Completado de código:</strong> Basado en análisis de tipos</li>
+            <li><strong>Análisis de código:</strong> Encontrar errores antes de ejecutar</li>
+            <li><strong>Entornos Python:</strong> Gestión de intérpretes</li>
+        </ul>
+        
+        <p><strong>Ideal para:</strong> Usuarios de Eclipse, proyectos multiplataforma</p>
+        <p><a href="https://www.pydev.org/" target="_blank">Sitio oficial</a></p>
+    </div>
+</div>
+
+<h2>Características esenciales en un IDE Python</h2>
+
+<div class="card">
+    <h3>Funcionalidades críticas para desarrollo Python</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Desarrollo general</h4>
+            <ul class="feature-list">
+                <li><strong>Autocompletado inteligente:</strong> Sugerencias basadas en tipado y contexto</li>
+                <li><strong>Navegación de código:</strong> Ir a definiciones y encontrar referencias</li>
+                <li><strong>Verificación PEP 8:</strong> Cumplimiento de guías de estilo</li>
+                <li><strong>Linting:</strong> Verificación estática con pylint, flake8, etc.</li>
+                <li><strong>Formateo automático:</strong> Integración con black, autopep8, yapf</li>
+                <li><strong>Debugging:</strong> Breakpoints, evaluación, stepping</li>
+                <li><strong>Gestión de paquetes:</strong> Integración con pip</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Funcionalidades avanzadas</h4>
+            <ul class="feature-list">
+                <li><strong>Entornos virtuales:</strong> Gestión de virtualenv, conda, pipenv</li>
+                <li><strong>Testing:</strong> Integración con pytest, unittest</li>
+                <li><strong>Análisis estático:</strong> Type checking (mypy)</li>
+                <li><strong>Integración CI:</strong> GitHub Actions, Travis, etc.</li>
+                <li><strong>Perfilado:</strong> Análisis de rendimiento</li>
+                <li><strong>Terminal integrada:</strong> Acceso directo a la línea de comandos</li>
+                <li><strong>Soporte Docker:</strong> Desarrollo en contenedores</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Cómo elegir el IDE adecuado</h3>
+    
+    <ul class="feature-list">
+        <li><strong>Tipo de desarrollo:</strong> Web, data science, desktop, scripts</li>
+        <li><strong>Tamaño del proyecto:</strong> IDEs completos para proyectos grandes, editores ligeros para scripts</li>
+        <li><strong>Rendimiento del sistema:</strong> PyCharm requiere más recursos que VS Code</li>
+        <li><strong>Presupuesto:</strong> Opciones gratuitas vs pagas</li>
+        <li><strong>Multitecnología:</strong> VS Code si trabajas con múltiples lenguajes</li>
+        <li><strong>Experiencia:</strong> Thonny para principiantes, PyCharm para profesionales</li>
+        <li><strong>Workflows específicos:</strong> Jupyter para análisis de datos iterativo</li>
+    </ul>
+</div>
+
+<h2>Gestión de entornos virtuales</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div>
+            <h4>virtualenv / venv</h4>
+            <pre><code class="lang-bash"># Crear entorno virtual con venv (Python 3.3+)
+python -m venv myenv
+
+# Activar en Windows
+myenv\Scripts\activate
+
+# Activar en macOS/Linux
+source myenv/bin/activate
+
+# Instalar paquetes
+pip install -r requirements.txt</code></pre>
+        </div>
+        
+        <div>
+            <h4>Conda</h4>
+            <pre><code class="lang-bash"># Crear entorno con conda
+conda create --name myenv python=3.9
+
+# Activar entorno
+conda activate myenv
+
+# Instalar paquetes
+conda install numpy pandas matplotlib
+
+# Exportar entorno
+conda env export > environment.yml</code></pre>
+        </div>
+    </div>
+    
+    <h4 class="mt-4">Integración con IDEs:</h4>
+    <ul class="feature-list">
+        <li><strong>PyCharm:</strong> Soporte nativo para virtualenv, Pipenv, Conda (Configuración > Project > Python Interpreter)</li>
+        <li><strong>VS Code:</strong> Selector de intérprete en la barra de estado, detecta automáticamente entornos</li>
+        <li><strong>Spyder:</strong> Puede ejecutarse dentro de un entorno Conda</li>
+        <li><strong>Jupyter:</strong> Kernels separados para diferentes entornos</li>
+    </ul>
+</div>
+
+<h2>Recursos adicionales</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div>
+            <h3>Tutoriales recomendados</h3>
+            <ul class="feature-list">
+                <li><a href="https://realpython.com/python-ides-code-editors-guide/" target="_blank">Real Python: Python IDEs and Code Editors</a></li>
+                <li><a href="https://www.jetbrains.com/help/pycharm/quick-start-guide.html" target="_blank">PyCharm Quick Start Guide</a></li>
+                <li><a href="https://code.visualstudio.com/docs/python/python-tutorial" target="_blank">Python in VS Code Tutorial</a></li>
+                <li><a href="https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/examples_index.html" target="_blank">Jupyter Notebook Examples</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Configuraciones de ejemplo</h3>
+            <ul class="feature-list">
+                <li><a href="https://github.com/microsoft/vscode-python" target="_blank">VS Code Python Extension Repository</a></li>
+                <li><a href="https://github.com/microsoft/python-sample-vscode-django-tutorial" target="_blank">Python Django Sample for VS Code</a></li>
+                <li><a href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels" target="_blank">Jupyter Kernels Wiki</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

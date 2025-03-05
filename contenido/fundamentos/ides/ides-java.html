@@ -1,0 +1,628 @@
+<h1>IDEs y Editores para Java</h1>
+
+<p>Java es uno de los lenguajes de programación más establecidos en la industria, utilizado ampliamente en desarrollo empresarial, aplicaciones de servidor, Android y sistemas de gran escala. Un IDE potente es particularmente importante para Java debido a la verbosidad del lenguaje, la gestión de dependencias y la necesidad de herramientas de refactorización sólidas.</p>
+
+<div class="card">
+    <h2>Comparativa de IDEs para Java</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>IDE/Editor</th>
+                <th>Tipo</th>
+                <th>Mejor para</th>
+                <th>Precio</th>
+                <th>Plataformas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>IntelliJ IDEA</td>
+                <td>IDE completo</td>
+                <td>Desarrollo profesional, empresarial</td>
+                <td>Gratuito (Community) / $499/año (Ultimate)</td>
+                <td>Windows, macOS, Linux</td>
+            </tr>
+            <tr>
+                <td>Eclipse</td>
+                <td>IDE extensible</td>
+                <td>Desarrollo Java, soluciones multiplataforma</td>
+                <td>Gratuito, open source</td>
+                <td>Windows, macOS, Linux</td>
+            </tr>
+            <tr>
+                <td>NetBeans</td>
+                <td>IDE integrado</td>
+                <td>Desarrollo Java SE/EE, aplicaciones web</td>
+                <td>Gratuito, open source</td>
+                <td>Windows, macOS, Linux</td>
+            </tr>
+            <tr>
+                <td>VS Code + Extensiones</td>
+                <td>Editor extensible</td>
+                <td>Proyectos pequeños, múltiples lenguajes</td>
+                <td>Gratuito</td>
+                <td>Windows, macOS, Linux</td>
+            </tr>
+            <tr>
+                <td>Android Studio</td>
+                <td>IDE especializado</td>
+                <td>Desarrollo Android</td>
+                <td>Gratuito</td>
+                <td>Windows, macOS, Linux</td>
+            </tr>
+            <tr>
+                <td>JDeveloper</td>
+                <td>IDE Oracle</td>
+                <td>Desarrollo Oracle, Java EE</td>
+                <td>Gratuito</td>
+                <td>Windows, macOS, Linux</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h2>Principales IDEs y Editores para Java</h2>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>IntelliJ IDEA</h3>
+        <p>IDE premium desarrollado por JetBrains, considerado por muchos como el mejor entorno para desarrollo Java.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li><strong>Autocompletado inteligente:</strong> Sugerencias contextuales avanzadas</li>
+            <li><strong>Refactorización potente:</strong> Reestructuración segura del código</li>
+            <li><strong>Análisis de código:</strong> Inspecciones, detección de problemas y soluciones</li>
+            <li><strong>Integración VCS:</strong> Git, SVN, Mercurial con herramientas visuales</li>
+            <li><strong>Depuración avanzada:</strong> Evaluación de expresiones, breakpoints inteligentes</li>
+            <li><strong>Integración con frameworks:</strong> Spring, Jakarta EE, Micronaut, Quarkus</li>
+            <li><strong>Gestión de dependencias:</strong> Maven, Gradle</li>
+        </ul>
+        
+        <h4>Diferencias entre ediciones:</h4>
+        <ul class="feature-list">
+            <li><strong>Community:</strong> Java, Kotlin, Groovy, Scala, Android</li>
+            <li><strong>Ultimate:</strong> Todo lo anterior + soporte para frameworks web, JavaScript/TypeScript, SQL, Spring, Jakarta EE</li>
+        </ul>
+        
+        <pre><code class="lang-java">// Ejemplo de proyecto Spring Boot en IntelliJ IDEA
+@RestController
+@RequestMapping("/api/products")
+public class ProductController {
+
+    private final ProductService productService;
+
+    @Autowired
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Product>> getAllProducts() {
+        return ResponseEntity.ok(productService.findAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Product> getProductById(@PathVariable Long id) {
+        return productService.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+}</code></pre>
+        
+        <p><strong>Ideal para:</strong> Desarrollo profesional de Java, equipos, proyectos complejos</p>
+        <p><a href="https://www.jetbrains.com/idea/" target="_blank">Sitio oficial</a></p>
+    </div>
+    
+    <div class="card">
+        <h3>Eclipse</h3>
+        <p>IDE open source con larga trayectoria en la comunidad Java, altamente extensible a través de plugins.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li><strong>Workspaces:</strong> Organización de múltiples proyectos</li>
+            <li><strong>Perspectivas:</strong> Vistas adaptadas a diferentes tareas</li>
+            <li><strong>Sistema de plugins:</strong> Miles de extensiones disponibles</li>
+            <li><strong>Herramientas de refactorización:</strong> Amplio conjunto de transformaciones</li>
+            <li><strong>Depurador completo:</strong> Variables, expresiones, breakpoints</li>
+            <li><strong>Integración con servidores:</strong> Tomcat, JBoss, WebSphere</li>
+            <li><strong>Distribuciones específicas:</strong> Eclipse IDE for Java EE, Eclipse for DSL, etc.</li>
+        </ul>
+        
+        <h4>Plugins populares:</h4>
+        <ul class="feature-list">
+            <li><strong>EGit:</strong> Integración con Git</li>
+            <li><strong>Spring Tools Suite:</strong> Para desarrollo Spring</li>
+            <li><strong>M2Eclipse:</strong> Integración con Maven</li>
+            <li><strong>JDT (Java Development Tools):</strong> Core para desarrollo Java</li>
+            <li><strong>Eclipse Java EE Tools:</strong> Soporte para Jakarta EE</li>
+        </ul>
+        
+        <pre><code class="lang-java">// Ejemplo de implementación de interfaz en Eclipse
+public class ProductServiceImpl implements ProductService {
+
+    private ProductRepository productRepository;
+    
+    public ProductServiceImpl(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+    
+    @Override
+    public List<Product> findAll() {
+        return productRepository.findAll();
+    }
+    
+    @Override
+    public Optional<Product> findById(Long id) {
+        return productRepository.findById(id);
+    }
+    
+    @Override
+    public Product save(Product product) {
+        return productRepository.save(product);
+    }
+}</code></pre>
+        
+        <p><strong>Ideal para:</strong> Desarrollo Java SE/EE, entornos corporativos, equipos con flujos de trabajo establecidos</p>
+        <p><a href="https://www.eclipse.org/" target="_blank">Sitio oficial</a></p>
+    </div>
+</div>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>NetBeans</h3>
+        <p>IDE open source ahora bajo Apache Software Foundation, con excelente soporte para Java EE y desarrollo web.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li><strong>Diseño modular:</strong> Plataforma extensible</li>
+            <li><strong>Diseñador GUI:</strong> Creación visual de interfaces</li>
+            <li><strong>Soporte multiplataforma:</strong> Java SE, EE, ME</li>
+            <li><strong>Profiler integrado:</strong> Análisis de rendimiento</li>
+            <li><strong>Autocompletado inteligente:</strong> Sugerencias contextuales</li>
+            <li><strong>Plantillas de código:</strong> Snippets reutilizables</li>
+            <li><strong>Gestión de dependencias:</strong> Maven, Gradle, Ant</li>
+        </ul>
+        
+        <h4>Ventajas:</h4>
+        <ul class="feature-list">
+            <li>Interfaz limpia e intuitiva</li>
+            <li>Funciona bien con proyectos Java EE</li>
+            <li>Buen rendimiento en equipos modestos</li>
+            <li>Excelente integración con servidores de aplicaciones</li>
+            <li>Soporte nativo para JavaFX</li>
+        </ul>
+        
+        <pre><code class="lang-java">// Ejemplo de JavaFX en NetBeans
+public class JavaFXApplication extends Application {
+    
+    @Override
+    public void start(Stage primaryStage) {
+        Button btn = new Button();
+        btn.setText("Say 'Hello World'");
+        btn.setOnAction(event -> System.out.println("Hello World!"));
+        
+        StackPane root = new StackPane();
+        root.getChildren().add(btn);
+        
+        Scene scene = new Scene(root, 300, 250);
+        
+        primaryStage.setTitle("Hello World!");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+}</code></pre>
+        
+        <p><strong>Ideal para:</strong> Desarrollo JavaFX, Java EE, aplicaciones web, proyectos a medida</p>
+        <p><a href="https://netbeans.apache.org/" target="_blank">Sitio oficial</a></p>
+    </div>
+    
+    <div class="card">
+        <h3>VS Code + Extensiones Java</h3>
+        <p>Editor de código ligero con buen soporte para Java a través de extensiones, ideal para proyectos pequeños.</p>
+        
+        <h4>Extensiones recomendadas:</h4>
+        <ul class="feature-list">
+            <li><strong>Extension Pack for Java:</strong> Pack completo con herramientas esenciales</li>
+            <li><strong>Debugger for Java:</strong> Depuración avanzada</li>
+            <li><strong>Maven for Java:</strong> Integración con Maven</li>
+            <li><strong>Project Manager for Java:</strong> Gestión de proyectos</li>
+            <li><strong>Test Runner for Java:</strong> Ejecución de pruebas</li>
+            <li><strong>Spring Boot Extension Pack:</strong> Herramientas para Spring</li>
+        </ul>
+        
+        <h4>Configuración recomendada:</h4>
+        <pre><code class="lang-json">// settings.json para Java en VS Code
+{
+    "java.home": "C:\\Program Files\\Java\\jdk-17",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.completion.importOrder": [
+        "java",
+        "javax",
+        "com",
+        "org"
+    ],
+    "editor.formatOnSave": true,
+    "java.format.enabled": true,
+    "java.format.settings.url": "eclipse-formatter.xml",
+    "java.test.config": {
+        "workingDirectory": "${workspaceFolder}"
+    }
+}</code></pre>
+        
+        <p><strong>Ideal para:</strong> Desarrolladores que trabajan con múltiples lenguajes, proyectos pequeños, inicio rápido</p>
+        <p><a href="https://code.visualstudio.com/docs/languages/java" target="_blank">Documentación de Java en VS Code</a></p>
+    </div>
+</div>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>Android Studio</h3>
+        <p>IDE oficial para desarrollo de aplicaciones Android, basado en IntelliJ IDEA.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li><strong>Entorno Android específico:</strong> Optimizado para desarrollo móvil</li>
+            <li><strong>Emulador integrado:</strong> Prueba de aplicaciones en múltiples dispositivos</li>
+            <li><strong>Layout Editor:</strong> Diseño visual de interfaces</li>
+            <li><strong>Profiler:</strong> Análisis de rendimiento y memoria</li>
+            <li><strong>Gradle integrado:</strong> Sistema de build automatizado</li>
+            <li><strong>Sistema de plantillas:</strong> Activities, Fragments predefinidos</li>
+            <li><strong>APK Analyzer:</strong> Inspección de archivos compilados</li>
+        </ul>
+        
+        <pre><code class="lang-java">// Ejemplo de Activity en Android Studio
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        Button submitButton = findViewById(R.id.submit_button);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView resultText = findViewById(R.id.result_text);
+                resultText.setText("Button clicked!");
+            }
+        });
+    }
+    
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Código que se ejecuta cuando la actividad está visible
+    }
+}</code></pre>
+        
+        <p><strong>Ideal para:</strong> Desarrollo Android nativo, aplicaciones móviles, AR/VR</p>
+        <p><a href="https://developer.android.com/studio" target="_blank">Sitio oficial</a></p>
+    </div>
+    
+    <div class="card">
+        <h3>BlueJ</h3>
+        <p>IDE simple diseñado específicamente para la enseñanza de Java y programación orientada a objetos.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li><strong>Visualización de clases:</strong> Diagramas UML interactivos</li>
+            <li><strong>Interacción directa con objetos:</strong> Creación y manipulación visual</li>
+            <li><strong>Depurador simple:</strong> Ideal para principiantes</li>
+            <li><strong>Interfaz simplificada:</strong> Sin distracciones</li>
+            <li><strong>Prueba de métodos:</strong> Ejecución directa sin código adicional</li>
+            <li><strong>Banco de objetos:</strong> Almacenamiento y reutilización de instancias</li>
+        </ul>
+        
+        <p><strong>Ideal para:</strong> Educación, principiantes, aprendizaje de conceptos OOP</p>
+        <p><a href="https://www.bluej.org/" target="_blank">Sitio oficial</a></p>
+    </div>
+</div>
+
+<h2>Características esenciales en un IDE Java</h2>
+
+<div class="card">
+    <h3>Funcionalidades críticas para desarrollo Java</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Desarrollo básico</h4>
+            <ul class="feature-list">
+                <li><strong>Autocompletado inteligente:</strong> Sugerencias contextuales de código</li>
+                <li><strong>Navegación rápida:</strong> Saltar a declaraciones, implementaciones</li>
+                <li><strong>Detección de errores:</strong> Análisis en tiempo real</li>
+                <li><strong>Refactorización:</strong> Renombrar, extraer métodos, cambiar firmas</li>
+                <li><strong>Formateo de código:</strong> Según convenciones Java</li>
+                <li><strong>Jerarquía de tipos:</strong> Visualización de herencia</li>
+                <li><strong>Gestión de importaciones:</strong> Organización automática</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Funcionalidades avanzadas</h4>
+            <ul class="feature-list">
+                <li><strong>Gestión de dependencias:</strong> Maven, Gradle</li>
+                <li><strong>Testing integrado:</strong> JUnit, TestNG, Mockito</li>
+                <li><strong>Perfilado:</strong> Análisis de memoria, CPU</li>
+                <li><strong>Soporte para frameworks:</strong> Spring, Jakarta EE, etc.</li>
+                <li><strong>Herramientas de build:</strong> Compilación, empaquetado</li>
+                <li><strong>Integración CI/CD:</strong> Jenkins, GitHub Actions</li>
+                <li><strong>Desarrollo colaborativo:</strong> Control de versiones</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Cómo elegir el IDE adecuado</h3>
+    
+    <ul class="feature-list">
+        <li><strong>Tipo de proyectos:</strong> Empresarial, web, Android, desktop</li>
+        <li><strong>Tamaño del equipo:</strong> Soporte para colaboración, integración</li>
+        <li><strong>Rendimiento del sistema:</strong> IntelliJ es más pesado que NetBeans o VS Code</li>
+        <li><strong>Presupuesto:</strong> Soluciones comerciales vs gratuitas</li>
+        <li><strong>Frameworks utilizados:</strong> Soporte específico para Spring, Jakarta EE, etc.</li>
+        <li><strong>Experiencia previa:</strong> Curva de aprendizaje para cada IDE</li>
+        <li><strong>Integración con herramientas existentes:</strong> CI/CD, Build, VCS</li>
+    </ul>
+</div>
+
+<h2>Configuración y optimización</h2>
+
+<div class="card">
+    <h3>Configuración de JDK</h3>
+    
+    <p>Una configuración adecuada del JDK (Java Development Kit) es fundamental para cualquier IDE Java:</p>
+    
+    <div class="grid-container">
+        <div>
+            <h4>IntelliJ IDEA</h4>
+            <pre><code class="lang-text">1. File > Project Structure
+2. Platform Settings > SDKs
+3. "+" > Add JDK
+4. Navegar a la carpeta del JDK
+5. Aplicar configuración
+
+También para cada proyecto:
+1. File > Project Structure
+2. Project Settings > Project
+3. Seleccionar JDK y nivel de lenguaje</code></pre>
+        </div>
+        
+        <div>
+            <h4>Eclipse</h4>
+            <pre><code class="lang-text">1. Window > Preferences
+2. Java > Installed JREs
+3. Add... > Standard VM
+4. Navegar a carpeta JDK
+5. Finish
+
+Para cada proyecto:
+1. Click derecho en proyecto
+2. Properties > Java Build Path
+3. Libraries > JRE System Library
+4. Edit... > Seleccionar JRE</code></pre>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Optimización de rendimiento</h3>
+    
+    <h4>IntelliJ IDEA:</h4>
+    <ul class="feature-list">
+        <li>Aumentar memoria: Editar <code>idea64.exe.vmoptions</code> (Windows) o <code>idea.vmoptions</code> (Linux/Mac)</li>
+        <li>Ajustar <code>-Xms</code> (memoria inicial) y <code>-Xmx</code> (memoria máxima)</li>
+        <li>Desactivar plugins no utilizados: File > Settings > Plugins</li>
+        <li>Ajustar Power Save Mode para proyectos grandes</li>
+        <li>Configurar exclusiones de indexación para carpetas grandes</li>
+    </ul>
+    
+    <h4>Eclipse:</h4>
+    <ul class="feature-list">
+        <li>Editar <code>eclipse.ini</code> para aumentar memoria</li>
+        <li>Ajustar <code>-Xms</code> y <code>-Xmx</code></li>
+        <li>Desactivar validación automática para proyectos grandes</li>
+        <li>Desactivar construcción automática si es necesario</li>
+        <li>Usar filtros de recursos en proyectos grandes</li>
+    </ul>
+</div>
+
+<h2>Gestión de dependencias</h2>
+
+<div class="card">
+    <h3>Integración con Maven</h3>
+    
+    <p>Los IDEs modernos ofrecen excelente integración con Maven para gestión de dependencias:</p>
+    
+    <pre><code class="lang-xml">&lt;!-- Ejemplo de archivo pom.xml -->
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    &lt;modelVersion>4.0.0&lt;/modelVersion>
+
+    &lt;groupId>com.example&lt;/groupId>
+    &lt;artifactId>myapp&lt;/artifactId>
+    &lt;version>1.0-SNAPSHOT&lt;/version>
+
+    &lt;properties>
+        &lt;maven.compiler.source>17&lt;/maven.compiler.source>
+        &lt;maven.compiler.target>17&lt;/maven.compiler.target>
+        &lt;spring.version>5.3.22&lt;/spring.version>
+    &lt;/properties>
+
+    &lt;dependencies>
+        &lt;!-- Spring Core -->
+        &lt;dependency>
+            &lt;groupId>org.springframework&lt;/groupId>
+            &lt;artifactId>spring-context&lt;/artifactId>
+            &lt;version>${spring.version}&lt;/version>
+        &lt;/dependency>
+        
+        &lt;!-- Testing -->
+        &lt;dependency>
+            &lt;groupId>org.junit.jupiter&lt;/groupId>
+            &lt;artifactId>junit-jupiter&lt;/artifactId>
+            &lt;version>5.8.2&lt;/version>
+            &lt;scope>test&lt;/scope>
+        &lt;/dependency>
+    &lt;/dependencies>
+&lt;/project></code></pre>
+    
+    <h4>Ventajas de Maven en IDEs:</h4>
+    <ul class="feature-list">
+        <li>Descarga automática de dependencias</li>
+        <li>Resolución de dependencias transitivas</li>
+        <li>Ejecución de goals desde el IDE</li>
+        <li>Gestión de múltiples módulos</li>
+        <li>Configuración consistente entre equipos</li>
+        <li>Perfiles de compilación (dev, test, prod)</li>
+    </ul>
+    
+    <h3 class="mt-4">Integración con Gradle</h3>
+    
+    <pre><code class="lang-groovy">// Ejemplo de build.gradle
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.3'
+    id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'com.h2database:h2'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}</code></pre>
+    
+    <h4>Ventajas de Gradle en IDEs:</h4>
+    <ul class="feature-list">
+        <li>Sintaxis Groovy/Kotlin más concisa que XML</li>
+        <li>Mejor rendimiento para proyectos grandes</li>
+        <li>Mejor soporte para proyectos multi-módulo</li>
+        <li>Tareas personalizables</li>
+        <li>Excelente para proyectos Android</li>
+    </ul>
+</div>
+
+<h2>Plugins y extensiones recomendados</h2>
+
+<div class="card">
+    <h3>Para IntelliJ IDEA</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Plugin</th>
+                <th>Descripción</th>
+                <th>Uso principal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lombok</td>
+                <td>Soporte para anotaciones Lombok</td>
+                <td>Reducción de código boilerplate</td>
+            </tr>
+            <tr>
+                <td>SonarLint</td>
+                <td>Análisis de calidad de código</td>
+                <td>Detección de problemas de calidad</td>
+            </tr>
+            <tr>
+                <td>Rainbow Brackets</td>
+                <td>Coloreado de paréntesis anidados</td>
+                <td>Mejor legibilidad del código</td>
+            </tr>
+            <tr>
+                <td>String Manipulation</td>
+                <td>Herramientas para manipular cadenas</td>
+                <td>Conversión de formatos de texto</td>
+            </tr>
+            <tr>
+                <td>CheckStyle-IDEA</td>
+                <td>Verificación de estilos de código</td>
+                <td>Cumplimiento de convenciones</td>
+            </tr>
+            <tr>
+                <td>JPA Buddy</td>
+                <td>Herramientas para JPA</td>
+                <td>Desarrollo con Hibernate/JPA</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 class="mt-4">Para Eclipse</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Plugin</th>
+                <th>Descripción</th>
+                <th>Uso principal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Spring Tools 4</td>
+                <td>Soporte para Spring Framework</td>
+                <td>Desarrollo con Spring</td>
+            </tr>
+            <tr>
+                <td>EclEmma</td>
+                <td>Análisis de cobertura de código</td>
+                <td>Calidad de tests</td>
+            </tr>
+            <tr>
+                <td>Buildship</td>
+                <td>Integración con Gradle</td>
+                <td>Proyectos con Gradle</td>
+            </tr>
+            <tr>
+                <td>JBoss Tools</td>
+                <td>Herramientas para Jakarta EE</td>
+                <td>Desarrollo empresarial</td>
+            </tr>
+            <tr>
+                <td>WindowBuilder</td>
+                <td>Diseñador visual de GUIs</td>
+                <td>Desarrollo Swing/SWT</td>
+            </tr>
+            <tr>
+                <td>Darkest Dark Theme</td>
+                <td>Tema oscuro mejorado</td>
+                <td>Experiencia visual</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h2>Recursos adicionales</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div>
+            <h3>Tutoriales recomendados</h3>
+            <ul class="feature-list">
+                <li><a href="https://www.jetbrains.com/help/idea/getting-started.html" target="_blank">IntelliJ IDEA Quick Start Guide</a></li>
+                <li><a href="https://www.eclipse.org/getting_started/" target="_blank">Eclipse IDE Tutorial</a></li>
+                <li><a href="https://netbeans.apache.org/kb/docs/java/quickstart.html" target="_blank">NetBeans Java Quick Start</a></li>
+                <li><a href="https://code.visualstudio.com/docs/java/java-tutorial" target="_blank">Java in VS Code</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Configuraciones de ejemplo</h3>
+            <ul class="feature-list">
+                <li><a href="https://github.com/spring-projects/spring-petclinic" target="_blank">Spring PetClinic (proyecto de ejemplo)</a></li>
+                <li><a href="https://github.com/jonathanlink/PDFLayoutTextStripper" target="_blank">Proyecto Java PDF (lectura/análisis)</a></li>
+                <li><a href="https://github.com/GoogleCloudPlatform/spring-cloud-gcp" target="_blank">Spring Cloud GCP</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
