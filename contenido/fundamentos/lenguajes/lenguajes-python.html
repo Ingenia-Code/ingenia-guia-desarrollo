@@ -1,0 +1,710 @@
+<h1>Python</h1>
+
+<p>Python es un lenguaje de programación interpretado, de alto nivel y propósito general, creado por Guido van Rossum en 1991. Destaca por su legibilidad, simplicidad y versatilidad, lo que lo ha convertido en uno de los lenguajes más populares del mundo para diversos ámbitos de aplicación.</p>
+
+<div class="card">
+    <h2>Características fundamentales</h2>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Sintaxis y filosofía</h3>
+            <ul class="feature-list">
+                <li><strong>Legibilidad:</strong> Sintaxis clara e intuitiva con indentación significativa</li>
+                <li><strong>Filosofía Zen:</strong> "Hermoso es mejor que feo, explícito es mejor que implícito"</li>
+                <li><strong>Tipado dinámico:</strong> No requiere declaración de tipos de variables</li>
+                <li><strong>Multipropósito:</strong> Adecuado para casi cualquier tipo de proyecto</li>
+                <li><strong>Interpretado:</strong> No necesita compilación previa a ejecución</li>
+                <li><strong>Fuerte comunidad:</strong> Gran base de usuarios y contribuidores</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Características técnicas</h3>
+            <ul class="feature-list">
+                <li><strong>Gestión automática de memoria:</strong> Recolector de basura</li>
+                <li><strong>Funciones de primera clase:</strong> Soporte para programación funcional</li>
+                <li><strong>Orientado a objetos:</strong> Todo es un objeto</li>
+                <li><strong>Extensible:</strong> Integrable con C/C++</li>
+                <li><strong>Gran biblioteca estándar:</strong> "Baterías incluidas"</li>
+                <li><strong>Multiplataforma:</strong> Windows, macOS, Linux, y más</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Ejemplo básico</h3>
+    <pre><code class="lang-python"># Un simple programa que muestra la elegancia de Python
+def fibonacci(n):
+    """Genera los primeros n números de la secuencia Fibonacci."""
+    sequence = [0, 1]
+    
+    # Genera la secuencia
+    for i in range(2, n):
+        sequence.append(sequence[i-1] + sequence[i-2])
+    
+    return sequence
+
+# Crear una lista de números Fibonacci
+fib_numbers = fibonacci(10)
+
+# Usar list comprehension para filtrar números pares
+even_fibs = [num for num in fib_numbers if num % 2 == 0]
+
+# Usar funciones de orden superior para calcular suma
+total = sum(even_fibs)
+
+print(f"Números Fibonacci: {fib_numbers}")
+print(f"Números pares: {even_fibs}")
+print(f"Suma de números pares: {total}")</code></pre>
+</div>
+
+<h2>Versiones y evolución</h2>
+
+<div class="card">
+    <h3>Python 2 vs Python 3</h3>
+    <p>Python 3 fue lanzado en 2008 como una revisión importante que rompía la compatibilidad con Python 2. Desde el 1 de enero de 2020, Python 2 ya no recibe soporte oficial.</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Característica</th>
+                <th>Python 2</th>
+                <th>Python 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Print</td>
+                <td><code>print "Hola"</code></td>
+                <td><code>print("Hola")</code></td>
+            </tr>
+            <tr>
+                <td>División de enteros</td>
+                <td><code>5 / 2 = 2</code></td>
+                <td><code>5 / 2 = 2.5</code></td>
+            </tr>
+            <tr>
+                <td>Unicode</td>
+                <td>Strings ASCII por defecto</td>
+                <td>Strings Unicode por defecto</td>
+            </tr>
+            <tr>
+                <td>Excepciones</td>
+                <td><code>except Exception, e:</code></td>
+                <td><code>except Exception as e:</code></td>
+            </tr>
+            <tr>
+                <td>Iteradores</td>
+                <td><code>xrange(), range()</code></td>
+                <td>Solo <code>range()</code> (optimizado)</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 class="mt-4">Versiones principales de Python 3</h3>
+    <ul class="feature-list">
+        <li><strong>Python 3.6 (2016):</strong> f-strings, variables anotadas, números asíncronos</li>
+        <li><strong>Python 3.7 (2018):</strong> PostreSQL data class, mejoras en asyncio</li>
+        <li><strong>Python 3.8 (2019):</strong> Operador walrus (:=), posicionamiento preciso de parámetros</li>
+        <li><strong>Python 3.9 (2020):</strong> Operadores de fusión de diccionarios (|), funciones flexibles de cadenas</li>
+        <li><strong>Python 3.10 (2021):</strong> Coincidencia de patrones, mejores mensajes de error</li>
+        <li><strong>Python 3.11 (2022):</strong> Mejoras de rendimiento significativas, anotaciones de tipo más precisas</li>
+        <li><strong>Python 3.12 (2023):</strong> Mejor rendimiento, f-strings mejoradas, nuevas APIs para subprocesos</li>
+    </ul>
+</div>
+
+<h2>Ecosistema y aplicaciones</h2>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>Ciencia de datos y Machine Learning</h3>
+        <p>Python se ha convertido en el lenguaje estándar para análisis de datos y aprendizaje automático.</p>
+        
+        <h4>Bibliotecas clave:</h4>
+        <ul class="feature-list">
+            <li><strong>NumPy:</strong> Computación numérica, arrays multidimensionales</li>
+            <li><strong>Pandas:</strong> Estructuras de datos flexibles, análisis de datos</li>
+            <li><strong>Matplotlib/Seaborn:</strong> Visualización de datos</li>
+            <li><strong>Scikit-learn:</strong> Algoritmos de machine learning</li>
+            <li><strong>TensorFlow/PyTorch:</strong> Deep learning</li>
+            <li><strong>Jupyter:</strong> Entorno interactivo para análisis</li>
+        </ul>
+        
+        <h4>Ejemplo de análisis de datos:</h4>
+        <pre><code class="lang-python">import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Cargar datos
+df = pd.read_csv('datos.csv')
+
+# Análisis exploratorio
+print(df.describe())
+print(df.isnull().sum())
+
+# Visualización
+plt.figure(figsize=(10, 6))
+sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
+plt.title('Matriz de correlación')
+plt.tight_layout()
+plt.show()
+
+# Preparación de datos para ML
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+X = df.drop('target', axis=1)
+y = df['target']
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)</code></pre>
+    </div>
+    
+    <div class="card">
+        <h3>Desarrollo Web</h3>
+        <p>Python ofrece frameworks potentes para desarrollo web backend.</p>
+        
+        <h4>Frameworks principales:</h4>
+        <ul class="feature-list">
+            <li><strong>Django:</strong> Framework completo, "baterías incluidas"</li>
+            <li><strong>Flask:</strong> Microframework flexible</li>
+            <li><strong>FastAPI:</strong> Framework moderno para APIs, basado en tipos</li>
+            <li><strong>Pyramid:</strong> Framework flexible para proyectos pequeños y grandes</li>
+        </ul>
+        
+        <h4>Ejemplo con FastAPI:</h4>
+        <pre><code class="lang-python">from fastapi import FastAPI, HTTPException, Depends
+from pydantic import BaseModel
+from typing import List, Optional
+import uvicorn
+
+app = FastAPI(title="API de Productos")
+
+# Modelo de datos
+class Product(BaseModel):
+    id: Optional[int] = None
+    name: str
+    price: float
+    stock: int
+
+# Base de datos simulada
+db = []
+counter = 0
+
+@app.post("/products/", response_model=Product)
+def create_product(product: Product):
+    global counter
+    counter += 1
+    
+    new_product = product.dict()
+    new_product["id"] = counter
+    db.append(new_product)
+    
+    return new_product
+
+@app.get("/products/", response_model=List[Product])
+def get_products():
+    return db
+
+@app.get("/products/{product_id}", response_model=Product)
+def get_product(product_id: int):
+    for product in db:
+        if product["id"] == product_id:
+            return product
+    raise HTTPException(status_code=404, detail="Producto no encontrado")
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)</code></pre>
+    </div>
+</div>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>Automatización y Scripting</h3>
+        <p>Python es excelente para automatizar tareas repetitivas y crear scripts de utilidad.</p>
+        
+        <h4>Bibliotecas útiles:</h4>
+        <ul class="feature-list">
+            <li><strong>os, sys:</strong> Interacción con el sistema operativo</li>
+            <li><strong>pathlib:</strong> Manejo moderno de rutas de archivos</li>
+            <li><strong>subprocess:</strong> Ejecución de comandos del sistema</li>
+            <li><strong>argparse:</strong> Procesamiento de argumentos de línea de comandos</li>
+            <li><strong>requests:</strong> Solicitudes HTTP</li>
+            <li><strong>Beautiful Soup/Scrapy:</strong> Web scraping</li>
+        </ul>
+        
+        <h4>Ejemplo de automatización:</h4>
+        <pre><code class="lang-python">import os
+from pathlib import Path
+import shutil
+import datetime as dt
+
+def organize_files(directory):
+    """Organiza archivos por tipo en un directorio."""
+    # Mapeo de extensiones a carpetas
+    extensions = {
+        'Documentos': ['.pdf', '.docx', '.txt'],
+        'Imágenes': ['.jpg', '.png', '.gif'],
+        'Videos': ['.mp4', '.mov', '.avi'],
+        'Audio': ['.mp3', '.wav', '.flac']
+    }
+    
+    # Crear directorio base
+    base_dir = Path(directory)
+    
+    # Crear carpetas si no existen
+    for folder in extensions:
+        folder_path = base_dir / folder
+        folder_path.mkdir(exist_ok=True)
+    
+    # Crear carpeta para otros tipos
+    other_folder = base_dir / "Otros"
+    other_folder.mkdir(exist_ok=True)
+    
+    # Organizar archivos
+    files_moved = 0
+    for file in base_dir.iterdir():
+        if file.is_file():
+            # Determinar destino
+            destination = other_folder
+            for folder, exts in extensions.items():
+                if file.suffix.lower() in exts:
+                    destination = base_dir / folder
+                    break
+            
+            # Mover archivo
+            if destination != file.parent:
+                shutil.move(str(file), str(destination / file.name))
+                files_moved += 1
+    
+    return files_moved
+
+# Ejecutar la organización
+if __name__ == "__main__":
+    import sys
+    
+    if len(sys.argv) > 1:
+        directory = sys.argv[1]
+    else:
+        directory = os.getcwd()
+    
+    count = organize_files(directory)
+    print(f"Organizados {count} archivos en {directory}")</code></pre>
+    </div>
+    
+    <div class="card">
+        <h3>Desarrollo de Aplicaciones</h3>
+        <p>Python puede usarse para crear aplicaciones de escritorio, juegos y más.</p>
+        
+        <h4>Frameworks y bibliotecas:</h4>
+        <ul class="feature-list">
+            <li><strong>Tkinter:</strong> Biblioteca estándar para GUI</li>
+            <li><strong>PyQt/PySide:</strong> Bindings Qt para interfaces avanzadas</li>
+            <li><strong>Kivy:</strong> Framework para aplicaciones multi-touch</li>
+            <li><strong>Pygame:</strong> Biblioteca para desarrollo de juegos</li>
+            <li><strong>wxPython:</strong> Toolkit para aplicaciones nativas</li>
+        </ul>
+        
+        <h4>Ejemplo con Tkinter:</h4>
+        <pre><code class="lang-python">import tkinter as tk
+from tkinter import messagebox, ttk
+
+class SimpleApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Mi Aplicación Python")
+        self.root.geometry("400x300")
+        
+        # Variables
+        self.name_var = tk.StringVar()
+        self.task_var = tk.StringVar()
+        self.tasks = []
+        
+        # Crear widgets
+        self.create_widgets()
+    
+    def create_widgets(self):
+        # Frame principal
+        main_frame = ttk.Frame(self.root, padding="20")
+        main_frame.pack(fill=tk.BOTH, expand=True)
+        
+        # Entrada de nombre
+        ttk.Label(main_frame, text="Nombre:").grid(row=0, column=0, sticky=tk.W, pady=5)
+        ttk.Entry(main_frame, textvariable=self.name_var).grid(row=0, column=1, sticky=tk.EW, pady=5)
+        
+        # Entrada de tarea
+        ttk.Label(main_frame, text="Nueva tarea:").grid(row=1, column=0, sticky=tk.W, pady=5)
+        ttk.Entry(main_frame, textvariable=self.task_var).grid(row=1, column=1, sticky=tk.EW, pady=5)
+        ttk.Button(main_frame, text="Añadir", command=self.add_task).grid(row=1, column=2, padx=5, pady=5)
+        
+        # Lista de tareas
+        ttk.Label(main_frame, text="Tareas:").grid(row=2, column=0, sticky=tk.W, pady=5)
+        self.task_list = tk.Listbox(main_frame, height=10)
+        self.task_list.grid(row=3, column=0, columnspan=3, sticky=tk.NSEW, pady=5)
+        
+        # Botones
+        btn_frame = ttk.Frame(main_frame)
+        btn_frame.grid(row=4, column=0, columnspan=3, pady=10)
+        ttk.Button(btn_frame, text="Completar", command=self.complete_task).pack(side=tk.LEFT, padx=5)
+        ttk.Button(btn_frame, text="Salir", command=self.root.destroy).pack(side=tk.LEFT, padx=5)
+        
+        # Configurar expansión
+        main_frame.columnconfigure(1, weight=1)
+        main_frame.rowconfigure(3, weight=1)
+    
+    def add_task(self):
+        task = self.task_var.get()
+        if task:
+            self.tasks.append(task)
+            self.task_list.insert(tk.END, task)
+            self.task_var.set("")
+        else:
+            messagebox.showwarning("Advertencia", "Por favor ingrese una tarea.")
+    
+    def complete_task(self):
+        selection = self.task_list.curselection()
+        if selection:
+            index = selection[0]
+            task = self.tasks.pop(index)
+            self.task_list.delete(index)
+            messagebox.showinfo("Completado", f"Tarea completada: {task}")
+            
+            if self.name_var.get():
+                messagebox.showinfo("Mensaje", f"¡Buen trabajo, {self.name_var.get()}!")
+        else:
+            messagebox.showwarning("Advertencia", "Por favor seleccione una tarea.")
+
+# Iniciar aplicación
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = SimpleApp(root)
+    root.mainloop()</code></pre>
+    </div>
+</div>
+
+<h2>Buenas prácticas y estilo</h2>
+
+<div class="card">
+    <h3>PEP 8 - Guía de estilo para Python</h3>
+    <p>PEP 8 es la guía de estilo oficial para código Python, que promueve consistencia y legibilidad.</p>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Principios generales:</h4>
+            <ul class="feature-list">
+                <li><strong>Indentación:</strong> 4 espacios (no tabs)</li>
+                <li><strong>Longitud de línea:</strong> Máximo 79 caracteres</li>
+                <li><strong>Líneas en blanco:</strong> Separar funciones y clases con dos líneas</li>
+                <li><strong>Importaciones:</strong> Una por línea, agrupadas</li>
+                <li><strong>Espacios en blanco:</strong> Evitar excesos, pero usar para legibilidad</li>
+                <li><strong>Comentarios:</strong> Actualizados, relevantes, completos</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Convenciones de nombres:</h4>
+            <ul class="feature-list">
+                <li><strong>funciones_y_variables:</strong> snake_case</li>
+                <li><strong>ClassesYExcepciones:</strong> CamelCase</li>
+                <li><strong>CONSTANTES:</strong> MAYÚSCULAS_CON_GUIONES</li>
+                <li><strong>_variable_interna:</strong> Prefijo guion bajo</li>
+                <li><strong>__variable_privada:</strong> Prefijo doble guion bajo</li>
+                <li><strong>método_especial__:</strong> Doble guion bajo al inicio y final</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h4 class="mt-4">Ejemplo de estilo PEP 8:</h4>
+    <pre><code class="lang-python">"""Módulo de ejemplo que sigue las convenciones PEP 8.
+
+Este módulo demuestra cómo aplicar las convenciones de estilo de código
+recomendadas en PEP 8, la guía de estilo para Python.
+"""
+
+import os
+import sys
+from typing import List, Dict, Optional, Union
+
+# Constantes
+MAX_SIZE = 100
+DEFAULT_LEVEL = 'info'
+
+
+class ConfigManager:
+    """Clase para gestionar configuraciones."""
+    
+    def __init__(self, config_file: str):
+        """Inicializa un gestor de configuración.
+        
+        Args:
+            config_file: Ruta al archivo de configuración.
+        """
+        self.config_file = config_file
+        self._settings = {}
+        self.__private_data = None
+    
+    def load_config(self) -> Dict[str, Union[str, int, bool]]:
+        """Carga la configuración desde el archivo.
+        
+        Returns:
+            Diccionario con la configuración cargada.
+            
+        Raises:
+            FileNotFoundError: Si el archivo no existe.
+        """
+        if not os.path.exists(self.config_file):
+            raise FileNotFoundError(f"Archivo no encontrado: {self.config_file}")
+        
+        # Código para cargar configuración
+        self._settings = {'debug': True, 'level': DEFAULT_LEVEL}
+        return self._settings
+
+
+def process_data(items: List[str], max_items: Optional[int] = None) -> List[str]:
+    """Procesa una lista de elementos.
+    
+    Args:
+        items: Lista de elementos a procesar.
+        max_items: Número máximo de elementos a procesar.
+            Si es None, procesa todos los elementos.
+    
+    Returns:
+        Lista de elementos procesados.
+    """
+    if max_items is None:
+        max_items = len(items)
+    
+    # Esto es una línea muy larga que debería dividirse para cumplir con el límite de 79 caracteres
+    processed_items = [
+        item.strip().lower()
+        for item in items[:max_items]
+        if item and not item.startswith('#')
+    ]
+    
+    return processed_items
+
+
+if __name__ == "__main__":
+    # Ejemplo de uso del módulo
+    config = ConfigManager("settings.ini")
+    try:
+        settings = config.load_config()
+        print(f"Configuración cargada: {settings}")
+    except FileNotFoundError as e:
+        print(f"Error: {e}", file=sys.stderr)</code></pre>
+</div>
+
+<h2>Programación avanzada en Python</h2>
+
+<div class="card">
+    <h3>Características avanzadas</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Decoradores</h4>
+            <p>Funciones que modifican el comportamiento de otras funciones.</p>
+            <pre><code class="lang-python">import time
+import functools
+
+def timer(func):
+    """Mide el tiempo de ejecución de una función."""
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        print(f"{func.__name__} ejecutada en {end_time - start_time:.4f} segundos")
+        return result
+    return wrapper
+
+@timer
+def procesar_datos(items):
+    """Simula procesamiento de datos."""
+    time.sleep(1)  # Simular trabajo
+    return [item * 2 for item in items]
+
+# Uso
+resultado = procesar_datos(range(10))
+print(resultado)</code></pre>
+        </div>
+        
+        <div>
+            <h4>Generadores</h4>
+            <p>Funciones que generan valores bajo demanda, ahorrando memoria.</p>
+            <pre><code class="lang-python">def fibonacci_generator(limit):
+    """Generador de números Fibonacci hasta un límite."""
+    a, b = 0, 1
+    while a < limit:
+        yield a
+        a, b = b, a + b
+
+# Uso - los valores se generan uno a uno
+for num in fibonacci_generator(1000):
+    print(num, end=' ')
+
+# Comparación con lista (carga todo en memoria)
+fibonacci_list = list(fibonacci_generator(1000))
+print(fibonacci_list)</code></pre>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Context Managers</h4>
+            <p>Para gestión de recursos y limpieza automática.</p>
+            <pre><code class="lang-python">class MiContextManager:
+    """Ejemplo de context manager personalizado."""
+    
+    def __init__(self, nombre):
+        self.nombre = nombre
+        
+    def __enter__(self):
+        print(f"Iniciando {self.nombre}")
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print(f"Finalizando {self.nombre}")
+        # Manejo de excepciones
+        if exc_type:
+            print(f"Ocurrió un error: {exc_val}")
+            return True  # Suprimir excepción
+            
+    def procesar(self):
+        print("Procesando datos...")
+
+# Uso
+with MiContextManager("Proceso") as cm:
+    cm.procesar()
+    
+# Versión usando contextlib
+from contextlib import contextmanager
+
+@contextmanager
+def tempfile(nombre):
+    try:
+        f = open(nombre, 'w')
+        yield f
+    finally:
+        f.close()
+        import os
+        os.remove(nombre)
+        
+with tempfile("temp.txt") as f:
+    f.write("Datos temporales")</code></pre>
+        </div>
+        
+        <div>
+            <h4>Metaprogramación</h4>
+            <p>Código que manipula código.</p>
+            <pre><code class="lang-python">class ModelMeta(type):
+    """Metaclase para crear modelos."""
+    
+    def __new__(mcs, name, bases, attrs):
+        # Añadir métodos o atributos automáticamente
+        attrs['table_name'] = name.lower()
+        
+        # Añadir un método a la clase
+        def save(self):
+            print(f"Guardando {self.__class__.__name__} en la tabla {self.table_name}")
+        attrs['save'] = save
+        
+        return super().__new__(mcs, name, bases, attrs)
+
+# Usar la metaclase
+class User(metaclass=ModelMeta):
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+
+# La clase User tiene automáticamente table_name y método save
+user = User("Juan", "juan@ejemplo.com")
+print(user.table_name)
+user.save()</code></pre>
+        </div>
+    </div>
+</div>
+
+<h2>Herramientas y Recursos</h2>
+
+<div class="card">
+    <h3>Herramientas del ecosistema Python</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Categoría</th>
+                <th>Herramientas</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Gestión de paquetes</td>
+                <td>pip, conda, Poetry, pipenv</td>
+                <td>Instalación y gestión de dependencias</td>
+            </tr>
+            <tr>
+                <td>Entornos virtuales</td>
+                <td>venv, virtualenv, conda</td>
+                <td>Aislamiento de entornos de desarrollo</td>
+            </tr>
+            <tr>
+                <td>Calidad de código</td>
+                <td>pylint, flake8, black, isort</td>
+                <td>Análisis y formateo de código</td>
+            </tr>
+            <tr>
+                <td>Testing</td>
+                <td>pytest, unittest, doctest, tox</td>
+                <td>Pruebas y verificación de código</td>
+            </tr>
+            <tr>
+                <td>Documentación</td>
+                <td>Sphinx, MkDocs, pydoc</td>
+                <td>Generación de documentación</td>
+            </tr>
+            <tr>
+                <td>Análisis de tipos</td>
+                <td>mypy, pyright, pyre</td>
+                <td>Verificación estática de tipos</td>
+            </tr>
+            <tr>
+                <td>Distribución</td>
+                <td>setuptools, twine, wheel</td>
+                <td>Empaquetado y distribución de software</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 class="mt-4">Recursos de aprendizaje</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Documentación oficial y cursos</h4>
+            <ul class="feature-list">
+                <li><a href="https://docs.python.org/3/" target="_blank">Documentación oficial de Python</a></li>
+                <li><a href="https://docs.python.org/3/tutorial/" target="_blank">Tutorial oficial de Python</a></li>
+                <li><a href="https://realpython.com/" target="_blank">Real Python</a> - Tutoriales y artículos</li>
+                <li><a href="https://www.coursera.org/specializations/python" target="_blank">Python for Everybody (Coursera)</a></li>
+                <li><a href="https://www.edx.org/course/introduction-to-computer-science-and-programming-7" target="_blank">Introduction to CS with Python (MIT/edX)</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Libros recomendados</h4>
+            <ul class="feature-list">
+                <li>"Python Crash Course" - Eric Matthes</li>
+                <li>"Fluent Python" - Luciano Ramalho</li>
+                <li>"Automate the Boring Stuff with Python" - Al Sweigart</li>
+                <li>"Python Cookbook" - David Beazley & Brian K. Jones</li>
+                <li>"Python for Data Analysis" - Wes McKinney</li>
+                <li>"Effective Python" - Brett Slatkin</li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,766 @@
+<h1>Lenguajes de Programación</h1>
+
+<p>Los lenguajes de programación son el medio principal para comunicarnos con las computadoras y crear soluciones de software. Cada lenguaje tiene sus propias características, fortalezas y casos de uso ideales. Esta sección proporciona una visión general de los lenguajes más relevantes en el ecosistema de desarrollo actual.</p>
+
+<div class="card">
+    <h2>Comparativa de Lenguajes</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Lenguaje</th>
+                <th>Paradigma Principal</th>
+                <th>Tipado</th>
+                <th>Mejor Para</th>
+                <th>Curva de Aprendizaje</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Python</td>
+                <td>Multi-paradigma</td>
+                <td>Dinámico</td>
+                <td>Data Science, Web, Automatización</td>
+                <td>Baja</td>
+            </tr>
+            <tr>
+                <td>JavaScript</td>
+                <td>Multi-paradigma</td>
+                <td>Dinámico</td>
+                <td>Web, Frontend, Node.js</td>
+                <td>Media</td>
+            </tr>
+            <tr>
+                <td>Java</td>
+                <td>OOP</td>
+                <td>Estático</td>
+                <td>Enterprise, Android, Backend</td>
+                <td>Alta</td>
+            </tr>
+            <tr>
+                <td>C#</td>
+                <td>Multi-paradigma</td>
+                <td>Estático</td>
+                <td>.NET, Unity, Windows</td>
+                <td>Alta</td>
+            </tr>
+            <tr>
+                <td>TypeScript</td>
+                <td>Multi-paradigma</td>
+                <td>Estático</td>
+                <td>Web empresarial, React/Angular</td>
+                <td>Media</td>
+            </tr>
+            <tr>
+                <td>Go</td>
+                <td>Imperativo</td>
+                <td>Estático</td>
+                <td>Servicios, Concurrencia, DevOps</td>
+                <td>Media</td>
+            </tr>
+            <tr>
+                <td>Rust</td>
+                <td>Multi-paradigma</td>
+                <td>Estático</td>
+                <td>Sistemas, Rendimiento, Seguridad</td>
+                <td>Muy alta</td>
+            </tr>
+            <tr>
+                <td>PHP</td>
+                <td>Imperativo</td>
+                <td>Dinámico</td>
+                <td>Web, CMS, Aplicaciones para LAMP</td>
+                <td>Media</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h2>Lenguajes Principales en Detalle</h2>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>Python</h3>
+        <p>Lenguaje de alto nivel, interpretado y de propósito general con énfasis en la legibilidad del código.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li>Sintaxis limpia y legible</li>
+            <li>Tipado dinámico</li>
+            <li>Interpretado</li>
+            <li>Orientado a objetos</li>
+            <li>Gran cantidad de bibliotecas</li>
+            <li>Soporte para programación funcional</li>
+            <li>Gestión automática de memoria</li>
+        </ul>
+        
+        <h4>Ecosistema:</h4>
+        <ul class="feature-list">
+            <li><strong>Frameworks web:</strong> Django, Flask, FastAPI</li>
+            <li><strong>Ciencia de datos:</strong> NumPy, Pandas, SciPy</li>
+            <li><strong>Machine Learning:</strong> TensorFlow, PyTorch, scikit-learn</li>
+            <li><strong>Automatización:</strong> Ansible, Pytest, Selenium</li>
+            <li><strong>Herramientas:</strong> pip, virtualenv, Jupyter</li>
+        </ul>
+        
+        <h4>Ejemplo de código:</h4>
+        <pre><code class="lang-python">import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+
+# Cargar y preparar datos
+df = pd.read_csv('datos.csv')
+X = df.drop('target', axis=1)
+y = df['target']
+
+# Dividir dataset
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# Entrenar modelo
+model = RandomForestClassifier(n_estimators=100)
+model.fit(X_train, y_train)
+
+# Evaluar
+predictions = model.predict(X_test)
+print(f"Precisión: {accuracy_score(y_test, predictions):.4f}")</code></pre>
+        
+        <p><strong>Versión actual:</strong> 3.11 (con 3.12 en camino)</p>
+        <p><strong>Casos de uso ideales:</strong> Análisis de datos, aplicaciones web, scripts de automatización, prototipado rápido, educación</p>
+    </div>
+    
+    <div class="card">
+        <h3>JavaScript</h3>
+        <p>Lenguaje de programación interpretado, de alto nivel, principalmente conocido como el lenguaje de scripting para páginas web.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li>Lenguaje de scripting del navegador</li>
+            <li>Asíncrono y orientado a eventos</li>
+            <li>Tipado dinámico</li>
+            <li>Funciones de primera clase</li>
+            <li>Prototipado</li>
+            <li>Ejecución en cliente y servidor (Node.js)</li>
+        </ul>
+        
+        <h4>Ecosistema:</h4>
+        <ul class="feature-list">
+            <li><strong>Frontend:</strong> React, Vue.js, Angular, Svelte</li>
+            <li><strong>Backend:</strong> Node.js, Express, NestJS</li>
+            <li><strong>Mobile:</strong> React Native, Ionic</li>
+            <li><strong>Testing:</strong> Jest, Mocha, Cypress</li>
+            <li><strong>Herramientas:</strong> npm, Webpack, Babel, ESLint</li>
+        </ul>
+        
+        <h4>Ejemplo de código:</h4>
+        <pre><code class="lang-javascript">// React Component
+import { useState, useEffect } from 'react';
+
+const UserList = () => {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchUsers() {
+      try {
+        const response = await fetch('https://api.example.com/users');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setUsers(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    fetchUsers();
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
+  return (
+    <div className="user-list">
+      <h2>Users</h2>
+      <ul>
+        {users.map(user => (
+          <li key={user.id}>{user.name} ({user.email})</li>
+        ))}
+      </ul>
+    </div>
+  );
+};</code></pre>
+        
+        <p><strong>Versión actual:</strong> ECMAScript 2023 (ES14)</p>
+        <p><strong>Casos de uso ideales:</strong> Desarrollo web, aplicaciones de página única (SPA), aplicaciones en tiempo real, desarrollo full-stack con Node.js</p>
+    </div>
+</div>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>Java</h3>
+        <p>Lenguaje de programación orientado a objetos, de propósito general, diseñado para tener la menor cantidad posible de dependencias de implementación.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li>Fuertemente tipado</li>
+            <li>Compilado a bytecode</li>
+            <li>Orientado a objetos puro</li>
+            <li>Gestión automática de memoria (GC)</li>
+            <li>Multiplataforma a través de JVM</li>
+            <li>Concurrencia integrada</li>
+            <li>Ecosistema empresarial maduro</li>
+        </ul>
+        
+        <h4>Ecosistema:</h4>
+        <ul class="feature-list">
+            <li><strong>Frameworks:</strong> Spring, Jakarta EE, Hibernate</li>
+            <li><strong>Build tools:</strong> Maven, Gradle</li>
+            <li><strong>Testing:</strong> JUnit, Mockito, TestNG</li>
+            <li><strong>Mobile:</strong> Android</li>
+            <li><strong>Big Data:</strong> Hadoop, Spark</li>
+        </ul>
+        
+        <h4>Ejemplo de código:</h4>
+        <pre><code class="lang-java">@Service
+public class UserService {
+    private final UserRepository userRepository;
+    private final EmailService emailService;
+
+    @Autowired
+    public UserService(UserRepository userRepository, EmailService emailService) {
+        this.userRepository = userRepository;
+        this.emailService = emailService;
+    }
+
+    @Transactional
+    public User createUser(UserDTO userDTO) {
+        // Validar que el email no esté ya en uso
+        if (userRepository.existsByEmail(userDTO.getEmail())) {
+            throw new EmailAlreadyExistsException("Email already in use");
+        }
+        
+        // Crear y guardar el usuario
+        User user = new User();
+        user.setName(userDTO.getName());
+        user.setEmail(userDTO.getEmail());
+        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        user.setRole(Role.USER);
+        User savedUser = userRepository.save(user);
+        
+        // Enviar email de bienvenida
+        emailService.sendWelcomeEmail(savedUser);
+        
+        return savedUser;
+    }
+}</code></pre>
+        
+        <p><strong>Versión actual:</strong> Java 21 (LTS)</p>
+        <p><strong>Casos de uso ideales:</strong> Aplicaciones empresariales, sistemas distribuidos, aplicaciones Android, sistemas backend de alto rendimiento</p>
+    </div>
+    
+    <div class="card">
+        <h3>C#</h3>
+        <p>Lenguaje de programación moderno, orientado a objetos y de tipado fuerte desarrollado por Microsoft como parte de la plataforma .NET.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li>Integración con .NET</li>
+            <li>Type safety</li>
+            <li>Interoperabilidad</li>
+            <li>LINQ para consultas</li>
+            <li>Async/await nativo</li>
+            <li>Desarrollo multiplataforma con .NET Core</li>
+            <li>Recolección de basura</li>
+        </ul>
+        
+        <h4>Ecosistema:</h4>
+        <ul class="feature-list">
+            <li><strong>Frameworks:</strong> ASP.NET Core, Entity Framework</li>
+            <li><strong>Desktop:</strong> WPF, WinForms, MAUI</li>
+            <li><strong>Game Dev:</strong> Unity</li>
+            <li><strong>Mobile:</strong> Xamarin, MAUI</li>
+            <li><strong>Cloud:</strong> Azure integración</li>
+        </ul>
+        
+        <h4>Ejemplo de código:</h4>
+        <pre><code class="lang-csharp">using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+
+[ApiController]
+[Route("api/[controller]")]
+public class UsersController : ControllerBase
+{
+    private readonly IUserService _userService;
+    private readonly ILogger<UsersController> _logger;
+
+    public UsersController(IUserService userService, ILogger<UsersController> logger)
+    {
+        _userService = userService;
+        _logger = logger;
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<UserDto>>> GetUsers()
+    {
+        try
+        {
+            var users = await _userService.GetAllAsync();
+            return Ok(users);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error retrieving users");
+            return StatusCode(500, "Internal server error");
+        }
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<UserDto>> CreateUser(CreateUserDto dto)
+    {
+        try
+        {
+            var user = await _userService.CreateAsync(dto);
+            return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
+        }
+        catch (ValidationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+}</code></pre>
+        
+        <p><strong>Versión actual:</strong> C# 12/.NET 8</p>
+        <p><strong>Casos de uso ideales:</strong> Aplicaciones empresariales, desarrollo web, servicios Windows, juegos con Unity, aplicaciones de escritorio</p>
+    </div>
+</div>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>TypeScript</h3>
+        <p>Superconjunto de JavaScript que añade tipado estático opcional y otras características para mejorar la productividad y mantenibilidad.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li>Tipado estático opcional</li>
+            <li>Interfaces y tipos</li>
+            <li>Características modernas de ES6+</li>
+            <li>Compilación a JavaScript</li>
+            <li>Herramientas avanzadas de desarrollo</li>
+            <li>Compatible con todo el ecosistema JS</li>
+        </ul>
+        
+        <h4>Ecosistema:</h4>
+        <ul class="feature-list">
+            <li><strong>Frontend:</strong> Angular, React, Vue</li>
+            <li><strong>Backend:</strong> NestJS, Express</li>
+            <li><strong>Tooling:</strong> TSLint, ESLint, Prettier</li>
+            <li><strong>Testing:</strong> Jest, Mocha, Cypress</li>
+            <li><strong>Herramientas:</strong> tsc, ts-node</li>
+        </ul>
+        
+        <h4>Ejemplo de código:</h4>
+        <pre><code class="lang-typescript">// Definición de tipos
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  role: 'admin' | 'user' | 'guest';
+  settings?: UserSettings;
+}
+
+interface UserSettings {
+  notifications: boolean;
+  theme: 'light' | 'dark' | 'system';
+}
+
+// Clase con tipos
+class UserService {
+  private apiUrl: string;
+  
+  constructor(apiUrl: string) {
+    this.apiUrl = apiUrl;
+  }
+  
+  async getUsers(): Promise<User[]> {
+    try {
+      const response = await fetch(`${this.apiUrl}/users`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return await response.json() as User[];
+    } catch (error) {
+      console.error('Error fetching users:', error);
+      return [];
+    }
+  }
+  
+  async getUserById(id: number): Promise<User | null> {
+    try {
+      const response = await fetch(`${this.apiUrl}/users/${id}`);
+      if (!response.ok) {
+        if (response.status === 404) {
+          return null;
+        }
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return await response.json() as User;
+    } catch (error) {
+      console.error(`Error fetching user ${id}:`, error);
+      return null;
+    }
+  }
+}</code></pre>
+        
+        <p><strong>Versión actual:</strong> TypeScript 5.3</p>
+        <p><strong>Casos de uso ideales:</strong> Aplicaciones web a gran escala, proyectos empresariales, equipos grandes, aplicaciones que requieren mantenimiento a largo plazo</p>
+    </div>
+    
+    <div class="card">
+        <h3>Go (Golang)</h3>
+        <p>Lenguaje de programación moderno desarrollado por Google, enfocado en simplicidad, eficiencia y soporte nativo para concurrencia.</p>
+        
+        <h4>Características principales:</h4>
+        <ul class="feature-list">
+            <li>Compilado y tipado estático</li>
+            <li>Sintaxis simple y concisa</li>
+            <li>Garbage collection eficiente</li>
+            <li>Concurrencia mediante goroutines y channels</li>
+            <li>Biblioteca estándar robusta</li>
+            <li>Compilación rápida</li>
+            <li>Soporte cross-platform</li>
+        </ul>
+        
+        <h4>Ecosistema:</h4>
+        <ul class="feature-list">
+            <li><strong>Web:</strong> Gin, Echo, Fiber</li>
+            <li><strong>DevOps:</strong> Docker, Kubernetes, Prometheus</li>
+            <li><strong>Cloud:</strong> Integraciones nativas con la mayoría de proveedores</li>
+            <li><strong>Tooling:</strong> go fmt, go vet, golint</li>
+            <li><strong>Testing:</strong> Testing package nativo, Testify</li>
+        </ul>
+        
+        <h4>Ejemplo de código:</h4>
+        <pre><code class="lang-go">package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"log"
+	"net/http"
+	"time"
+)
+
+type User struct {
+	ID        int       `json:"id"`
+	Name      string    `json:"name"`
+	Email     string    `json:"email"`
+	CreatedAt time.Time `json:"created_at"`
+}
+
+func main() {
+	http.HandleFunc("/users", getUsers)
+	http.HandleFunc("/users/", getUserByID)
+	
+	fmt.Println("Server starting on port 8080...")
+	log.Fatal(http.ListenAndServe(":8080", nil))
+}
+
+func getUsers(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+	
+	users := []User{
+		{1, "Alice", "alice@example.com", time.Now().Add(-24 * time.Hour)},
+		{2, "Bob", "bob@example.com", time.Now()},
+	}
+	
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(users)
+}
+
+func getUserByID(w http.ResponseWriter, r *http.Request) {
+	// Implementación para obtener usuario por ID
+}</code></pre>
+        
+        <p><strong>Versión actual:</strong> Go 1.21</p>
+        <p><strong>Casos de uso ideales:</strong> Servicios web, aplicaciones de red, herramientas de línea de comandos, sistemas distribuidos, microservicios</p>
+    </div>
+</div>
+
+<h2>Criterios de Selección</h2>
+
+<div class="card">
+    <h3>Factores a Considerar</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Factores técnicos</h4>
+            <ul class="feature-list">
+                <li><strong>Tipo de Proyecto:</strong> Web, móvil, datos, enterprise, sistemas</li>
+                <li><strong>Rendimiento Requerido:</strong> Tiempo real, procesamiento masivo</li>
+                <li><strong>Ecosistema:</strong> Bibliotecas disponibles, comunidad</li>
+                <li><strong>Seguridad:</strong> Requisitos de seguridad del proyecto</li>
+                <li><strong>Concurrencia:</strong> Necesidades de procesamiento paralelo</li>
+                <li><strong>Escalabilidad:</strong> Crecimiento esperado</li>
+                <li><strong>Interoperabilidad:</strong> Integración con otros sistemas</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Factores prácticos</h4>
+            <ul class="feature-list">
+                <li><strong>Equipo:</strong> Experiencia previa, curva de aprendizaje</li>
+                <li><strong>Mercado laboral:</strong> Disponibilidad de desarrolladores</li>
+                <li><strong>Tiempo de desarrollo:</strong> Plazos del proyecto</li>
+                <li><strong>Soporte a largo plazo:</strong> Mantenimiento futuro</li>
+                <li><strong>Herramientas disponibles:</strong> IDEs, frameworks, CI/CD</li>
+                <li><strong>Recursos:</strong> Hosting, servidores, infraestructura</li>
+                <li><strong>Empresa:</strong> Preferencias y estándares organizacionales</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">¿Qué lenguaje elegir según el tipo de proyecto?</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Tipo de Proyecto</th>
+                <th>Opciones Recomendadas</th>
+                <th>Consideraciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Aplicación Web Frontend</td>
+                <td>JavaScript, TypeScript</td>
+                <td>Uso de frameworks como React, Vue, Angular</td>
+            </tr>
+            <tr>
+                <td>Aplicación Web Backend</td>
+                <td>JavaScript (Node.js), Python, Java, C#, Go</td>
+                <td>Escalabilidad, integración con bases de datos</td>
+            </tr>
+            <tr>
+                <td>Aplicación Móvil</td>
+                <td>Swift (iOS), Kotlin (Android), JavaScript/TS (React Native), Dart (Flutter)</td>
+                <td>Rendimiento, acceso a APIs nativas</td>
+            </tr>
+            <tr>
+                <td>Ciencia de Datos</td>
+                <td>Python, R, Julia</td>
+                <td>Bibliotecas disponibles, visualización, integración</td>
+            </tr>
+            <tr>
+                <td>Sistemas Empresariales</td>
+                <td>Java, C#, TypeScript</td>
+                <td>Seguridad, escalabilidad, mantenibilidad</td>
+            </tr>
+            <tr>
+                <td>Microservicios</td>
+                <td>Go, Java, C#, Python, Node.js</td>
+                <td>Ligereza, concurrencia, APIs</td>
+            </tr>
+            <tr>
+                <td>Desarrollo de Juegos</td>
+                <td>C# (Unity), C++ (Unreal), JavaScript (HTML5)</td>
+                <td>Rendimiento, bibliotecas gráficas</td>
+            </tr>
+            <tr>
+                <td>IoT / Embedded</td>
+                <td>C, C++, Python, Rust</td>
+                <td>Restricciones de recursos, hardware</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h2>Tendencias y Evolución</h2>
+
+<div class="card">
+    <h3>Tendencias actuales en lenguajes de programación</h3>
+    
+    <ul class="feature-list">
+        <li><strong>Lenguajes multiparadigma:</strong> Combinación de programación funcional y orientada a objetos</li>
+        <li><strong>Programación asíncrona:</strong> Primitivas para manejo de operaciones asíncronas</li>
+        <li><strong>Inferencia de tipos:</strong> Tipado estático con menos verbosidad</li>
+        <li><strong>Integración de IA:</strong> Asistentes de código, generación de código</li>
+        <li><strong>Concurrencia simplificada:</strong> Primitivas más fáciles para programación concurrente</li>
+        <li><strong>Rendimiento mejorado:</strong> Enfoque en optimización y eficiencia</li>
+        <li><strong>WebAssembly:</strong> Compilación a formato web para rendimiento nativo</li>
+    </ul>
+    
+    <h3 class="mt-4">Lenguajes emergentes a considerar</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Rust</h4>
+            <p>Lenguaje de sistemas con seguridad de memoria sin garbage collector.</p>
+            <ul class="feature-list">
+                <li>Sistema de ownership para gestión de memoria</li>
+                <li>Garantías de seguridad en tiempo de compilación</li>
+                <li>Rendimiento comparable a C/C++</li>
+                <li>Ecosistema creciente</li>
+                <li>Ideal para sistemas críticos, WebAssembly, aplicaciones embebidas</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Kotlin</h4>
+            <p>Lenguaje moderno para la JVM, oficial para desarrollo Android.</p>
+            <ul class="feature-list">
+                <li>Interoperabilidad total con Java</li>
+                <li>Sintaxis concisa y expresiva</li>
+                <li>Null-safety incorporado</li>
+                <li>Coroutines para concurrencia</li>
+                <li>Multiplatforma (JVM, JavaScript, Nativo)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="grid-container mt-2">
+        <div>
+            <h4>Swift</h4>
+            <p>Lenguaje moderno para desarrollo iOS y macOS.</p>
+            <ul class="feature-list">
+                <li>Rendimiento y seguridad</li>
+                <li>Sintaxis expresiva y concisa</li>
+                <li>ARC para gestión de memoria</li>
+                <li>Interoperabilidad con Objective-C</li>
+                <li>Creciente soporte para servidor</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Dart</h4>
+            <p>Lenguaje optimizado para UI, usado principalmente con Flutter.</p>
+            <ul class="feature-list">
+                <li>Orientado a cliente (web, móvil, escritorio)</li>
+                <li>JIT y AOT compilación</li>
+                <li>Tipado opcional</li>
+                <li>Optimizado para UI fluidas</li>
+                <li>Soporte para asincronía</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h2>Paradigmas de Programación</h2>
+
+<div class="card">
+    <h3>Principales paradigmas</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Programación Orientada a Objetos (OOP)</h4>
+            <p>Organiza el código en objetos que encapsulan datos y comportamiento.</p>
+            <ul class="feature-list">
+                <li><strong>Conceptos clave:</strong> Clases, objetos, herencia, polimorfismo, encapsulación</li>
+                <li><strong>Ejemplos:</strong> Java, C#, Python, Ruby</li>
+                <li><strong>Ventajas:</strong> Modelado intuitivo, reutilización, mantenibilidad</li>
+                <li><strong>Desventajas:</strong> Puede llevar a jerarquías complejas, overhead</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Programación Funcional</h4>
+            <p>Trata la computación como evaluación de funciones matemáticas, evitando estados mutables.</p>
+            <ul class="feature-list">
+                <li><strong>Conceptos clave:</strong> Inmutabilidad, funciones puras, composición, recursión</li>
+                <li><strong>Ejemplos:</strong> Haskell, Clojure, Scala, Elixir (y aspectos en JavaScript, Python)</li>
+                <li><strong>Ventajas:</strong> Predecibilidad, testabilidad, paralelización</li>
+                <li><strong>Desventajas:</strong> Curva de aprendizaje, eficiencia en ciertos contextos</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="grid-container mt-2">
+        <div>
+            <h4>Programación Imperativa</h4>
+            <p>Describe la computación como sentencias que cambian el estado del programa.</p>
+            <ul class="feature-list">
+                <li><strong>Conceptos clave:</strong> Variables, asignaciones, iteración, control de flujo</li>
+                <li><strong>Ejemplos:</strong> C, Fortran, y aspectos de la mayoría de lenguajes populares</li>
+                <li><strong>Ventajas:</strong> Simplicidad, rendimiento, legibilidad</li>
+                <li><strong>Desventajas:</strong> Dificultad para razonar sobre estados complejos</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Programación Reactiva</h4>
+            <p>Se centra en flujos de datos y propagación de cambios.</p>
+            <ul class="feature-list">
+                <li><strong>Conceptos clave:</strong> Observables, streams, eventos, transformaciones</li>
+                <li><strong>Ejemplos:</strong> RxJS, RxJava, Akka Streams</li>
+                <li><strong>Ventajas:</strong> Manejo de eventos, UIs responsivas, asincronía</li>
+                <li><strong>Desventajas:</strong> Complejidad, debugging más difícil</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h2>Recursos de Aprendizaje</h2>
+
+<div class="card">
+    <h3>Recursos generales</h3>
+    
+    <ul class="feature-list">
+        <li><a href="https://roadmap.sh/" target="_blank">Roadmap.sh</a> - Rutas de aprendizaje para diferentes lenguajes</li>
+        <li><a href="https://exercism.io/" target="_blank">Exercism</a> - Ejercicios prácticos con mentores</li>
+        <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a> - Cursos gratuitos de programación</li>
+        <li><a href="https://www.codecademy.com/" target="_blank">Codecademy</a> - Cursos interactivos</li>
+        <li><a href="https://www.hackerrank.com/" target="_blank">HackerRank</a> - Desafíos de programación</li>
+    </ul>
+    
+    <h3 class="mt-4">Recursos por lenguaje</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Python</h4>
+            <ul class="feature-list">
+                <li><a href="https://docs.python.org/3/tutorial/" target="_blank">Tutorial oficial</a></li>
+                <li><a href="https://realpython.com/" target="_blank">Real Python</a></li>
+                <li><a href="https://www.pythoncheatsheet.org/" target="_blank">Python Cheatsheet</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>JavaScript</h4>
+            <ul class="feature-list">
+                <li><a href="https://javascript.info/" target="_blank">JavaScript.info</a></li>
+                <li><a href="https://eloquentjavascript.net/" target="_blank">Eloquent JavaScript</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">MDN Web Docs</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Java</h4>
+            <ul class="feature-list">
+                <li><a href="https://docs.oracle.com/javase/tutorial/" target="_blank">Tutorial oficial</a></li>
+                <li><a href="https://www.baeldung.com/" target="_blank">Baeldung</a></li>
+                <li><a href="https://www.journaldev.com/" target="_blank">JournalDev</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>C#</h4>
+            <ul class="feature-list">
+                <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/" target="_blank">Documentación oficial</a></li>
+                <li><a href="https://www.tutorialsteacher.com/csharp" target="_blank">TutorialsTeacher</a></li>
+                <li><a href="https://www.c-sharpcorner.com/" target="_blank">C# Corner</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

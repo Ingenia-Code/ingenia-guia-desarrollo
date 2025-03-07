@@ -3,6 +3,16 @@ const navigationStructure = {
   "fundamentos": {
     "title": "Fundamentos",
     "items": {
+      "lenguajes": {
+        "title": "Lenguajes",
+        "subitems": {
+          "lenguajes-python": "Python",
+          "lenguajes-javascript": "JavaScript",
+          "lenguajes-java": "Java",
+          "lenguajes-csharp": "C#",
+          // "lenguajes-otros": "Otros lenguajes"
+        }
+      },
       "ides": {
         "title": "IDEs y Editores",
         "subitems": {
@@ -19,16 +29,6 @@ const navigationStructure = {
           "frameworks-javascript": "Frameworks JavaScript",
           "frameworks-dotnet": "Frameworks .NET",
           "frameworks-mobile": "Frameworks Mobile"
-        }
-      },
-      "lenguajes": {
-        "title": "Lenguajes",
-        "subitems": {
-          "lenguajes-python": "Python",
-          "lenguajes-javascript": "JavaScript",
-          "lenguajes-java": "Java",
-          "lenguajes-csharp": "C#",
-          "lenguajes-otros": "Otros lenguajes"
         }
       },
       "bases-datos": {

@@ -1,0 +1,1021 @@
+<h1>JavaScript</h1>
+
+<p>JavaScript es un lenguaje de programación interpretado, de alto nivel, dinámicamente tipado y multiparadigma. Originalmente creado para agregar interactividad a las páginas web, ha evolucionado hasta convertirse en uno de los lenguajes más versátiles y utilizados, con aplicaciones en frontend, backend, aplicaciones móviles, IoT y más.</p>
+
+<div class="card">
+    <h2>Características principales</h2>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Fundamentos</h3>
+            <ul class="feature-list">
+                <li><strong>Tipado dinámico:</strong> Las variables pueden cambiar de tipo durante la ejecución</li>
+                <li><strong>Orientado a objetos:</strong> Basado en prototipos, no en clases (aunque ES6+ añadió sintaxis de clases)</li>
+                <li><strong>Funciones de primera clase:</strong> Las funciones pueden ser tratadas como cualquier otra variable</li>
+                <li><strong>Event-driven:</strong> Arquitectura basada en eventos y callbacks</li>
+                <li><strong>Single-threaded:</strong> Modelo de concurrencia basado en un solo hilo con un event loop</li>
+                <li><strong>Interpretado:</strong> No requiere compilación previa</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Paradigmas soportados</h3>
+            <ul class="feature-list">
+                <li><strong>Imperativo:</strong> Secuencias de declaraciones que cambian el estado</li>
+                <li><strong>Orientado a objetos:</strong> A través de prototipos y, más recientemente, clases</li>
+                <li><strong>Funcional:</strong> Soporte para funciones de orden superior, mapeo, filtrado, etc.</li>
+                <li><strong>Orientado a eventos:</strong> Callbacks, promesas, async/await</li>
+                <li><strong>Meta-programación:</strong> A través de proxies y reflection</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h2>Evolución de JavaScript</h2>
+
+<div class="card">
+    <h3>Historia y versiones principales</h3>
+    
+    <ul class="feature-list">
+        <li><strong>1995:</strong> Creado por Brendan Eich en Netscape bajo el nombre de Mocha, luego LiveScript</li>
+        <li><strong>1997:</strong> Estandarizado como ECMAScript (ES1)</li>
+        <li><strong>ES3 (1999):</strong> Introdujo expresiones regulares, try/catch</li>
+        <li><strong>ES5 (2009):</strong> Añadió strict mode, métodos de array (map, filter, etc.), JSON</li>
+        <li><strong>ES6/ES2015:</strong> Mayor actualización, con clases, módulos, promesas, arrow functions</li>
+        <li><strong>ES2016-2022:</strong> Actualizaciones anuales con nuevas características</li>
+    </ul>
+    
+    <h3 class="mt-4">Características modernas (ES6+)</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Sintaxis y estructuras</h4>
+            <pre><code class="lang-javascript">// let y const
+let variable = 'puede cambiar';
+const constante = 'no puede cambiar';
+
+// Arrow functions
+const sum = (a, b) => a + b;
+
+// Template literals
+const name = 'Mundo';
+console.log(`Hola, ${name}!`);
+
+// Destructuring
+const { id, name: userName } = user;
+const [first, second] = array;
+
+// Spread/rest operators
+const newArray = [...oldArray, newItem];
+function sum(...numbers) {
+  return numbers.reduce((a, b) => a + b, 0);
+}
+
+// Classes
+class User {
+  constructor(name) {
+    this.name = name;
+  }
+  
+  sayHello() {
+    return `Hello, ${this.name}`;
+  }
+}</code></pre>
+        </div>
+        
+        <div>
+            <h4>Asincronía moderna</h4>
+            <pre><code class="lang-javascript">// Promesas
+fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+
+// Async/Await
+async function fetchData() {
+  try {
+    const response = await fetch('https://api.example.com/data');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Promise combinators
+const results = await Promise.all([
+  fetch('https://api.example.com/data1'),
+  fetch('https://api.example.com/data2')
+]);
+
+// Top-level await (ES2022)
+const data = await fetchData();</code></pre>
+        </div>
+    </div>
+</div>
+
+<h2>Entornos de ejecución</h2>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>Navegadores</h3>
+        <p>Entorno original de JavaScript, con acceso al DOM (Document Object Model) y Web APIs.</p>
+        
+        <h4>Características:</h4>
+        <ul class="feature-list">
+            <li>Acceso al DOM para manipulación de HTML/CSS</li>
+            <li>APIs web: fetch, localStorage, WebSockets, WebGL, etc.</li>
+            <li>Seguridad basada en Same-Origin Policy</li>
+            <li>Limitaciones de rendimiento (single-threaded)</li>
+            <li>Web Workers para operaciones en segundo plano</li>
+        </ul>
+        
+        <h4>Ejemplo de manipulación DOM:</h4>
+        <pre><code class="lang-javascript">// Selección de elementos
+const button = document.querySelector('#myButton');
+const items = document.querySelectorAll('.item');
+
+// Manipulación
+button.addEventListener('click', () => {
+  const div = document.createElement('div');
+  div.textContent = 'Nuevo elemento';
+  div.classList.add('new-item');
+  document.body.appendChild(div);
+});
+
+// Estilos y clases
+element.style.color = 'red';
+element.classList.add('active');
+element.classList.toggle('visible');</code></pre>
+    </div>
+    
+    <div class="card">
+        <h3>Node.js</h3>
+        <p>Entorno de ejecución de JavaScript del lado del servidor basado en el motor V8 de Chrome.</p>
+        
+        <h4>Características:</h4>
+        <ul class="feature-list">
+            <li>Acceso al sistema de archivos</li>
+            <li>Módulos CommonJS/ES (require/import)</li>
+            <li>APIs para networking, streams, eventos</li>
+            <li>Event-loop no bloqueante</li>
+            <li>NPM (Node Package Manager)</li>
+            <li>Bueno para APIs, microservicios, aplicaciones en tiempo real</li>
+        </ul>
+        
+        <h4>Ejemplo de servidor HTTP:</h4>
+        <pre><code class="lang-javascript">// Servidor básico con Node.js
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World\n');
+});
+
+server.listen(3000, '127.0.0.1', () => {
+  console.log('Servidor ejecutándose en http://127.0.0.1:3000/');
+});
+
+// Manejo de archivos
+const fs = require('fs');
+fs.readFile('archivo.txt', 'utf8', (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});</code></pre>
+    </div>
+</div>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>Deno</h3>
+        <p>Runtime moderno para JavaScript/TypeScript creado por el creador original de Node.js.</p>
+        
+        <h4>Características:</h4>
+        <ul class="feature-list">
+            <li>Seguridad por defecto (permisos explícitos)</li>
+            <li>Soporte nativo para TypeScript</li>
+            <li>Módulos ES nativos (importación por URL)</li>
+            <li>API similar a navegadores</li>
+            <li>Ejecutable único (sin gestor de paquetes externo)</li>
+            <li>Compatible con Web APIs</li>
+        </ul>
+        
+        <h4>Ejemplo:</h4>
+        <pre><code class="lang-javascript">// Servidor HTTP en Deno
+import { serve } from "https://deno.land/std/http/server.ts";
+
+const server = serve({ port: 8000 });
+console.log("Servidor ejecutándose en http://localhost:8000/");
+
+for await (const req of server) {
+  req.respond({ body: "Hello World\n" });
+}</code></pre>
+    </div>
+    
+    <div class="card">
+        <h3>Bun</h3>
+        <p>Runtime JavaScript todo-en-uno optimizado para velocidad, con empaquetador, ejecutor de pruebas y gestor de paquetes.</p>
+        
+        <h4>Características:</h4>
+        <ul class="feature-list">
+            <li>Extremadamente rápido (basado en JavaScriptCore)</li>
+            <li>Compatible con Node.js y npm</li>
+            <li>Bundler integrado</li>
+            <li>Transpilador de TypeScript/JSX integrado</li>
+            <li>Soporte para módulos ES y CommonJS</li>
+            <li>Optimizado para arranque rápido y bajo consumo de memoria</li>
+        </ul>
+        
+        <h4>Ejemplo:</h4>
+        <pre><code class="lang-javascript">// Servidor HTTP con Bun
+export default {
+  port: 3000,
+  fetch(request) {
+    return new Response("Welcome to Bun!");
+  },
+};</code></pre>
+    </div>
+</div>
+
+<h2>Tipos y estructuras de datos</h2>
+
+<div class="card">
+    <h3>Tipos primitivos</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Descripción</th>
+                <th>Ejemplo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>String</td>
+                <td>Secuencias de caracteres</td>
+                <td><code>'texto'</code>, <code>"texto"</code>, <code>`texto ${var}`</code></td>
+            </tr>
+            <tr>
+                <td>Number</td>
+                <td>Valores numéricos (enteros y flotantes)</td>
+                <td><code>42</code>, <code>3.14</code>, <code>NaN</code>, <code>Infinity</code></td>
+            </tr>
+            <tr>
+                <td>Boolean</td>
+                <td>Valores verdadero/falso</td>
+                <td><code>true</code>, <code>false</code></td>
+            </tr>
+            <tr>
+                <td>Null</td>
+                <td>Valor nulo intencional</td>
+                <td><code>null</code></td>
+            </tr>
+            <tr>
+                <td>Undefined</td>
+                <td>Variable sin valor asignado</td>
+                <td><code>undefined</code></td>
+            </tr>
+            <tr>
+                <td>Symbol</td>
+                <td>Identificador único e inmutable</td>
+                <td><code>Symbol('descripción')</code></td>
+            </tr>
+            <tr>
+                <td>BigInt</td>
+                <td>Números enteros grandes</td>
+                <td><code>9007199254740991n</code></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 class="mt-4">Estructuras de datos</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Objetos</h4>
+            <pre><code class="lang-javascript">// Objeto literal
+const user = {
+  name: 'Juan',
+  age: 30,
+  greet() {
+    return `Hola, soy ${this.name}`;
+  }
+};
+
+// Acceso a propiedades
+console.log(user.name); // Notación de punto
+console.log(user['age']); // Notación de corchetes
+
+// Objetos dinámicos
+const key = 'name';
+user[key] = 'Pedro'; // Actualizar propiedad
+delete user.age; // Eliminar propiedad
+
+// Object methods
+const keys = Object.keys(user);
+const entries = Object.entries(user);
+const userCopy = Object.assign({}, user);</code></pre>
+        </div>
+        
+        <div>
+            <h4>Arrays</h4>
+            <pre><code class="lang-javascript">// Creación
+const fruits = ['manzana', 'banana', 'naranja'];
+const numbers = Array.from({ length: 5 }, (_, i) => i + 1);
+
+// Métodos comunes
+fruits.push('pera'); // Añadir al final
+fruits.unshift('uva'); // Añadir al inicio
+const last = fruits.pop(); // Remover último
+const first = fruits.shift(); // Remover primero
+
+// Métodos funcionales
+const doubled = numbers.map(n => n * 2);
+const evens = numbers.filter(n => n % 2 === 0);
+const sum = numbers.reduce((acc, n) => acc + n, 0);
+
+// Iteración
+for (const fruit of fruits) {
+  console.log(fruit);
+}
+
+fruits.forEach((fruit, index) => {
+  console.log(`${index}: ${fruit}`);
+});</code></pre>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Estructuras especializadas (ES6+)</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Map</h4>
+            <pre><code class="lang-javascript">// Creación
+const map = new Map();
+map.set('key1', 'value1');
+map.set(user, 'object as key');
+
+// Acceso
+console.log(map.get('key1'));
+console.log(map.has('key2'));
+
+// Iteración
+for (const [key, value] of map) {
+  console.log(key, value);
+}</code></pre>
+        </div>
+        
+        <div>
+            <h4>Set</h4>
+            <pre><code class="lang-javascript">// Creación
+const set = new Set([1, 2, 3, 3, 4]); // {1, 2, 3, 4}
+
+// Uso
+set.add(5);
+set.delete(1);
+console.log(set.has(3));
+
+// Convertir arrays/sets
+const uniqueArray = [...new Set(array)];</code></pre>
+        </div>
+    </div>
+</div>
+
+<h2>Programación asíncrona</h2>
+
+<div class="card">
+    <h3>Evolución del manejo asíncrono</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Callbacks (tradicional)</h4>
+            <pre><code class="lang-javascript">function fetchData(callback) {
+  setTimeout(() => {
+    const data = { name: 'Juan', age: 30 };
+    callback(null, data);
+  }, 1000);
+}
+
+fetchData((error, data) => {
+  if (error) {
+    console.error(error);
+    return;
+  }
+  console.log(data);
+  
+  // Callback hell
+  fetchRelatedData(data.id, (error, relatedData) => {
+    // Más callbacks anidados...
+  });
+});</code></pre>
+        </div>
+        
+        <div>
+            <h4>Promesas (ES6)</h4>
+            <pre><code class="lang-javascript">function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const data = { name: 'Juan', age: 30 };
+      resolve(data);
+      // En caso de error: reject(error)
+    }, 1000);
+  });
+}
+
+fetchData()
+  .then(data => {
+    console.log(data);
+    return fetchRelatedData(data.id);
+  })
+  .then(relatedData => {
+    console.log(relatedData);
+  })
+  .catch(error => {
+    console.error(error);
+  });</code></pre>
+        </div>
+    </div>
+    
+    <h4 class="mt-4">Async/Await (ES2017)</h4>
+    <pre><code class="lang-javascript">async function getData() {
+  try {
+    const data = await fetchData();
+    console.log(data);
+    
+    const relatedData = await fetchRelatedData(data.id);
+    console.log(relatedData);
+    
+    return { data, relatedData };
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Con llamadas paralelas
+async function getMultipleData() {
+  try {
+    const [users, products] = await Promise.all([
+      fetchUsers(),
+      fetchProducts()
+    ]);
+    return { users, products };
+  } catch (error) {
+    console.error(error);
+  }
+}</code></pre>
+    
+    <h3 class="mt-4">Patrones de concurrencia</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Control de flujo</h4>
+            <pre><code class="lang-javascript">// Ejecución secuencial
+async function sequential() {
+  const results = [];
+  for (const id of ids) {
+    const result = await fetchItem(id);
+    results.push(result);
+  }
+  return results;
+}
+
+// Ejecución en paralelo (limitada)
+async function parallelWithLimit(urls, limit = 3) {
+  const results = [];
+  const batches = [];
+  
+  for (let i = 0; i < urls.length; i += limit) {
+    const batch = urls.slice(i, i + limit).map(
+      url => fetch(url).then(res => res.json())
+    );
+    batches.push(batch);
+  }
+  
+  for (const batch of batches) {
+    results.push(...await Promise.all(batch));
+  }
+  
+  return results;
+}</code></pre>
+        </div>
+        
+        <div>
+            <h4>Gestión de errores</h4>
+            <pre><code class="lang-javascript">// Retry Pattern
+async function fetchWithRetry(url, retries = 3) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      return await fetch(url);
+    } catch (err) {
+      if (i === retries - 1) throw err;
+      console.log(`Retry ${i+1}/${retries}`);
+      await new Promise(r => setTimeout(r, 1000));
+    }
+  }
+}
+
+// Promise timeout
+function timeoutPromise(promise, ms) {
+  const timeout = new Promise((_, reject) => {
+    setTimeout(() => reject(
+      new Error('Timeout')), ms);
+  });
+  return Promise.race([promise, timeout]);
+}</code></pre>
+        </div>
+    </div>
+</div>
+
+<h2>Ecosistema y herramientas</h2>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>Gestores de paquetes</h3>
+        
+        <h4>NPM (Node Package Manager)</h4>
+        <ul class="feature-list">
+            <li>Gestor de paquetes estándar para Node.js</li>
+            <li>Enorme repositorio de paquetes (1.3M+)</li>
+            <li>package.json para gestión de dependencias</li>
+            <li>Scripts personalizados</li>
+        </ul>
+        
+        <h4>Yarn</h4>
+        <ul class="feature-list">
+            <li>Mayor velocidad que NPM</li>
+            <li>Caching mejorado y determinismo</li>
+            <li>Verificación de integridad</li>
+            <li>Workspaces para monorepos</li>
+        </ul>
+        
+        <h4>pnpm</h4>
+        <ul class="feature-list">
+            <li>Más eficiente en uso de espacio</li>
+            <li>Estructura de almacenamiento compartido</li>
+            <li>Instalación más rápida que NPM/Yarn</li>
+            <li>Gestión estricta de dependencias</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h3>Bundlers y build tools</h3>
+        
+        <h4>Webpack</h4>
+        <ul class="feature-list">
+            <li>Empaquetador completo y configurable</li>
+            <li>Sistema de loaders y plugins</li>
+            <li>Code splitting</li>
+            <li>Hot Module Replacement</li>
+        </ul>
+        
+        <h4>Vite</h4>
+        <ul class="feature-list">
+            <li>Herramienta de desarrollo ultrarrápida</li>
+            <li>Desarrollo sin bundling (ESM nativo)</li>
+            <li>Compilación con Rollup</li>
+            <li>HMR optimizado</li>
+        </ul>
+        
+        <h4>esbuild</h4>
+        <ul class="feature-list">
+            <li>Bundler extremadamente rápido (escrito en Go)</li>
+            <li>Hasta 100x más rápido que webpack</li>
+            <li>Transpilación y minificación</li>
+            <li>API simple</li>
+        </ul>
+    </div>
+</div>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>Linting y Formateado</h3>
+        
+        <h4>ESLint</h4>
+        <ul class="feature-list">
+            <li>Analizador de código estático</li>
+            <li>Identifica y corrige problemas</li>
+            <li>Personalizable con reglas y plugins</li>
+            <li>Configurable con archivos .eslintrc</li>
+        </ul>
+        
+        <h4>Prettier</h4>
+        <ul class="feature-list">
+            <li>Formateador de código opinado</li>
+            <li>Soporte para múltiples lenguajes</li>
+            <li>Integración con editores</li>
+            <li>Configuraciones mínimas</li>
+        </ul>
+        
+        <pre><code class="lang-json">// .eslintrc.json
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "no-console": "warn",
+    "prefer-const": "error"
+  }
+}
+
+// .prettierrc
+{
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5"
+}</code></pre>
+    </div>
+    
+    <div class="card">
+        <h3>Testing</h3>
+        
+        <h4>Jest</h4>
+        <ul class="feature-list">
+            <li>Framework de testing completo</li>
+            <li>Tests unitarios y de integración</li>
+            <li>Mocking integrado</li>
+            <li>Cobertura de código</li>
+        </ul>
+        
+        <h4>Vitest</h4>
+        <ul class="feature-list">
+            <li>Framework compatible con Jest</li>
+            <li>Basado en Vite para velocidad</li>
+            <li>Compatible con ESM</li>
+            <li>HMR para tests</li>
+        </ul>
+        
+        <h4>Cypress</h4>
+        <ul class="feature-list">
+            <li>Testing end-to-end</li>
+            <li>Interfaz gráfica integrada</li>
+            <li>Espera automática de elementos</li>
+            <li>Documentación visual del testing</li>
+        </ul>
+        
+        <pre><code class="lang-javascript">// Ejemplo Jest
+test('suma 1 + 2 para dar 3', () => {
+  expect(sum(1, 2)).toBe(3);
+});
+
+// Ejemplo Cypress
+describe('Formulario de login', () => {
+  it('permite a usuarios iniciar sesión', () => {
+    cy.visit('/login');
+    cy.get('#email').type('usuario@example.com');
+    cy.get('#password').type('password123');
+    cy.get('button[type="submit"]').click();
+    cy.url().should('include', '/dashboard');
+  });
+});</code></pre>
+    </div>
+</div>
+
+<h2>Frameworks y librerías principales</h2>
+
+<div class="card">
+    <h3>Frontend</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>React</h4>
+            <ul class="feature-list">
+                <li>Biblioteca para construir interfaces</li>
+                <li>Basado en componentes</li>
+                <li>Virtual DOM</li>
+                <li>Flujo unidireccional de datos</li>
+                <li>Hooks para lógica reutilizable</li>
+                <li>Ecosistema extenso (React Router, Redux, etc.)</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Vue.js</h4>
+            <ul class="feature-list">
+                <li>Framework progresivo para UI</li>
+                <li>Sistema de reactividad simple</li>
+                <li>Sintaxis de plantillas HTML</li>
+                <li>Options API y Composition API</li>
+                <li>Herramientas oficiales (Vue Router, Pinia)</li>
+                <li>Escalable de simple a complejo</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Angular</h4>
+            <ul class="feature-list">
+                <li>Framework completo para SPA</li>
+                <li>Arquitectura basada en componentes</li>
+                <li>TypeScript por defecto</li>
+                <li>Inyección de dependencias</li>
+                <li>RxJS para operaciones asíncronas</li>
+                <li>Herramientas CLI robustas</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Svelte</h4>
+            <ul class="feature-list">
+                <li>Compilador en lugar de framework</li>
+                <li>Sin Virtual DOM</li>
+                <li>Menos código boilerplate</li>
+                <li>Reactividad integrada</li>
+                <li>Animaciones nativas</li>
+                <li>SvelteKit para aplicaciones completas</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Meta-frameworks</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Next.js (React)</h4>
+            <ul class="feature-list">
+                <li>SSR, SSG, ISR, y CSR</li>
+                <li>API Routes</li>
+                <li>Optimización de imágenes</li>
+                <li>Middleware</li>
+                <li>Rutas basadas en el sistema de archivos</li>
+                <li>Cero configuración inicial</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Nuxt.js (Vue)</h4>
+            <ul class="feature-list">
+                <li>SSR y SSG para Vue</li>
+                <li>Auto-importación de componentes</li>
+                <li>Layouts y páginas</li>
+                <li>API integrada</li>
+                <li>Módulos extensibles</li>
+                <li>Optimizaciones de rendimiento</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <h3>Backend</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Express.js</h4>
+            <ul class="feature-list">
+                <li>Framework web minimalista</li>
+                <li>Sistema de middleware</li>
+                <li>Enrutamiento</li>
+                <li>Plantillas de vistas</li>
+                <li>Gran ecosistema de plugins</li>
+                <li>Base para muchos otros frameworks</li>
+            </ul>
+            
+            <pre><code class="lang-javascript">const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+app.get('/api/users', (req, res) => {
+  res.json(users);
+});
+
+app.post('/api/users', (req, res) => {
+  const user = req.body;
+  users.push(user);
+  res.status(201).json(user);
+});
+
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});</code></pre>
+        </div>
+        
+        <div>
+            <h4>NestJS</h4>
+            <ul class="feature-list">
+                <li>Framework inspirado en Angular</li>
+                <li>Arquitectura modular</li>
+                <li>TypeScript por defecto</li>
+                <li>Inyección de dependencias</li>
+                <li>Decoradores para metadatos</li>
+                <li>Soporte para microservicios</li>
+            </ul>
+            
+            <pre><code class="lang-typescript">import { Controller, Get, Post, Body } from '@nestjs/common';
+import { UsersService } from './users.service';
+import { CreateUserDto } from './dto/create-user.dto';
+
+@Controller('users')
+export class UsersController {
+  constructor(private usersService: UsersService) {}
+
+  @Get()
+  findAll() {
+    return this.usersService.findAll();
+  }
+
+  @Post()
+  create(@Body() createUserDto: CreateUserDto) {
+    return this.usersService.create(createUserDto);
+  }
+}</code></pre>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Fastify</h4>
+            <ul class="feature-list">
+                <li>Framework web de alto rendimiento</li>
+                <li>Validación de esquemas integrada</li>
+                <li>Sistema de plugins extensible</li>
+                <li>Bajo overhead</li>
+                <li>TypeScript-ready</li>
+                <li>Muy rápido (hasta 2x más que Express)</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Hapi</h4>
+            <ul class="feature-list">
+                <li>Framework con configuración robusta</li>
+                <li>Enfoque en la configuración vs. código</li>
+                <li>Validación con Joi</li>
+                <li>Gestión de estado y caché</li>
+                <li>Testing integrado</li>
+                <li>Gestión de errores avanzada</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h2>Mejores prácticas</h2>
+
+<div class="card">
+    <h3>Arquitectura y organización de código</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Patrones de diseño comunes</h4>
+            <ul class="feature-list">
+                <li><strong>Módulos:</strong> Organizar código en unidades reutilizables</li>
+                <li><strong>Fachada:</strong> Interfaz simplificada para subsistemas complejos</li>
+                <li><strong>Observador:</strong> Notificar cambios a múltiples observadores</li>
+                <li><strong>Singleton:</strong> Instancia única (con precaución)</li>
+                <li><strong>Factory:</strong> Crear objetos sin especificar la clase exacta</li>
+                <li><strong>Provider:</strong> Inyección de dependencias</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Estructura de proyectos</h4>
+            <pre><code class="lang-text">src/
+├── components/        # Componentes UI (React/Vue)
+│   ├── common/        # Componentes reutilizables
+│   └── features/      # Componentes específicos 
+├── hooks/             # Lógica reutilizable
+├── services/          # Comunicación con APIs
+├── utils/             # Funciones útiles
+├── store/             # Estado global
+│   ├── slices/        # Redux Toolkit o similar
+│   └── index.js       # Configuración de store
+├── pages/             # Rutas/páginas
+├── routes/            # Configuración de rutas
+├── styles/            # Estilos globales
+└── index.js           # Punto de entrada</code></pre>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Performance</h3>
+    
+    <ul class="feature-list">
+        <li><strong>Memoización:</strong> Caché de resultados de funciones puras (useMemo, React.memo)</li>
+        <li><strong>Code splitting:</strong> Dividir código en chunks más pequeños para cargar bajo demanda</li>
+        <li><strong>Tree shaking:</strong> Eliminar código no utilizado del bundle</li>
+        <li><strong>Lazy loading:</strong> Cargar componentes solo cuando son necesarios</li>
+        <li><strong>Web workers:</strong> Operaciones pesadas en hilos separados</li>
+        <li><strong>Virtualización:</strong> Renderizar solo los elementos visibles en listas largas</li>
+    </ul>
+    
+    <h3 class="mt-4">Seguridad</h3>
+    
+    <ul class="feature-list">
+        <li><strong>Sanitización de entrada:</strong> Validar y escapar todas las entradas de usuario</li>
+        <li><strong>HTTPS:</strong> Siempre usar conexiones seguras</li>
+        <li><strong>Tokens JWT:</strong> Almacenarlos de forma segura (httpOnly cookies)</li>
+        <li><strong>Content Security Policy:</strong> Limitar fuentes de scripts y recursos</li>
+        <li><strong>Helmet:</strong> Headers de seguridad en aplicaciones Express</li>
+        <li><strong>CORS:</strong> Configurar correctamente para prevenir acceso no autorizado</li>
+        <li><strong>Dependencias:</strong> Mantener actualizadas y verificar vulnerabilidades</li>
+    </ul>
+</div>
+
+<h2>Nuevas características y futuro</h2>
+
+<div class="card">
+    <h3>Características recientes (ES2022-2023)</h3>
+    
+    <div class="grid-container">
+        <div>
+            <ul class="feature-list">
+                <li><strong>Top-level await:</strong> await fuera de funciones async</li>
+                <li><strong>Error cause:</strong> Propiedad cause para errores</li>
+                <li><strong>Array.prototype.at():</strong> Índices negativos</li>
+                <li><strong>Object.hasOwn():</strong> Alternativa a hasOwnProperty</li>
+                <li><strong>findLast() y findLastIndex():</strong> Buscar desde el final</li>
+            </ul>
+            
+            <pre><code class="lang-javascript">// Top-level await
+const data = await fetch('/api/data');
+
+// Error cause
+try {
+  // ...
+} catch (e) {
+  throw new Error("Error in processing", { cause: e });
+}
+
+// Array.at()
+const last = array.at(-1); // Último elemento
+</code></pre>
+        </div>
+        
+        <div>
+            <ul class="feature-list">
+                <li><strong>Métodos groupBy():</strong> Agrupar arrays/objetos</li>
+                <li><strong>Decorators:</strong> Metaprogramación para clases</li>
+                <li><strong>Records & Tuples:</strong> Valores inmutables</li>
+                <li><strong>Pipeline operator:</strong> Encadenar operaciones</li>
+                <li><strong>Pattern matching:</strong> Simplificar condicionales complejos</li>
+            </ul>
+            
+            <pre><code class="lang-javascript">// groupBy
+const grouped = Object.groupBy(people, 
+  person => person.age > 18 ? 'adult' : 'minor');
+
+// Pipeline operator (propuesta)
+const result = "hello"
+  |> doubleSay
+  |> capitalize
+  |> exclaim;
+</code></pre>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Tendencias actuales</h3>
+    
+    <ul class="feature-list">
+        <li><strong>TypeScript:</strong> Adopción creciente para tipos estáticos</li>
+        <li><strong>WebAssembly:</strong> Rendimiento cercano al nativo</li>
+        <li><strong>Edge Functions:</strong> Código ejecutado cerca de los usuarios</li>
+        <li><strong>Meta-frameworks:</strong> Next.js, Remix, SvelteKit, etc.</li>
+        <li><strong>Islands Architecture:</strong> Hidratación parcial para mejor performance (Astro)</li>
+        <li><strong>Bibliotecas "atómicas":</strong> Componentes pequeños y enfocados vs. frameworks grandes</li>
+        <li><strong>IA para desarrollo:</strong> GitHub Copilot, integración con LLMs</li>
+    </ul>
+</div>
+
+<h2>Recursos de aprendizaje</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div>
+            <h3>Documentación oficial</h3>
+            <ul class="feature-list">
+                <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank">MDN Web Docs - JavaScript</a></li>
+                <li><a href="https://tc39.es/ecma262/" target="_blank">ECMAScript Specification</a></li>
+                <li><a href="https://nodejs.org/es/docs/" target="_blank">Documentación de Node.js</a></li>
+            </ul>
+            
+            <h3 class="mt-4">Cursos y tutoriales</h3>
+            <ul class="feature-list">
+                <li><a href="https://javascript.info/" target="_blank">JavaScript.info</a></li>
+                <li><a href="https://eloquentjavascript.net/" target="_blank">Eloquent JavaScript</a></li>
+                <li><a href="https://frontendmasters.com" target="_blank">Frontend Masters</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Libros recomendados</h3>
+            <ul class="feature-list">
+                <li>"You Don't Know JS" - Kyle Simpson</li>
+                <li>"JavaScript: The Good Parts" - Douglas Crockford</li>
+                <li>"Clean Code in JavaScript" - James Padolsey</li>
+                <li>"Programming TypeScript" - Boris Cherny</li>
+            </ul>
+            
+            <h3 class="mt-4">Herramientas de práctica</h3>
+            <ul class="feature-list">
+                <li><a href="https://codesandbox.io/" target="_blank">CodeSandbox</a></li>
+                <li><a href="https://codepen.io/" target="_blank">CodePen</a></li>
+                <li><a href="https://replit.com/" target="_blank">Replit</a></li>
+                <li><a href="https://leetcode.com/" target="_blank">LeetCode</a> (para algoritmos)</li>
+            </ul>
+        </div>
+    </div>
+</div>
