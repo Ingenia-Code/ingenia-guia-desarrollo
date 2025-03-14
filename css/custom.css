@@ -7,11 +7,108 @@
 .list-group-item.pl-4 {
     padding-left: 2rem !important; /* Indentar subítems */
     background-color: #f8f9fa; /* Fondo claro para subítems */
-    border-left: 3px solid #4e73df; /* Borde izquierdo para destacar */
+    border-left: 3px solid #fa832c; /* Borde izquierdo naranja */
 }
 
 /* Efecto hover para ítems y subítems */
 .list-group-item:hover, .collapse-item:hover {
     background-color: #e9ecef !important; /* Fondo al pasar el mouse */
     cursor: pointer; /* Cambiar cursor a pointer */
+}
+
+/* Eliminar subrayado de los enlaces */
+a {
+    text-decoration: none !important;
+    color: inherit; /* Heredar el color del texto */
+}
+
+/* Cambiar color de los enlaces en hover */
+a:hover {
+    color: #fa832c !important; /* Naranja en hover */
+}
+
+/* Cambiar color de los enlaces en el menú lateral */
+.sidebar .nav-link {
+    color: #000000 !important; /* Texto negro en el menú lateral */
+}
+
+.sidebar .nav-link:hover {
+    color: #ff4219 !important; /* Rojo oscuro en hover */
+}
+
+/* Añadir borde naranja a los ítems de nivel superior en Welcome */
+.list-group-item {
+    border-left: 3px solid #fa832c !important; /* Borde naranja */
+    background-color: #ffffff; /* Fondo blanco */
+}
+
+/* Cambiar el color de fondo en hover */
+.list-group-item:hover {
+    background-color: #f8f9fa !important; /* Fondo claro en hover */
+    border-left: 3px solid #fa832c !important; /* Borde naranja */
+}
+
+/* Cambiar el fondo del menú lateral a un degradado de naranjas */
+.bg-gradient-primary {
+    background-color: #fa832c !important; /* Naranja sólido */
+    background-image: linear-gradient(180deg, #fa832c 10%, #e76b1e 100%) !important; /* Degradado de naranjas */
+}
+
+/* Estilo para el título en la página de bienvenida */
+h1.text-gray-800 {
+    color: #fa832c !important; /* Título en naranja */
+}
+
+/* Estilo para el logo centrado */
+.text-center img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+}
+
+/* Estilo para el icono de menú hamburguesa en el menú lateral */
+.sidebar-brand-icon .fas.fa-bars {
+    font-size: 1.5rem; /* Tamaño del icono */
+}
+
+/* Estilos específicos para los ítems de nivel superior en Welcome */
+.card .list-group-item {
+    border-left: 3px solid #fa832c !important; /* Borde naranja */
+    background-color: #ffffff; /* Fondo blanco */
+}
+
+.card .list-group-item:hover {
+    background-color: #f8f9fa !important; /* Fondo claro en hover */
+    border-left: 3px solid #fa832c !important; /* Borde naranja */
+}
+
+/* Estilos para los subítems en Welcome */
+.card .list-group-item.pl-4 {
+    padding-left: 2rem !important; /* Indentar subítems */
+    background-color: #f8f9fa; /* Fondo claro para subítems */
+    border-left: 3px solid #fa832c; /* Borde izquierdo naranja */
+}
+
+.card .list-group-item.pl-4:hover {
+    background-color: #e9ecef !important; /* Fondo al pasar el mouse */
+    border-left: 3px solid #fa832c; /* Borde izquierdo naranja */
+}
+
+/* Estilos para los enlaces en el menú lateral con fondo naranja */
+.sidebar .nav-link {
+    color: #000000 !important; /* Texto negro en el menú lateral */
+}
+
+.sidebar .nav-link:hover {
+    color: #ff4219 !important; /* Rojo oscuro en hover */
+}
+
+/* Estilos para los enlaces en el menú lateral con fondo naranja */
+.sidebar .collapse-item {
+    color: #000000 !important; /* Texto negro en el menú lateral */
+}
+
+.sidebar .collapse-item:hover {
+    color: #ff4219 !important; /* Rojo oscuro en hover */
 }

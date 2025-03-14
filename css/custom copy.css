@@ -1,0 +1,71 @@
+/* Estilos para los subítems en la barra lateral */
+.collapse-item.pl-4 {
+    padding-left: 2rem !important; /* Indentar subítems */
+}
+
+/* Estilos para los subítems en el home */
+.list-group-item.pl-4 {
+    padding-left: 2rem !important; /* Indentar subítems */
+    background-color: #f8f9fa; /* Fondo claro para subítems */
+    border-left: 3px solid #fa832c; /* Borde izquierdo para destacar */
+}
+
+/* Efecto hover para ítems y subítems */
+.list-group-item:hover, .collapse-item:hover {
+    background-color: #e9ecef !important; /* Fondo al pasar el mouse */
+    cursor: pointer; /* Cambiar cursor a pointer */
+}
+
+
+/* Añadir borde naranja a los ítems de nivel superior en Welcome */
+.list-group-item {
+    border-left: 3px solid #fa832c !important; /* Borde naranja */
+}
+
+/* Cambiar el color de fondo en hover */
+.list-group-item:hover {
+    background-color: #f8f9fa !important; /* Fondo claro en hover */
+    border-left: 3px solid #fa832c !important; /* Borde naranja */
+}
+
+
+/* Añadir borde naranja a los ítems de nivel superior en Welcome */
+.list-group-item {
+    border-left: 3px solid #fa832c !important; /* Borde naranja */
+}
+
+/* Cambiar el color de fondo en hover */
+.list-group-item:hover {
+    background-color: #f8f9fa !important; /* Fondo claro en hover */
+    border-left: 3px solid #fa832c !important; /* Borde naranja */
+}
+
+
+
+
+
+/* Añadir estilo para el título */
+h1.text-gray-800 {
+    color: #fa832c !important;
+}
+
+/* Eliminar subrayado de los enlaces */
+a {
+    text-decoration: none !important;
+}
+
+/* Cambiar color de los enlaces en hover */
+a:hover {
+    color: #fa832c !important; /* Naranja en hover */
+}
+
+/* Cambiar color de los enlaces en el menú lateral */
+.sidebar .nav-link {
+    color: #ffffff !important; /* Texto blanco en el menú lateral */
+}
+
+.sidebar .nav-link:hover {
+    color: #ffa64d !important; /* Naranja más claro en hover */
+}
+
+

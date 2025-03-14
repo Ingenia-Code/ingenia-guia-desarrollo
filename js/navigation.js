@@ -32,22 +32,23 @@ function buildNavigationMenu() {
 
         // Crear el enlace de la sección
         const sectionLink = document.createElement('a');
-        sectionLink.className = 'nav-link collapsed';
+        sectionLink.className = 'nav-link';
         sectionLink.href = '#';
-        sectionLink.setAttribute('data-toggle', 'collapse');
-        sectionLink.setAttribute('data-target', `#collapse${section.section}`);
         sectionLink.innerHTML = `
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-bars"></i>
             <span>${section.title}</span>
         `;
+        sectionLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Evitar el comportamiento por defecto del enlace
+            toggleSection(section.section); // Expandir/colapsar la sección
+        });
         sectionElement.appendChild(sectionLink);
 
         // Crear el contenedor colapsable para los ítems de la sección
         const collapseDiv = document.createElement('div');
         collapseDiv.id = `collapse${section.section}`;
-        collapseDiv.className = 'collapse';
+        collapseDiv.className = 'collapse'; // Colapsado por defecto
         collapseDiv.setAttribute('aria-labelledby', `heading${section.section}`);
-        collapseDiv.setAttribute('data-parent', '#accordionSidebar');
 
         const collapseInner = document.createElement('div');
         collapseInner.className = 'bg-white py-2 collapse-inner rounded';
@@ -59,7 +60,10 @@ function buildNavigationMenu() {
             itemLink.className = 'collapse-item';
             itemLink.href = `#${section.section}/${item.item}`;
             itemLink.textContent = item.title;
-            itemLink.addEventListener('click', () => loadContent(`${section.section}/${item.item}`));
+            itemLink.addEventListener('click', () => {
+                loadContent(`${section.section}/${item.item}`);
+                collapseOtherSections(section.section); // Colapsar otras secciones
+            });
             collapseInner.appendChild(itemLink);
 
             // Si hay subítems, crearlos
@@ -69,7 +73,10 @@ function buildNavigationMenu() {
                     subItemLink.className = 'collapse-item pl-4'; // Añadir padding para indentar
                     subItemLink.href = `#${section.section}/${item.item}/${subItem.subitem}`;
                     subItemLink.textContent = subItem.title;
-                    subItemLink.addEventListener('click', () => loadContent(`${section.section}/${item.item}/${subItem.subitem}`));
+                    subItemLink.addEventListener('click', () => {
+                        loadContent(`${section.section}/${item.item}/${subItem.subitem}`);
+                        collapseOtherSections(section.section); // Colapsar otras secciones
+                    });
                     collapseInner.appendChild(subItemLink);
                 });
             }
@@ -81,17 +88,26 @@ function buildNavigationMenu() {
     });
 }
 
-function setupNavigationEvents() {
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function () {
-            const target = this.getAttribute('data-target');
-            document.querySelectorAll('.collapse').forEach(collapse => {
-                if (collapse.id !== target.replace('#', '')) {
-                    collapse.classList.remove('show');
-                }
-            });
-        });
+function toggleSection(sectionId) {
+    const collapseDiv = document.getElementById(`collapse${sectionId}`);
+    if (collapseDiv.classList.contains('show')) {
+        collapseDiv.classList.remove('show');
+    } else {
+        collapseOtherSections(sectionId); // Colapsar otras secciones
+        collapseDiv.classList.add('show');
+    }
+}
+
+function collapseOtherSections(currentSection) {
+    document.querySelectorAll('.collapse').forEach(collapse => {
+        if (!collapse.id.includes(currentSection)) {
+            collapse.classList.remove('show');
+        }
     });
+}
+
+function setupNavigationEvents() {
+    // No necesitamos eventos adicionales aquí
 }
 
 function loadContent(path) {
@@ -162,7 +178,10 @@ function showWelcomePage() {
     contentDiv.innerHTML = `
         <div class="container-fluid">
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Guía de Desarrollo Ingenia 2025</h1>
+                <div class="text-center w-100">
+                    <img src='img/Logo-Ingenia-Colour.png' class="mb-3">
+                    <h1 class="h3 mb-0 text-gray-800" style="color: #fa832c;">Guía de Desarrollo Ingenia 2025</h1>
+                </div>
             </div>
             <div class="row">
                 ${menuStructure.map(section => `
@@ -183,12 +202,19 @@ function showWelcomePage() {
                                     <ul class="list-group">
                                         ${section.items.map(item => `
                                             <li class="list-group-item" data-section="${section.section}" data-item="${item.item}">
-                                                ${item.title}
+                                                <div class="d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#collapse${section.section}-${item.item}">
+                                                    ${item.title}
+                                                    <i class="fas fa-chevron-down"></i>
+                                                </div>
                                                 ${item.subitems && item.subitems.length > 0 ? `
-                                                    <ul class="list-group mt-2">
+                                                    <ul class="list-group mt-2 collapse" id="collapse${section.section}-${item.item}">
+                                                        <!-- Agregar el enlace de "Introducción" -->
+                                                        <li class="list-group-item pl-4" data-section="${section.section}" data-item="${item.item}" data-subitem="introduccion">
+                                                            <a href="#${section.section}/${item.item}/introduccion" onclick="loadContent('${section.section}/${item.item}/introduccion')">Introducción</a>
+                                                        </li>
                                                         ${item.subitems.map(subItem => `
                                                             <li class="list-group-item pl-4" data-section="${section.section}" data-item="${item.item}" data-subitem="${subItem.subitem}">
-                                                                ${subItem.title}
+                                                                <a href="#${section.section}/${item.item}/${subItem.subitem}" onclick="loadContent('${section.section}/${item.item}/${subItem.subitem}')">${subItem.title}</a>
                                                             </li>
                                                         `).join('')}
                                                     </ul>
@@ -207,14 +233,17 @@ function showWelcomePage() {
 
     // Agregar eventos a los ítems y subítems
     document.querySelectorAll('.list-group-item').forEach(item => {
-        item.addEventListener('click', function () {
-            const section = this.dataset.section;
-            const item = this.dataset.item;
-            const subitem = this.dataset.subitem;
-            if (subitem) {
-                loadContent(`${section}/${item}/${subitem}`);
-            } else {
-                loadContent(`${section}/${item}`);
+        item.addEventListener('click', function (event) {
+            // Evitar que el clic en el acordeón redirija a otra página
+            if (event.target.tagName === 'A') {
+                const section = this.dataset.section;
+                const item = this.dataset.item;
+                const subitem = this.dataset.subitem;
+                if (subitem) {
+                    loadContent(`${section}/${item}/${subitem}`);
+                } else {
+                    loadContent(`${section}/${item}`);
+                }
             }
         });
     });
