@@ -1,0 +1,17 @@
+/* Estilos para los subítems en la barra lateral */
+.collapse-item.pl-4 {
+    padding-left: 2rem !important; /* Indentar subítems */
+}
+
+/* Estilos para los subítems en el home */
+.list-group-item.pl-4 {
+    padding-left: 2rem !important; /* Indentar subítems */
+    background-color: #f8f9fa; /* Fondo claro para subítems */
+    border-left: 3px solid #4e73df; /* Borde izquierdo para destacar */
+}
+
+/* Efecto hover para ítems y subítems */
+.list-group-item:hover, .collapse-item:hover {
+    background-color: #e9ecef !important; /* Fondo al pasar el mouse */
+    cursor: pointer; /* Cambiar cursor a pointer */
+}

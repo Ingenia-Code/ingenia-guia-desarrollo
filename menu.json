@@ -1,0 +1,146 @@
+{
+  "menu": [
+    {
+      "section": "metodologias",
+      "title": "Gestión y Colaboración",
+      "items": [
+        {
+          "item": "agile",
+          "title": "Metodologías Ágiles",
+          "subitems": [
+            { "subitem": "scrum", "title": "Scrum", "url": "contenido/metodologias/agile/scrum.html" },
+            { "subitem": "kanban", "title": "Kanban", "url": "contenido/metodologias/agile/kanban.html" },
+            { "subitem": "xp", "title": "XP", "url": "contenido/metodologias/agile/xp.html" },
+            { "subitem": "safe", "title": "SAFe", "url": "contenido/metodologias/agile/safe.html" }
+          ]
+        },
+        {
+          "item": "predictive",
+          "title": "Metodologías Predictivas",
+          "subitems": [
+            { "subitem": "waterfall", "title": "Waterfall", "url": "contenido/metodologias/predictive/waterfall.html" },
+            { "subitem": "vmodel", "title": "Modelo en V", "url": "contenido/metodologias/predictive/vmodel.html" },
+            { "subitem": "bigbang", "title": "Big Bang", "url": "contenido/metodologias/predictive/bigbang.html" },
+            { "subitem": "prototipadoevolutivo", "title": "Prototipado Evolutivo", "url": "contenido/metodologias/predictive/prototipadoevolutivo.html" },
+            { "subitem": "rad", "title": "RAD", "url": "contenido/metodologias/predictive/rad.html" },
+            { "subitem": "rup", "title": "RUP", "url": "contenido/metodologias/predictive/rup.html" }
+          ]
+        },
+        {
+          "item": "gestion-proyectos",
+          "title": "Herramientas de Gestión",
+          "subitems": [
+            { "subitem": "gestion-trello", "title": "Trello", "url": "contenido/metodologias/gestion-proyectos/gestion-trello.html" },
+            { "subitem": "gestion-monday", "title": "Monday", "url": "contenido/metodologias/gestion-proyectos/gestion-monday.html" },
+            { "subitem": "gestion-linear", "title": "Linear", "url": "contenido/metodologias/gestion-proyectos/gestion-linear.html" },
+            { "subitem": "gestion-otras", "title": "Otras herramientas", "url": "contenido/metodologias/gestion-proyectos/gestion-otras.html" }
+          ]
+        },
+        {
+          "item": "documentacion",
+          "title": "Herramientas de Documentación",
+          "subitems": [
+            { "subitem": "doc-gitbook", "title": "GitBook", "url": "contenido/metodologias/documentacion/doc-gitbook.html" },
+            { "subitem": "doc-confluence", "title": "Confluence", "url": "contenido/metodologias/documentacion/doc-confluence.html" },
+            { "subitem": "doc-mermaid", "title": "Mermaid", "url": "contenido/metodologias/documentacion/doc-mermaid.html" },
+            { "subitem": "doc-diagramas", "title": "Diagramas", "url": "contenido/metodologias/documentacion/doc-diagramas.html" }
+          ]
+        }
+      ]
+    },
+    {
+      "section": "fundamentos",
+      "title": "Fundamentos de Programación",
+      "items": [
+        {
+          "item": "lenguajes",
+          "title": "Lenguajes",
+          "subitems": [
+            { "subitem": "lenguajes-python", "title": "Python", "url": "contenido/fundamentos/lenguajes/lenguajes-python.html" },
+            { "subitem": "lenguajes-javascript", "title": "JavaScript", "url": "contenido/fundamentos/lenguajes/lenguajes-javascript.html" },
+            { "subitem": "lenguajes-java", "title": "Java", "url": "contenido/fundamentos/lenguajes/lenguajes-java.html" },
+            { "subitem": "lenguajes-csharp", "title": "C#", "url": "contenido/fundamentos/lenguajes/lenguajes-csharp.html" }
+          ]
+        },
+        {
+          "item": "ides",
+          "title": "IDEs y Editores",
+          "subitems": [
+            { "subitem": "ides-python", "title": "Python", "url": "contenido/fundamentos/ides/ides-python.html" },
+            { "subitem": "ides-javascript", "title": "JavaScript", "url": "contenido/fundamentos/ides/ides-javascript.html" },
+            { "subitem": "ides-java", "title": "Java", "url": "contenido/fundamentos/ides/ides-java.html" },
+            { "subitem": "ides-dotnet", "title": ".NET", "url": "contenido/fundamentos/ides/ides-dotnet.html" },
+            { "subitem": "ides-vscode", "title": "VSCode", "url": "contenido/fundamentos/ides/ides-vscode.html" }
+          ]
+        },
+        {
+          "item": "frameworks",
+          "title": "Frameworks",
+          "subitems": [
+            { "subitem": "frameworks-python", "title": "Frameworks Python", "url": "contenido/fundamentos/frameworks/frameworks-python.html" },
+            { "subitem": "frameworks-javascript", "title": "Frameworks JavaScript", "url": "contenido/fundamentos/frameworks/frameworks-javascript.html" },
+            { "subitem": "frameworks-dotnet", "title": "Frameworks .NET", "url": "contenido/fundamentos/frameworks/frameworks-dotnet.html" },
+            { "subitem": "frameworks-mobile", "title": "Frameworks Mobile", "url": "contenido/fundamentos/frameworks/frameworks-mobile.html" }
+          ]
+        },
+        {
+          "item": "bases-datos",
+          "title": "Bases de Datos",
+          "subitems": [
+            { "subitem": "bd-sql", "title": "Bases de Datos SQL", "url": "contenido/fundamentos/bases-datos/bd-sql.html" },
+            { "subitem": "bd-nosql", "title": "Bases de Datos NoSQL", "url": "contenido/fundamentos/bases-datos/bd-nosql.html" },
+            { "subitem": "bd-other", "title": "Otras Bases de Datos", "url": "contenido/fundamentos/bases-datos/bd-other.html" }
+          ]
+        }
+      ]
+    },
+    {
+      "section": "herramientas",
+      "title": "Herramientas",
+      "items": [
+        {
+          "item": "cloud",
+          "title": "Cloud y DevOps",
+          "subitems": [
+            { "subitem": "cloud-aws", "title": "AWS", "url": "contenido/herramientas/cloud/cloud-aws.html" },
+            { "subitem": "cloud-azure", "title": "Azure", "url": "contenido/herramientas/cloud/cloud-azure.html" },
+            { "subitem": "cloud-gcp", "title": "Google Cloud", "url": "contenido/herramientas/cloud/cloud-gcp.html" },
+            { "subitem": "cloud-firebase", "title": "Firebase", "url": "contenido/herramientas/cloud/cloud-firebase.html" },
+            { "subitem": "cloud-devops", "title": "Herramientas DevOps", "url": "contenido/herramientas/cloud/cloud-devops.html" },
+            { "subitem": "cloud-docker", "title": "Docker y Kubernetes", "url": "contenido/herramientas/cloud/cloud-docker.html" }
+          ]
+        },
+        {
+          "item": "testing",
+          "title": "Testing y QA",
+          "subitems": [
+            { "subitem": "testing-unit", "title": "Pruebas Unitarias", "url": "contenido/herramientas/testing/testing-unit.html" },
+            { "subitem": "testing-integration", "title": "Pruebas de Integración", "url": "contenido/herramientas/testing/testing-integration.html" },
+            { "subitem": "testing-e2e", "title": "Pruebas End-to-End", "url": "contenido/herramientas/testing/testing-e2e.html" },
+            { "subitem": "testing-security", "title": "Pruebas de Seguridad", "url": "contenido/herramientas/testing/testing-security.html" }
+          ]
+        },
+        {
+          "item": "diseno",
+          "title": "Diseño y UX",
+          "subitems": [
+            { "subitem": "diseno-ui", "title": "Herramientas UI", "url": "contenido/herramientas/diseno/diseno-ui.html" },
+            { "subitem": "diseno-prototipos", "title": "Herramientas de Prototipado", "url": "contenido/herramientas/diseno/diseno-prototipos.html" },
+            { "subitem": "diseno-colaboracion", "title": "Herramientas de Colaboración", "url": "contenido/herramientas/diseno/diseno-colaboracion.html" },
+            { "subitem": "diseno-diagramas", "title": "Diagramas y Flujos", "url": "contenido/herramientas/diseno/diseno-diagramas.html" }
+          ]
+        },
+        {
+          "item": "ia",
+          "title": "IA para Desarrollo",
+          "subitems": [
+            { "subitem": "ia-codigo", "title": "Asistentes de Código", "url": "contenido/herramientas/ia/ia-codigo.html" },
+            { "subitem": "ia-chat", "title": "Chatbots y LLMs", "url": "contenido/herramientas/ia/ia-chat.html" },
+            { "subitem": "ia-imagenes", "title": "Generación de Imágenes", "url": "contenido/herramientas/ia/ia-imagenes.html" },
+            { "subitem": "ia-otras", "title": "Otras herramientas IA", "url": "contenido/herramientas/ia/ia-otras.html" }
+          ]
+        }
+      ]
+    }
+  ]
+}

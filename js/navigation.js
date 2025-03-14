@@ -1,383 +1,221 @@
-// Estructura de navegación
-const navigationStructure = {
-  "metodologias": {
-    "title": "Gestión y Colaboración",
-    "items": {
-      "agile": {
-        "title": "Metodologías Ágiles",
-        "subitems": {
-          "scrum": "Scrum",
-          "kanban": "Kanban",
-          "xp": "XP",
-          "safe": "SAFe"
-        }
-      },
-      "predictive": {
-        "title": "Metodologías Predictivas",
-        "subitems": {
-          "waterfall": "Waterfall",
-          "vmodel": "Modelo en V",
-          "bigbang": "Big Bang",
-          "prototipadoevolutivo": "Prototipado Evolutivo",
-          "rad": "RAD",
-          "rup": "RUP"
-        }
-      },
+let menuStructure = [];
+let contentCache = {}; // Cache para almacenar contenido ya cargado
 
-      "gestion-proyectos": {
-        "title": "Herramientas de Gestión",
-        "subitems": {
-          "gestion-trello": "Trello",
-          "gestion-monday": "Monday",
-          "gestion-linear": "Linear",
-          "gestion-otras": "Otras herramientas"
-        }
-      },
-      "documentacion": {
-        "title": "Herramientas de Documentación",
-        "subitems": {
-          "doc-gitbook": "GitBook",
-          "doc-confluence": "Confluence",
-          "doc-mermaid": "Mermaid",
-          "doc-diagramas": "Diagramas"
-        }
-      }
-    
+fetch('menu.json')
+    .then(response => response.json())
+    .then(data => {
+        menuStructure = data.menu;
+        initializeNavigation();
+    })
+    .catch(error => console.error('Error cargando el menú:', error));
 
-
+function initializeNavigation() {
+    buildNavigationMenu();
+    setupNavigationEvents();
+    if (window.location.hash) {
+        const path = window.location.hash.substring(1);
+        loadContent(path);
+    } else {
+        showWelcomePage();
     }
-  },
-  "fundamentos": {
-    "title": "Fundamentos de Programación",
-    "items": {
-      "lenguajes": {
-        "title": "Lenguajes",
-        "subitems": {
-          "lenguajes-python": "Python",
-          "lenguajes-javascript": "JavaScript",
-          "lenguajes-java": "Java",
-          "lenguajes-csharp": "C#",
-          // "lenguajes-otros": "Otros lenguajes"
-        }
-      },
-      "ides": {
-        "title": "IDEs y Editores",
-        "subitems": {
-          "ides-python": "Python",
-          "ides-javascript": "JavaScript",
-          "ides-java": "Java",
-          "ides-dotnet": ".NET",
-          "ides-vscode": "VSCode"
-        }
-      },
-      "frameworks": {
-        "title": "Frameworks",
-        "subitems": {
-          "frameworks-python": "Frameworks Python",
-          "frameworks-javascript": "Frameworks JavaScript",
-          "frameworks-dotnet": "Frameworks .NET",
-          "frameworks-mobile": "Frameworks Mobile"
-        }
-      },
-      "bases-datos": {
-        "title": "Bases de Datos",
-        "subitems": {
-          "bd-sql": "Bases de Datos SQL",
-          "bd-nosql": "Bases de Datos NoSQL",
-          "bd-other": "Otras Bases de Datos"
-        }
-      }
-    }
-  },
-  "herramientas": {
-    "title": "Herramientas",
-    "items": {
-      "cloud": {
-        "title": "Cloud y DevOps",
-        "subitems": {
-          "cloud-aws": "AWS",
-          "cloud-azure": "Azure",
-          "cloud-gcp": "Google Cloud",
-          "cloud-firebase": "Firebase",
-          "cloud-devops": "Herramientas DevOps",
-          "cloud-docker": "Docker y Kubernetes"
-        }
-      },
-      "testing": {
-        "title": "Testing y QA",
-        "subitems": {
-          "testing-unit": "Pruebas Unitarias",
-          "testing-integration": "Pruebas de Integración",
-          "testing-e2e": "Pruebas End-to-End",
-          "testing-security": "Pruebas de Seguridad"
-        }
-      },
-      "diseno": {
-        "title": "Diseño y UX",
-        "subitems": {
-          "diseno-ui": "Herramientas UI",
-          "diseno-prototipos": "Herramientas de Prototipado",
-          "diseno-colaboracion": "Herramientas de Colaboración",
-          "diseno-diagramas": "Diagramas y Flujos"
-        }
-      },
-      "ia": {
-        "title": "IA para Desarrollo",
-        "subitems": {
-          "ia-codigo": "Asistentes de Código",
-          "ia-chat": "Chatbots y LLMs",
-          "ia-imagenes": "Generación de Imágenes",
-          "ia-otras": "Otras herramientas IA"
-        }
-      }
-    }
-  },
+}
 
-
-};
-
-// Inicializar la navegación
-document.addEventListener('DOMContentLoaded', function () {
-  // Construir menú de navegación
-  buildNavigationMenu();
-  
-  // Configurar eventos
-  setupNavigationEvents();
-  
-  // Cargar contenido por defecto (página de bienvenida)
-  if (window.location.hash) {
-    // Si hay un hash en la URL, cargar ese contenido
-    const path = window.location.hash.substring(1);
-    loadContent(path);
-  } else {
-    // Cargar la página de bienvenida
-    showWelcomePage();
-  }
-});
-
-// Construir el menú de navegación
 function buildNavigationMenu() {
-  const navContainer = document.getElementById('main-nav');
-  if (!navContainer) return;
-  
-  // Limpiar el contenedor
-  navContainer.innerHTML = '';
-  
-  // Construir cada sección
-  for (const [sectionKey, section] of Object.entries(navigationStructure)) {
-    const sectionElement = document.createElement('div');
-    sectionElement.className = 'nav-section';
-    
-    // Título de la sección
-    const sectionTitle = document.createElement('h2');
-    sectionTitle.className = 'nav-section-title';
-    sectionTitle.textContent = section.title;
-    sectionElement.appendChild(sectionTitle);
-    
-    // Elementos de la sección
-    for (const [itemKey, item] of Object.entries(section.items)) {
-      const navItem = document.createElement('div');
-      navItem.className = 'nav-item';
-      navItem.dataset.section = sectionKey;
-      navItem.dataset.item = itemKey;
-      navItem.textContent = item.title;
-      sectionElement.appendChild(navItem);
-      
-      // Subelementos (si existen)
-      if (item.subitems && Object.keys(item.subitems).length > 0) {
-        const subNav = document.createElement('div');
-        subNav.className = 'sub-nav';
-        subNav.id = `${sectionKey}-${itemKey}-subnav`;
-        
-        for (const [subItemKey, subItemTitle] of Object.entries(item.subitems)) {
-          const subNavItem = document.createElement('div');
-          subNavItem.className = 'sub-nav-item';
-          subNavItem.dataset.section = sectionKey;
-          subNavItem.dataset.item = itemKey;
-          subNavItem.dataset.subitem = subItemKey;
-          subNavItem.textContent = subItemTitle;
-          subNav.appendChild(subNavItem);
-        }
-        
-        sectionElement.appendChild(subNav);
-      }
-    }
-    
-    navContainer.appendChild(sectionElement);
-  }
-}
+    const navContainer = document.getElementById('main-nav');
+    if (!navContainer) return;
+    navContainer.innerHTML = '';
 
-// Configurar eventos de navegación
-function setupNavigationEvents() {
-  // Eventos para elementos del menú principal
-  document.querySelectorAll('.nav-item').forEach(item => {
-    item.addEventListener('click', function() {
-      const section = this.dataset.section;
-      const item = this.dataset.item;
-      
-      // Toggle del submenú
-      const subNav = document.getElementById(`${section}-${item}-subnav`);
-      if (subNav) {
-        document.querySelectorAll('.sub-nav').forEach(nav => {
-          if (nav !== subNav) nav.classList.remove('expanded');
+    menuStructure.forEach(section => {
+        // Crear el elemento de la sección
+        const sectionElement = document.createElement('li');
+        sectionElement.className = 'nav-item';
+
+        // Crear el enlace de la sección
+        const sectionLink = document.createElement('a');
+        sectionLink.className = 'nav-link collapsed';
+        sectionLink.href = '#';
+        sectionLink.setAttribute('data-toggle', 'collapse');
+        sectionLink.setAttribute('data-target', `#collapse${section.section}`);
+        sectionLink.innerHTML = `
+            <i class="fas fa-fw fa-cog"></i>
+            <span>${section.title}</span>
+        `;
+        sectionElement.appendChild(sectionLink);
+
+        // Crear el contenedor colapsable para los ítems de la sección
+        const collapseDiv = document.createElement('div');
+        collapseDiv.id = `collapse${section.section}`;
+        collapseDiv.className = 'collapse';
+        collapseDiv.setAttribute('aria-labelledby', `heading${section.section}`);
+        collapseDiv.setAttribute('data-parent', '#accordionSidebar');
+
+        const collapseInner = document.createElement('div');
+        collapseInner.className = 'bg-white py-2 collapse-inner rounded';
+
+        // Recorrer los ítems de la sección
+        section.items.forEach(item => {
+            // Crear el enlace del ítem
+            const itemLink = document.createElement('a');
+            itemLink.className = 'collapse-item';
+            itemLink.href = `#${section.section}/${item.item}`;
+            itemLink.textContent = item.title;
+            itemLink.addEventListener('click', () => loadContent(`${section.section}/${item.item}`));
+            collapseInner.appendChild(itemLink);
+
+            // Si hay subítems, crearlos
+            if (item.subitems && item.subitems.length > 0) {
+                item.subitems.forEach(subItem => {
+                    const subItemLink = document.createElement('a');
+                    subItemLink.className = 'collapse-item pl-4'; // Añadir padding para indentar
+                    subItemLink.href = `#${section.section}/${item.item}/${subItem.subitem}`;
+                    subItemLink.textContent = subItem.title;
+                    subItemLink.addEventListener('click', () => loadContent(`${section.section}/${item.item}/${subItem.subitem}`));
+                    collapseInner.appendChild(subItemLink);
+                });
+            }
         });
-        subNav.classList.toggle('expanded');
-      }
-      
-      // Cargar contenido
-      const contentPath = `${section}/${item}`;
-      loadContent(contentPath);
-      
-      // Actualizar estado activo
-      document.querySelectorAll('.nav-item').forEach(el => {
-        el.classList.remove('active');
-      });
-      this.classList.add('active');
-      
-      // Actualizar hash de la URL
-      window.location.hash = contentPath;
+
+        collapseDiv.appendChild(collapseInner);
+        sectionElement.appendChild(collapseDiv);
+        navContainer.appendChild(sectionElement);
     });
-  });
-  
-  // Eventos para subelementos
-  document.querySelectorAll('.sub-nav-item').forEach(item => {
-    item.addEventListener('click', function(e) {
-      e.stopPropagation(); // Evitar que se propague al menú principal
-      
-      const section = this.dataset.section;
-      const item = this.dataset.item;
-      const subitem = this.dataset.subitem;
-      
-      // Cargar contenido específico
-      const contentPath = `${section}/${item}/${subitem}`;
-      loadContent(contentPath);
-      
-      // Actualizar estado activo
-      document.querySelectorAll('.sub-nav-item').forEach(el => {
-        el.classList.remove('active');
-      });
-      this.classList.add('active');
-      
-      // Actualizar hash de la URL
-      window.location.hash = contentPath;
-    });
-  });
 }
 
-// Cargar contenido
+function setupNavigationEvents() {
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function () {
+            const target = this.getAttribute('data-target');
+            document.querySelectorAll('.collapse').forEach(collapse => {
+                if (collapse.id !== target.replace('#', '')) {
+                    collapse.classList.remove('show');
+                }
+            });
+        });
+    });
+}
+
 function loadContent(path) {
-  const contentDiv = document.getElementById('content');
-  if (!contentDiv) return;
-  
-  // Separar la ruta en componentes
-  const pathParts = path.split('/');
-  const section = pathParts[0];
-  const item = pathParts[1];
-  const subitem = pathParts[2];
-  
-  let contentPath = '';
-  
-  if (subitem) {
-    // Cargar contenido específico de subitem
-    contentPath = `contenido/${section}/${item}/${subitem}.html`;
-  } else if (item) {
-    // Cargar contenido de item
-    contentPath = `contenido/${section}/${item}.html`;
-  } else {
-    // Cargar contenido general de sección
-    contentPath = `contenido/${section}.html`;
-  }
-  
-  // Realizar solicitud
-  fetch(contentPath)
-    .then(response => {
-      if (response.ok) {
-        return response.text();
-      } else {
-        throw new Error('Contenido no disponible');
-      }
-    })
-    .then(html => {
-      contentDiv.innerHTML = html;
-      
-      // Actualizar la navegación
-      updateNavigationState(section, item, subitem);
-    })
-    .catch(error => {
-      contentDiv.innerHTML = `
-        <div class="card">
-          <h2 class="text-primary">Contenido no disponible</h2>
-          <p>El contenido para "${path}" está en desarrollo o no existe.</p>
-          <p class="mt-4">Error: ${error.message}</p>
-        </div>
-      `;
-    });
-}
+    const contentDiv = document.getElementById('content');
+    if (!contentDiv) return;
 
-// Actualizar el estado de navegación
-function updateNavigationState(section, item, subitem) {
-  // Actualizar elementos del menú principal
-  document.querySelectorAll('.nav-item').forEach(el => {
-    el.classList.remove('active');
-    
-    if (el.dataset.section === section && el.dataset.item === item) {
-      el.classList.add('active');
-      
-      // Expandir el submenú correspondiente
-      const subNav = document.getElementById(`${section}-${item}-subnav`);
-      if (subNav) {
-        subNav.classList.add('expanded');
-      }
+    // Verificar si el contenido ya está en caché
+    if (contentCache[path]) {
+        contentDiv.innerHTML = contentCache[path];
+        updateNavigationState(...path.split('/'));
+        return;
     }
-  });
-  
-  // Actualizar subelementos
-  if (subitem) {
-    document.querySelectorAll('.sub-nav-item').forEach(el => {
-      el.classList.remove('active');
-      
-      if (el.dataset.section === section && 
-          el.dataset.item === item && 
-          el.dataset.subitem === subitem) {
-        el.classList.add('active');
-      }
-    });
-  }
+
+    const pathParts = path.split('/');
+    const section = pathParts[0];
+    const item = pathParts[1];
+    const subitem = pathParts[2];
+    let contentPath = '';
+
+    if (subitem) {
+        contentPath = `contenido/${section}/${item}/${subitem}.html`;
+    } else if (item) {
+        contentPath = `contenido/${section}/${item}.html`;
+    } else if (section) {
+        contentPath = `contenido/${section}.html`;
+    } else {
+        showWelcomePage();
+        return;
+    }
+
+    fetch(contentPath)
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                throw new Error('Contenido no disponible');
+            }
+        })
+        .then(html => {
+            contentDiv.innerHTML = html;
+            contentCache[path] = html; // Almacenar en caché
+            updateNavigationState(section, item, subitem);
+        })
+        .catch(error => {
+            contentDiv.innerHTML = `
+                <div class="card">
+                    <h2 class="text-primary">Contenido no disponible</h2>
+                    <p>El contenido para "${path}" está en desarrollo o no existe.</p>
+                    <p class="mt-4">Error: ${error.message}</p>
+                    <a href="#" onclick="showWelcomePage()">Volver al inicio</a>
+                </div>
+            `;
+        });
 }
 
-// Mostrar página de bienvenida
+function updateNavigationState(section, item, subitem) {
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${section}/${item}`) {
+            link.classList.add('active');
+        }
+    });
+}
+
 function showWelcomePage() {
-  const contentDiv = document.getElementById('content');
-  if (!contentDiv) return;
-  
-  contentDiv.innerHTML = `
-    <div class="welcome-screen">
-      <h1 class="welcome-title">Guía de Desarrollo Ingenia 2025</h1>
-      <p class="welcome-subtitle">Recursos y herramientas para el desarrollo de software moderno</p>
-      
-      <div class="grid-container">
-        <div class="card">
-          <h2 class="text-primary">Contenido Destacado</h2>
-          <ul class="feature-list">
-            <li>Guías de herramientas modernas</li>
-            <li>Metodologías ágiles</li>
-            <li>Mejores prácticas</li>
-            <li>Recursos interactivos</li>
-          </ul>
+    const contentDiv = document.getElementById('content');
+    if (!contentDiv) return;
+    contentDiv.innerHTML = `
+        <div class="container-fluid">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Guía de Desarrollo Ingenia 2025</h1>
+            </div>
+            <div class="row">
+                ${menuStructure.map(section => `
+                    <div class="col-xl-4 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            ${section.title}</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">${section.items[0].title}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-cogs fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <ul class="list-group">
+                                        ${section.items.map(item => `
+                                            <li class="list-group-item" data-section="${section.section}" data-item="${item.item}">
+                                                ${item.title}
+                                                ${item.subitems && item.subitems.length > 0 ? `
+                                                    <ul class="list-group mt-2">
+                                                        ${item.subitems.map(subItem => `
+                                                            <li class="list-group-item pl-4" data-section="${section.section}" data-item="${item.item}" data-subitem="${subItem.subitem}">
+                                                                ${subItem.title}
+                                                            </li>
+                                                        `).join('')}
+                                                    </ul>
+                                                ` : ''}
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
         </div>
-        
-        <div class="card">
-          <h2 class="text-primary">Actualizaciones Recientes</h2>
-          <ul class="feature-list">
-            <li>Nuevas herramientas de IA</li>
-            <li>Frameworks modernos</li>
-            <li>Calculadora ágil</li>
-            <li>Guías de implementación</li>
-          </ul>
-        </div>
-      </div>
-      
-      <p>Selecciona una sección del menú lateral para comenzar a explorar.</p>
-    </div>
-  `;
+    `;
+
+    // Agregar eventos a los ítems y subítems
+    document.querySelectorAll('.list-group-item').forEach(item => {
+        item.addEventListener('click', function () {
+            const section = this.dataset.section;
+            const item = this.dataset.item;
+            const subitem = this.dataset.subitem;
+            if (subitem) {
+                loadContent(`${section}/${item}/${subitem}`);
+            } else {
+                loadContent(`${section}/${item}`);
+            }
+        });
+    });
 }
