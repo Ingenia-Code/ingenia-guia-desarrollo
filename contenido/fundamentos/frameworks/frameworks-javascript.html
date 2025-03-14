@@ -1,0 +1,283 @@
+<h1>Frameworks de JavaScript</h1>
+
+<p>JavaScript es un lenguaje versátil que cuenta con una amplia variedad de frameworks y bibliotecas para diferentes propósitos, desde desarrollo frontend hasta backend y aplicaciones móviles. Los frameworks más populares en el ecosistema de JavaScript incluyen React, Angular, Vue.js, Svelte, y otros. A continuación, se presenta una guía detallada sobre estos frameworks, sus características principales, y cómo utilizarlos en proyectos modernos.</p>
+
+<div class="card">
+    <h2>Frameworks para desarrollo frontend</h2>
+    
+    <div class="grid-container">
+        <div>
+            <h3>React</h3>
+            <p>React es una biblioteca para construir interfaces de usuario, desarrollada por Facebook. Es ampliamente utilizada para crear aplicaciones web y móviles.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Componentes:</strong> Basado en componentes reutilizables.</li>
+                <li><strong>Virtual DOM:</strong> Mejora el rendimiento al minimizar las actualizaciones del DOM.</li>
+                <li><strong>Unidireccional:</strong> Flujo de datos unidireccional (de padre a hijo).</li>
+                <li><strong>Hooks:</strong> Permite el uso de estado y otras características en componentes funcionales.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-javascript">import React, { useState } from 'react';
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;You clicked {count} times&lt;/p&gt;
+      &lt;button onClick={() => setCount(count + 1)}&gt;
+        Click me
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;</code></pre>
+        </div>
+        
+        <div>
+            <h3>Angular</h3>
+            <p>Angular es un framework completo para construir aplicaciones web de una sola página (SPA), desarrollado por Google.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Two-way data binding:</strong> Sincronización automática entre la vista y el modelo.</li>
+                <li><strong>TypeScript:</strong> Usa TypeScript por defecto para un desarrollo más seguro.</li>
+                <li><strong>Inyección de dependencias:</strong> Facilita la gestión de dependencias.</li>
+                <li><strong>CLI:</strong> Herramientas de línea de comandos para crear y gestionar proyectos.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-typescript">import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    &lt;h1&gt;Hello, {{ name }}!&lt;/h1&gt;
+  `,
+})
+export class AppComponent {
+  name = 'Angular';
+}</code></pre>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Vue.js</h3>
+            <p>Vue.js es un framework progresivo para construir interfaces de usuario, conocido por su simplicidad y flexibilidad.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Reactividad:</strong> Sistema de reactividad simple y eficiente.</li>
+                <li><strong>Componentes:</strong> Basado en componentes reutilizables.</li>
+                <li><strong>Directivas:</strong> Sintaxis de plantillas con directivas como <code>v-if</code> y <code>v-for</code>.</li>
+                <li><strong>Composition API:</strong> Alternativa a la Options API para mayor flexibilidad.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-javascript">&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;{{ message }}&lt;/p&gt;
+    &lt;button @click="reverseMessage"&gt;Reverse Message&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      message: 'Hello, Vue!'
+    };
+  },
+  methods: {
+    reverseMessage() {
+      this.message = this.message.split('').reverse().join('');
+    }
+  }
+};
+&lt;/script&gt;</code></pre>
+        </div>
+        
+        <div>
+            <h3>Svelte</h3>
+            <p>Svelte es un compilador que convierte componentes en código JavaScript eficiente, eliminando la necesidad de un Virtual DOM.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Sin Virtual DOM:</strong> Compila componentes en código JavaScript puro.</li>
+                <li><strong>Reactividad integrada:</strong> No necesita un sistema de reactividad externo.</li>
+                <li><strong>Menos código:</strong> Reduce la cantidad de código boilerplate.</li>
+                <li><strong>Optimizado para rendimiento:</strong> Genera código altamente eficiente.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-javascript">&lt;script&gt;
+  let count = 0;
+
+  function increment() {
+    count += 1;
+  }
+&lt;/script&gt;
+
+&lt;button on:click={increment}&gt;
+  Count: {count}
+&lt;/button&gt;</code></pre>
+        </div>
+    </div>
+</div>
+
+<h2>Frameworks para desarrollo backend</h2>
+
+<div class="card">
+    <h3>Frameworks backend</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Express.js</h4>
+            <p>Express.js es un framework minimalista para Node.js, utilizado para construir aplicaciones web y APIs.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Minimalista:</strong> Sin opiniones, permite flexibilidad en la estructura del proyecto.</li>
+                <li><strong>Middleware:</strong> Soporte para middleware para manejar solicitudes y respuestas.</li>
+                <li><strong>Rutas:</strong> Sistema de enrutamiento simple y eficiente.</li>
+                <li><strong>Comunidad activa:</strong> Amplia adopción y soporte de la comunidad.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-javascript">const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello, Express!');
+});
+
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});</code></pre>
+        </div>
+        
+        <div>
+            <h4>NestJS</h4>
+            <p>NestJS es un framework progresivo para Node.js, inspirado en Angular, que utiliza TypeScript por defecto.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Arquitectura modular:</strong> Organiza el código en módulos reutilizables.</li>
+                <li><strong>TypeScript:</strong> Usa TypeScript para un desarrollo más seguro.</li>
+                <li><strong>Inyección de dependencias:</strong> Facilita la gestión de dependencias.</li>
+                <li><strong>Soporte para microservicios:</strong> Ideal para arquitecturas de microservicios.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-typescript">import { Controller, Get } from '@nestjs/common';
+
+@Controller('hello')
+export class HelloController {
+  @Get()
+  getHello(): string {
+    return 'Hello, NestJS!';
+  }
+}</code></pre>
+        </div>
+    </div>
+</div>
+
+<h2>Frameworks para desarrollo móvil</h2>
+
+<div class="card">
+    <h3>Frameworks móviles</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>React Native</h4>
+            <p>React Native es un framework para construir aplicaciones móviles nativas usando React.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Multiplataforma:</strong> Código único para iOS y Android.</li>
+                <li><strong>Componentes nativos:</strong> Acceso a componentes nativos del dispositivo.</li>
+                <li><strong>Hot Reloading:</strong> Recarga rápida de cambios en tiempo real.</li>
+                <li><strong>Comunidad activa:</strong> Amplia adopción y soporte de la comunidad.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-javascript">import React from 'react';
+import { Text, View } from 'react-native';
+
+const App = () => {
+  return (
+    &lt;View&gt;
+      &lt;Text&gt;Hello, React Native!&lt;/Text&gt;
+    &lt;/View&gt;
+  );
+};
+
+export default App;</code></pre>
+        </div>
+        
+        <div>
+            <h4>Ionic</h4>
+            <p>Ionic es un framework para construir aplicaciones móviles híbridas usando tecnologías web (HTML, CSS, JavaScript).</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Multiplataforma:</strong> Código único para iOS, Android y web.</li>
+                <li><strong>Componentes UI:</strong> Amplia biblioteca de componentes preconstruidos.</li>
+                <li><strong>Integración con Angular/React/Vue:</strong> Soporta múltiples frameworks frontend.</li>
+                <li><strong>Desarrollo rápido:</strong> Herramientas para acelerar el desarrollo.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-javascript">import { IonButton, IonContent, IonPage } from '@ionic/react';
+
+const HomePage = () => {
+  return (
+    &lt;IonPage&gt;
+      &lt;IonContent&gt;
+        &lt;IonButton&gt;Hello, Ionic!&lt;/IonButton&gt;
+      &lt;/IonContent&gt;
+    &lt;/IonPage&gt;
+  );
+};
+
+export default HomePage;</code></pre>
+        </div>
+    </div>
+</div>
+
+<h2>Recursos de aprendizaje</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div>
+            <h3>Documentación oficial</h3>
+            <ul class="feature-list">
+                <li><a href="https://reactjs.org/docs/getting-started.html" target="_blank">Documentación de React</a></li>
+                <li><a href="https://angular.io/docs" target="_blank">Documentación de Angular</a></li>
+                <li><a href="https://vuejs.org/guide/introduction.html" target="_blank">Documentación de Vue.js</a></li>
+                <li><a href="https://svelte.dev/docs" target="_blank">Documentación de Svelte</a></li>
+            </ul>
+            
+            <h3 class="mt-4">Cursos y tutoriales</h3>
+            <ul class="feature-list">
+                <li><a href="https://www.udemy.com/course/react-the-complete-guide-incl-hooks/" target="_blank">React: The Complete Guide (Udemy)</a></li>
+                <li><a href="https://www.udemy.com/course/the-complete-guide-to-angular-2/" target="_blank">Angular: The Complete Guide (Udemy)</a></li>
+                <li><a href="https://www.udemy.com/course/vuejs-2-the-complete-guide/" target="_blank">Vue.js: The Complete Guide (Udemy)</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Libros recomendados</h3>
+            <ul class="feature-list">
+                <li>"Fullstack React" - Accomazzo, Murray, and Lerner</li>
+                <li>"Pro Angular" - Adam Freeman</li>
+                <li>"Vue.js in Action" - Erik Hanchett and Benjamin Listwon</li>
+                <li>"Svelte and Sapper in Action" - Mark Volkmann</li>
+            </ul>
+        </div>
+    </div>
+</div>

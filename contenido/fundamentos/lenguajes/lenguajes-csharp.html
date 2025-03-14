@@ -1,0 +1,361 @@
+<h1>C#</h1>
+
+<p>C# (pronunciado "C Sharp") es un lenguaje de programación moderno, orientado a objetos y fuertemente tipado, desarrollado por Microsoft en el año 2000. Es ampliamente utilizado en el desarrollo de aplicaciones de escritorio, web, móviles, juegos (con Unity) y servicios en la nube. C# es parte del ecosistema .NET y es conocido por su sintaxis limpia, robustez y versatilidad.</p>
+
+<div class="card">
+    <h2>Características principales</h2>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Fundamentos</h3>
+            <ul class="feature-list">
+                <li><strong>Orientado a objetos:</strong> Soporta clases, herencia, polimorfismo y encapsulamiento.</li>
+                <li><strong>Fuertemente tipado:</strong> Los tipos de datos deben ser declarados explícitamente.</li>
+                <li><strong>Moderno y seguro:</strong> Incluye características como recolector de basura y manejo de excepciones.</li>
+                <li><strong>Multiplataforma:</strong> Gracias a .NET Core y .NET 5+ (ahora .NET 6+).</li>
+                <li><strong>Interoperabilidad:</strong> Puede interactuar con código C++, F# y otros lenguajes.</li>
+                <li><strong>Asincronía nativa:</strong> Soporte para programación asíncrona con <code>async</code> y <code>await</code>.</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Paradigmas soportados</h3>
+            <ul class="feature-list">
+                <li><strong>Orientado a objetos:</strong> Clases, interfaces, herencia, etc.</li>
+                <li><strong>Imperativo:</strong> Secuencias de declaraciones que cambian el estado.</li>
+                <li><strong>Funcional:</strong> Soporta funciones de primera clase, expresiones lambda y LINQ.</li>
+                <li><strong>Concurrente:</strong> Programación asíncrona y paralelismo con TPL (Task Parallel Library).</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h2>Evolución de C#</h2>
+
+<div class="card">
+    <h3>Historia y versiones principales</h3>
+    
+    <ul class="feature-list">
+        <li><strong>2000:</strong> Lanzamiento de C# 1.0 con .NET Framework 1.0.</li>
+        <li><strong>2005:</strong> C# 2.0 introdujo genéricos, iteradores y tipos anulables.</li>
+        <li><strong>2007:</strong> C# 3.0 introdujo LINQ, expresiones lambda y tipos anónimos.</li>
+        <li><strong>2012:</strong> C# 5.0 introdujo <code>async</code> y <code>await</code> para programación asíncrona.</li>
+        <li><strong>2019:</strong> C# 8.0 introdujo rangos, índices, tipos de referencia anulables y patrones de coincidencia.</li>
+        <li><strong>2021:</strong> C# 10 introdujo mejoras en registros, tipos anónimos y expresiones lambda.</li>
+        <li><strong>2023:</strong> C# 11 introdujo patrones de coincidencia mejorados y tipos genéricos más flexibles.</li>
+    </ul>
+    
+    <h3 class="mt-4">Características modernas (C# 8.0+)</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Sintaxis y estructuras</h4>
+            <pre><code class="lang-csharp">// Expresiones lambda
+Func&lt;int, int&gt; square = x => x * x;
+
+// LINQ (Language Integrated Query)
+var numbers = new List&lt;int&gt; { 1, 2, 3, 4, 5 };
+var evenNumbers = numbers.Where(n => n % 2 == 0);
+
+// Tipos de referencia anulables
+string? nullableString = null;
+
+// Rangos e índices
+var array = new[] { 1, 2, 3, 4, 5 };
+var slice = array[1..4]; // [2, 3, 4]</code></pre>
+        </div>
+        
+        <div>
+            <h4>Asincronía moderna</h4>
+            <pre><code class="lang-csharp">// Async/Await
+public async Task&lt;string&gt; FetchDataAsync()
+{
+    using var client = new HttpClient();
+    var response = await client.GetStringAsync("https://api.example.com/data");
+    return response;
+}
+
+// Paralelismo con TPL
+Parallel.For(0, 10, i => Console.WriteLine(i));</code></pre>
+        </div>
+    </div>
+</div>
+
+<h2>Entornos de ejecución</h2>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>.NET Framework</h3>
+        <p>El entorno de ejecución original para aplicaciones Windows. Aunque sigue siendo utilizado, ha sido reemplazado en gran medida por .NET Core y .NET 5+.</p>
+        
+        <h4>Características:</h4>
+        <ul class="feature-list">
+            <li>Compatibilidad con aplicaciones de escritorio (Windows Forms, WPF).</li>
+            <li>Servicios web (ASP.NET Web Forms, WCF).</li>
+            <li>Limitado a Windows.</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h3>.NET Core / .NET 5+</h3>
+        <p>La evolución moderna de .NET, multiplataforma y de alto rendimiento. .NET 5 unificó .NET Core y .NET Framework.</p>
+        
+        <h4>Características:</h4>
+        <ul class="feature-list">
+            <li>Multiplataforma: Windows, Linux, macOS.</li>
+            <li>Alto rendimiento y escalabilidad.</li>
+            <li>Soporte para aplicaciones web (ASP.NET Core), servicios en la nube y microservicios.</li>
+            <li>Compatibilidad con contenedores (Docker).</li>
+        </ul>
+    </div>
+</div>
+
+<h2>Tipos y estructuras de datos</h2>
+
+<div class="card">
+    <h3>Tipos primitivos</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Descripción</th>
+                <th>Ejemplo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>int</td>
+                <td>Entero de 32 bits</td>
+                <td><code>int number = 42;</code></td>
+            </tr>
+            <tr>
+                <td>long</td>
+                <td>Entero de 64 bits</td>
+                <td><code>long bigNumber = 123456789L;</code></td>
+            </tr>
+            <tr>
+                <td>float</td>
+                <td>Punto flotante de 32 bits</td>
+                <td><code>float pi = 3.14f;</code></td>
+            </tr>
+            <tr>
+                <td>double</td>
+                <td>Punto flotante de 64 bits</td>
+                <td><code>double pi = 3.14159;</code></td>
+            </tr>
+            <tr>
+                <td>bool</td>
+                <td>Valor verdadero/falso</td>
+                <td><code>bool isTrue = true;</code></td>
+            </tr>
+            <tr>
+                <td>char</td>
+                <td>Carácter Unicode de 16 bits</td>
+                <td><code>char letter = 'A';</code></td>
+            </tr>
+            <tr>
+                <td>string</td>
+                <td>Cadena de caracteres</td>
+                <td><code>string name = "C#";</code></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 class="mt-4">Estructuras de datos</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Colecciones</h4>
+            <pre><code class="lang-csharp">// Listas
+List&lt;string&gt; names = new List&lt;string&gt; { "Alice", "Bob", "Charlie" };
+
+// Diccionarios
+Dictionary&lt;string, int&gt; ages = new Dictionary&lt;string, int&gt;
+{
+    { "Alice", 30 },
+    { "Bob", 25 }
+};
+
+// Conjuntos
+HashSet&lt;int&gt; uniqueNumbers = new HashSet&lt;int&gt; { 1, 2, 3, 3 };</code></pre>
+        </div>
+        
+        <div>
+            <h4>Arrays</h4>
+            <pre><code class="lang-csharp">// Arrays unidimensionales
+int[] numbers = { 1, 2, 3, 4, 5 };
+
+// Arrays multidimensionales
+int[,] matrix = { { 1, 2 }, { 3, 4 } };
+
+// Arrays de objetos
+string[] names = { "Alice", "Bob", "Charlie" };</code></pre>
+        </div>
+    </div>
+</div>
+
+<h2>Programación asíncrona</h2>
+
+<div class="card">
+    <h3>Evolución del manejo asíncrono</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Threads (tradicional)</h4>
+            <pre><code class="lang-csharp">// Creación de hilos
+Thread thread = new Thread(() => Console.WriteLine("Hilo en ejecución"));
+thread.Start();</code></pre>
+        </div>
+        
+        <div>
+            <h4>Async/Await (moderno)</h4>
+            <pre><code class="lang-csharp">public async Task&lt;string&gt; FetchDataAsync()
+{
+    using var client = new HttpClient();
+    var response = await client.GetStringAsync("https://api.example.com/data");
+    return response;
+}</code></pre>
+        </div>
+    </div>
+    
+    <h4 class="mt-4">Paralelismo con TPL</h4>
+    <pre><code class="lang-csharp">// Parallel.For
+Parallel.For(0, 10, i => Console.WriteLine(i));
+
+// Task Parallel Library (TPL)
+Task.Run(() => Console.WriteLine("Tarea en segundo plano"));</code></pre>
+</div>
+
+<h2>Ecosistema y herramientas</h2>
+
+<div class="grid-container">
+    <div class="card">
+        <h3>Frameworks principales</h3>
+        
+        <h4>ASP.NET Core</h4>
+        <ul class="feature-list">
+            <li>Framework para aplicaciones web y APIs.</li>
+            <li>Multiplataforma y de alto rendimiento.</li>
+            <li>Soporte para MVC, Razor Pages y Web API.</li>
+        </ul>
+        
+        <h4>Entity Framework Core</h4>
+            <ul class="feature-list">
+                <li>ORM (Object-Relational Mapping) para bases de datos.</li>
+                <li>Soporte para SQL Server, PostgreSQL, MySQL, SQLite, etc.</li>
+                <li>Migrations para gestión de esquemas de bases de datos.</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h3>Herramientas de desarrollo</h3>
+            
+            <h4>Visual Studio</h4>
+            <ul class="feature-list">
+                <li>IDE completo para desarrollo en C# y .NET.</li>
+                <li>Depuración avanzada, refactorización y pruebas integradas.</li>
+                <li>Soporte para aplicaciones web, móviles, y de escritorio.</li>
+            </ul>
+            
+            <h4>Visual Studio Code</h4>
+            <ul class="feature-list">
+                <li>Editor ligero y multiplataforma.</li>
+                <li>Extensible con plugins para C# y .NET.</li>
+                <li>Ideal para desarrollo rápido y ligero.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h2>Mejores prácticas</h2>
+    
+    <div class="card">
+        <h3>Arquitectura y organización de código</h3>
+        
+        <div class="grid-container">
+            <div>
+                <h4>Patrones de diseño comunes</h4>
+                <ul class="feature-list">
+                    <li><strong>Singleton:</strong> Garantiza una única instancia de una clase.</li>
+                    <li><strong>Factory:</strong> Encapsula la creación de objetos.</li>
+                    <li><strong>Repository:</strong> Aísla la lógica de acceso a datos.</li>
+                    <li><strong>Dependency Injection:</strong> Inyección de dependencias para un código más modular.</li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4>Estructura de proyectos</h4>
+                <pre><code class="lang-text">src/
+├── Application/        # Lógica de negocio
+│   ├── Services/
+│   └── Models/
+├── Infrastructure/     # Acceso a datos y servicios externos
+│   ├── Repositories/
+│   └── Data/
+├── Web/                # Capa de presentación (ASP.NET Core)
+│   ├── Controllers/
+│   ├── Views/
+│   └── wwwroot/
+└── Tests/              # Pruebas unitarias y de integración
+    ├── UnitTests/
+    └── IntegrationTests/</code></pre>
+            </div>
+        </div>
+        
+        <h3 class="mt-4">Performance</h3>
+        
+        <ul class="feature-list">
+            <li><strong>Uso de async/await:</strong> Evitar bloqueos en operaciones I/O.</li>
+            <li><strong>Optimización de consultas:</strong> Usar LINQ eficientemente y evitar N+1 queries.</li>
+            <li><strong>Caching:</strong> Implementar caché para datos frecuentemente accedidos.</li>
+            <li><strong>Minimizar allocations:</strong> Reducir la creación de objetos innecesarios.</li>
+        </ul>
+        
+        <h3 class="mt-4">Seguridad</h3>
+        
+        <ul class="feature-list">
+            <li><strong>Validación de entradas:</strong> Evitar inyecciones SQL y XSS.</li>
+            <li><strong>Autenticación y autorización:</strong> Usar Identity para gestión de usuarios.</li>
+            <li><strong>HTTPS:</strong> Proteger las comunicaciones con cifrado.</li>
+            <li><strong>Protección de datos:</strong> Usar cifrado para datos sensibles.</li>
+        </ul>
+    </div>
+    
+    <h2>Recursos de aprendizaje</h2>
+    
+    <div class="card">
+        <div class="grid-container">
+            <div>
+                <h3>Documentación oficial</h3>
+                <ul class="feature-list">
+                    <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank">Documentación oficial de C#</a></li>
+                    <li><a href="https://learn.microsoft.com/en-us/dotnet/core/" target="_blank">Documentación de .NET</a></li>
+                    <li><a href="https://learn.microsoft.com/en-us/aspnet/core/" target="_blank">Documentación de ASP.NET Core</a></li>
+                </ul>
+                
+                <h3 class="mt-4">Cursos y tutoriales</h3>
+                <ul class="feature-list">
+                    <li><a href="https://www.pluralsight.com/paths/csharp" target="_blank">Pluralsight - C# Path</a></li>
+                    <li><a href="https://www.udemy.com/course/csharp-tutorial-for-beginners/" target="_blank">C# Basics for Beginners (Udemy)</a></li>
+                    <li><a href="https://www.coursera.org/specializations/c-sharp" target="_blank">C# Programming (Coursera)</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3>Libros recomendados</h3>
+                <ul class="feature-list">
+                    <li>"C# in Depth" - Jon Skeet</li>
+                    <li>"Effective C#" - Bill Wagner</li>
+                    <li>"Pro C# 10 with .NET 6" - Andrew Troelsen</li>
+                    <li>"Clean Code in C#" - Jason Alls</li>
+                </ul>
+                
+                <h3 class="mt-4">Herramientas de práctica</h3>
+                <ul class="feature-list">
+                    <li><a href="https://leetcode.com/" target="_blank">LeetCode</a> (para algoritmos)</li>
+                    <li><a href="https://www.hackerrank.com/domains/tutorials/csharp" target="_blank">HackerRank - C#</a></li>
+                    <li><a href="https://exercism.org/tracks/csharp" target="_blank">Exercism - C# Track</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>

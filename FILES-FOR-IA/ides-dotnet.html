@@ -1,0 +1,500 @@
+<h1>IDEs y Editores para .NET</h1>
+
+<p>La plataforma .NET de Microsoft ofrece un marco de trabajo robusto para desarrollar aplicaciones de escritorio, web, móviles y de nube, principalmente usando C# o F#. Para maximizar la productividad en el desarrollo .NET, es fundamental contar con un IDE potente que proporcione características como autocompletado inteligente, depuración avanzada, análisis de código y soporte para las diversas tecnologías del ecosistema .NET.</p>
+
+<div class="card">
+    <h2>Comparativa de IDEs para .NET</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>IDE/Editor</th>
+                <th>Mejor para</th>
+                <th>Tipo de licencia</th>
+                <th>Plataformas</th>
+                <th>Puntos fuertes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Visual Studio</td>
+                <td>Desarrollo completo .NET, empresarial</td>
+                <td>Gratuito (Community) / Pago (Professional, Enterprise)</td>
+                <td>Windows (completo), macOS (limitado)</td>
+                <td>Integración completa, debugging avanzado</td>
+            </tr>
+            <tr>
+                <td>VS Code + extensiones</td>
+                <td>Desarrollo multiplataforma, proyectos pequeños-medianos</td>
+                <td>Gratuito, open source</td>
+                <td>Windows, macOS, Linux</td>
+                <td>Ligereza, flexibilidad, extensibilidad</td>
+            </tr>
+            <tr>
+                <td>JetBrains Rider</td>
+                <td>Alternativa a Visual Studio, multiplataforma</td>
+                <td>Pago ($139-$649/año)</td>
+                <td>Windows, macOS, Linux</td>
+                <td>Refactorización, rendimiento</td>
+            </tr>
+            <tr>
+                <td>MonoDevelop</td>
+                <td>Desarrollo .NET en Linux</td>
+                <td>Gratuito, open source</td>
+                <td>Windows, macOS, Linux</td>
+                <td>Solución nativa para Linux</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h2>Visual Studio</h2>
+
+<div class="card">
+    <p>Visual Studio es el IDE insignia de Microsoft para el desarrollo .NET, proporcionando una experiencia de desarrollo completa e integrada.</p>
+    
+    <h3>Ediciones disponibles:</h3>
+    <ul class="feature-list">
+        <li><strong>Community:</strong> Gratuita para estudiantes, proyectos de código abierto y pequeñas empresas</li>
+        <li><strong>Professional:</strong> Para desarrollo profesional y organizaciones pequeñas</li>
+        <li><strong>Enterprise:</strong> Para organizaciones grandes con necesidades complejas</li>
+    </ul>
+    
+    <h3>Características principales:</h3>
+    <ul class="feature-list">
+        <li><strong>IntelliSense:</strong> Autocompletado contextual avanzado</li>
+        <li><strong>Debugging excepcional:</strong> Puntos de interrupción, inspección de variables, visualizadores</li>
+        <li><strong>Live Share:</strong> Colaboración en tiempo real</li>
+        <li><strong>Integración con Azure:</strong> Publicación directa a servicios cloud</li>
+        <li><strong>Diseñadores visuales:</strong> Para Windows Forms, WPF, ASP.NET</li>
+        <li><strong>Test Explorer:</strong> Ejecución y depuración de pruebas integrada</li>
+        <li><strong>Soporte a contenedores:</strong> Docker, Kubernetes</li>
+        <li><strong>Integración con DevOps:</strong> Azure DevOps, GitHub</li>
+    </ul>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Ventajas:</h4>
+            <ul class="feature-list">
+                <li>Experiencia de desarrollo más completa para .NET</li>
+                <li>Todas las herramientas integradas en un solo lugar</li>
+                <li>Depuración avanzada y análisis de rendimiento</li>
+                <li>Soporte oficial de Microsoft</li>
+                <li>Plantillas y asistentes para todos los tipos de proyectos</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Desventajas:</h4>
+            <ul class="feature-list">
+                <li>Requisitos de sistema elevados</li>
+                <li>Tiempos de inicio más lentos</li>
+                <li>Solo versión completa en Windows</li>
+                <li>Ediciones Professional y Enterprise costosas</li>
+                <li>Puede ser abrumador para principiantes</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Ejemplo de Proyecto ASP.NET Core en Visual Studio:</h3>
+    
+    <pre><code class="lang-csharp">// Program.cs en ASP.NET Core 6
+var builder = WebApplication.CreateBuilder(args);
+
+// Agregar servicios al contenedor
+builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+var app = builder.Build();
+
+// Configurar el pipeline de solicitudes HTTP
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.Run();</code></pre>
+    
+    <p><strong>Sitio oficial:</strong> <a href="https://visualstudio.microsoft.com/" target="_blank">https://visualstudio.microsoft.com/</a></p>
+</div>
+
+<h2>Visual Studio Code con extensiones .NET</h2>
+
+<div class="card">
+    <p>Visual Studio Code es un editor de código ligero pero potente que, con las extensiones adecuadas, se convierte en un excelente entorno para desarrollo .NET, especialmente para ASP.NET Core y proyectos multiplataforma.</p>
+    
+    <h3>Extensiones esenciales para .NET:</h3>
+    <ul class="feature-list">
+        <li><strong>C# (by Microsoft):</strong> Proporciona soporte esencial para C#, incluyendo IntelliSense y debugging</li>
+        <li><strong>.NET Core Tools:</strong> Herramientas para administrar proyectos desde la terminal integrada</li>
+        <li><strong>C# Extensions:</strong> Creación rápida de clases y otros elementos</li>
+        <li><strong>NuGet Package Manager:</strong> Gestión visual de paquetes NuGet</li>
+        <li><strong>REST Client:</strong> Para probar APIs directamente desde el editor</li>
+        <li><strong>Cucumber (Gherkin):</strong> Soporte para BDD si usas SpecFlow</li>
+        <li><strong>Azure Tools:</strong> Para integración con Azure</li>
+    </ul>
+    
+    <h3>Configuración recomendada:</h3>
+    <pre><code class="lang-json">// settings.json para VS Code con .NET
+{
+    "editor.formatOnSave": true,
+    "omnisharp.enableRoslynAnalyzers": true,
+    "omnisharp.enableEditorConfigSupport": true,
+    "omnisharp.useModernNet": true,
+    "csharp.suppressDotnetRestoreNotification": false,
+    "csharp.suppressBuildAssetsNotification": false,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "dotnet-test-explorer.testProjectPath": "**/*.Tests.csproj"
+}</code></pre>
+    
+    <h3>Flujo de trabajo en VS Code:</h3>
+    <pre><code class="lang-bash"># Crear una nueva aplicación web desde la terminal integrada
+dotnet new webapp -o MiAplicacion
+cd MiAplicacion
+
+# Agregar paquetes NuGet
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+
+# Ejecutar la aplicación
+dotnet run
+
+# Ejecutar pruebas
+dotnet test</code></pre>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Ventajas:</h4>
+            <ul class="feature-list">
+                <li>Extremadamente ligero y rápido</li>
+                <li>Soporte completo para todas las plataformas</li>
+                <li>Gratuito y open source</li>
+                <li>Perfecto para proyectos pequeños a medianos</li>
+                <li>Excelente para desarrollo ASP.NET Core</li>
+                <li>Terminal integrada potente</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Desventajas:</h4>
+            <ul class="feature-list">
+                <li>Sin diseñadores visuales para UI</li>
+                <li>Configuración inicial requerida</li>
+                <li>Debugging menos avanzado que Visual Studio</li>
+                <li>No recomendado para Windows Forms o WPF</li>
+                <li>Requiere mayor conocimiento de CLI</li>
+            </ul>
+        </div>
+    </div>
+    
+    <p><strong>Sitio oficial:</strong> <a href="https://code.visualstudio.com/" target="_blank">https://code.visualstudio.com/</a></p>
+</div>
+
+<h2>JetBrains Rider</h2>
+
+<div class="card">
+    <p>Rider es un potente IDE multiplataforma para desarrollo .NET de JetBrains, que combina el motor de ReSharper con la plataforma IntelliJ. Ofrece una alternativa completa a Visual Studio, especialmente para desarrolladores en macOS o Linux.</p>
+    
+    <h3>Características principales:</h3>
+    <ul class="feature-list">
+        <li><strong>Refactorización avanzada:</strong> Más de 1000 acciones de refactorización y arreglos rápidos</li>
+        <li><strong>Análisis de código:</strong> Detección en tiempo real de problemas</li>
+        <li><strong>Debugging completo:</strong> Incluyendo soporte para .NET, .NET Core, Mono y Unity</li>
+        <li><strong>Navegación potente:</strong> Búsqueda de todo, ir a implementación, herencia, etc.</li>
+        <li><strong>Control de versiones:</strong> Integración con Git, Subversion, etc.</li>
+        <li><strong>Soporte para tecnologías frontend:</strong> JavaScript, TypeScript, Angular, React</li>
+        <li><strong>Integración con Unity:</strong> Soporte nativo para desarrollo de juegos</li>
+        <li><strong>Pruebas unitarias:</strong> Ejecución y depuración integrada</li>
+    </ul>
+    
+    <h3>Ejemplo de UI potente:</h3>
+    <pre><code class="lang-csharp">// Rider ofrece múltiples mejoras y sugerencias de código
+public class OrderProcessor
+{
+    // Rider sugiere convertir a propiedad auto-implementada
+    private readonly IOrderRepository _orderRepository;
+    
+    public OrderProcessor(IOrderRepository orderRepository)
+    {
+        _orderRepository = orderRepository ?? throw new ArgumentNullException(nameof(orderRepository));
+    }
+    
+    // Rider identifica método que podría ser async
+    public Order ProcessOrder(int orderId)
+    {
+        var order = _orderRepository.GetOrder(orderId);
+        if (order == null)
+        {
+            throw new OrderNotFoundException(orderId);
+        }
+        
+        // Código con potencial refactorización destacada
+        order.Status = OrderStatus.Processing;
+        order.ProcessedDate = DateTime.UtcNow;
+        order.LastModifiedBy = "System";
+        
+        _orderRepository.UpdateOrder(order);
+        return order;
+    }
+}</code></pre>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Ventajas:</h4>
+            <ul class="feature-list">
+                <li>Verdaderamente multiplataforma (Windows, macOS, Linux)</li>
+                <li>Potente motor de refactorización</li>
+                <li>Excelente rendimiento incluso en proyectos grandes</li>
+                <li>Soporte para una amplia gama de tecnologías</li>
+                <li>Integración nativa con Unity</li>
+                <li>Actualizaciones frecuentes</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Desventajas:</h4>
+            <ul class="feature-list">
+                <li>Modelo de licencia de pago</li>
+                <li>Sin diseñadores visuales para Windows Forms/WPF</li>
+                <li>Menor integración con el ecosistema Microsoft</li>
+                <li>Curva de aprendizaje para usuarios de Visual Studio</li>
+                <li>Requiere recursos significativos</li>
+            </ul>
+        </div>
+    </div>
+    
+    <p><strong>Sitio oficial:</strong> <a href="https://www.jetbrains.com/rider/" target="_blank">https://www.jetbrains.com/rider/</a></p>
+</div>
+
+<h2>Visual Studio 2022 para Mac</h2>
+
+<div class="card">
+    <p>Visual Studio para Mac es la versión de macOS del IDE de Microsoft para el desarrollo .NET, aunque con algunas diferencias significativas respecto a la versión para Windows.</p>
+    
+    <h3>Características principales:</h3>
+    <ul class="feature-list">
+        <li><strong>Desarrollo .NET en macOS:</strong> Entorno nativo para macOS</li>
+        <li><strong>Soporte para ASP.NET Core:</strong> Desarrollo web completo</li>
+        <li><strong>Xamarin:</strong> Desarrollo de aplicaciones móviles</li>
+        <li><strong>Unity:</strong> Desarrollo de juegos</li>
+        <li><strong>Azure:</strong> Integración con servicios en la nube</li>
+        <li><strong>Depuración completa:</strong> Soporte para .NET Core, Xamarin</li>
+    </ul>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Ventajas:</h4>
+            <ul class="feature-list">
+                <li>Experiencia integrada para usuarios de Mac</li>
+                <li>Interface similar a la versión de Windows</li>
+                <li>Buen soporte para desarrollo móvil</li>
+                <li>Integración con servicios de Microsoft</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Desventajas:</h4>
+            <ul class="feature-list">
+                <li>Funcionalidad reducida respecto a la versión Windows</li>
+                <li>Sin soporte para desarrollo de escritorio Windows</li>
+                <li>Rendimiento a veces inconsistente</li>
+                <li>Menor número de extensiones disponibles</li>
+                <li>Microsoft ha anunciado su discontinuación</li>
+            </ul>
+        </div>
+    </div>
+    
+    <p><strong>Nota importante:</strong> Microsoft ha anunciado que Visual Studio para Mac será descontinuado a partir de agosto de 2024. Se recomienda migrar a Visual Studio Code o JetBrains Rider para desarrollo .NET en macOS.</p>
+    
+    <p><strong>Sitio oficial:</strong> <a href="https://visualstudio.microsoft.com/vs/mac/" target="_blank">https://visualstudio.microsoft.com/vs/mac/</a></p>
+</div>
+
+<h2>Extensiones y herramientas esenciales</h2>
+
+<div class="card">
+    <h3>Para Visual Studio:</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Extensión</th>
+                <th>Descripción</th>
+                <th>Uso recomendado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ReSharper</td>
+                <td>Suite completa de productividad de JetBrains</td>
+                <td>Refactorización, navegación, análisis</td>
+            </tr>
+            <tr>
+                <td>CodeMaid</td>
+                <td>Herramienta de limpieza y organización de código</td>
+                <td>Mantener código ordenado</td>
+            </tr>
+            <tr>
+                <td>GitFlow for Visual Studio</td>
+                <td>Integración de GitFlow con VS</td>
+                <td>Flujo de trabajo Git mejorado</td>
+            </tr>
+            <tr>
+                <td>Web Essentials</td>
+                <td>Herramientas para desarrollo web</td>
+                <td>Mejoras en HTML, CSS, JS</td>
+            </tr>
+            <tr>
+                <td>Productivity Power Tools</td>
+                <td>Colección de herramientas de productividad</td>
+                <td>Mejoras generales de usabilidad</td>
+            </tr>
+            <tr>
+                <td>SonarLint</td>
+                <td>Análisis de calidad de código</td>
+                <td>Detectar problemas de seguridad y calidad</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 class="mt-4">Herramientas complementarias:</h3>
+    
+    <ul class="feature-list">
+        <li><strong>LINQPad:</strong> Herramienta indispensable para probar y explorar consultas LINQ</li>
+        <li><strong>Postman/Insomnia:</strong> Para pruebas de API REST</li>
+        <li><strong>SQL Server Management Studio:</strong> Gestión de bases de datos SQL Server</li>
+        <li><strong>Azure Data Studio:</strong> Alternativa multiplataforma a SSMS</li>
+        <li><strong>dotPeek:</strong> Decompilador de ensamblados .NET</li>
+        <li><strong>Fiddler:</strong> Depurador de tráfico HTTP(S)</li>
+        <li><strong>dotMemory:</strong> Análisis de memoria</li>
+    </ul>
+</div>
+
+<h2>Configuraciones recomendadas</h2>
+
+<div class="card">
+    <h3>Visual Studio - Optimización de rendimiento</h3>
+    
+    <ul class="feature-list">
+        <li><strong>Desactivar extensiones no utilizadas:</strong> Herramientas -> Extensiones y actualizaciones</li>
+        <li><strong>Ajustar PowerTools:</strong> Desactivar funciones no esenciales</li>
+        <li><strong>Limpiar soluciones recientes:</strong> Para mejorar tiempo de inicio</li>
+        <li><strong>Configurar autoguardado:</strong> Herramientas -> Opciones -> Entorno -> Documentos</li>
+        <li><strong>Optimizar Intellisense:</strong> Herramientas -> Opciones -> Texto -> C# -> Avanzado</li>
+    </ul>
+    
+    <h3 class="mt-4">Atajos de teclado esenciales:</h3>
+    
+    <div class="grid-container">
+        <div>
+            <h4>Visual Studio:</h4>
+            <ul class="feature-list">
+                <li><code>F5</code> - Iniciar depuración</li>
+                <li><code>Ctrl+F5</code> - Iniciar sin depuración</li>
+                <li><code>F9</code> - Establecer/quitar punto de interrupción</li>
+                <li><code>F12</code> - Ir a definición</li>
+                <li><code>Alt+F12</code> - Echar un vistazo a definición</li>
+                <li><code>Ctrl+.</code> - Acciones rápidas y refactorizaciones</li>
+                <li><code>Ctrl+K, Ctrl+C</code> - Comentar selección</li>
+                <li><code>Ctrl+K, Ctrl+U</code> - Descomentar selección</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>VS Code:</h4>
+            <ul class="feature-list">
+                <li><code>F5</code> - Iniciar depuración</li>
+                <li><code>Ctrl+`</code> - Abrir terminal</li>
+                <li><code>Ctrl+Shift+P</code> - Mostrar paleta de comandos</li>
+                <li><code>Ctrl+P</code> - Navegación rápida de archivos</li>
+                <li><code>F12</code> - Ir a definición</li>
+                <li><code>Alt+F12</code> - Echar un vistazo a definición</li>
+                <li><code>Ctrl+K Z</code> - Modo zen</li>
+                <li><code>Ctrl+/</code> - Comentar línea/selección</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h2>Tendencias y futuro</h2>
+
+<div class="card">
+    <p>El ecosistema de IDEs para .NET está evolucionando rápidamente, con varias tendencias notables:</p>
+    
+    <h3>Tendencias actuales:</h3>
+    <ul class="feature-list">
+        <li><strong>Integración con IA:</strong> GitHub Copilot, IntelliCode y otras herramientas de IA para asistencia en codificación</li>
+        <li><strong>Desarrollo remoto:</strong> Capacidades mejoradas para desarrollo en contenedores y máquinas remotas</li>
+        <li><strong>Herramientas cloud-native:</strong> Mayor integración con Kubernetes, Docker y plataformas cloud</li>
+        <li><strong>Cross-platform:</strong> Enfoque creciente en herramientas que funcionan en todas las plataformas</li>
+        <li><strong>Hot Reload:</strong> Experiencias mejoradas de actualización en tiempo real durante el desarrollo</li>
+        <li><strong>.NET MAUI:</strong> Soporte para el nuevo framework multiplataforma</li>
+    </ul>
+    
+    <h3 class="mt-4">IDE ideal según el tipo de proyecto:</h3>
+    <ul class="feature-list">
+        <li><strong>Aplicaciones de escritorio Windows:</strong> Visual Studio</li>
+        <li><strong>Desarrollo web ASP.NET Core:</strong> VS Code o Rider</li>
+        <li><strong>Aplicaciones multiplataforma:</strong> VS Code, Rider o Visual Studio</li>
+        <li><strong>Microservicios en contenedores:</strong> VS Code con extensiones Docker</li>
+        <li><strong>Desarrollo Xamarin/MAUI:</strong> Visual Studio o Rider</li>
+        <li><strong>Desarrollo Unity:</strong> Rider o Visual Studio</li>
+        <li><strong>Desarrollo .NET en macOS/Linux:</strong> Rider o VS Code</li>
+    </ul>
+</div>
+
+<h2>Recursos de aprendizaje</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div>
+            <h3>Visual Studio:</h3>
+            <ul class="feature-list">
+                <li><a href="https://learn.microsoft.com/en-us/visualstudio/ide/" target="_blank">Documentación oficial de Visual Studio</a></li>
+                <li><a href="https://www.pluralsight.com/paths/visual-studio" target="_blank">Cursos de Visual Studio en Pluralsight</a></li>
+                <li><a href="https://devblogs.microsoft.com/visualstudio/" target="_blank">Blog oficial de Visual Studio</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Visual Studio Code:</h3>
+            <ul class="feature-list">
+                <li><a href="https://code.visualstudio.com/docs" target="_blank">Documentación oficial de VS Code</a></li>
+                <li><a href="https://learn.microsoft.com/en-us/dotnet/core/tutorials/with-visual-studio-code" target="_blank">Tutorial .NET Core con VS Code</a></li>
+                <li><a href="https://www.youtube.com/watch?v=r5dtl9Uq9V0" target="_blank">Video: ASP.NET Core con VS Code</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <div>
+            <h3>JetBrains Rider:</h3>
+            <ul class="feature-list">
+                <li><a href="https://www.jetbrains.com/rider/documentation/" target="_blank">Documentación oficial de Rider</a></li>
+                <li><a href="https://blog.jetbrains.com/dotnet/" target="_blank">Blog oficial .NET de JetBrains</a></li>
+                <li><a href="https://www.youtube.com/playlist?list=PLQ176FUIyIUZRWGCFY7G9V5zaM00THymY" target="_blank">Videos de JetBrains Rider</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Comunidades:</h3>
+            <ul class="feature-list">
+                <li><a href="https://dotnet.microsoft.com/en-us/platform/community" target="_blank">Comunidad .NET</a></li>
+                <li><a href="https://stackoverflow.com/questions/tagged/.net" target="_blank">Stack Overflow .NET</a></li>
+                <li><a href="https://www.reddit.com/r/dotnet/" target="_blank">Reddit r/dotnet</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -19,8 +19,7 @@ const navigationStructure = {
           "ides-python": "Python",
           "ides-javascript": "JavaScript",
           "ides-java": "Java",
-          "ides-dotnet": ".NET",
-          "ides-vscode": "VSCode"
+          "ides-dotnet": ".NET"
         }
       },
       "frameworks": {
