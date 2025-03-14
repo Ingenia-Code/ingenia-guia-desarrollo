@@ -1,7 +1,54 @@
 // Estructura de navegación
 const navigationStructure = {
+  "metodologias": {
+    "title": "Gestión y Colaboración",
+    "items": {
+      "agile": {
+        "title": "Metodologías Ágiles",
+        "subitems": {
+          "scrum": "Scrum",
+          "kanban": "Kanban",
+          "xp": "XP",
+          "safe": "SAFe"
+        }
+      },
+      "predictive": {
+        "title": "Metodologías Predictivas",
+        "subitems": {
+          "waterfall": "Waterfall",
+          "vmodel": "Modelo en V",
+          "bigbang": "Big Bang",
+          "prototipadoevolutivo": "Prototipado Evolutivo",
+          "rad": "RAD",
+          "rup": "RUP"
+        }
+      },
+
+      "gestion-proyectos": {
+        "title": "Herramientas de Gestión",
+        "subitems": {
+          "gestion-trello": "Trello",
+          "gestion-monday": "Monday",
+          "gestion-linear": "Linear",
+          "gestion-otras": "Otras herramientas"
+        }
+      },
+      "documentacion": {
+        "title": "Herramientas de Documentación",
+        "subitems": {
+          "doc-gitbook": "GitBook",
+          "doc-confluence": "Confluence",
+          "doc-mermaid": "Mermaid",
+          "doc-diagramas": "Diagramas"
+        }
+      }
+    
+
+
+    }
+  },
   "fundamentos": {
-    "title": "Fundamentos",
+    "title": "Fundamentos de Programación",
     "items": {
       "lenguajes": {
         "title": "Lenguajes",
@@ -51,6 +98,7 @@ const navigationStructure = {
           "cloud-aws": "AWS",
           "cloud-azure": "Azure",
           "cloud-gcp": "Google Cloud",
+          "cloud-firebase": "Firebase",
           "cloud-devops": "Herramientas DevOps",
           "cloud-docker": "Docker y Kubernetes"
         }
@@ -84,68 +132,8 @@ const navigationStructure = {
       }
     }
   },
-  "metodologias": {
-    "title": "Metodologías Ágiles",
-    "items": {
-      "scrum": {
-        "title": "Scrum",
-        "subitems": {
-          "scrum-roles": "Roles",
-          "scrum-eventos": "Eventos",
-          "scrum-artefactos": "Artefactos",
-          "scrum-metricas": "Métricas"
-        }
-      },
-      "kanban": {
-        "title": "Kanban",
-        "subitems": {
-          "kanban-principios": "Principios",
-          "kanban-tablero": "Tablero Kanban",
-          "kanban-metricas": "Métricas Kanban",
-          "kanban-practicas": "Prácticas Recomendadas"
-        }
-      },
-      "xp": {
-        "title": "Extreme Programming",
-        "subitems": {
-          "xp-practicas": "Prácticas XP",
-          "xp-valores": "Valores XP",
-          "xp-tdd": "Test-Driven Development"
-        }
-      },
-      "safe": {
-        "title": "SAFe",
-        "subitems": {
-          "safe-niveles": "Niveles de SAFe",
-          "safe-principios": "Principios",
-          "safe-implementacion": "Implementación"
-        }
-      }
-    }
-  },
-  "colaboracion": {
-    "title": "Herramientas de Colaboración",
-    "items": {
-      "gestion-proyectos": {
-        "title": "Gestión de Proyectos",
-        "subitems": {
-          "gestion-trello": "Trello",
-          "gestion-monday": "Monday",
-          "gestion-linear": "Linear",
-          "gestion-otras": "Otras herramientas"
-        }
-      },
-      "documentacion": {
-        "title": "Documentación",
-        "subitems": {
-          "doc-gitbook": "GitBook",
-          "doc-confluence": "Confluence",
-          "doc-mermaid": "Mermaid",
-          "doc-diagramas": "Diagramas"
-        }
-      }
-    }
-  }
+
+
 };
 
 // Inicializar la navegación

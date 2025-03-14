@@ -1,0 +1,297 @@
+
+<h1>Docker y Kubernetes</h1>
+
+<p>Docker y Kubernetes son herramientas esenciales en el mundo del desarrollo y despliegue de aplicaciones modernas. Docker permite empaquetar aplicaciones en contenedores, mientras que Kubernetes se encarga de orquestar y gestionar esos contenedores en un entorno de producción. A continuación, se presenta una guía detallada sobre cómo utilizar estas herramientas, con ejemplos prácticos y configuraciones comunes.</p>
+
+<div class="card">
+    <h2>Docker: Contenedores y Docker Compose</h2>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Conceptos básicos de Docker</h3>
+            <p>Docker es una plataforma que permite empaquetar aplicaciones y sus dependencias en contenedores ligeros y portables. Los contenedores son aislados del sistema anfitrión, lo que garantiza que la aplicación se ejecute de la misma manera en cualquier entorno.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Portabilidad:</strong> Los contenedores pueden ejecutarse en cualquier sistema que tenga Docker instalado.</li>
+                <li><strong>Aislamiento:</strong> Cada contenedor tiene su propio sistema de archivos, red y procesos.</li>
+                <li><strong>Eficiencia:</strong> Los contenedores comparten el kernel del sistema operativo, lo que los hace más ligeros que las máquinas virtuales.</li>
+                <li><strong>Repositorios de imágenes:</strong> Docker Hub y otros registros ofrecen imágenes predefinidas para muchas aplicaciones.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Descargar una imagen de Docker
+docker pull nginx
+
+# Ejecutar un contenedor
+docker run -d -p 8080:80 --name my-nginx nginx
+
+# Ver contenedores en ejecución
+docker ps
+
+# Detener un contenedor
+docker stop my-nginx
+
+# Eliminar un contenedor
+docker rm my-nginx</code></pre>
+        </div>
+        
+        <div>
+            <h3>Docker Compose</h3>
+            <p>Docker Compose es una herramienta que permite definir y ejecutar aplicaciones multi-contenedor usando un archivo YAML. Es ideal para entornos de desarrollo y pruebas.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Definición de servicios:</strong> Permite definir múltiples servicios en un solo archivo.</li>
+                <li><strong>Redes y volúmenes:</strong> Facilita la configuración de redes y volúmenes compartidos entre contenedores.</li>
+                <li><strong>Escalabilidad:</strong> Puede escalar servicios fácilmente.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-yaml"># docker-compose.yml
+version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb</code></pre>
+
+            <pre><code class="lang-bash"># Iniciar los contenedores
+docker-compose up -d
+
+# Detener los contenedores
+docker-compose down</code></pre>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Kubernetes: Orquestación de contenedores</h2>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Conceptos básicos de Kubernetes</h3>
+            <p>Kubernetes es un sistema de orquestación de contenedores que automatiza el despliegue, escalado y gestión de aplicaciones en contenedores. Es ideal para entornos de producción.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Escalabilidad:</strong> Escala automáticamente las aplicaciones según la demanda.</li>
+                <li><strong>Alta disponibilidad:</strong> Garantiza que las aplicaciones estén siempre disponibles.</li>
+                <li><strong>Auto-reparación:</strong> Reemplaza automáticamente los contenedores que fallan.</li>
+                <li><strong>Balanceo de carga:</strong> Distribuye el tráfico entre los contenedores.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-yaml"># deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80</code></pre>
+
+            <pre><code class="lang-bash"># Aplicar el despliegue
+kubectl apply -f deployment.yaml
+
+# Ver los pods en ejecución
+kubectl get pods
+
+# Escalar el despliegue
+kubectl scale deployment nginx-deployment --replicas=5
+
+# Eliminar el despliegue
+kubectl delete -f deployment.yaml</code></pre>
+        </div>
+        
+        <div>
+            <h3>Servicios y Balanceo de Carga</h3>
+            <p>En Kubernetes, un "Service" es una abstracción que define un conjunto de pods y una política para acceder a ellos. Permite exponer aplicaciones dentro y fuera del clúster.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>ClusterIP:</strong> Expone el servicio dentro del clúster.</li>
+                <li><strong>NodePort:</strong> Expone el servicio en un puerto específico de cada nodo.</li>
+                <li><strong>LoadBalancer:</strong> Expone el servicio externamente usando un balanceador de carga.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-yaml"># service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer</code></pre>
+
+            <pre><code class="lang-bash"># Aplicar el servicio
+kubectl apply -f service.yaml
+
+# Ver los servicios
+kubectl get services
+
+# Eliminar el servicio
+kubectl delete -f service.yaml</code></pre>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Contenedores predefinidos</h2>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Contenedores populares en Docker Hub</h3>
+            <p>Docker Hub es un repositorio de imágenes de contenedores predefinidas que pueden ser utilizadas directamente. Aquí hay algunos ejemplos de contenedores populares:</p>
+            
+            <h4>Nginx</h4>
+            <pre><code class="lang-bash">docker run -d -p 8080:80 --name my-nginx nginx</code></pre>
+            
+            <h4>PostgreSQL</h4>
+            <pre><code class="lang-bash">docker run -d -p 5432:5432 --name my-postgres -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password postgres</code></pre>
+            
+            <h4>Redis</h4>
+            <pre><code class="lang-bash">docker run -d -p 6379:6379 --name my-redis redis</code></pre>
+            
+            <h4>MongoDB</h4>
+            <pre><code class="lang-bash">docker run -d -p 27017:27017 --name my-mongo mongo</code></pre>
+        </div>
+        
+        <div>
+            <h3>Despliegue de aplicaciones multi-contenedor</h3>
+            <p>Docker Compose y Kubernetes permiten desplegar aplicaciones complejas que consisten en múltiples contenedores. Aquí hay un ejemplo de una aplicación web con una base de datos:</p>
+            
+            <h4>Docker Compose</h4>
+            <pre><code class="lang-yaml"># docker-compose.yml
+version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb</code></pre>
+
+            <h4>Kubernetes</h4>
+            <pre><code class="lang-yaml"># deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+spec:
+  selector:
+    app: web
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - name: postgres
+        image: postgres
+        env:
+        - name: POSTGRES_USER
+          value: user
+        - name: POSTGRES_PASSWORD
+          value: password
+        - name: POSTGRES_DB
+          value: mydb</code></pre>
+        </div>
+    </div>
+</div>
+
+<h2>Recursos de aprendizaje</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div>
+            <h3>Documentación oficial</h3>
+            <ul class="feature-list">
+                <li><a href="https://docs.docker.com/" target="_blank">Documentación de Docker</a></li>
+                <li><a href="https://docs.docker.com/compose/" target="_blank">Documentación de Docker Compose</a></li>
+                <li><a href="https://kubernetes.io/docs/home/" target="_blank">Documentación de Kubernetes</a></li>
+            </ul>
+            
+            <h3 class="mt-4">Cursos y tutoriales</h3>
+            <ul class="feature-list">
+                <li><a href="https://www.udemy.com/course/docker-mastery/" target="_blank">Docker Mastery (Udemy)</a></li>
+                <li><a href="https://www.udemy.com/course/kubernetes-for-the-absolute-beginners-hands-on/" target="_blank">Kubernetes for Absolute Beginners (Udemy)</a></li>
+                <li><a href="https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/" target="_blank">Docker and Kubernetes: The Complete Guide (Udemy)</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Libros recomendados</h3>
+            <ul class="feature-list">
+                <li>"Docker Deep Dive" - Nigel Poulton</li>
+                <li>"Kubernetes Up & Running" - Kelsey Hightower, Brendan Burns, and Joe Beda</li>
+                <li>"The Kubernetes Book" - Nigel Poulton</li>
+            </ul>
+        </div>
+    </div>
+</div>

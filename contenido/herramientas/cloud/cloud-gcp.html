@@ -1,0 +1,222 @@
+
+<h1>Google Cloud Platform (GCP)</h1>
+
+<p>Google Cloud Platform (GCP) es una suite de servicios en la nube ofrecida por Google que proporciona infraestructura, almacenamiento, análisis de datos, machine learning, y más. GCP es conocido por su escalabilidad, rendimiento y herramientas avanzadas de análisis de datos. A continuación, se presenta una guía detallada sobre los servicios más populares de GCP, con ejemplos prácticos y casos de uso.</p>
+
+<div class="card">
+    <h2>Servicios populares de GCP</h2>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Compute Engine</h3>
+            <p>Compute Engine es un servicio de infraestructura como servicio (IaaS) que permite crear y gestionar máquinas virtuales en la nube.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Flexibilidad:</strong> Soporta múltiples sistemas operativos y configuraciones.</li>
+                <li><strong>Escalabilidad:</strong> Aumenta o reduce la capacidad según la demanda.</li>
+                <li><strong>Integración:</strong> Se integra con otros servicios de GCP como Storage, Networking, y más.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Crear una máquina virtual en Compute Engine
+gcloud compute instances create my-vm --machine-type n1-standard-1 --image-family debian-10 --image-project debian-cloud</code></pre>
+        </div>
+        
+        <div>
+            <h3>App Engine</h3>
+            <p>App Engine es una plataforma completamente gestionada para construir y escalar aplicaciones web y móviles.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Multiplataforma:</strong> Soporta aplicaciones en Python, Java, Node.js, Go, y más.</li>
+                <li><strong>Escalabilidad automática:</strong> Escala automáticamente según la demanda.</li>
+                <li><strong>Integración con CI/CD:</strong> Soporta integración continua y entrega continua.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Desplegar una aplicación en App Engine
+gcloud app deploy app.yaml</code></pre>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Cloud SQL</h3>
+            <p>Cloud SQL es un servicio de base de datos relacional completamente gestionado que soporta MySQL, PostgreSQL y SQL Server.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Escalabilidad:</strong> Aumenta o reduce la capacidad según la demanda.</li>
+                <li><strong>Alta disponibilidad:</strong> Ofrece replicación y copias de seguridad automáticas.</li>
+                <li><strong>Seguridad avanzada:</strong> Incluye encriptación, auditoría y control de acceso.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Crear una instancia de Cloud SQL
+gcloud sql instances create my-instance --database-version=MYSQL_5_7 --tier=db-n1-standard-1 --region=us-central1</code></pre>
+        </div>
+        
+        <div>
+            <h3>Cloud Functions</h3>
+            <p>Cloud Functions es un servicio de computación sin servidor que permite ejecutar código en respuesta a eventos sin gestionar la infraestructura.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Sin servidor:</strong> No es necesario gestionar servidores.</li>
+                <li><strong>Escalabilidad automática:</strong> Escala automáticamente según la demanda.</li>
+                <li><strong>Integración con otros servicios de GCP:</strong> Se integra con Cloud Storage, Pub/Sub, y más.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-javascript">// Ejemplo de Cloud Function en Node.js
+exports.helloWorld = (req, res) => {
+  res.send('Hello, World!');
+};</code></pre>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Cloud Storage</h3>
+            <p>Cloud Storage es un servicio de almacenamiento de objetos que permite almacenar y acceder a grandes cantidades de datos.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Almacenamiento de objetos:</strong> Almacena cualquier cantidad de datos.</li>
+                <li><strong>Durabilidad y disponibilidad:</strong> Diseñado para una durabilidad del 99.999999999%.</li>
+                <li><strong>Control de acceso:</strong> Permite gestionar permisos y políticas de acceso.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Crear un bucket en Cloud Storage
+gsutil mb gs://my-bucket
+
+# Subir un archivo
+gsutil cp myfile.txt gs://my-bucket/</code></pre>
+        </div>
+        
+        <div>
+            <h3>BigQuery</h3>
+            <p>BigQuery es un servicio de almacenamiento y análisis de datos completamente gestionado que permite ejecutar consultas SQL sobre grandes conjuntos de datos.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Análisis en tiempo real:</strong> Ejecuta consultas SQL sobre grandes volúmenes de datos en segundos.</li>
+                <li><strong>Escalabilidad:</strong> Maneja petabytes de datos sin necesidad de gestionar la infraestructura.</li>
+                <li><strong>Integración con otros servicios de GCP:</strong> Se integra con Cloud Storage, Dataflow, y más.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-sql">-- Ejecutar una consulta en BigQuery
+SELECT name, COUNT(*) as count
+FROM `bigquery-public-data.usa_names.usa_1910_2013`
+WHERE state = 'TX'
+GROUP BY name
+ORDER BY count DESC
+LIMIT 10;</code></pre>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Kubernetes Engine (GKE)</h3>
+            <p>Google Kubernetes Engine (GKE) es un servicio gestionado que permite implementar y gestionar clústeres de Kubernetes en GCP.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Gestión simplificada:</strong> GCP gestiona los nodos maestros de Kubernetes.</li>
+                <li><strong>Escalabilidad:</strong> Escala automáticamente los nodos de trabajo.</li>
+                <li><strong>Integración con otros servicios de GCP:</strong> Se integra con Cloud Monitoring, Cloud Logging, y más.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Crear un clúster de GKE
+gcloud container clusters create my-cluster --num-nodes=3 --zone=us-central1-a</code></pre>
+        </div>
+        
+        <div>
+            <h3>Cloud Pub/Sub</h3>
+            <p>Cloud Pub/Sub es un servicio de mensajería que permite enviar y recibir mensajes entre aplicaciones de manera asíncrona.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Escalabilidad:</strong> Maneja millones de mensajes por segundo.</li>
+                <li><strong>Fiabilidad:</strong> Garantiza la entrega de mensajes al menos una vez.</li>
+                <li><strong>Integración con otros servicios de GCP:</strong> Se integra con Cloud Functions, Dataflow, y más.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Crear un tema en Pub/Sub
+gcloud pubsub topics create my-topic
+
+# Publicar un mensaje
+gcloud pubsub topics publish my-topic --message "Hello, Pub/Sub!"</code></pre>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Cloud AI Platform</h3>
+            <p>Cloud AI Platform es un servicio que permite construir, entrenar y desplegar modelos de machine learning en la nube.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Entrenamiento distribuido:</strong> Soporta entrenamiento de modelos en grandes conjuntos de datos.</li>
+                <li><strong>Despliegue de modelos:</strong> Permite desplegar modelos como servicios web.</li>
+                <li><strong>Integración con TensorFlow:</strong> Soporta TensorFlow y otros frameworks de machine learning.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Entrenar un modelo en AI Platform
+gcloud ai-platform jobs submit training my_job --package-path trainer/ --module-name trainer.task --region us-central1 --python-version 3.7 --runtime-version 2.1</code></pre>
+        </div>
+        
+        <div>
+            <h3>Cloud IAM</h3>
+            <p>Cloud IAM (Identity and Access Management) es un servicio que permite gestionar el acceso a los recursos de GCP de manera segura.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Control de acceso:</strong> Define usuarios, grupos y roles con permisos específicos.</li>
+                <li><strong>Políticas:</strong> Crea políticas para controlar el acceso a los recursos.</li>
+                <li><strong>Integración con otros servicios de GCP:</strong> Se integra con todos los servicios de GCP.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Crear un usuario en IAM
+gcloud iam service-accounts create my-service-account --display-name "My Service Account"</code></pre>
+        </div>
+    </div>
+</div>
+
+<h2>Recursos de aprendizaje</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div>
+            <h3>Documentación oficial</h3>
+            <ul class="feature-list">
+                <li><a href="https://cloud.google.com/docs" target="_blank">Documentación de GCP</a></li>
+                <li><a href="https://cloud.google.com/learn" target="_blank">Guías de aprendizaje de GCP</a></li>
+                <li><a href="https://cloud.google.com/whitepapers" target="_blank">Whitepapers de GCP</a></li>
+            </ul>
+            
+            <h3 class="mt-4">Cursos y tutoriales</h3>
+            <ul class="feature-list">
+                <li><a href="https://www.udemy.com/course/google-cloud-platform-gcp-fundamentals/" target="_blank">GCP Fundamentals (Udemy)</a></li>
+                <li><a href="https://www.udemy.com/course/google-cloud-platform-gcp-certification/" target="_blank">GCP Certification (Udemy)</a></li>
+                <li><a href="https://www.udemy.com/course/google-cloud-platform-gcp-data-engineer/" target="_blank">GCP Data Engineer (Udemy)</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Libros recomendados</h3>
+            <ul class="feature-list">
+                <li>"Google Cloud Platform for Architects" - Joydip Kundu</li>
+                <li>"Google Cloud Platform in Action" - JJ Geewax</li>
+                <li>"Cloud Native Architectures" - Tom Laszewski, et al.</li>
+            </ul>
+        </div>
+    </div>
+</div>

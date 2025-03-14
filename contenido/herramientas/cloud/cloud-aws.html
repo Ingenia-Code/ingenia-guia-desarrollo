@@ -1,0 +1,230 @@
+
+<h1>Amazon Web Services (AWS)</h1>
+
+<p>Amazon Web Services (AWS) es una plataforma de servicios en la nube que ofrece una amplia gama de servicios para computación, almacenamiento, bases de datos, machine learning, y más. AWS es ampliamente utilizado por empresas de todos los tamaños para construir aplicaciones escalables y seguras. A continuación, se presenta una guía detallada sobre 10 de los servicios más populares de AWS, con ejemplos prácticos y casos de uso.</p>
+
+<div class="card">
+    <h2>Servicios populares de AWS</h2>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Amazon EC2 (Elastic Compute Cloud)</h3>
+            <p>Amazon EC2 proporciona capacidad de computación escalable en la nube. Permite lanzar y gestionar servidores virtuales (instancias) en minutos.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Escalabilidad:</strong> Aumenta o reduce la capacidad según la demanda.</li>
+                <li><strong>Flexibilidad:</strong> Soporta múltiples sistemas operativos y configuraciones.</li>
+                <li><strong>Integración:</strong> Se integra con otros servicios de AWS como S3, RDS, y Lambda.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Lanzar una instancia EC2
+aws ec2 run-instances --image-id ami-0abcdef1234567890 --instance-type t2.micro --key-name MyKeyPair</code></pre>
+        </div>
+        
+        <div>
+            <h3>Amazon S3 (Simple Storage Service)</h3>
+            <p>Amazon S3 es un servicio de almacenamiento de objetos que ofrece escalabilidad, disponibilidad de datos y seguridad.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Almacenamiento ilimitado:</strong> Almacena cualquier cantidad de datos.</li>
+                <li><strong>Durabilidad y disponibilidad:</strong> Diseñado para una durabilidad del 99.999999999%.</li>
+                <li><strong>Control de acceso:</strong> Permite gestionar permisos y políticas de acceso.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Crear un bucket S3
+aws s3 mb s3://my-bucket
+
+# Subir un archivo
+aws s3 cp myfile.txt s3://my-bucket/</code></pre>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Amazon RDS (Relational Database Service)</h3>
+            <p>Amazon RDS es un servicio de bases de datos relacionales que facilita la configuración, operación y escalabilidad de bases de datos en la nube.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Soporte para múltiples motores:</strong> MySQL, PostgreSQL, Oracle, SQL Server, y más.</li>
+                <li><strong>Escalabilidad:</strong> Aumenta o reduce la capacidad de la base de datos según la demanda.</li>
+                <li><strong>Copias de seguridad automáticas:</strong> Realiza copias de seguridad y restauraciones automáticas.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Crear una instancia de RDS
+aws rds create-db-instance --db-instance-identifier mydbinstance --db-instance-class db.t2.micro --engine mysql --master-username admin --master-user-password password</code></pre>
+        </div>
+        
+        <div>
+            <h3>Amazon Lambda</h3>
+            <p>Amazon Lambda es un servicio de computación sin servidor que ejecuta código en respuesta a eventos y administra automáticamente los recursos de computación.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Sin servidor:</strong> No es necesario gestionar servidores.</li>
+                <li><strong>Escalabilidad automática:</strong> Escala automáticamente según la demanda.</li>
+                <li><strong>Integración con otros servicios:</strong> Se integra con S3, DynamoDB, API Gateway, y más.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-javascript">// Función Lambda en Node.js
+exports.handler = async (event) => {
+    const response = {
+        statusCode: 200,
+        body: JSON.stringify('Hello from Lambda!'),
+    };
+    return response;
+};</code></pre>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Amazon DynamoDB</h3>
+            <p>Amazon DynamoDB es una base de datos NoSQL completamente gestionada que ofrece rendimiento rápido y escalable.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Rendimiento rápido:</strong> Latencia de milisegundos para cualquier escala.</li>
+                <li><strong>Escalabilidad automática:</strong> Ajusta automáticamente la capacidad según la demanda.</li>
+                <li><strong>Sin servidor:</strong> No es necesario gestionar la infraestructura.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Crear una tabla en DynamoDB
+aws dynamodb create-table --table-name MyTable --attribute-definitions AttributeName=Id,AttributeType=N --key-schema AttributeName=Id,KeyType=HASH --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5</code></pre>
+        </div>
+        
+        <div>
+            <h3>Amazon SNS (Simple Notification Service)</h3>
+            <p>Amazon SNS es un servicio de mensajería y notificaciones que permite enviar mensajes a múltiples suscriptores.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Notificaciones push:</strong> Envía notificaciones a dispositivos móviles.</li>
+                <li><strong>Integración con otros servicios:</strong> Se integra con Lambda, SQS, y más.</li>
+                <li><strong>Escalabilidad:</strong> Maneja millones de mensajes por segundo.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Crear un tema en SNS
+aws sns create-topic --name MyTopic
+
+# Suscribirse a un tema
+aws sns subscribe --topic-arn arn:aws:sns:us-east-1:123456789012:MyTopic --protocol email --notification-endpoint user@example.com</code></pre>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Amazon SQS (Simple Queue Service)</h3>
+            <p>Amazon SQS es un servicio de colas de mensajes completamente gestionado que permite desacoplar y escalar microservicios, sistemas distribuidos y aplicaciones sin servidor.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Desacoplamiento:</strong> Permite que los componentes de la aplicación funcionen de manera independiente.</li>
+                <li><strong>Escalabilidad:</strong> Maneja cualquier volumen de mensajes.</li>
+                <li><strong>Fiabilidad:</strong> Garantiza la entrega de mensajes al menos una vez.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Crear una cola en SQS
+aws sqs create-queue --queue-name MyQueue
+
+# Enviar un mensaje
+aws sqs send-message --queue-url https://sqs.us-east-1.amazonaws.com/123456789012/MyQueue --message-body "Hello, SQS!"</code></pre>
+        </div>
+        
+        <div>
+            <h3>Amazon CloudFront</h3>
+            <p>Amazon CloudFront es un servicio de red de entrega de contenido (CDN) que acelera la distribución de contenido estático y dinámico a los usuarios finales.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Rendimiento rápido:</strong> Entrega contenido con baja latencia y alta velocidad de transferencia.</li>
+                <li><strong>Seguridad:</strong> Ofrece integración con AWS Shield para protección DDoS.</li>
+                <li><strong>Integración con S3:</strong> Facilita la distribución de contenido almacenado en S3.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Crear una distribución de CloudFront
+aws cloudfront create-distribution --origin-domain-name mybucket.s3.amazonaws.com</code></pre>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Amazon VPC (Virtual Private Cloud)</h3>
+            <p>Amazon VPC permite crear una red virtual aislada en la nube de AWS, donde puedes lanzar recursos de AWS en una red definida por el usuario.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Aislamiento:</strong> Crea una red privada virtual en la nube.</li>
+                <li><strong>Control de acceso:</strong> Define subredes, tablas de rutas y gateways.</li>
+                <li><strong>Integración con otros servicios:</strong> Se integra con EC2, RDS, Lambda, y más.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Crear una VPC
+aws ec2 create-vpc --cidr-block 10.0.0.0/16
+
+# Crear una subred
+aws ec2 create-subnet --vpc-id vpc-0abcdef1234567890 --cidr-block 10.0.1.0/24</code></pre>
+        </div>
+        
+        <div>
+            <h3>Amazon IAM (Identity and Access Management)</h3>
+            <p>Amazon IAM es un servicio que permite gestionar el acceso a los servicios y recursos de AWS de manera segura.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Control de acceso:</strong> Define usuarios, grupos y roles con permisos específicos.</li>
+                <li><strong>Políticas:</strong> Crea políticas para controlar el acceso a los recursos.</li>
+                <li><strong>Integración con otros servicios:</strong> Se integra con todos los servicios de AWS.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Crear un usuario en IAM
+aws iam create-user --user-name MyUser
+
+# Asignar una política a un usuario
+aws iam attach-user-policy --user-name MyUser --policy-arn arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess</code></pre>
+        </div>
+    </div>
+</div>
+
+<h2>Recursos de aprendizaje</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div>
+            <h3>Documentación oficial</h3>
+            <ul class="feature-list">
+                <li><a href="https://docs.aws.amazon.com/" target="_blank">Documentación de AWS</a></li>
+                <li><a href="https://aws.amazon.com/getting-started/" target="_blank">Guías de inicio de AWS</a></li>
+                <li><a href="https://aws.amazon.com/whitepapers/" target="_blank">Whitepapers de AWS</a></li>
+            </ul>
+            
+            <h3 class="mt-4">Cursos y tutoriales</h3>
+            <ul class="feature-list">
+                <li><a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate/" target="_blank">AWS Certified Solutions Architect (Udemy)</a></li>
+                <li><a href="https://www.udemy.com/course/aws-certified-developer-associate/" target="_blank">AWS Certified Developer (Udemy)</a></li>
+                <li><a href="https://www.udemy.com/course/aws-certified-sysops-admin-associate/" target="_blank">AWS Certified SysOps Administrator (Udemy)</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Libros recomendados</h3>
+            <ul class="feature-list">
+                <li>"AWS Certified Solutions Architect Official Study Guide" - Joe Baron, et al.</li>
+                <li>"AWS for Developers" - John Culkin and Mike Lang</li>
+                <li>"Cloud Native Architectures" - Tom Laszewski, et al.</li>
+            </ul>
+        </div>
+    </div>
+</div>
