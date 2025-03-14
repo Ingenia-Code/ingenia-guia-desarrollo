@@ -36,7 +36,7 @@ function buildNavigationMenu() {
         sectionLink.href = '#';
         sectionLink.innerHTML = `
             <i class="fas fa-bars"></i>
-            <span>${section.title}</span>
+            <span style="color:white">${section.title}</span>
         `;
         sectionLink.addEventListener('click', (e) => {
             e.preventDefault(); // Evitar el comportamiento por defecto del enlace
