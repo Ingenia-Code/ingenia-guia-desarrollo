@@ -38,7 +38,7 @@
         },
         {
           "item": "documentacion",
-          "title": "Herramientas de Documentación",
+          "title": "Otras Herramientas",
           "subitems": [
             { "subitem": "doc-gitbook", "title": "GitBook", "url": "contenido/metodologias/documentacion/doc-gitbook.html" },
             { "subitem": "doc-confluence", "title": "Confluence", "url": "contenido/metodologias/documentacion/doc-confluence.html" },
