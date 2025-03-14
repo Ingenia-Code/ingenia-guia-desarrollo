@@ -37,8 +37,7 @@ const navigationStructure = {
         "subitems": {
           "bd-sql": "Bases de Datos SQL",
           "bd-nosql": "Bases de Datos NoSQL",
-          "bd-time-series": "Time Series DB",
-          "bd-grafos": "Bases de Datos de Grafos"
+          "bd-other": "Otras Bases de Datos"
         }
       }
     }

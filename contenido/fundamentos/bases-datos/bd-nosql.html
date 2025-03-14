@@ -1,0 +1,203 @@
+
+<h1>Bases de Datos NoSQL</h1>
+
+<p>Las bases de datos NoSQL (Not Only SQL) son sistemas de gestión de bases de datos no relacionales diseñados para manejar grandes volúmenes de datos no estructurados o semi-estructurados. Son ideales para aplicaciones modernas que requieren alta escalabilidad, flexibilidad y rendimiento. A continuación, se presenta una guía detallada sobre las bases de datos NoSQL más populares, sus características principales, y cómo utilizarlas en proyectos modernos.</p>
+
+<div class="card">
+    <h2>Bases de datos NoSQL populares</h2>
+    
+    <div class="grid-container">
+        <div>
+            <h3>MongoDB</h3>
+            <p>MongoDB es una base de datos orientada a documentos, diseñada para almacenar datos en formato JSON-like (BSON). Es ampliamente utilizada en aplicaciones web y móviles.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Orientado a documentos:</strong> Almacena datos en documentos flexibles (BSON).</li>
+                <li><strong>Escalabilidad horizontal:</strong> Soporte para sharding y replicación.</li>
+                <li><strong>Consultas flexibles:</strong> Soporte para consultas complejas y agregaciones.</li>
+                <li><strong>Índices:</strong> Índices secundarios para mejorar el rendimiento de las consultas.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-javascript">// Insertar un documento
+db.empleados.insertOne({
+    nombre: "Juan Pérez",
+    salario: 50000,
+    departamento: "TI"
+});
+
+// Consultar documentos
+db.empleados.find({ departamento: "TI" });</code></pre>
+        </div>
+        
+        <div>
+            <h3>Cassandra</h3>
+            <p>Cassandra es una base de datos distribuida diseñada para manejar grandes volúmenes de datos en múltiples servidores sin un punto único de fallo.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Alta disponibilidad:</strong> Sin punto único de fallo, gracias a su arquitectura distribuida.</li>
+                <li><strong>Escalabilidad lineal:</strong> Añade más nodos para aumentar la capacidad.</li>
+                <li><strong>Modelo de columnas:</strong> Almacena datos en columnas en lugar de filas.</li>
+                <li><strong>Consistencia ajustable:</strong> Permite ajustar el nivel de consistencia según las necesidades.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-sql">-- Crear un keyspace
+CREATE KEYSPACE empresa WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+
+-- Crear una tabla
+CREATE TABLE empresa.empleados (
+    id UUID PRIMARY KEY,
+    nombre TEXT,
+    salario DECIMAL
+);
+
+-- Insertar datos
+INSERT INTO empresa.empleados (id, nombre, salario) VALUES (uuid(), 'Ana Gómez', 45000);
+
+-- Consultar datos
+SELECT * FROM empresa.empleados;</code></pre>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Redis</h3>
+            <p>Redis es una base de datos en memoria que se utiliza como almacén de clave-valor, caché y broker de mensajes. Es conocido por su alto rendimiento.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Almacenamiento en memoria:</strong> Extremadamente rápido para operaciones de lectura/escritura.</li>
+                <li><strong>Estructuras de datos avanzadas:</strong> Soporta strings, hashes, listas, conjuntos, y más.</li>
+                <li><strong>Persistencia opcional:</strong> Puede persistir datos en disco si es necesario.</li>
+                <li><strong>Pub/Sub:</strong> Soporta mensajería publish/subscribe.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-bash"># Insertar un valor
+SET nombre "Juan Pérez"
+
+# Obtener un valor
+GET nombre
+
+# Usar un hash
+HSET empleado:1 nombre "Ana Gómez" salario 45000
+HGETALL empleado:1</code></pre>
+        </div>
+        
+        <div>
+            <h3>Couchbase</h3>
+            <p>Couchbase es una base de datos NoSQL que combina las características de una base de datos de documentos con las de una base de datos clave-valor.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Modelo de documentos:</strong> Almacena datos en formato JSON.</li>
+                <li><strong>Escalabilidad horizontal:</strong> Soporte para clustering y replicación.</li>
+                <li><strong>Consultas N1QL:</strong> Lenguaje de consultas similar a SQL para documentos JSON.</li>
+                <li><strong>Integración con móviles:</strong> Soporte para sincronización de datos en aplicaciones móviles.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-sql">-- Insertar un documento
+INSERT INTO empresa.empleados (KEY, VALUE)
+VALUES ("1", { "nombre": "Carlos Ruiz", "salario": 55000 });
+
+-- Consultar documentos
+SELECT * FROM empresa.empleados WHERE salario > 50000;</code></pre>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <div>
+            <h3>Elasticsearch</h3>
+            <p>Elasticsearch es un motor de búsqueda y análisis distribuido, diseñado para búsquedas en tiempo real y análisis de grandes volúmenes de datos.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Búsqueda en tiempo real:</strong> Ideal para aplicaciones que requieren búsquedas rápidas.</li>
+                <li><strong>Escalabilidad horizontal:</strong> Distribuye datos y consultas en múltiples nodos.</li>
+                <li><strong>Análisis de datos:</strong> Soporte para agregaciones y análisis complejos.</li>
+                <li><strong>Integración con Kibana:</strong> Herramienta de visualización de datos.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-json">// Insertar un documento
+POST /empleados/_doc/1
+{
+    "nombre": "Laura Díaz",
+    "salario": 60000,
+    "departamento": "TI"
+}
+
+// Consultar documentos
+GET /empleados/_search
+{
+    "query": {
+        "match": {
+            "departamento": "TI"
+        }
+    }
+}</code></pre>
+        </div>
+        
+        <div>
+            <h3>Neo4j</h3>
+            <p>Neo4j es una base de datos de grafos diseñada para manejar datos altamente conectados, como redes sociales, recomendaciones y análisis de relaciones.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Modelo de grafos:</strong> Almacena datos como nodos y relaciones.</li>
+                <li><strong>Consultas en Cypher:</strong> Lenguaje de consultas específico para grafos.</li>
+                <li><strong>Análisis de relaciones:</strong> Ideal para aplicaciones que requieren análisis de conexiones.</li>
+                <li><strong>Escalabilidad:</strong> Soporte para clustering y replicación.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-cypher">// Crear un nodo
+CREATE (juan:Empleado { nombre: "Juan Pérez", salario: 50000 });
+
+// Crear una relación
+CREATE (ana:Empleado { nombre: "Ana Gómez", salario: 45000 });
+CREATE (juan)-[:TRABAJA_CON]->(ana);
+
+// Consultar datos
+MATCH (e:Empleado) RETURN e;</code></pre>
+        </div>
+    </div>
+</div>
+
+<h2>Recursos de aprendizaje</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div>
+            <h3>Documentación oficial</h3>
+            <ul class="feature-list">
+                <li><a href="https://docs.mongodb.com/" target="_blank">Documentación de MongoDB</a></li>
+                <li><a href="https://cassandra.apache.org/doc/" target="_blank">Documentación de Cassandra</a></li>
+                <li><a href="https://redis.io/documentation" target="_blank">Documentación de Redis</a></li>
+                <li><a href="https://docs.couchbase.com/" target="_blank">Documentación de Couchbase</a></li>
+            </ul>
+            
+            <h3 class="mt-4">Cursos y tutoriales</h3>
+            <ul class="feature-list">
+                <li><a href="https://www.udemy.com/course/mongodb-the-complete-developers-guide/" target="_blank">MongoDB: The Complete Developer's Guide (Udemy)</a></li>
+                <li><a href="https://www.udemy.com/course/apache-cassandra/" target="_blank">Apache Cassandra: A Comprehensive Guide (Udemy)</a></li>
+                <li><a href="https://www.udemy.com/course/redis-the-ultimate-guide/" target="_blank">Redis: The Ultimate Guide (Udemy)</a></li>
+                <li><a href="https://www.udemy.com/course/couchbase-for-developers/" target="_blank">Couchbase for Developers (Udemy)</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Libros recomendados</h3>
+            <ul class="feature-list">
+                <li>"MongoDB: The Definitive Guide" - Kristina Chodorow</li>
+                <li>"Cassandra: The Definitive Guide" - Jeff Carpenter and Eben Hewitt</li>
+                <li>"Redis in Action" - Josiah L. Carlson</li>
+                <li>"Couchbase Essentials" - John Zablocki</li>
+            </ul>
+        </div>
+    </div>
+</div>

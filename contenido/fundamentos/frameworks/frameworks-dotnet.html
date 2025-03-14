@@ -1,0 +1,207 @@
+<h1>Frameworks de .NET</h1>
+
+<p>.NET es un ecosistema de desarrollo robusto y versátil, desarrollado por Microsoft, que incluye una amplia variedad de frameworks para diferentes propósitos, desde desarrollo web hasta aplicaciones móviles y de escritorio. Los frameworks más populares en el ecosistema de .NET incluyen ASP.NET Core, Entity Framework, Xamarin, y otros. A continuación, se presenta una guía detallada sobre estos frameworks, sus características principales, y cómo utilizarlos en proyectos modernos.</p>
+
+<div class="card">
+    <h2>Frameworks para desarrollo web</h2>
+    
+    <div class="grid-container">
+        <div>
+            <h3>ASP.NET Core</h3>
+            <p>ASP.NET Core es un framework moderno y multiplataforma para construir aplicaciones web y APIs. Es la evolución de ASP.NET, diseñado para ser más rápido, modular y ligero.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>Multiplataforma:</strong> Funciona en Windows, Linux y macOS.</li>
+                <li><strong>Alto rendimiento:</strong> Diseñado para ser rápido y eficiente.</li>
+                <li><strong>Inyección de dependencias:</strong> Soporte nativo para inyección de dependencias.</li>
+                <li><strong>Middleware:</strong> Arquitectura basada en middleware para manejar solicitudes y respuestas.</li>
+                <li><strong>Razor Pages:</strong> Simplifica la creación de páginas web con sintaxis Razor.</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-csharp">using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+app.MapGet("/", () => "Hello, ASP.NET Core!");
+
+app.Run();</code></pre>
+        </div>
+        
+        <div>
+            <h3>Blazor</h3>
+            <p>Blazor es un framework para construir interfaces de usuario interactivas en el navegador usando C# en lugar de JavaScript.</p>
+            
+            <h4>Características principales:</h4>
+            <ul class="feature-list">
+                <li><strong>WebAssembly:</strong> Ejecuta código C# en el navegador usando WebAssembly.</li>
+                <li><strong>Componentes:</strong> Basado en componentes reutilizables.</li>
+                <li><strong>Razor:</strong> Usa sintaxis Razor para definir componentes.</li>
+                <li><strong>Multiplataforma:</strong> Puede ejecutarse en el servidor (Blazor Server) o en el cliente (Blazor WebAssembly).</li>
+            </ul>
+            
+            <h4>Ejemplo básico:</h4>
+            <pre><code class="lang-csharp">@page "/counter"
+
+&lt;h3&gt;Counter&lt;/h3&gt;
+
+&lt;p&gt;Current count: @currentCount&lt;/p&gt;
+
+&lt;button class="btn btn-primary" @onclick="IncrementCount"&gt;Click me&lt;/button&gt;
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}</code></pre>
+        </div>
+    </div>
+</div>
+
+<h2>Frameworks para acceso a datos</h2>
+
+<div class="card">
+    <h3>Entity Framework Core</h3>
+    <p>Entity Framework Core (EF Core) es un ORM (Object-Relational Mapper) que permite a los desarrolladores trabajar con bases de datos usando objetos .NET en lugar de escribir consultas SQL manuales.</p>
+    
+    <h4>Características principales:</h4>
+    <ul class="feature-list">
+        <li><strong>Multiplataforma:</strong> Funciona en Windows, Linux y macOS.</li>
+        <li><strong>Code First:</strong> Permite definir el modelo de datos en código y generar la base de datos automáticamente.</li>
+        <li><strong>Migrations:</strong> Facilita la gestión de cambios en el esquema de la base de datos.</li>
+        <li><strong>Soporte para múltiples bases de datos:</strong> SQL Server, SQLite, PostgreSQL, MySQL, y más.</li>
+    </ul>
+    
+    <h4>Ejemplo básico:</h4>
+    <pre><code class="lang-csharp">using Microsoft.EntityFrameworkCore;
+
+public class BloggingContext : DbContext
+{
+    public DbSet&lt;Blog&gt; Blogs { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlite("Data Source=blogging.db");
+    }
+}
+
+public class Blog
+{
+    public int BlogId { get; set; }
+    public string Url { get; set; }
+}</code></pre>
+</div>
+
+<h2>Frameworks para desarrollo móvil</h2>
+
+<div class="card">
+    <h3>Xamarin</h3>
+    <p>Xamarin es un framework para construir aplicaciones móviles nativas usando C# y .NET. Permite compartir código entre plataformas (iOS, Android, y Windows).</p>
+    
+    <h4>Características principales:</h4>
+    <ul class="feature-list">
+        <li><strong>Multiplataforma:</strong> Código único para iOS, Android y Windows.</li>
+        <li><strong>Acceso nativo:</strong> Acceso completo a APIs nativas de cada plataforma.</li>
+        <li><strong>Xamarin.Forms:</strong> Permite crear interfaces de usuario compartidas entre plataformas.</li>
+        <li><strong>Integración con Visual Studio:</strong> Herramientas de desarrollo integradas en Visual Studio.</li>
+    </ul>
+    
+    <h4>Ejemplo básico:</h4>
+    <pre><code class="lang-csharp">using Xamarin.Forms;
+
+public class App : Application
+{
+    public App()
+    {
+        MainPage = new ContentPage
+        {
+            Content = new Label
+            {
+                Text = "Hello, Xamarin!",
+                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.Center
+            }
+        };
+    }
+}</code></pre>
+</div>
+
+<h2>Frameworks para desarrollo de escritorio</h2>
+
+<div class="card">
+    <h3>Windows Forms</h3>
+    <p>Windows Forms es un framework para crear aplicaciones de escritorio para Windows. Es una de las tecnologías más antiguas de .NET, pero sigue siendo ampliamente utilizada.</p>
+    
+    <h4>Características principales:</h4>
+    <ul class="feature-list">
+        <li><strong>Diseño visual:</strong> Permite diseñar interfaces de usuario arrastrando y soltando controles.</li>
+        <li><strong>Eventos:</strong> Manejo de eventos para interactividad.</li>
+        <li><strong>Compatibilidad:</strong> Funciona en todas las versiones de Windows.</li>
+    </ul>
+    
+    <h4>Ejemplo básico:</h4>
+    <pre><code class="lang-csharp">using System.Windows.Forms;
+
+public class Program : Form
+{
+    public Program()
+    {
+        var button = new Button
+        {
+            Text = "Click Me",
+            Location = new System.Drawing.Point(100, 100)
+        };
+
+        button.Click += (sender, e) => MessageBox.Show("Hello, Windows Forms!");
+
+        Controls.Add(button);
+    }
+
+    [STAThread]
+    static void Main()
+    {
+        Application.Run(new Program());
+    }
+}</code></pre>
+</div>
+
+<h2>Recursos de aprendizaje</h2>
+
+<div class="card">
+    <div class="grid-container">
+        <div>
+            <h3>Documentación oficial</h3>
+            <ul class="feature-list">
+                <li><a href="https://docs.microsoft.com/en-us/aspnet/core/" target="_blank">Documentación de ASP.NET Core</a></li>
+                <li><a href="https://docs.microsoft.com/en-us/ef/core/" target="_blank">Documentación de Entity Framework Core</a></li>
+                <li><a href="https://docs.microsoft.com/en-us/xamarin/" target="_blank">Documentación de Xamarin</a></li>
+                <li><a href="https://docs.microsoft.com/en-us/dotnet/desktop/winforms/" target="_blank">Documentación de Windows Forms</a></li>
+            </ul>
+            
+            <h3 class="mt-4">Cursos y tutoriales</h3>
+            <ul class="feature-list">
+                <li><a href="https://www.udemy.com/course/aspnet-core-fundamentals/" target="_blank">ASP.NET Core Fundamentals (Udemy)</a></li>
+                <li><a href="https://www.udemy.com/course/entity-framework-core-from-basics/" target="_blank">Entity Framework Core: From Basics (Udemy)</a></li>
+                <li><a href="https://www.udemy.com/course/xamarin-forms-course/" target="_blank">Xamarin Forms: Build Native Mobile Apps (Udemy)</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Libros recomendados</h3>
+            <ul class="feature-list">
+                <li>"Pro ASP.NET Core 6" - Adam Freeman</li>
+                <li>"Entity Framework Core in Action" - Jon P Smith</li>
+                <li>"Xamarin.Forms Essentials" - Gerald Versluis</li>
+                <li>"Windows Forms Programming with C#" - Erik Brown</li>
+            </ul>
+        </div>
+    </div>
+</div>
