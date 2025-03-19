@@ -1,0 +1,28 @@
+Estoy trabajando en un proyecto para crear una Guía de Desarrollo actualizada a 2025 que sirva como referencia para estandarizar prácticas dentro de una consultora. La guía debe ser lo suficientemente detallada para servir como un recurso desde cero para cada tópico, pero también debe ser clara, concisa y proporcionar un contexto general con ejemplos prácticos, referencias a otras fuentes de aprendizaje y un enfoque en la generación de proyectos modernos.
+
+Te compartiré dos archivos de ejemplo: uno para Python y otro para JavaScript. Estos archivos representan el formato y el nivel de detalle que busco para cada sección de la guía. Analiza estos archivos y, basándote en su estructura y contenido, ayúdame a crear un archivo similar para Java.
+
+Instrucciones específicas:
+Formato: Sigue el mismo formato que los archivos de Python y JS (por ejemplo, introducción, sintaxis básica, buenas prácticas, herramientas, frameworks, ejemplos de código, referencias, etc.).
+
+Contenido:
+
+Proporciona una introducción general al lenguaje Java, su relevancia en la industria y casos de uso comunes.
+
+Incluye sintaxis básica con ejemplos claros y comentados.
+
+Describe buenas prácticas de desarrollo en Java (por ejemplo, manejo de excepciones, convenciones de nombres, principios SOLID, etc.).
+
+Menciona herramientas y entornos de desarrollo populares (IDEs, herramientas de construcción como Maven o Gradle, etc.).
+
+Enlista frameworks y librerías relevantes (como Spring, Hibernate, etc.) de manera organizada (puedes usar tablas o listas).
+
+Proporciona ejemplos de código modernos y bien documentados que ilustren conceptos clave.
+
+Incluye referencias a recursos externos (documentación oficial, cursos, libros, etc.) para profundizar en el tema.
+
+Enfoque: No entres en detalles profundos sobre frameworks específicos (esto se cubrirá en secciones posteriores), pero menciónalos de manera organizada. Prioriza la claridad y la utilidad sobre la brevedad.
+
+Objetivo: El archivo debe ser una guía completa para alguien que comienza con Java, pero también debe ser útil para desarrolladores experimentados que buscan estandarizar prácticas.
+
+Una vez que hayas analizado los archivos de Python y JS, genera un archivo similar para Java siguiendo las instrucciones anteriores. Empezaremos con Java como prueba de concepto, y luego continuaremos con otros tópicos.

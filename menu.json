@@ -125,8 +125,8 @@
           "title": "Diseño y UX",
           "subitems": [
             { "subitem": "diseno-ui", "title": "Herramientas UI", "url": "contenido/herramientas/diseno/diseno-ui.html" },
-            { "subitem": "diseno-prototipos", "title": "Herramientas de Prototipado", "url": "contenido/herramientas/diseno/diseno-prototipos.html" },
-            { "subitem": "diseno-colaboracion", "title": "Herramientas de Colaboración", "url": "contenido/herramientas/diseno/diseno-colaboracion.html" },
+            { "subitem": "diseno-prototipos", "title": "Prototipado", "url": "contenido/herramientas/diseno/diseno-prototipos.html" },
+            { "subitem": "diseno-colaboracion", "title": "Colaboración", "url": "contenido/herramientas/diseno/diseno-colaboracion.html" },
             { "subitem": "diseno-diagramas", "title": "Diagramas y Flujos", "url": "contenido/herramientas/diseno/diseno-diagramas.html" }
           ]
         },

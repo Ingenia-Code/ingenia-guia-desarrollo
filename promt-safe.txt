@@ -1,0 +1,8 @@
+Estoy trabajando en un proyecto para crear una Guía de Desarrollo actualizada a 2025 que sirva como referencia para estandarizar prácticas dentro de una consultora (tanto técnicas como de gestión). La guía debe ser lo suficientemente detallada para servir como un recurso desde cero para cada tópico, pero también debe ser clara, concisa y proporcionar un contexto general con ejemplos prácticos, referencias a otras fuentes de aprendizaje y un enfoque en la generación de proyectos modernos.
+
+Te compartiré dos archivos de ejemplo: uno para Scrum y otro para Kanban. Estos archivos representan el formato y el nivel de detalle que busco para cada sección de la guía. Analiza estos archivos y, basándote en su estructura y contenido, ayúdame a crear un archivo similar para SAFe (metodologia escalada), en otros casos te pediré la creación desde cero de un archivo similar pero de otra heramienta/metodología/lenguaje/framework/patrón de diseño, etc.
+
+Instrucciones específicas:
+Formato: Sigue el mismo formato (layout) que los archivos de Scrum y Kanban.
+
+Incluye referencias a recursos externos (documentación oficial, cursos, libros, etc.) para profundizar en el tema.
