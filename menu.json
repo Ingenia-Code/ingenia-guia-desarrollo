@@ -32,8 +32,7 @@
           "subitems": [
             { "subitem": "gestion-trello", "title": "Trello", "url": "contenido/metodologias/gestion-proyectos/gestion-trello.html" },
             { "subitem": "gestion-monday", "title": "Monday", "url": "contenido/metodologias/gestion-proyectos/gestion-monday.html" },
-            { "subitem": "gestion-linear", "title": "Linear", "url": "contenido/metodologias/gestion-proyectos/gestion-linear.html" },
-            { "subitem": "gestion-otras", "title": "Otras herramientas", "url": "contenido/metodologias/gestion-proyectos/gestion-otras.html" }
+            { "subitem": "gestion-linear", "title": "Linear", "url": "contenido/metodologias/gestion-proyectos/gestion-linear.html" }
           ]
         },
         {
@@ -114,7 +113,7 @@
           "item": "testing",
           "title": "Testing y QA",
           "subitems": [
-            { "subitem": "testing-unit", "title": "Pruebas Unitarias", "url": "contenido/herramientas/testing/testing-unit.html" },
+            { "subitem": "unit-testing", "title": "Pruebas Unitarias", "url": "contenido/herramientas/testing/unit-testing.html" },
             { "subitem": "testing-integration", "title": "Pruebas de Integración", "url": "contenido/herramientas/testing/testing-integration.html" },
             { "subitem": "testing-e2e", "title": "Pruebas End-to-End", "url": "contenido/herramientas/testing/testing-e2e.html" },
             { "subitem": "testing-security", "title": "Pruebas de Seguridad", "url": "contenido/herramientas/testing/testing-security.html" }

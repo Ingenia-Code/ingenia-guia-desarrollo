@@ -1,526 +1,240 @@
-<h1>Chatbots y LLMs para Desarrollo</h1>
-
-<p>Los modelos de lenguaje de gran escala (LLMs) y chatbots basados en IA se han convertido en herramientas indispensables para desarrolladores. Estas tecnologías pueden ayudar con explicaciones de código, depuración, generación de documentación, aprendizaje de nuevos conceptos y mucho más.</p>
-
-<div class="card">
-    <h2>Cómo los LLMs están transformando el desarrollo</h2>
-    
-    <p>Los LLMs (Large Language Models) están cambiando la forma en que los desarrolladores trabajan, ofreciendo asistencia en múltiples aspectos del ciclo de desarrollo:</p>
-    
-    <ul class="feature-list">
-        <li><strong>Reducción de tareas repetitivas:</strong> Generación de código boilerplate, tests, documentación</li>
-        <li><strong>Aceleración del aprendizaje:</strong> Explicaciones personalizadas y ejemplos de nuevas tecnologías</li>
-        <li><strong>Debugging asistido:</strong> Ayuda para identificar errores y sugerir soluciones</li>
-        <li><strong>Exploración de alternativas:</strong> Sugerencias de diferentes enfoques para resolver problemas</li>
-        <li><strong>Refactorización:</strong> Identificación de mejoras potenciales en el código existente</li>
-        <li><strong>Conversión entre lenguajes:</strong> Traducción de código entre diferentes lenguajes de programación</li>
-    </ul>
-</div>
-
-<h2>Principales LLMs para desarrolladores</h2>
-
-<div class="grid-container">
-    <div class="card">
-        <h3>Claude (Anthropic)</h3>
-        <p>Modelo de lenguaje avanzado con énfasis en seguridad, utilidad y capacidad de procesamiento de documentos extensos.</p>
-        
-        <h4>Características principales:</h4>
-        <ul class="feature-list">
-            <li>Ventana de contexto extendida (hasta 200k tokens en Claude 3 Opus)</li>
-            <li>Excelente en comprensión y generación de código</li>
-            <li>Habilidad para razonar paso a paso sobre problemas técnicos</li>
-            <li>Capacidad para analizar archivos y bases de código completas</li>
-            <li>Precisión mejorada en explicaciones técnicas</li>
-        </ul>
-        
-        <h4>Usos destacados en desarrollo:</h4>
-        <ul class="feature-list">
-            <li>Revisión y refactorización de código extenso</li>
-            <li>Análisis de documentación técnica</li>
-            <li>Explicación detallada de conceptos complejos</li>
-            <li>Generación de tests unitarios</li>
-            <li>Documentación de código existente</li>
-        </ul>
-        
-        <h4>Modelos disponibles:</h4>
-        <ul class="feature-list">
-            <li>Claude 3 Opus: El más potente, excelente para tareas complejas</li>
-            <li>Claude 3 Sonnet: Equilibrio entre rendimiento y velocidad</li>
-            <li>Claude 3 Haiku: Más rápido, ideal para tareas simples</li>
-        </ul>
-        
-        <p><strong>Acceso:</strong> API, Chat web, integración en Slack, Visual Studio Code</p>
-        <p><strong>Precio:</strong> Gratuito (chat web con límites), Claude Pro ($20/mes), Precios API por token</p>
-        <a href="https://www.anthropic.com/claude" target="_blank">Sitio oficial</a>
+<!-- Sección de Chatbots y LLMs para Desarrollo -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h1 class="h4 mb-0 text-gray-800">Chatbots y LLMs para Desarrollo</h1>
     </div>
-    
-    <div class="card">
-        <h3>ChatGPT / GPT-4 (OpenAI)</h3>
-        <p>El chatbot de IA más conocido, basado en la familia de modelos GPT, con capacidades avanzadas para asistencia en programación.</p>
-        
-        <h4>Características principales:</h4>
-        <ul class="feature-list">
-            <li>Interfaz conversacional intuitiva</li>
-            <li>Capacidad multimodal (texto, imágenes, audio)</li>
-            <li>Puede analizar y generar código en múltiples lenguajes</li>
-            <li>Acceso a internet y búsqueda en tiempo real (Plus)</li>
-            <li>Extensible mediante plugins (Plus)</li>
-            <li>GPTs personalizados para tareas específicas (Plus)</li>
-        </ul>
-        
-        <h4>Usos destacados en desarrollo:</h4>
-        <ul class="feature-list">
-            <li>Generación de código para tareas específicas</li>
-            <li>Debugging y resolución de errores</li>
-            <li>Consulta de conceptos de programación</li>
-            <li>Revisión y optimización de código</li>
-            <li>Planificación de arquitectura de software</li>
-        </ul>
-        
-        <h4>Modelos disponibles:</h4>
-        <ul class="feature-list">
-            <li>GPT-4o: Último modelo, rápido y potente</li>
-            <li>GPT-4 Turbo: Mayor capacidad y conocimientos actualizados</li>
-            <li>GPT-3.5 Turbo: Más rápido y económico</li>
-        </ul>
-        
-        <p><strong>Acceso:</strong> Chat web, API, Mobile apps, plugins de IDE (mediante extensiones)</p>
-        <p><strong>Precio:</strong> Gratuito (GPT-3.5 con límites), ChatGPT Plus ($20/mes), Precios API por token</p>
-        <a href="https://chat.openai.com/" target="_blank">Sitio oficial</a>
+    <div class="card-body">
+        <p class="lead">Los Chatbots y los Modelos de Lenguaje de Gran Escala (LLMs, por sus siglas en inglés) están revolucionando la forma en que los desarrolladores interactúan con la tecnología. Estas herramientas, impulsadas por inteligencia artificial, no solo mejoran la productividad, sino que también ofrecen nuevas formas de resolver problemas, generar código, documentar proyectos y optimizar flujos de trabajo. En esta sección, exploraremos cómo los chatbots y los LLMs están transformando el desarrollo de software.</p>
     </div>
 </div>
 
-<div class="grid-container">
-    <div class="card">
-        <h3>Perplexity AI</h3>
-        <p>Motor de respuestas basado en IA con capacidad de búsqueda e información actualizada, especialmente útil para investigación técnica.</p>
-        
-        <h4>Características principales:</h4>
-        <ul class="feature-list">
-            <li>Combina LLMs con búsqueda en tiempo real</li>
-            <li>Proporciona información actualizada con referencias</li>
-            <li>Cita fuentes para verificación</li>
-            <li>Interfaz de chat amigable</li>
-            <li>Personalización del modelo base (Claude, GPT-4, etc.)</li>
-            <li>Historial de conversaciones y colecciones</li>
-        </ul>
-        
-        <h4>Usos destacados en desarrollo:</h4>
-        <ul class="feature-list">
-            <li>Investigación de tecnologías y bibliotecas actuales</li>
-            <li>Documentación técnica actualizada</li>
-            <li>Resolución de problemas específicos con referencias</li>
-            <li>Análisis de tendencias tecnológicas</li>
-            <li>Comparativas entre herramientas de desarrollo</li>
-        </ul>
-        
-        <h4>Modos disponibles:</h4>
-        <ul class="feature-list">
-            <li>Focus: Para respuestas concisas y directas</li>
-            <li>Online: Integra información actualizada de internet</li>
-            <li>Scholar: Orientado a información académica</li>
-            <li>Writing: Optimizado para generación de texto</li>
-        </ul>
-        
-        <p><strong>Acceso:</strong> Web, aplicaciones móviles, API (beta)</p>
-        <p><strong>Precio:</strong> Gratuito (con límites), Pro ($20/mes)</p>
-        <a href="https://www.perplexity.ai/" target="_blank">Sitio oficial</a>
+<!-- Sección de ¿Qué son los Chatbots y LLMs para Desarrollo? -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h2 class="h4 mb-0 text-gray-800">¿Qué son los Chatbots y LLMs para Desarrollo?</h2>
     </div>
-    
-    <div class="card">
-        <h3>Gemini (Google)</h3>
-        <p>Modelo multimodal de Google que combina comprensión de texto, imágenes y código.</p>
-        
-        <h4>Características principales:</h4>
-        <ul class="feature-list">
-            <li>Capacidades multimodales avanzadas</li>
-            <li>Integración con servicios de Google</li>
-            <li>Conocimiento extenso sobre tecnologías web y mobile</li>
-            <li>Soporte para múltiples lenguajes de programación</li>
-            <li>Puede analizar capturas de pantalla de código</li>
-            <li>Información actualizada mediante búsquedas en tiempo real</li>
+    <div class="card-body">
+        <p>Los <strong>Chatbots</strong> y los <strong>Modelos de Lenguaje de Gran Escala (LLMs)</strong> son sistemas basados en inteligencia artificial diseñados para interactuar con los usuarios de manera natural, ya sea a través de texto o voz. En el contexto del desarrollo de software, estas herramientas se utilizan para:</p>
+        <ul>
+            <li><strong>Generar código:</strong> Los LLMs pueden generar fragmentos de código a partir de descripciones en lenguaje natural, lo que acelera el proceso de desarrollo.</li>
+            <li><strong>Responder preguntas técnicas:</strong> Los chatbots pueden actuar como asistentes virtuales, respondiendo preguntas sobre documentación, mejores prácticas o soluciones a problemas comunes.</li>
+            <li><strong>Automatizar tareas repetitivas:</strong> Desde la generación de documentación hasta la revisión de código, los LLMs pueden automatizar tareas que consumen tiempo.</li>
+            <li><strong>Optimizar flujos de trabajo:</strong> Los chatbots pueden integrarse con herramientas de desarrollo para ofrecer sugerencias en tiempo real, como completar código o detectar errores.</li>
         </ul>
-        
-        <h4>Usos destacados en desarrollo:</h4>
-        <ul class="feature-list">
-            <li>Análisis de capturas de pantalla de errores</li>
-            <li>Generación y explicación de código</li>
-            <li>Debugging visual</li>
-            <li>Conversión entre lenguajes de programación</li>
-            <li>Exploración de APIs de Google</li>
-        </ul>
-        
-        <h4>Modelos disponibles:</h4>
-        <ul class="feature-list">
-            <li>Gemini Ultra: El modelo más avanzado para tareas complejas</li>
-            <li>Gemini Pro: Equilibrado para uso general</li>
-            <li>Gemini Nano: Modelo ligero para dispositivos móviles</li>
-        </ul>
-        
-        <p><strong>Acceso:</strong> Web, Google AI Studio, API, Integración en Google Workspace</p>
-        <p><strong>Precio:</strong> Gratuito (con límites), Gemini Advanced ($20/mes)</p>
-        <a href="https://gemini.google.com/" target="_blank">Sitio oficial</a>
+        <p>Estas herramientas están transformando la forma en que los desarrolladores trabajan, permitiéndoles centrarse en tareas más creativas y estratégicas.</p>
     </div>
 </div>
 
-<h2>Optimización de prompts para desarrollo</h2>
-
-<div class="card">
-    <h3>Técnicas de prompting para desarrolladores</h3>
-    
-    <p>La efectividad de un LLM depende en gran medida de cómo se formulan las preguntas o instrucciones. Estas son algunas prácticas recomendadas:</p>
-    
-    <div class="grid-container">
-        <div>
-            <h4>Estructura del prompt</h4>
-            <ul class="feature-list">
-                <li><strong>Sea específico:</strong> Proporcione detalles sobre el lenguaje, framework, versión, etc.</li>
-                <li><strong>Proporcione contexto:</strong> Explique el objetivo general y el contexto del problema</li>
-                <li><strong>Incluya código relevante:</strong> Comparta extractos de código esenciales</li>
-                <li><strong>Especifique el formato deseado:</strong> Indique cómo quiere la respuesta (explicación, código, pseudocódigo)</li>
-                <li><strong>Use instrucciones paso a paso:</strong> Estructure prompts complejos en pasos secuenciales</li>
-            </ul>
-        </div>
-        
-        <div>
-            <h4>Técnicas avanzadas</h4>
-            <ul class="feature-list">
-                <li><strong>Chain of Thought:</strong> Pida al modelo que razone paso a paso</li>
-                <li><strong>Role prompting:</strong> Asigne al modelo un rol específico ("Actúa como un experto en Python")</li>
-                <li><strong>Refinamiento iterativo:</strong> Haga preguntas de seguimiento para mejorar la respuesta inicial</li>
-                <li><strong>Few-shot learning:</strong> Proporcione ejemplos de pregunta-respuesta antes de su consulta</li>
-                <li><strong>Reflexión crítica:</strong> Pida al modelo que evalúe su propia solución</li>
-            </ul>
-        </div>
+<!-- Sección de Características Principales de los Chatbots y LLMs para Desarrollo -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h2 class="h4 mb-0 text-gray-800">Características Principales de los Chatbots y LLMs para Desarrollo</h2>
     </div>
-    
-    <h3 class="mt-4">Ejemplos de prompts efectivos para desarrollo</h3>
-    
-    <div class="grid-container">
-        <div>
-            <h4>Para debugging</h4>
-            <pre><code class="lang-text">Estoy recibiendo el siguiente error en mi aplicación React:
-
-```
-TypeError: Cannot read property 'map' of undefined
-```
-
-En este componente:
-
-```jsx
-function ProductList({ products }) {
-  return (
-    <div>
-      {products.map(product => (
-        <div key={product.id}>
-          {product.name} - ${product.price}
-        </div>
-      ))}
-    </div>
-  );
-}
-```
-
-El componente se usa así:
-
-```jsx
-<ProductList products={data.products} />
-```
-
-¿Cuál podría ser el problema y cómo puedo solucionarlo? Por favor, explica el error y proporciona una solución robusta.</code></pre>
-        </div>
+    <div class="card-body">
+        <p>Los chatbots y los LLMs ofrecen una amplia gama de características que los convierten en herramientas esenciales para los desarrolladores. Algunas de las características más destacadas son:</p>
         
-        <div>
-            <h4>Para diseño de arquitectura</h4>
-            <pre><code class="lang-text">Actúa como un arquitecto de software senior especializado en microservicios.
-
-Estoy diseñando una plataforma de e-commerce con los siguientes requisitos:
-- 100,000 usuarios activos mensuales
-- Catálogo de 50,000 productos
-- Procesamiento de pagos
-- Sistema de recomendaciones
-- Gestión de inventario
-- Envíos y logística
-
-Por favor, propón una arquitectura de microservicios adecuada, incluyendo:
-1. Qué servicios crearías y sus responsabilidades
-2. Cómo se comunicarían entre sí (sync/async)
-3. Bases de datos recomendadas para cada servicio
-4. Consideraciones de escalabilidad
-5. Patrones de diseño relevantes
-
-Incluye un diagrama simple usando notación ASCII si es posible.</code></pre>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">1. Generación de código asistida</h3>
+                        <p>Los LLMs pueden generar código a partir de descripciones en lenguaje natural, lo que permite a los desarrolladores crear funciones, clases o scripts de manera rápida y eficiente.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">2. Asistencia en tiempo real</h3>
+                        <p>Los chatbots pueden ofrecer sugerencias en tiempo real mientras los desarrolladores escriben código, como completar funciones, detectar errores o sugerir mejoras.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">3. Documentación automática</h3>
+                        <p>Los LLMs pueden generar documentación técnica a partir del código, lo que ahorra tiempo y asegura que la documentación esté siempre actualizada.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">4. Respuestas a preguntas técnicas</h3>
+                        <p>Los chatbots pueden responder preguntas técnicas sobre lenguajes de programación, frameworks, bibliotecas y mejores prácticas, actuando como un asistente virtual para los desarrolladores.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">5. Integración con herramientas de desarrollo</h3>
+                        <p>Los chatbots y LLMs pueden integrarse con entornos de desarrollo integrados (IDEs) como Visual Studio Code, PyCharm y otros, ofreciendo funcionalidades avanzadas directamente en el flujo de trabajo del desarrollador.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">6. Automatización de pruebas</h3>
+                        <p>Los LLMs pueden generar pruebas unitarias y de integración a partir del código existente, lo que ayuda a garantizar la calidad del software.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<h2>Integración con flujos de trabajo de desarrollo</h2>
-
-<div class="card">
-    <h3>Extensiones y plugins</h3>
-    
-    <p>Los LLMs pueden integrarse directamente en el flujo de trabajo de desarrollo a través de diversas extensiones:</p>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>IDE/Herramienta</th>
-                <th>Extensión</th>
-                <th>LLM Compatible</th>
-                <th>Características</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Visual Studio Code</td>
-                <td>Continue.dev</td>
-                <td>Claude, GPT-4, Gemini, etc.</td>
-                <td>Asistente integrado en el editor, selección de modelo</td>
-            </tr>
-            <tr>
-                <td>Visual Studio Code</td>
-                <td>GitHub Copilot Chat</td>
-                <td>GPT-4</td>
-                <td>Chat contextual sobre el código actual</td>
-            </tr>
-            <tr>
-                <td>JetBrains IDEs</td>
-                <td>AI Assistant</td>
-                <td>Múltiples</td>
-                <td>Chat, completado de código, refactorización</td>
-            </tr>
-            <tr>
-                <td>Navegador</td>
-                <td>ChatGPT for Google</td>
-                <td>ChatGPT</td>
-                <td>Muestra respuestas junto a resultados de búsqueda</td>
-            </tr>
-            <tr>
-                <td>Slack</td>
-                <td>Claude</td>
-                <td>Claude</td>
-                <td>Asistente en canales y mensajes directos</td>
-            </tr>
-            <tr>
-                <td>Terminal</td>
-                <td>Shell GPT</td>
-                <td>Múltiples</td>
-                <td>Asistente para shell y comandos</td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <h3 class="mt-4">APIs y automatización</h3>
-    
-    <p>Las APIs de los LLMs permiten crear integraciones personalizadas y flujos automatizados:</p>
-    
-    <div class="grid-container">
-        <div>
-            <h4>Casos de uso de automatización</h4>
-            <ul class="feature-list">
-                <li>Generación automática de documentación de código</li>
-                <li>Análisis de código previo a pull requests</li>
-                <li>Resumen de cambios en commits</li>
-                <li>Generación de tests unitarios</li>
-                <li>Traducción de requerimientos a historias de usuario</li>
-                <li>Respuestas automatizadas a issues comunes</li>
-                <li>Generación de esquemas y migraciones de base de datos</li>
-            </ul>
-        </div>
-        
-        <div>
-            <h4>Ejemplo de integración con GitHub Actions</h4>
-            <pre><code class="lang-yaml"># .github/workflows/pr-summary.yml
-name: PR Summary
-
-on:
-  pull_request:
-    types: [opened, synchronize]
-
-jobs:
-  summarize:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      
-      - name: Get changed files
-        id: files
-        run: |
-          echo "::set-output name=all::$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | xargs)"
-      
-      - name: Generate summary with AI
-        uses: some-ai-action@v1
-        with:
-          api-key: ${{ secrets.OPENAI_API_KEY }}
-          prompt: "Resume los siguientes cambios de código en viñetas, destacando los cambios principales y posibles impactos: ${{ steps.files.outputs.all }}"
-          
-      - name: Add summary comment
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const summary = process.env.AI_SUMMARY;
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `## AI Generated Summary\n\n${summary}`
-            })</code></pre>
+<!-- Sección de Ventajas y Desventajas de los Chatbots y LLMs para Desarrollo -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h2 class="h4 mb-0 text-gray-800">Ventajas y Desventajas de los Chatbots y LLMs para Desarrollo</h2>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">Ventajas</h3>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Aumento de la productividad:</strong> Los chatbots y LLMs permiten a los desarrolladores completar tareas más rápidamente, como generar código o documentación.</li>
+                            <li class="list-group-item"><strong>Reducción de errores:</strong> Al ofrecer sugerencias en tiempo real y detectar errores, estas herramientas ayudan a mejorar la calidad del código.</li>
+                            <li class="list-group-item"><strong>Acceso rápido a información:</strong> Los chatbots pueden responder preguntas técnicas en segundos, lo que ahorra tiempo en la búsqueda de documentación.</li>
+                            <li class="list-group-item"><strong>Automatización de tareas repetitivas:</strong> Desde la generación de pruebas hasta la documentación, estas herramientas automatizan tareas que consumen tiempo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">Desventajas</h3>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Dependencia de la calidad del entrenamiento:</strong> La eficacia de estas herramientas depende de la calidad y cantidad de datos con los que han sido entrenadas.</li>
+                            <li class="list-group-item"><strong>Falsos positivos:</strong> En ocasiones, los LLMs pueden generar código incorrecto o sugerir soluciones que no son óptimas.</li>
+                            <li class="list-group-item"><strong>Falta de comprensión del contexto:</strong> Aunque los LLMs son avanzados, a veces pueden malinterpretar el contexto del código, lo que lleva a sugerencias inapropiadas.</li>
+                            <li class="list-group-item"><strong>Costos de implementación:</strong> Algunas herramientas avanzadas pueden ser costosas, especialmente para equipos pequeños o proyectos de bajo presupuesto.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<h2>Comparativa de modelos</h2>
-
-<div class="card">
-    <p>Cada modelo tiene fortalezas distintas para diferentes tareas de desarrollo:</p>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>Modelo</th>
-                <th>Generación de código</th>
-                <th>Debugging</th>
-                <th>Explicaciones</th>
-                <th>Procesamiento contextual</th>
-                <th>Precisión técnica</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Claude 3 Opus</td>
-                <td>⭐⭐⭐⭐</td>
-                <td>⭐⭐⭐⭐⭐</td>
-                <td>⭐⭐⭐⭐⭐</td>
-                <td>⭐⭐⭐⭐⭐</td>
-                <td>⭐⭐⭐⭐⭐</td>
-            </tr>
-            <tr>
-                <td>GPT-4o</td>
-                <td>⭐⭐⭐⭐⭐</td>
-                <td>⭐⭐⭐⭐⭐</td>
-                <td>⭐⭐⭐⭐</td>
-                <td>⭐⭐⭐⭐</td>
-                <td>⭐⭐⭐⭐</td>
-            </tr>
-            <tr>
-                <td>Gemini Pro</td>
-                <td>⭐⭐⭐⭐</td>
-                <td>⭐⭐⭐⭐</td>
-                <td>⭐⭐⭐⭐</td>
-                <td>⭐⭐⭐</td>
-                <td>⭐⭐⭐⭐</td>
-            </tr>
-            <tr>
-                <td>Perplexity Pro</td>
-                <td>⭐⭐⭐</td>
-                <td>⭐⭐⭐⭐</td>
-                <td>⭐⭐⭐⭐⭐</td>
-                <td>⭐⭐⭐</td>
-                <td>⭐⭐⭐⭐⭐</td>
-            </tr>
-            <tr>
-                <td>Claude 3 Sonnet</td>
-                <td>⭐⭐⭐⭐</td>
-                <td>⭐⭐⭐⭐</td>
-                <td>⭐⭐⭐⭐</td>
-                <td>⭐⭐⭐⭐</td>
-                <td>⭐⭐⭐⭐</td>
-            </tr>
-            <tr>
-                <td>GPT-3.5 Turbo</td>
-                <td>⭐⭐⭐</td>
-                <td>⭐⭐⭐</td>
-                <td>⭐⭐⭐</td>
-                <td>⭐⭐</td>
-                <td>⭐⭐⭐</td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <h3 class="mt-4">Recomendaciones según el caso de uso</h3>
-    
-    <ul class="feature-list">
-        <li><strong>Análisis de bases de código grandes:</strong> Claude 3 Opus (ventana de contexto extendida)</li>
-        <li><strong>Generación rápida de código:</strong> GPT-4o, GitHub Copilot</li>
-        <li><strong>Debugging visual:</strong> Gemini Pro</li>
-        <li><strong>Investigación de tecnologías recientes:</strong> Perplexity AI</li>
-        <li><strong>Explicaciones detalladas y didácticas:</strong> Claude 3</li>
-        <li><strong>Uso diario y consultas rápidas:</strong> GPT-3.5 Turbo, Claude 3 Haiku</li>
-        <li><strong>Refactorización de código:</strong> Claude 3 Opus, GPT-4o</li>
-    </ul>
-</div>
-
-<h2>Mejores prácticas y consideraciones éticas</h2>
-
-<div class="card">
-    <div class="grid-container">
-        <div>
-            <h3>Mejores prácticas</h3>
-            <ul class="feature-list">
-                <li><strong>Verificar siempre el código generado:</strong> Los LLMs pueden generar código plausible pero incorrecto o inseguro</li>
-                <li><strong>Entender antes de implementar:</strong> Asegúrese de comprender el código antes de usarlo</li>
-                <li><strong>Mantener información sensible fuera de los prompts:</strong> No comparta secretos, claves o datos personales</li>
-                <li><strong>Combinar con pruebas automatizadas:</strong> Implemente tests para validar código generado</li>
-                <li><strong>Usar como asistente, no como reemplazo:</strong> El criterio humano sigue siendo esencial</li>
-                <li><strong>Documentar el uso de IA:</strong> Indique qué partes del código fueron asistidas por IA</li>
-                <li><strong>Actualizar conocimientos:</strong> Valide la información con fuentes actualizadas</li>
-            </ul>
-        </div>
+<!-- Sección de ¿Cuándo usar Chatbots y LLMs para Desarrollo? -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h2 class="h4 mb-0 text-gray-800">¿Cuándo usar Chatbots y LLMs para Desarrollo?</h2>
+    </div>
+    <div class="card-body">
+        <p>Los chatbots y los LLMs son especialmente útiles en los siguientes escenarios:</p>
         
-        <div>
-            <h3>Consideraciones éticas</h3>
-            <ul class="feature-list">
-                <li><strong>Propiedad intelectual:</strong> Revisar términos de uso de la IA y políticas de empresa</li>
-                <li><strong>Sesgos y equidad:</strong> Evaluar las soluciones generadas para detectar posibles sesgos</li>
-                <li><strong>Transparencia:</strong> Ser transparente sobre el uso de IA en el desarrollo</li>
-                <li><strong>Privacidad:</strong> Considerar las implicaciones de datos enviados a servicios de terceros</li>
-                <li><strong>Desarrollo de habilidades:</strong> Usar IA para ampliar, no sustituir, el aprendizaje</li>
-                <li><strong>Revisión humana:</strong> Mantener la supervisión humana sobre decisiones importantes</li>
-                <li><strong>Atribución:</strong> Respetar licencias y atribución adecuada del código generado</li>
-            </ul>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">Desarrollo rápido de prototipos</h3>
+                        <p>Cuando se necesita desarrollar prototipos rápidamente, los LLMs pueden generar código funcional en cuestión de minutos, lo que acelera el proceso de iteración.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">Equipos con recursos limitados</h3>
+                        <p>Para equipos pequeños o con recursos limitados, los chatbots y LLMs pueden actuar como un "segundo desarrollador", ayudando a completar tareas más rápidamente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">Proyectos con alta complejidad técnica</h3>
+                        <p>En proyectos con alta complejidad técnica, los LLMs pueden ayudar a los desarrolladores a resolver problemas complejos más rápidamente, sugiriendo soluciones basadas en patrones de código existentes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">Mantenimiento de código legacy</h3>
+                        <p>En proyectos con código legacy, los LLMs pueden ayudar a entender y refactorizar el código existente, facilitando su mantenimiento y actualización.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    
-    <h3 class="mt-4">Políticas corporativas sobre el uso de IA</h3>
-    
-    <p>Muchas organizaciones están desarrollando políticas específicas para el uso de herramientas de IA en desarrollo. Elementos comunes incluyen:</p>
-    
-    <ul class="feature-list">
-        <li>Herramientas de IA aprobadas para uso interno</li>
-        <li>Tipos de código e información que pueden compartirse</li>
-        <li>Requisitos de revisión para código generado por IA</li>
-        <li>Pautas sobre propiedad intelectual y atribución</li>
-        <li>Procedimientos para validación de seguridad</li>
-        <li>Directrices sobre incorporación de código generado al repositorio</li>
-    </ul>
 </div>
 
-<h2>Recursos adicionales</h2>
-
-<div class="card">
-    <h3>Tutoriales y guías</h3>
-    
-    <ul class="feature-list">
-        <li><a href="https://github.com/f/awesome-chatgpt-prompts" target="_blank">Awesome ChatGPT Prompts</a> - Colección de prompts efectivos</li>
-        <li><a href="https://www.anthropic.com/prompt-engineering" target="_blank">Guía de Prompt Engineering de Anthropic</a></li>
-        <li><a href="https://learn.microsoft.com/en-us/semantic-kernel/prompt-engineering/" target="_blank">Microsoft Prompt Engineering Guide</a></li>
-    </ul>
-    
-    <h3 class="mt-4">Comunidades</h3>
-    
-    <ul class="feature-list">
-        <li><a href="https://www.reddit.com/r/ChatGPT/" target="_blank">r/ChatGPT</a> - Subreddit sobre ChatGPT y aplicaciones</li>
-        <li><a href="https://discord.com/invite/openai" target="_blank">OpenAI Discord</a> - Comunidad oficial de OpenAI</li>
-        <li><a href="https://huggingface.co/spaces" target="_blank">Hugging Face Spaces</a> - Comunidad con demostraciones de IA</li>
-    </ul>
-    
-    <h3 class="mt-4">Herramientas complementarias</h3>
-    
-    <ul class="feature-list">
-        <li><a href="https://promptperfect.jina.ai/" target="_blank">PromptPerfect</a> - Optimización automática de prompts</li>
-        <li><a href="https://promptbase.com/" target="_blank">PromptBase</a> - Marketplace de prompts efectivos</li>
-        <li><a href="https://github.com/hwchase17/langchain" target="_blank">LangChain</a> - Framework para desarrollo de aplicaciones con LLMs</li>
-    </ul>
+<!-- Sección de Herramientas Populares de Chatbots y LLMs para Desarrollo -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h2 class="h4 mb-0 text-gray-800">Herramientas Populares de Chatbots y LLMs para Desarrollo</h2>
+    </div>
+    <div class="card-body">
+        <p>Existen varias herramientas populares que utilizan chatbots y LLMs para asistir en el desarrollo de software. Algunas de las más destacadas son:</p>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">1. GitHub Copilot</h3>
+                        <p>GitHub Copilot es una herramienta desarrollada por GitHub en colaboración con OpenAI. Utiliza el modelo GPT para sugerir fragmentos de código, completar funciones e incluso generar código completo a partir de descripciones en lenguaje natural.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">2. ChatGPT (OpenAI)</h3>
+                        <p>ChatGPT es un modelo de lenguaje de gran escala que puede responder preguntas técnicas, generar código y ofrecer sugerencias de desarrollo. Es ampliamente utilizado por desarrolladores para obtener asistencia en tiempo real.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">3. Amazon CodeWhisperer</h3>
+                        <p>CodeWhisperer es una herramienta de Amazon que utiliza IA para ofrecer sugerencias de código en tiempo real. Es compatible con varios lenguajes de programación y se integra con IDEs populares.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">4. Tabnine</h3>
+                        <p>Tabnine es una herramienta de autocompletado de código impulsada por IA que utiliza modelos de lenguaje para predecir y completar fragmentos de código en tiempo real. Es compatible con más de 20 lenguajes de programación.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">5. DeepSeek</h3>
+                        <p>DeepSeek es una herramienta de generación de código que utiliza IA para ofrecer sugerencias y completar código en tiempo real. Es compatible con varios lenguajes de programación.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">6. Replit Ghostwriter</h3>
+                        <p>Replit Ghostwriter es una herramienta de generación de código que utiliza IA para ofrecer sugerencias y completar código en tiempo real. Es compatible con varios lenguajes y está integrado en la plataforma Replit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
