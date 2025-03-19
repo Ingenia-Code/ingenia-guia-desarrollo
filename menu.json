@@ -11,7 +11,8 @@
             { "subitem": "scrum", "title": "Scrum", "url": "contenido/metodologias/agile/scrum.html" },
             { "subitem": "kanban", "title": "Kanban", "url": "contenido/metodologias/agile/kanban.html" },
             { "subitem": "xp", "title": "XP", "url": "contenido/metodologias/agile/xp.html" },
-            { "subitem": "safe", "title": "SAFe", "url": "contenido/metodologias/agile/safe.html" }
+            { "subitem": "safe", "title": "SAFe", "url": "contenido/metodologias/agile/safe.html" },
+            { "subitem": "nexus", "title": "Nexus", "url": "contenido/metodologias/agile/nexus.html" }
           ]
         },
         {
