@@ -1,26 +1,35 @@
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h1 class="h3 mb-0 text-gray-800">Bases de Datos SQL</h1>
+    </div>
+    <div class="card-body">
+        <p class="lead">Las bases de datos SQL (Structured Query Language) son sistemas de gestión de bases de datos relacionales (RDBMS) que permiten almacenar, manipular y recuperar datos de manera estructurada. A continuación, se presenta una guía detallada sobre las bases de datos SQL más populares, sus características principales, y cómo utilizarlas en proyectos modernos.</p>
+    </div>
+</div>
 
-<h1>Bases de Datos SQL</h1>
-
-<p>Las bases de datos SQL (Structured Query Language) son sistemas de gestión de bases de datos relacionales (RDBMS) que permiten almacenar, manipular y recuperar datos de manera estructurada. A continuación, se presenta una guía detallada sobre las bases de datos SQL más populares, sus características principales, y cómo utilizarlas en proyectos modernos.</p>
-
-<div class="card">
-    <h2>Bases de datos SQL populares</h2>
-    
-    <div class="grid-container">
-        <div>
-            <h3>Oracle</h3>
-            <p>Oracle es un sistema de gestión de bases de datos empresarial altamente escalable y robusto, ampliamente utilizado en grandes organizaciones.</p>
-            
-            <h4>Características principales:</h4>
-            <ul class="feature-list">
-                <li><strong>Escalabilidad:</strong> Diseñado para manejar grandes volúmenes de datos.</li>
-                <li><strong>Alta disponibilidad:</strong> Soporte para replicación y clustering.</li>
-                <li><strong>Seguridad avanzada:</strong> Encriptación, auditoría y control de acceso.</li>
-                <li><strong>PL/SQL:</strong> Lenguaje procedural para programación en la base de datos.</li>
-            </ul>
-            
-            <h4>Ejemplo básico:</h4>
-            <pre><code class="lang-sql">-- Crear una tabla
+<!-- Sección de Bases de Datos SQL Populares -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h2 class="h4 mb-0 text-gray-800">Bases de Datos SQL Populares</h2>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">Oracle</h3>
+                        <p>Oracle es un sistema de gestión de bases de datos empresarial altamente escalable y robusto, ampliamente utilizado en grandes organizaciones.</p>
+                        
+                        <h4 class="h6 text-gray-800">Características principales:</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Escalabilidad:</strong> Diseñado para manejar grandes volúmenes de datos.</li>
+                            <li class="list-group-item"><strong>Alta disponibilidad:</strong> Soporte para replicación y clustering.</li>
+                            <li class="list-group-item"><strong>Seguridad avanzada:</strong> Encriptación, auditoría y control de acceso.</li>
+                            <li class="list-group-item"><strong>PL/SQL:</strong> Lenguaje procedural para programación en la base de datos.</li>
+                        </ul>
+                        
+                        <h4 class="h6 text-gray-800">Ejemplo básico:</h4>
+                        <pre><code class="lang-sql">-- Crear una tabla
 CREATE TABLE empleados (
     id NUMBER PRIMARY KEY,
     nombre VARCHAR2(100),
@@ -32,22 +41,25 @@ INSERT INTO empleados (id, nombre, salario) VALUES (1, 'Juan Pérez', 50000);
 
 -- Consultar datos
 SELECT * FROM empleados;</code></pre>
-        </div>
-        
-        <div>
-            <h3>SQLite</h3>
-            <p>SQLite es una base de datos ligera y embebida, ideal para aplicaciones móviles y pequeñas aplicaciones de escritorio.</p>
-            
-            <h4>Características principales:</h4>
-            <ul class="feature-list">
-                <li><strong>Sin servidor:</strong> No requiere un proceso de servidor separado.</li>
-                <li><strong>Archivo único:</strong> La base de datos se almacena en un solo archivo.</li>
-                <li><strong>Portable:</strong> Fácil de mover y copiar entre sistemas.</li>
-                <li><strong>Bajo consumo de recursos:</strong> Ideal para dispositivos con recursos limitados.</li>
-            </ul>
-            
-            <h4>Ejemplo básico:</h4>
-            <pre><code class="lang-sql">-- Crear una tabla
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">SQLite</h3>
+                        <p>SQLite es una base de datos ligera y embebida, ideal para aplicaciones móviles y pequeñas aplicaciones de escritorio.</p>
+                        
+                        <h4 class="h6 text-gray-800">Características principales:</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Sin servidor:</strong> No requiere un proceso de servidor separado.</li>
+                            <li class="list-group-item"><strong>Archivo único:</strong> La base de datos se almacena en un solo archivo.</li>
+                            <li class="list-group-item"><strong>Portable:</strong> Fácil de mover y copiar entre sistemas.</li>
+                            <li class="list-group-item"><strong>Bajo consumo de recursos:</strong> Ideal para dispositivos con recursos limitados.</li>
+                        </ul>
+                        
+                        <h4 class="h6 text-gray-800">Ejemplo básico:</h4>
+                        <pre><code class="lang-sql">-- Crear una tabla
 CREATE TABLE empleados (
     id INTEGER PRIMARY KEY,
     nombre TEXT,
@@ -59,24 +71,28 @@ INSERT INTO empleados (nombre, salario) VALUES ('Ana Gómez', 45000);
 
 -- Consultar datos
 SELECT * FROM empleados;</code></pre>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    
-    <div class="grid-container">
-        <div>
-            <h3>MariaDB</h3>
-            <p>MariaDB es un fork de MySQL, diseñado para ser compatible con MySQL pero con mejoras en rendimiento y características adicionales.</p>
-            
-            <h4>Características principales:</h4>
-            <ul class="feature-list">
-                <li><strong>Compatible con MySQL:</strong> Fácil migración desde MySQL.</li>
-                <li><strong>Mejoras en rendimiento:</strong> Optimizado para cargas de trabajo intensivas.</li>
-                <li><strong>Motores de almacenamiento:</strong> Soporte para múltiples motores de almacenamiento.</li>
-                <li><strong>Comunidad activa:</strong> Desarrollo impulsado por la comunidad.</li>
-            </ul>
-            
-            <h4>Ejemplo básico:</h4>
-            <pre><code class="lang-sql">-- Crear una tabla
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">MariaDB</h3>
+                        <p>MariaDB es un fork de MySQL, diseñado para ser compatible con MySQL pero con mejoras en rendimiento y características adicionales.</p>
+                        
+                        <h4 class="h6 text-gray-800">Características principales:</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Compatible con MySQL:</strong> Fácil migración desde MySQL.</li>
+                            <li class="list-group-item"><strong>Mejoras en rendimiento:</strong> Optimizado para cargas de trabajo intensivas.</li>
+                            <li class="list-group-item"><strong>Motores de almacenamiento:</strong> Soporte para múltiples motores de almacenamiento.</li>
+                            <li class="list-group-item"><strong>Comunidad activa:</strong> Desarrollo impulsado por la comunidad.</li>
+                        </ul>
+                        
+                        <h4 class="h6 text-gray-800">Ejemplo básico:</h4>
+                        <pre><code class="lang-sql">-- Crear una tabla
 CREATE TABLE empleados (
     id INT PRIMARY KEY,
     nombre VARCHAR(100),
@@ -88,22 +104,25 @@ INSERT INTO empleados (id, nombre, salario) VALUES (1, 'Carlos Ruiz', 55000);
 
 -- Consultar datos
 SELECT * FROM empleados;</code></pre>
-        </div>
-        
-        <div>
-            <h3>PostgreSQL</h3>
-            <p>PostgreSQL es una base de datos de código abierto altamente avanzada, conocida por su robustez y soporte para características avanzadas.</p>
-            
-            <h4>Características principales:</h4>
-            <ul class="feature-list">
-                <li><strong>Extensible:</strong> Soporte para tipos de datos personalizados y funciones.</li>
-                <li><strong>Concurrencia:</strong> Manejo avanzado de transacciones y concurrencia.</li>
-                <li><strong>JSON y NoSQL:</strong> Soporte para almacenamiento y consultas JSON.</li>
-                <li><strong>Comunidad activa:</strong> Amplia adopción y soporte de la comunidad.</li>
-            </ul>
-            
-            <h4>Ejemplo básico:</h4>
-            <pre><code class="lang-sql">-- Crear una tabla
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">PostgreSQL</h3>
+                        <p>PostgreSQL es una base de datos de código abierto altamente avanzada, conocida por su robustez y soporte para características avanzadas.</p>
+                        
+                        <h4 class="h6 text-gray-800">Características principales:</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Extensible:</strong> Soporte para tipos de datos personalizados y funciones.</li>
+                            <li class="list-group-item"><strong>Concurrencia:</strong> Manejo avanzado de transacciones y concurrencia.</li>
+                            <li class="list-group-item"><strong>JSON y NoSQL:</strong> Soporte para almacenamiento y consultas JSON.</li>
+                            <li class="list-group-item"><strong>Comunidad activa:</strong> Amplia adopción y soporte de la comunidad.</li>
+                        </ul>
+                        
+                        <h4 class="h6 text-gray-800">Ejemplo básico:</h4>
+                        <pre><code class="lang-sql">-- Crear una tabla
 CREATE TABLE empleados (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(100),
@@ -115,24 +134,28 @@ INSERT INTO empleados (nombre, salario) VALUES ('Laura Díaz', 60000);
 
 -- Consultar datos
 SELECT * FROM empleados;</code></pre>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    
-    <div class="grid-container">
-        <div>
-            <h3>Percona Server</h3>
-            <p>Percona Server es una versión mejorada de MySQL, optimizada para alto rendimiento y escalabilidad.</p>
-            
-            <h4>Características principales:</h4>
-            <ul class="feature-list">
-                <li><strong>Compatible con MySQL:</strong> Fácil migración desde MySQL.</li>
-                <li><strong>Mejoras en rendimiento:</strong> Optimizado para cargas de trabajo intensivas.</li>
-                <li><strong>Herramientas avanzadas:</strong> Incluye herramientas de monitoreo y backup.</li>
-                <li><strong>Soporte empresarial:</strong> Soporte profesional y servicios de consultoría.</li>
-            </ul>
-            
-            <h4>Ejemplo básico:</h4>
-            <pre><code class="lang-sql">-- Crear una tabla
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">Percona Server</h3>
+                        <p>Percona Server es una versión mejorada de MySQL, optimizada para alto rendimiento y escalabilidad.</p>
+                        
+                        <h4 class="h6 text-gray-800">Características principales:</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Compatible con MySQL:</strong> Fácil migración desde MySQL.</li>
+                            <li class="list-group-item"><strong>Mejoras en rendimiento:</strong> Optimizado para cargas de trabajo intensivas.</li>
+                            <li class="list-group-item"><strong>Herramientas avanzadas:</strong> Incluye herramientas de monitoreo y backup.</li>
+                            <li class="list-group-item"><strong>Soporte empresarial:</strong> Soporte profesional y servicios de consultoría.</li>
+                        </ul>
+                        
+                        <h4 class="h6 text-gray-800">Ejemplo básico:</h4>
+                        <pre><code class="lang-sql">-- Crear una tabla
 CREATE TABLE empleados (
     id INT PRIMARY KEY,
     nombre VARCHAR(100),
@@ -144,22 +167,25 @@ INSERT INTO empleados (id, nombre, salario) VALUES (1, 'Miguel Sánchez', 70000)
 
 -- Consultar datos
 SELECT * FROM empleados;</code></pre>
-        </div>
-        
-        <div>
-            <h3>Microsoft SQL Server</h3>
-            <p>Microsoft SQL Server es un sistema de gestión de bases de datos empresarial desarrollado por Microsoft, ampliamente utilizado en entornos Windows.</p>
-            
-            <h4>Características principales:</h4>
-            <ul class="feature-list">
-                <li><strong>Integración con Windows:</strong> Soporte nativo para entornos Windows.</li>
-                <li><strong>Herramientas avanzadas:</strong> SQL Server Management Studio (SSMS) para gestión y administración.</li>
-                <li><strong>Business Intelligence:</strong> Soporte para análisis de datos y reporting.</li>
-                <li><strong>Alta disponibilidad:</strong> Soporte para clustering y replicación.</li>
-            </ul>
-            
-            <h4>Ejemplo básico:</h4>
-            <pre><code class="lang-sql">-- Crear una tabla
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">Microsoft SQL Server</h3>
+                        <p>Microsoft SQL Server es un sistema de gestión de bases de datos empresarial desarrollado por Microsoft, ampliamente utilizado en entornos Windows.</p>
+                        
+                        <h4 class="h6 text-gray-800">Características principales:</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Integración con Windows:</strong> Soporte nativo para entornos Windows.</li>
+                            <li class="list-group-item"><strong>Herramientas avanzadas:</strong> SQL Server Management Studio (SSMS) para gestión y administración.</li>
+                            <li class="list-group-item"><strong>Business Intelligence:</strong> Soporte para análisis de datos y reporting.</li>
+                            <li class="list-group-item"><strong>Alta disponibilidad:</strong> Soporte para clustering y replicación.</li>
+                        </ul>
+                        
+                        <h4 class="h6 text-gray-800">Ejemplo básico:</h4>
+                        <pre><code class="lang-sql">-- Crear una tabla
 CREATE TABLE empleados (
     id INT PRIMARY KEY,
     nombre NVARCHAR(100),
@@ -171,40 +197,62 @@ INSERT INTO empleados (id, nombre, salario) VALUES (1, 'Sofía López', 80000);
 
 -- Consultar datos
 SELECT * FROM empleados;</code></pre>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<h2>Recursos de aprendizaje</h2>
-
-<div class="card">
-    <div class="grid-container">
-        <div>
-            <h3>Documentación oficial</h3>
-            <ul class="feature-list">
-                <li><a href="https://docs.oracle.com/en/database/" target="_blank">Documentación de Oracle</a></li>
-                <li><a href="https://www.sqlite.org/docs.html" target="_blank">Documentación de SQLite</a></li>
-                <li><a href="https://mariadb.com/kb/en/documentation/" target="_blank">Documentación de MariaDB</a></li>
-                <li><a href="https://www.postgresql.org/docs/" target="_blank">Documentación de PostgreSQL</a></li>
-            </ul>
-            
-            <h3 class="mt-4">Cursos y tutoriales</h3>
-            <ul class="feature-list">
-                <li><a href="https://www.udemy.com/course/oracle-sql-for-beginners/" target="_blank">Oracle SQL for Beginners (Udemy)</a></li>
-                <li><a href="https://www.udemy.com/course/sqlite-database-for-beginners/" target="_blank">SQLite Database for Beginners (Udemy)</a></li>
-                <li><a href="https://www.udemy.com/course/mariadb-for-beginners/" target="_blank">MariaDB for Beginners (Udemy)</a></li>
-                <li><a href="https://www.udemy.com/course/postgresql-for-beginners/" target="_blank">PostgreSQL for Beginners (Udemy)</a></li>
-            </ul>
+<!-- Sección de Recursos de Aprendizaje -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h2 class="h4 mb-0 text-gray-800">Recursos de Aprendizaje</h2>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">Documentación oficial</h3>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><a href="https://docs.oracle.com/en/database/" target="_blank">Documentación de Oracle</a></li>
+                            <li class="list-group-item"><a href="https://www.sqlite.org/docs.html" target="_blank">Documentación de SQLite</a></li>
+                            <li class="list-group-item"><a href="https://mariadb.com/kb/en/documentation/" target="_blank">Documentación de MariaDB</a></li>
+                            <li class="list-group-item"><a href="https://www.postgresql.org/docs/" target="_blank">Documentación de PostgreSQL</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">Cursos y tutoriales</h3>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><a href="https://www.udemy.com/course/oracle-sql-for-beginners/" target="_blank">Oracle SQL for Beginners (Udemy)</a></li>
+                            <li class="list-group-item"><a href="https://www.udemy.com/course/sqlite-database-for-beginners/" target="_blank">SQLite Database for Beginners (Udemy)</a></li>
+                            <li class="list-group-item"><a href="https://www.udemy.com/course/mariadb-for-beginners/" target="_blank">MariaDB for Beginners (Udemy)</a></li>
+                            <li class="list-group-item"><a href="https://www.udemy.com/course/postgresql-for-beginners/" target="_blank">PostgreSQL for Beginners (Udemy)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div>
-            <h3>Libros recomendados</h3>
-            <ul class="feature-list">
-                <li>"Oracle PL/SQL Programming" - Steven Feuerstein</li>
-                <li>"SQLite Database System Design and Implementation" - Sibsankar Haldar</li>
-                <li>"MariaDB Crash Course" - Ben Forta</li>
-                <li>"PostgreSQL: Up and Running" - Regina Obe and Leo Hsu</li>
-            </ul>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">Libros recomendados</h3>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">"Oracle PL/SQL Programming" - Steven Feuerstein</li>
+                            <li class="list-group-item">"SQLite Database System Design and Implementation" - Sibsankar Haldar</li>
+                            <li class="list-group-item">"MariaDB Crash Course" - Ben Forta</li>
+                            <li class="list-group-item">"PostgreSQL: Up and Running" - Regina Obe and Leo Hsu</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

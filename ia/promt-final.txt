@@ -1,0 +1,7 @@
+analiza los siguientes archivos en cuanto a FORMATO y en cuanto a estilo de contenido.
+
+Despues te daré otros archivos similares para formatear (y complementar), o te pedire generes archivos similares para conceptos que te vaya indicando.
+
+Cada archivo forma parte de una guia de desarrollo de software
+
+Archivos con formato correcto:

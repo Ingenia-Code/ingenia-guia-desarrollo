@@ -1,79 +1,96 @@
-<h1>Bases de Datos</h1>
-
-<p>Las bases de datos son sistemas organizados para almacenar, gestionar y recuperar información de manera eficiente. Son componentes fundamentales en cualquier aplicación moderna, desde sitios web hasta aplicaciones empresariales complejas.</p>
-
-<div class="card">
-    <h2>Tipos de bases de datos</h2>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>Tipo</th>
-                <th>Características</th>
-                <th>Ejemplos</th>
-                <th>Casos de uso ideales</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Relacionales (SQL)</td>
-                <td>Estructura tabular, esquema rígido, ACID</td>
-                <td>PostgreSQL, MySQL, Oracle, SQL Server</td>
-                <td>Aplicaciones con datos estructurados, transacciones, reportes</td>
-            </tr>
-            <tr>
-                <td>Documentales (NoSQL)</td>
-                <td>Documentos tipo JSON, esquema flexible</td>
-                <td>MongoDB, CouchDB, Firestore</td>
-                <td>Aplicaciones web, contenido, prototipos</td>
-            </tr>
-            <tr>
-                <td>Clave-valor (NoSQL)</td>
-                <td>Estructura simple, alta performance</td>
-                <td>Redis, DynamoDB, Memcached</td>
-                <td>Caché, sesiones, tiempo real, colas</td>
-            </tr>
-            <tr>
-                <td>Columnares (NoSQL)</td>
-                <td>Optimizadas para análisis de columnas</td>
-                <td>Cassandra, HBase, BigTable</td>
-                <td>Big data, análisis, series temporales</td>
-            </tr>
-            <tr>
-                <td>Grafos (NoSQL)</td>
-                <td>Relaciones complejas entre datos</td>
-                <td>Neo4j, ArangoDB, JanusGraph</td>
-                <td>Redes sociales, recomendaciones, conocimiento</td>
-            </tr>
-            <tr>
-                <td>Series temporales</td>
-                <td>Optimizadas para datos secuenciales</td>
-                <td>InfluxDB, TimescaleDB, Prometheus</td>
-                <td>IoT, monitoreo, métricas, finanzas</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h1 class="h3 mb-0 text-gray-800">Bases de Datos</h1>
+    </div>
+    <div class="card-body">
+        <p class="lead">Las bases de datos son sistemas organizados para almacenar, gestionar y recuperar información de manera eficiente. Son componentes fundamentales en cualquier aplicación moderna, desde sitios web hasta aplicaciones empresariales complejas.</p>
+    </div>
 </div>
 
-<h2>Bases de Datos SQL</h2>
+<!-- Sección de Comparativa por Tipo -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h2 class="h4 mb-0 text-gray-800">Comparativa por Tipo</h2>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Características</th>
+                        <th>Ejemplos</th>
+                        <th>Casos de uso ideales</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Relacionales (SQL)</td>
+                        <td>Estructura tabular, esquema rígido, ACID</td>
+                        <td>PostgreSQL, MySQL, Oracle, SQL Server</td>
+                        <td>Aplicaciones con datos estructurados, transacciones, reportes</td>
+                    </tr>
+                    <tr>
+                        <td>Documentales (NoSQL)</td>
+                        <td>Documentos tipo JSON, esquema flexible</td>
+                        <td>MongoDB, CouchDB, Firestore</td>
+                        <td>Aplicaciones web, contenido, prototipos</td>
+                    </tr>
+                    <tr>
+                        <td>Clave-valor (NoSQL)</td>
+                        <td>Estructura simple, alta performance</td>
+                        <td>Redis, DynamoDB, Memcached</td>
+                        <td>Caché, sesiones, tiempo real, colas</td>
+                    </tr>
+                    <tr>
+                        <td>Columnares (NoSQL)</td>
+                        <td>Optimizadas para análisis de columnas</td>
+                        <td>Cassandra, HBase, BigTable</td>
+                        <td>Big data, análisis, series temporales</td>
+                    </tr>
+                    <tr>
+                        <td>Grafos (NoSQL)</td>
+                        <td>Relaciones complejas entre datos</td>
+                        <td>Neo4j, ArangoDB, JanusGraph</td>
+                        <td>Redes sociales, recomendaciones, conocimiento</td>
+                    </tr>
+                    <tr>
+                        <td>Series temporales</td>
+                        <td>Optimizadas para datos secuenciales</td>
+                        <td>InfluxDB, TimescaleDB, Prometheus</td>
+                        <td>IoT, monitoreo, métricas, finanzas</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-<div class="grid-container">
-    <div class="card">
-        <h3>PostgreSQL</h3>
-        <p>Sistema de gestión de bases de datos relacional orientado a objetos.</p>
-        
-        <h4>Características principales:</h4>
-        <ul class="feature-list">
-            <li>ACID Compliant</li>
-            <li>Soporte para JSON y JSONB</li>
-            <li>Tipos de datos personalizados</li>
-            <li>Replicación y particionamiento</li>
-            <li>Extensiones potentes (PostGIS, TimescaleDB)</li>
-            <li>Procedimientos almacenados en múltiples lenguajes</li>
-        </ul>
-        
-        <h4>Ejemplo de SQL avanzado:</h4>
-        <pre><code class="lang-sql">-- Crear tabla con restricciones
+<!-- Sección de Bases de Datos SQL -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h2 class="h4 mb-0 text-gray-800">Bases de Datos SQL</h2>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">PostgreSQL</h3>
+                        <p>Sistema de gestión de bases de datos relacional orientado a objetos.</p>
+                        
+                        <h4 class="h6 text-gray-800">Características principales:</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">ACID Compliant</li>
+                            <li class="list-group-item">Soporte para JSON y JSONB</li>
+                            <li class="list-group-item">Tipos de datos personalizados</li>
+                            <li class="list-group-item">Replicación y particionamiento</li>
+                            <li class="list-group-item">Extensiones potentes (PostGIS, TimescaleDB)</li>
+                            <li class="list-group-item">Procedimientos almacenados en múltiples lenguajes</li>
+                        </ul>
+                        
+                        <h4 class="h6 text-gray-800">Ejemplo de SQL avanzado:</h4>
+                        <pre><code class="lang-sql">-- Crear tabla con restricciones
 CREATE TABLE products (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -95,28 +112,31 @@ SELECT
     ) as avg_category_price
 FROM products p
 WHERE p.metadata @> '{"in_stock": true}';</code></pre>
-        
-        <p><strong>Precio:</strong> Gratuito, open source</p>
-        <p><strong>Usos comunes:</strong> Aplicaciones empresariales, GIS, data warehousing</p>
-        <a href="https://www.postgresql.org/" target="_blank">Sitio oficial</a>
-    </div>
-    
-    <div class="card">
-        <h3>MySQL</h3>
-        <p>Sistema de gestión de bases de datos relacional más utilizado del mundo.</p>
-        
-        <h4>Características principales:</h4>
-        <ul class="feature-list">
-            <li>Alta disponibilidad</li>
-            <li>Clusters y replicación</li>
-            <li>Optimizado para lecturas</li>
-            <li>Soporte para transacciones (InnoDB)</li>
-            <li>Almacenamiento en memoria</li>
-            <li>Procedimientos almacenados</li>
-        </ul>
-        
-        <h4>Ejemplo de optimización:</h4>
-        <pre><code class="lang-sql">-- Crear índices compuestos
+                        
+                        <p><strong>Precio:</strong> Gratuito, open source</p>
+                        <p><strong>Usos comunes:</strong> Aplicaciones empresariales, GIS, data warehousing</p>
+                        <a href="https://www.postgresql.org/" target="_blank">Sitio oficial</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">MySQL</h3>
+                        <p>Sistema de gestión de bases de datos relacional más utilizado del mundo.</p>
+                        
+                        <h4 class="h6 text-gray-800">Características principales:</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Alta disponibilidad</li>
+                            <li class="list-group-item">Clusters y replicación</li>
+                            <li class="list-group-item">Optimizado para lecturas</li>
+                            <li class="list-group-item">Soporte para transacciones (InnoDB)</li>
+                            <li class="list-group-item">Almacenamiento en memoria</li>
+                            <li class="list-group-item">Procedimientos almacenados</li>
+                        </ul>
+                        
+                        <h4 class="h6 text-gray-800">Ejemplo de optimización:</h4>
+                        <pre><code class="lang-sql">-- Crear índices compuestos
 CREATE INDEX idx_order_status_date ON orders (status, created_at);
 
 -- Consulta optimizada con EXPLAIN
@@ -129,97 +149,42 @@ INNER JOIN customers c ON o.customer_id = c.id
 WHERE o.status = 'pending'
     AND o.created_at > DATE_SUB(NOW(), INTERVAL 7 DAY)
     AND o.total_amount > 100;</code></pre>
-        
-        <p><strong>Precio:</strong> Gratuito (Community), Pago (Enterprise)</p>
-        <p><strong>Usos comunes:</strong> Aplicaciones web, CMS (WordPress), e-commerce</p>
-        <a href="https://www.mysql.com/" target="_blank">Sitio oficial</a>
+                        
+                        <p><strong>Precio:</strong> Gratuito (Community), Pago (Enterprise)</p>
+                        <p><strong>Usos comunes:</strong> Aplicaciones web, CMS (WordPress), e-commerce</p>
+                        <a href="https://www.mysql.com/" target="_blank">Sitio oficial</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="grid-container">
-    <div class="card">
-        <h3>SQLite</h3>
-        <p>Base de datos SQL ligera, autónoma y sin servidor.</p>
-        
-        <h4>Características principales:</h4>
-        <ul class="feature-list">
-            <li>Base de datos en un único archivo</li>
-            <li>Sin configuración de servidor</li>
-            <li>Transacciones ACID</li>
-            <li>Tamaño de biblioteca muy pequeño</li>
-            <li>Portabilidad entre plataformas</li>
-            <li>Cero dependencias externas</li>
-        </ul>
-        
-        <h4>Ejemplo básico:</h4>
-        <pre><code class="lang-python">import sqlite3
-
-# Crear conexión a la base de datos (archivo)
-conn = sqlite3.connect('example.db')
-cursor = conn.cursor()
-
-# Crear tabla
-cursor.execute('''
-CREATE TABLE IF NOT EXISTS users (
-    id INTEGER PRIMARY KEY,
-    name TEXT NOT NULL,
-    email TEXT UNIQUE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)
-''')
-
-# Insertar datos
-cursor.execute("INSERT INTO users (name, email) VALUES (?, ?)", 
-              ("John Doe", "john@example.com"))
-
-# Guardar cambios
-conn.commit()
-conn.close()</code></pre>
-        
-        <p><strong>Precio:</strong> Gratuito, dominio público</p>
-        <p><strong>Usos comunes:</strong> Aplicaciones móviles, prototipos, desarrollo local</p>
-        <a href="https://www.sqlite.org/" target="_blank">Sitio oficial</a>
+<!-- Sección de Bases de Datos NoSQL -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h2 class="h4 mb-0 text-gray-800">Bases de Datos NoSQL</h2>
     </div>
-    
-    <div class="card">
-        <h3>SQL Server</h3>
-        <p>Sistema de gestión de bases de datos relacional de Microsoft.</p>
-        
-        <h4>Características principales:</h4>
-        <ul class="feature-list">
-            <li>Integración con ecosistema Microsoft</li>
-            <li>Business Intelligence avanzada</li>
-            <li>Alta disponibilidad (Always On)</li>
-            <li>Procesamiento in-memory</li>
-            <li>Seguridad avanzada</li>
-            <li>Soporte para JSON, XML, gráficos</li>
-        </ul>
-        
-        <p><strong>Precio:</strong> Gratuito (Express), Pago (Standard, Enterprise)</p>
-        <p><strong>Usos comunes:</strong> Aplicaciones empresariales, BI, ecosistema .NET</p>
-        <a href="https://www.microsoft.com/en-us/sql-server" target="_blank">Sitio oficial</a>
-    </div>
-</div>
-
-<h2>Bases de Datos NoSQL</h2>
-
-<div class="grid-container">
-    <div class="card">
-        <h3>MongoDB</h3>
-        <p>Base de datos documental NoSQL líder.</p>
-        
-        <h4>Características principales:</h4>
-        <ul class="feature-list">
-            <li>Esquema flexible (documentos BSON)</li>
-            <li>Escalabilidad horizontal</li>
-            <li>Consultas ricas y agregaciones</li>
-            <li>Índices geoespaciales</li>
-            <li>Replicación y sharding</li>
-            <li>Atlas (servicio cloud)</li>
-        </ul>
-        
-        <h4>Ejemplo de agregación:</h4>
-        <pre><code class="lang-javascript">db.orders.aggregate([
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">MongoDB</h3>
+                        <p>Base de datos documental NoSQL líder.</p>
+                        
+                        <h4 class="h6 text-gray-800">Características principales:</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Esquema flexible (documentos BSON)</li>
+                            <li class="list-group-item">Escalabilidad horizontal</li>
+                            <li class="list-group-item">Consultas ricas y agregaciones</li>
+                            <li class="list-group-item">Índices geoespaciales</li>
+                            <li class="list-group-item">Replicación y sharding</li>
+                            <li class="list-group-item">Atlas (servicio cloud)</li>
+                        </ul>
+                        
+                        <h4 class="h6 text-gray-800">Ejemplo de agregación:</h4>
+                        <pre><code class="lang-javascript">db.orders.aggregate([
   {
     $match: {
       status: "completed",
@@ -244,28 +209,31 @@ conn.close()</code></pre>
     }
   }
 ]);</code></pre>
-        
-        <p><strong>Precio:</strong> Gratuito (Community), Pago (Enterprise, Atlas)</p>
-        <p><strong>Usos comunes:</strong> Aplicaciones web, contenido, IoT, catálogos</p>
-        <a href="https://www.mongodb.com/" target="_blank">Sitio oficial</a>
-    </div>
-    
-    <div class="card">
-        <h3>Redis</h3>
-        <p>Almacén de datos en memoria clave-valor con estructuras de datos avanzadas.</p>
-        
-        <h4>Características principales:</h4>
-        <ul class="feature-list">
-            <li>Extremadamente rápido (operaciones en memoria)</li>
-            <li>Estructuras de datos versátiles</li>
-            <li>Pub/Sub messaging</li>
-            <li>Persistencia opcional</li>
-            <li>Replicación y clustering</li>
-            <li>Streams para procesamiento de eventos</li>
-        </ul>
-        
-        <h4>Ejemplos de casos de uso:</h4>
-        <pre><code class="lang-bash"># Caché de sesión
+                        
+                        <p><strong>Precio:</strong> Gratuito (Community), Pago (Enterprise, Atlas)</p>
+                        <p><strong>Usos comunes:</strong> Aplicaciones web, contenido, IoT, catálogos</p>
+                        <a href="https://www.mongodb.com/" target="_blank">Sitio oficial</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 text-gray-800">Redis</h3>
+                        <p>Almacén de datos en memoria clave-valor con estructuras de datos avanzadas.</p>
+                        
+                        <h4 class="h6 text-gray-800">Características principales:</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Extremadamente rápido (operaciones en memoria)</li>
+                            <li class="list-group-item">Estructuras de datos versátiles</li>
+                            <li class="list-group-item">Pub/Sub messaging</li>
+                            <li class="list-group-item">Persistencia opcional</li>
+                            <li class="list-group-item">Replicación y clustering</li>
+                            <li class="list-group-item">Streams para procesamiento de eventos</li>
+                        </ul>
+                        
+                        <h4 class="h6 text-gray-800">Ejemplos de casos de uso:</h4>
+                        <pre><code class="lang-bash"># Caché de sesión
 SET session:123 "{user: 'john', role: 'admin'}" EX 3600
 
 # Rate limiting
@@ -276,153 +244,36 @@ EXPIRE rate:ip:192.168.1.1 60
 ZADD leaderboard 1000 "player1"
 ZADD leaderboard 2000 "player2"
 ZREVRANGE leaderboard 0 9 WITHSCORES</code></pre>
-        
-        <p><strong>Precio:</strong> Gratuito (Open Source), Pago (Enterprise, Cloud)</p>
-        <p><strong>Usos comunes:</strong> Caché, sesiones, tiempo real, mensajería, colas</p>
-        <a href="https://redis.io/" target="_blank">Sitio oficial</a>
+                        
+                        <p><strong>Precio:</strong> Gratuito (Open Source), Pago (Enterprise, Cloud)</p>
+                        <p><strong>Usos comunes:</strong> Caché, sesiones, tiempo real, mensajería, colas</p>
+                        <a href="https://redis.io/" target="_blank">Sitio oficial</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="grid-container">
-    <div class="card">
-        <h3>Neo4j</h3>
-        <p>Base de datos de grafos líder en el mercado.</p>
+<!-- Sección de Criterios de Selección -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h2 class="h4 mb-0 text-gray-800">Criterios de Selección</h2>
+    </div>
+    <div class="card-body">
+        <h3 class="h5 text-gray-800">Factores a Considerar</h3>
         
-        <h4>Características principales:</h4>
-        <ul class="feature-list">
-            <li>Almacenamiento nativo de grafos</li>
-            <li>Lenguaje de consulta Cypher</li>
-            <li>Visualización de grafos</li>
-            <li>ACID transaccional</li>
-            <li>Causal clustering</li>
-            <li>Algoritmos de grafos integrados</li>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Tipo de Datos:</strong> Estructurados vs No estructurados</li>
+            <li class="list-group-item"><strong>Escalabilidad:</strong> Vertical vs Horizontal</li>
+            <li class="list-group-item"><strong>Consistencia:</strong> ACID vs BASE</li>
+            <li class="list-group-item"><strong>Rendimiento:</strong> Lecturas vs Escrituras</li>
+            <li class="list-group-item"><strong>Modelo de Consulta:</strong> Declarativo (SQL) vs Programático (API)</li>
+            <li class="list-group-item"><strong>Operaciones:</strong> Complejidad de mantenimiento y recursos necesarios</li>
         </ul>
         
-        <h4>Ejemplo de Cypher Query:</h4>
-        <pre><code class="lang-cypher">// Crear relaciones
-MATCH (user:User {name: 'John'})
-MATCH (product:Product {name: 'Laptop'})
-CREATE (user)-[:PURCHASED {date: datetime()}]->(product)
-
-// Encontrar recomendaciones
-MATCH (user:User)-[:PURCHASED]->(product:Product)
-      <-[:PURCHASED]-(otherUser:User)-[:PURCHASED]->(otherProduct:Product)
-WHERE user.name = 'John' AND NOT (user)-[:PURCHASED]->(otherProduct)
-RETURN otherProduct.name, count(*) as frequency
-ORDER BY frequency DESC</code></pre>
-        
-        <p><strong>Precio:</strong> Community (gratuito), Enterprise (pago)</p>
-        <p><strong>Usos comunes:</strong> Redes sociales, recomendaciones, detección de fraude</p>
-        <a href="https://neo4j.com/" target="_blank">Sitio oficial</a>
-    </div>
-    
-    <div class="card">
-        <h3>InfluxDB</h3>
-        <p>Base de datos optimizada para datos de series temporales.</p>
-        
-        <h4>Características principales:</h4>
-        <ul class="feature-list">
-            <li>Alta ingesta de datos</li>
-            <li>Compresión eficiente</li>
-            <li>Políticas de retención automatizadas</li>
-            <li>Lenguaje de consulta InfluxQL y Flux</li>
-            <li>Downsampling y políticas de retención</li>
-            <li>Telegraf para recolección de datos</li>
-        </ul>
-        
-        <h4>Ejemplo de consulta:</h4>
-        <pre><code class="lang-sql">// Insertar métricas
-INSERT cpu,host=server01 usage_idle=98.2,usage_user=1.8
-
-// Consultar promedios por intervalo
-SELECT mean("usage_user")
-FROM "cpu"
-WHERE time >= now() - 1h
-GROUP BY time(5m), "host"
-FILL(null)</code></pre>
-        
-        <p><strong>Precio:</strong> Open Source (gratuito), Cloud (pago)</p>
-        <p><strong>Usos comunes:</strong> IoT, monitoreo, métricas, análisis de logs</p>
-        <a href="https://www.influxdata.com/" target="_blank">Sitio oficial</a>
-    </div>
-</div>
-
-<h2>Comparativa de Bases de Datos</h2>
-
-<div class="card">
-    <table>
-        <thead>
-            <tr>
-                <th>Base de Datos</th>
-                <th>Tipo</th>
-                <th>Mejor Para</th>
-                <th>Escalabilidad</th>
-                <th>Consistencia</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>PostgreSQL</td>
-                <td>Relacional</td>
-                <td>Datos complejos, ACID</td>
-                <td>Vertical</td>
-                <td>Fuerte</td>
-            </tr>
-            <tr>
-                <td>MongoDB</td>
-                <td>Documental</td>
-                <td>Datos semi-estructurados</td>
-                <td>Horizontal</td>
-                <td>Eventual</td>
-            </tr>
-            <tr>
-                <td>Redis</td>
-                <td>Clave-Valor</td>
-                <td>Caché, tiempo real</td>
-                <td>Cluster</td>
-                <td>Eventual</td>
-            </tr>
-            <tr>
-                <td>Neo4j</td>
-                <td>Grafo</td>
-                <td>Datos relacionales complejos</td>
-                <td>Vertical/Cluster</td>
-                <td>Fuerte</td>
-            </tr>
-            <tr>
-                <td>Cassandra</td>
-                <td>Columnar</td>
-                <td>Big Data, alta disponibilidad</td>
-                <td>Horizontal</td>
-                <td>Eventual</td>
-            </tr>
-            <tr>
-                <td>InfluxDB</td>
-                <td>Time Series</td>
-                <td>Datos secuenciales, métricas</td>
-                <td>Vertical/Cluster</td>
-                <td>Variable</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<h2>Criterios de Selección</h2>
-
-<div class="card">
-    <h3>Factores a Considerar</h3>
-    
-    <ul class="feature-list">
-        <li><strong>Tipo de Datos:</strong> Estructurados vs No estructurados</li>
-        <li><strong>Escalabilidad:</strong> Vertical vs Horizontal</li>
-        <li><strong>Consistencia:</strong> ACID vs BASE</li>
-        <li><strong>Rendimiento:</strong> Lecturas vs Escrituras</li>
-        <li><strong>Modelo de Consulta:</strong> Declarativo (SQL) vs Programático (API)</li>
-        <li><strong>Operaciones:</strong> Complejidad de mantenimiento y recursos necesarios</li>
-    </ul>
-    
-    <h3>Árbol de decisión simplificado</h3>
-    <pre><code class="lang-text">¿Datos estructurados con relaciones complejas?
+        <h3 class="h5 text-gray-800 mt-4">Árbol de decisión simplificado</h3>
+        <pre><code class="lang-text">¿Datos estructurados con relaciones complejas?
 ├── Sí ──> ¿Prioridad en consistencia transaccional?
 │         ├── Sí ──> PostgreSQL, MySQL, SQL Server
 │         └── No ──> ¿Relaciones complejas y cambiantes?
@@ -434,131 +285,19 @@ FILL(null)</code></pre>
                     ├── Sí ──> Redis, DynamoDB
                     └── No ──> ¿Escrituras masivas distribuidas?
                               └── Sí ──> Cassandra, HBase</code></pre>
-</div>
-
-<h2>Patrones de Uso Comunes</h2>
-
-<div class="card">
-    <h3>Persistencia Políglota</h3>
-    <p>Uso de múltiples bases de datos para diferentes casos de uso dentro de una misma aplicación.</p>
-    
-    <pre><code class="lang-text">// Arquitectura típica de e-commerce
-
-1. PostgreSQL (Datos principales)
-   - Órdenes
-   - Productos
-   - Clientes
-
-2. Redis (Caché y sesiones)
-   - Sesiones de usuario
-   - Carrito de compras
-   - Cache de productos
-
-3. MongoDB (Catálogo y contenido)
-   - Descripción rica de productos
-   - Reviews y comentarios
-   - Contenido de marketing
-
-4. Elasticsearch (Búsqueda)
-   - Índice de productos
-   - Búsqueda full-text
-   - Filtros facetados</code></pre>
-    
-    <h3>Command Query Responsibility Segregation (CQRS)</h3>
-    <p>Separación de las operaciones de lectura y escritura, permitiendo optimizar cada tipo de operación.</p>
-    
-    <pre><code class="lang-java">// Ejemplo de implementación CQRS
-
-// Escrituras (Commands) - PostgreSQL
-@Transactional
-public void createOrder(OrderCommand command) {
-    Order order = new Order(command);
-    orderRepository.save(order);
-    eventPublisher.publish(new OrderCreatedEvent(order));
-}
-
-// Lecturas (Queries) - MongoDB
-public OrderViewModel getOrder(String orderId) {
-    return orderViewRepository
-        .findById(orderId)
-        .map(OrderViewModel::new)
-        .orElseThrow(NotFoundException::new);
-}</code></pre>
-</div>
-
-<h2>Herramientas de Diseño y Modelado</h2>
-
-<div class="grid-container">
-    <div class="card">
-        <h3>dbdiagram.io</h3>
-        <p>Herramienta online para crear diagramas de bases de datos relacionales.</p>
-        
-        <h4>Características principales:</h4>
-        <ul class="feature-list">
-            <li>Sintaxis DBML simple para diseñar esquemas</li>
-            <li>Visualización automática de relaciones</li>
-            <li>Exportación a SQL (PostgreSQL, MySQL, SQL Server)</li>
-            <li>Colaboración en tiempo real</li>
-            <li>Exportación a PDF, PNG</li>
-        </ul>
-        
-        <h4>Ejemplo de uso:</h4>
-        <pre><code class="lang-dbml">// Using DBML to define tables and relationships
-// https://dbdiagram.io/
-
-Table users {
-  id integer [primary key]
-  username varchar [not null, unique]
-  email varchar [not null, unique]
-  created_at timestamp
-}
-
-Table posts {
-  id integer [primary key]
-  title varchar [not null]
-  content text
-  user_id integer [ref: > users.id]
-  created_at timestamp
-}
-
-Table comments {
-  id integer [primary key]
-  content text [not null]
-  post_id integer [ref: > posts.id]
-  user_id integer [ref: > users.id]
-  created_at timestamp
-}</code></pre>
-        
-        <p><strong>Precio:</strong> Gratuito (básico), $9/mes (Pro)</p>
-        <a href="https://dbdiagram.io/" target="_blank">Sitio oficial</a>
-    </div>
-    
-    <div class="card">
-        <h3>DBeaver</h3>
-        <p>Cliente universal de bases de datos con capacidades de diseño y administración.</p>
-        
-        <h4>Características principales:</h4>
-        <ul class="feature-list">
-            <li>Soporte para más de 80 bases de datos</li>
-            <li>Editor SQL con autocompletado</li>
-            <li>Herramientas de modelado ER</li>
-            <li>Visualización de datos</li>
-            <li>Exportación e importación</li>
-            <li>Multiplataforma</li>
-        </ul>
-        
-        <p><strong>Precio:</strong> Gratuito (Community), Pago (Enterprise)</p>
-        <a href="https://dbeaver.io/" target="_blank">Sitio oficial</a>
     </div>
 </div>
 
-<h2>Optimización y Rendimiento</h2>
-
-<div class="card">
-    <h3>Estrategias de Indexación</h3>
-    
-    <h4>PostgreSQL</h4>
-    <pre><code class="lang-sql">-- Índices parciales
+<!-- Sección de Mejores Prácticas -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h2 class="h4 mb-0 text-gray-800">Mejores Prácticas</h2>
+    </div>
+    <div class="card-body">
+        <h3 class="h5 text-gray-800">Estrategias de Indexación</h3>
+        
+        <h4 class="h6 text-gray-800">PostgreSQL</h4>
+        <pre><code class="lang-sql">-- Índices parciales
 CREATE INDEX idx_active_users ON users (email)
 WHERE active = true;
 
@@ -573,8 +312,8 @@ INCLUDE (description);
 CREATE INDEX idx_products_search ON products 
 USING GiST (to_tsvector('english', description));</code></pre>
 
-    <h4>MongoDB</h4>
-    <pre><code class="lang-javascript">// Índices compuestos
+        <h4 class="h6 text-gray-800">MongoDB</h4>
+        <pre><code class="lang-javascript">// Índices compuestos
 db.orders.createIndex({
     "userId": 1,
     "createdAt": -1
@@ -591,8 +330,8 @@ db.products.createIndex({
     }
 });</code></pre>
 
-    <h3>Particionamiento</h3>
-    <pre><code class="lang-sql">-- Particionamiento por rango en PostgreSQL
+        <h3 class="h5 text-gray-800">Particionamiento</h3>
+        <pre><code class="lang-sql">-- Particionamiento por rango en PostgreSQL
 CREATE TABLE orders (
     id SERIAL,
     created_at TIMESTAMP,
@@ -604,176 +343,5 @@ CREATE TABLE orders_2023 PARTITION OF orders
 
 CREATE TABLE orders_2024 PARTITION OF orders
     FOR VALUES FROM ('2024-01-01') TO ('2025-01-01');</code></pre>
-</div>
-
-<h2>Seguridad de Bases de Datos</h2>
-
-<div class="card">
-    <h3>Mejores Prácticas</h3>
-    
-    <h4>Control de Acceso</h4>
-    <pre><code class="lang-sql">-- PostgreSQL RBAC
-CREATE ROLE readonly;
-GRANT SELECT ON ALL TABLES IN SCHEMA public TO readonly;
-CREATE USER analyst WITH PASSWORD 'secure123';
-GRANT readonly TO analyst;
-
--- Política de Row Level Security
-CREATE POLICY tenant_isolation ON orders
-    USING (tenant_id = current_tenant_id());
-
-ALTER TABLE orders ENABLE ROW LEVEL SECURITY;</code></pre>
-
-    <h4>Encryption</h4>
-    <pre><code class="lang-sql">-- Datos en reposo
-CREATE EXTENSION pgcrypto;
-
--- Encriptación de columnas sensibles
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    email TEXT,
-    encrypted_ssn BYTEA GENERATED ALWAYS AS (
-        pgp_sym_encrypt(ssn::text, current_setting('app.encryption_key'))
-    ) STORED
-);</code></pre>
-    
-    <h3>Consideraciones de seguridad generales</h3>
-    <ul class="feature-list">
-        <li>Mantener las bases de datos actualizadas con parches de seguridad</li>
-        <li>Implementar firewall de bases de datos</li>
-        <li>Cifrar conexiones con TLS/SSL</li>
-        <li>Establecer políticas robustas de contraseñas</li>
-        <li>Realizar auditorías regulares</li>
-        <li>Implementar protección contra inyección SQL</li>
-        <li>Resguardar copias de seguridad cifradas</li>
-    </ul>
-</div>
-
-<h2>ORM y herramientas de abstracción</h2>
-
-<div class="grid-container">
-    <div class="card">
-        <h3>Prisma (JavaScript/TypeScript)</h3>
-        <p>ORM moderno y tipo-seguro para Node.js y TypeScript.</p>
-        
-        <h4>Características principales:</h4>
-        <ul class="feature-list">
-            <li>Esquema declarativo</li>
-            <li>Cliente autogenerado con tipos</li>
-            <li>Migraciones automatizadas</li>
-            <li>Soporte para múltiples bases de datos</li>
-            <li>API intuitiva</li>
-        </ul>
-        
-        <h4>Ejemplo de uso:</h4>
-        <pre><code class="lang-typescript">// schema.prisma
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-
-model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  name      String?
-  posts     Post[]
-  createdAt DateTime @default(now())
-}
-
-model Post {
-  id        Int      @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean  @default(false)
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  Int
-}
-
-// Uso en el código
-const user = await prisma.user.findUnique({
-  where: { email: "alice@example.com" },
-  include: { posts: true }
-})</code></pre>
-        
-        <p><strong>Precio:</strong> Gratuito, Open Source</p>
-        <a href="https://www.prisma.io/" target="_blank">Sitio oficial</a>
     </div>
-    
-    <div class="card">
-        <h3>SQLAlchemy (Python)</h3>
-        <p>Toolkit SQL y ORM para Python.</p>
-        
-        <h4>Características principales:</h4>
-        <ul class="feature-list">
-            <li>ORM completo y flexible</li>
-            <li>API de SQL expresiva</li>
-            <li>Soporte para múltiples bases de datos</li>
-            <li>Transacciones avanzadas</li>
-            <li>Extensible y personalizable</li>
-        </ul>
-        
-        <h4>Ejemplo de uso:</h4>
-        <pre><code class="lang-python">from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship, sessionmaker
-
-Base = declarative_base()
-
-class User(Base):
-    __tablename__ = 'users'
-    
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    email = Column(String, unique=True)
-    posts = relationship("Post", back_populates="author")
-
-class Post(Base):
-    __tablename__ = 'posts'
-    
-    id = Column(Integer, primary_key=True)
-    title = Column(String)
-    content = Column(String)
-    user_id = Column(Integer, ForeignKey('users.id'))
-    author = relationship("User", back_populates="posts")
-
-# Uso
-engine = create_engine('postgresql://user:pass@localhost/mydb')
-Base.metadata.create_all(engine)
-
-Session = sessionmaker(bind=engine)
-session = Session()
-
-# Consulta
-user = session.query(User).filter_by(email='alice@example.com').first()
-for post in user.posts:
-    print(f"{post.title}: {post.content[:50]}...")</code></pre>
-        
-        <p><strong>Precio:</strong> Gratuito, Open Source</p>
-        <a href="https://www.sqlalchemy.org/" target="_blank">Sitio oficial</a>
-    </div>
-</div>
-
-<h2>Tendencias y futuro</h2>
-
-<div class="card">
-    <h3>Tendencias actuales</h3>
-    
-    <ul class="feature-list">
-        <li><strong>Bases de datos serverless:</strong> Opciones gestionadas completamente con pago por uso</li>
-        <li><strong>Vector databases:</strong> Optimizadas para embeddings y búsqueda vectorial (IA)</li>
-        <li><strong>NewSQL:</strong> Bases de datos que combinan escalabilidad NoSQL con garantías SQL</li>
-        <li><strong>Edge databases:</strong> Bases de datos optimizadas para el edge computing</li>
-        <li><strong>Integración con IA:</strong> Capacidades de LLM y ML integradas en bases de datos</li>
-        <li><strong>Database mesh:</strong> Gestión federada de múltiples bases de datos</li>
-    </ul>
-    
-    <h3>Desafíos emergentes</h3>
-    
-    <ul class="feature-list">
-        <li><strong>Cumplimiento normativo:</strong> GDPR, CCPA y otras regulaciones sobre datos</li>
-        <li><strong>Gestión de datos masivos:</strong> El crecimiento exponencial de los datos de aplicaciones</li>
-        <li><strong>Seguridad:</strong> Amenazas cada vez más sofisticadas a las bases de datos</li>
-        <li><strong>Latencia global:</strong> Garantizar acceso rápido para usuarios de todo el mundo</li>
-        <li><strong>Sostenibilidad:</strong> Optimización del consumo energético de bases de datos</li>
-    </ul>
 </div>
