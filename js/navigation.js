@@ -197,8 +197,8 @@ function showWelcomePage() {
         <div class="container-fluid">
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <div class="text-center w-100">
-                    <img src='img/Logo-Ingenia-Colour.png' class="mb-3">
-                    <h1 class="h3 mb-0 text-gray-800" style="color: #fa832c;">Guía de Desarrollo Ingenia 2025</h1>
+                    <img src='img/Logo-Ingenia-Colour.png' class="mb-3" width='80%' style='max-width: 300px'>
+                    <h1 class="h3 mb-0 text-gray-800" style="color: #fa832c;">Guía de Desarrollo Ingenia</h1>
                 </div>
             </div>
             <div class="row">
