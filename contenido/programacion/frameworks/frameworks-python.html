@@ -1,26 +1,29 @@
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h1 class="h3 mb-0 text-gray-800">Frameworks de Python</h1>
+  </div>
+  <div class="card-body">
+    <p class="lead">Python es un lenguaje versátil que cuenta con una amplia variedad de frameworks para diferentes propósitos, desde desarrollo web hasta automatización y ciencia de datos. Los frameworks más populares en el ecosistema de Python incluyen Django, Flask, FastAPI, y otros. A continuación, se presenta una guía detallada sobre estos frameworks, sus características principales, y cómo utilizarlos en proyectos modernos.</p>
+  </div>
+</div>
 
-
-<h1>Frameworks de Python</h1>
-
-<p>Python es un lenguaje versátil que cuenta con una amplia variedad de frameworks para diferentes propósitos, desde desarrollo web hasta automatización y ciencia de datos. Los frameworks más populares en el ecosistema de Python incluyen Django, Flask, FastAPI, y otros. A continuación, se presenta una guía detallada sobre estos frameworks, sus características principales, y cómo utilizarlos en proyectos modernos.</p>
-
-<div class="card">
-    <h2>Frameworks para desarrollo web</h2>
-    
-    <div class="grid-container">
-        <div>
-            <h3>Django</h3>
-            <p>Django es un framework web de alto nivel que sigue el patrón "baterías incluidas". Es ideal para aplicaciones web complejas y de gran escala.</p>
-            
-            <h4>Características principales:</h4>
-            <ul class="feature-list">
-                <li><strong>ORM:</strong> Integración con bases de datos a través de un ORM potente.</li>
-                <li><strong>Autenticación:</strong> Sistema de autenticación de usuarios incorporado.</li>
-                <li><strong>Panel de administración:</strong> Interfaz de administración automática.</li>
-                <li><strong>Escalabilidad:</strong> Diseñado para manejar aplicaciones de gran escala.</li>
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h2 class="h4 mb-0 text-gray-800">Frameworks para desarrollo web</h2>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h3 class="h5 text-gray-800">Django</h3>
+            <ul class="list-group list-group-flush mb-2">
+              <li class="list-group-item"><strong>ORM:</strong> Integración con bases de datos a través de un ORM potente.</li>
+              <li class="list-group-item"><strong>Autenticación:</strong> Sistema de autenticación de usuarios incorporado.</li>
+              <li class="list-group-item"><strong>Panel de administración:</strong> Interfaz de administración automática.</li>
+              <li class="list-group-item"><strong>Escalabilidad:</strong> Diseñado para manejar aplicaciones de gran escala.</li>
             </ul>
-            
-            <h4>Ejemplo básico:</h4>
+            <h4 class="h6 text-gray-800">Ejemplo básico:</h4>
             <pre><code class="lang-python"># settings.py
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -44,21 +47,20 @@ from django.http import HttpResponse
 
 def home(request):
     return HttpResponse("¡Bienvenido a Django!")</code></pre>
+          </div>
         </div>
-        
-        <div>
-            <h3>Flask</h3>
-            <p>Flask es un microframework ligero y flexible, ideal para aplicaciones web pequeñas y medianas.</p>
-            
-            <h4>Características principales:</h4>
-            <ul class="feature-list">
-                <li><strong>Minimalista:</strong> Sin dependencias innecesarias.</li>
-                <li><strong>Flexible:</strong> Permite elegir las bibliotecas y herramientas que prefieras.</li>
-                <li><strong>Extensible:</strong> Soporta extensiones para agregar funcionalidades.</li>
-                <li><strong>Ideal para APIs:</strong> Fácil de usar para crear APIs RESTful.</li>
+      </div>
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h3 class="h5 text-gray-800">Flask</h3>
+            <ul class="list-group list-group-flush mb-2">
+              <li class="list-group-item"><strong>Minimalista:</strong> Sin dependencias innecesarias.</li>
+              <li class="list-group-item"><strong>Flexible:</strong> Permite elegir las bibliotecas y herramientas que prefieras.</li>
+              <li class="list-group-item"><strong>Extensible:</strong> Soporta extensiones para agregar funcionalidades.</li>
+              <li class="list-group-item"><strong>Ideal para APIs:</strong> Fácil de usar para crear APIs RESTful.</li>
             </ul>
-            
-            <h4>Ejemplo básico:</h4>
+            <h4 class="h6 text-gray-800">Ejemplo básico:</h4>
             <pre><code class="lang-python">from flask import Flask
 
 app = Flask(__name__)
@@ -69,23 +71,22 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)</code></pre>
+          </div>
         </div>
+      </div>
     </div>
-    
-    <div class="grid-container">
-        <div>
-            <h3>FastAPI</h3>
-            <p>FastAPI es un framework moderno y rápido para construir APIs con Python, basado en tipos y estándares abiertos.</p>
-            
-            <h4>Características principales:</h4>
-            <ul class="feature-list">
-                <li><strong>Rápido:</strong> Basado en Starlette y Pydantic para alto rendimiento.</li>
-                <li><strong>Tipado estático:</strong> Soporte para tipos de datos y validación automática.</li>
-                <li><strong>Documentación automática:</strong> Genera documentación interactiva (Swagger/OpenAPI).</li>
-                <li><strong>Asincronía:</strong> Soporte nativo para programación asíncrona.</li>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h3 class="h5 text-gray-800">FastAPI</h3>
+            <ul class="list-group list-group-flush mb-2">
+              <li class="list-group-item"><strong>Rápido:</strong> Basado en Starlette y Pydantic para alto rendimiento.</li>
+              <li class="list-group-item"><strong>Tipado estático:</strong> Soporte para tipos de datos y validación automática.</li>
+              <li class="list-group-item"><strong>Documentación automática:</strong> Genera documentación interactiva (Swagger/OpenAPI).</li>
+              <li class="list-group-item"><strong>Asincronía:</strong> Soporte nativo para programación asíncrona.</li>
             </ul>
-            
-            <h4>Ejemplo básico:</h4>
+            <h4 class="h6 text-gray-800">Ejemplo básico:</h4>
             <pre><code class="lang-python">from fastapi import FastAPI
 
 app = FastAPI()
@@ -93,21 +94,20 @@ app = FastAPI()
 @app.get("/")
 def read_root():
     return {"message": "¡Bienvenido a FastAPI!"}</code></pre>
+          </div>
         </div>
-        
-        <div>
-            <h3>Pyramid</h3>
-            <p>Pyramid es un framework flexible que puede escalar desde aplicaciones pequeñas hasta grandes proyectos.</p>
-            
-            <h4>Características principales:</h4>
-            <ul class="feature-list">
-                <li><strong>Flexibilidad:</strong> Puede ser tan minimalista o completo como se necesite.</li>
-                <li><strong>Escalabilidad:</strong> Diseñado para crecer con el proyecto.</li>
-                <li><strong>Enfoque en la simplicidad:</strong> Fácil de aprender y usar.</li>
-                <li><strong>Soporte para bases de datos:</strong> Integración con SQLAlchemy y otros ORMs.</li>
+      </div>
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h3 class="h5 text-gray-800">Pyramid</h3>
+            <ul class="list-group list-group-flush mb-2">
+              <li class="list-group-item"><strong>Flexibilidad:</strong> Puede ser tan minimalista o completo como se necesite.</li>
+              <li class="list-group-item"><strong>Escalabilidad:</strong> Diseñado para crecer con el proyecto.</li>
+              <li class="list-group-item"><strong>Enfoque en la simplicidad:</strong> Fácil de aprender y usar.</li>
+              <li class="list-group-item"><strong>Soporte para bases de datos:</strong> Integración con SQLAlchemy y otros ORMs.</li>
             </ul>
-            
-            <h4>Ejemplo básico:</h4>
+            <h4 class="h6 text-gray-800">Ejemplo básico:</h4>
             <pre><code class="lang-python">from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.response import Response
@@ -122,48 +122,48 @@ if __name__ == '__main__':
         app = config.make_wsgi_app()
     server = make_server('0.0.0.0', 6543, app)
     server.serve_forever()</code></pre>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
-<h2>Frameworks para automatización y scripting</h2>
-
-<div class="card">
-    <h3>Frameworks de automatización</h3>
-    
-    <div class="grid-container">
-        <div>
-            <h4>Fabric</h4>
-            <p>Fabric es una herramienta para automatizar tareas de despliegue y administración de sistemas.</p>
-            
-            <h4>Características principales:</h4>
-            <ul class="feature-list">
-                <li><strong>Ejecución remota:</strong> Ejecuta comandos en servidores remotos.</li>
-                <li><strong>Automatización de tareas:</strong> Simplifica tareas repetitivas.</li>
-                <li><strong>Integración con SSH:</strong> Soporte nativo para conexiones SSH.</li>
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h2 class="h4 mb-0 text-gray-800">Frameworks para automatización y scripting</h2>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="h5 text-gray-800">Fabric</h4>
+            <ul class="list-group list-group-flush mb-2">
+              <li class="list-group-item"><strong>Ejecución remota:</strong> Ejecuta comandos en servidores remotos.</li>
+              <li class="list-group-item"><strong>Automatización de tareas:</strong> Simplifica tareas repetitivas.</li>
+              <li class="list-group-item"><strong>Integración con SSH:</strong> Soporte nativo para conexiones SSH.</li>
             </ul>
-            
-            <h4>Ejemplo básico:</h4>
+            <h4 class="h6 text-gray-800">Ejemplo básico:</h4>
             <pre><code class="lang-python">from fabric import Connection
 
 def deploy():
     c = Connection('user@host')
     c.run('git pull origin main')
     c.run('sudo systemctl restart myapp')</code></pre>
+          </div>
         </div>
-        
-        <div>
-            <h4>Invoke</h4>
-            <p>Invoke es una herramienta para ejecutar tareas de línea de comandos y automatización.</p>
-            
-            <h4>Características principales:</h4>
-            <ul class="feature-list">
-                <li><strong>Tareas personalizadas:</strong> Define y ejecuta tareas personalizadas.</li>
-                <li><strong>Integración con Fabric:</strong> Puede usarse junto con Fabric.</li>
-                <li><strong>Fácil de usar:</strong> Sintaxis simple y clara.</li>
+      </div>
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="h5 text-gray-800">Invoke</h4>
+            <ul class="list-group list-group-flush mb-2">
+              <li class="list-group-item"><strong>Tareas personalizadas:</strong> Define y ejecuta tareas personalizadas.</li>
+              <li class="list-group-item"><strong>Integración con Fabric:</strong> Puede usarse junto con Fabric.</li>
+              <li class="list-group-item"><strong>Fácil de usar:</strong> Sintaxis simple y clara.</li>
             </ul>
-            
-            <h4>Ejemplo básico:</h4>
+            <h4 class="h6 text-gray-800">Ejemplo básico:</h4>
             <pre><code class="lang-python">from invoke import task
 
 @task
@@ -173,68 +173,67 @@ def build(c):
 @task
 def test(c):
     c.run("pytest tests/")</code></pre>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
-<h2>Frameworks para ciencia de datos y machine learning</h2>
-
-<div class="card">
-    <h3>Frameworks de ciencia de datos</h3>
-    
-    <div class="grid-container">
-        <div>
-            <h4>Pandas</h4>
-            <p>Pandas es una biblioteca para manipulación y análisis de datos en Python.</p>
-            
-            <h4>Características principales:</h4>
-            <ul class="feature-list">
-                <li><strong>Estructuras de datos:</strong> DataFrames y Series para manejo de datos.</li>
-                <li><strong>Manipulación de datos:</strong> Filtrado, agrupación, y transformación de datos.</li>
-                <li><strong>Integración con otras bibliotecas:</strong> Funciona bien con NumPy, Matplotlib, y Scikit-learn.</li>
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h2 class="h4 mb-0 text-gray-800">Frameworks para ciencia de datos y machine learning</h2>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="h5 text-gray-800">Pandas</h4>
+            <ul class="list-group list-group-flush mb-2">
+              <li class="list-group-item"><strong>Estructuras de datos:</strong> DataFrames y Series para manejo de datos.</li>
+              <li class="list-group-item"><strong>Manipulación de datos:</strong> Filtrado, agrupación, y transformación de datos.</li>
+              <li class="list-group-item"><strong>Integración con otras bibliotecas:</strong> Funciona bien con NumPy, Matplotlib, y Scikit-learn.</li>
             </ul>
-            
-            <h4>Ejemplo básico:</h4>
+            <h4 class="h6 text-gray-800">Ejemplo básico:</h4>
             <pre><code class="lang-python">import pandas as pd
 
 data = {'Nombre': ['Alice', 'Bob', 'Charlie'], 'Edad': [25, 30, 35]}
 df = pd.DataFrame(data)
 
 print(df)</code></pre>
+          </div>
         </div>
-        
-        <div>
-            <h4>NumPy</h4>
-            <p>NumPy es una biblioteca para computación numérica en Python.</p>
-            
-            <h4>Características principales:</h4>
-            <ul class="feature-list">
-                <li><strong>Arrays multidimensionales:</strong> Soporte para matrices y operaciones numéricas.</li>
-                <li><strong>Operaciones matemáticas:</strong> Funciones matemáticas avanzadas.</li>
-                <li><strong>Integración con otras bibliotecas:</strong> Base para muchas bibliotecas de ciencia de datos.</li>
+      </div>
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="h5 text-gray-800">NumPy</h4>
+            <ul class="list-group list-group-flush mb-2">
+              <li class="list-group-item"><strong>Arrays multidimensionales:</strong> Soporte para matrices y operaciones numéricas.</li>
+              <li class="list-group-item"><strong>Operaciones matemáticas:</strong> Funciones matemáticas avanzadas.</li>
+              <li class="list-group-item"><strong>Integración con otras bibliotecas:</strong> Base para muchas bibliotecas de ciencia de datos.</li>
             </ul>
-            
-            <h4>Ejemplo básico:</h4>
+            <h4 class="h6 text-gray-800">Ejemplo básico:</h4>
             <pre><code class="lang-python">import numpy as np
 
 array = np.array([1, 2, 3, 4, 5])
 print(array * 2)</code></pre>
+          </div>
         </div>
+      </div>
     </div>
-    
-    <div class="grid-container">
-        <div>
-            <h4>Scikit-learn</h4>
-            <p>Scikit-learn es una biblioteca para machine learning en Python.</p>
-            
-            <h4>Características principales:</h4>
-            <ul class="feature-list">
-                <li><strong>Algoritmos de ML:</strong> Clasificación, regresión, clustering, etc.</li>
-                <li><strong>Preprocesamiento de datos:</strong> Herramientas para preparar datos.</li>
-                <li><strong>Evaluación de modelos:</strong> Métricas y validación cruzada.</li>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="h5 text-gray-800">Scikit-learn</h4>
+            <ul class="list-group list-group-flush mb-2">
+              <li class="list-group-item"><strong>Algoritmos de ML:</strong> Clasificación, regresión, clustering, etc.</li>
+              <li class="list-group-item"><strong>Preprocesamiento de datos:</strong> Herramientas para preparar datos.</li>
+              <li class="list-group-item"><strong>Evaluación de modelos:</strong> Métricas y validación cruzada.</li>
             </ul>
-            
-            <h4>Ejemplo básico:</h4>
+            <h4 class="h6 text-gray-800">Ejemplo básico:</h4>
             <pre><code class="lang-python">from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
@@ -245,20 +244,19 @@ X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, test
 model = RandomForestClassifier()
 model.fit(X_train, y_train)
 print(model.score(X_test, y_test))</code></pre>
+          </div>
         </div>
-        
-        <div>
-            <h4>TensorFlow/PyTorch</h4>
-            <p>Frameworks para deep learning y redes neuronales.</p>
-            
-            <h4>Características principales:</h4>
-            <ul class="feature-list">
-                <li><strong>Redes neuronales:</strong> Soporte para modelos complejos.</li>
-                <li><strong>Computación en GPU:</strong> Acelera el entrenamiento de modelos.</li>
-                <li><strong>Comunidad activa:</strong> Amplia documentación y soporte.</li>
+      </div>
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="h5 text-gray-800">TensorFlow/PyTorch</h4>
+            <ul class="list-group list-group-flush mb-2">
+              <li class="list-group-item"><strong>Redes neuronales:</strong> Soporte para modelos complejos.</li>
+              <li class="list-group-item"><strong>Computación en GPU:</strong> Acelera el entrenamiento de modelos.</li>
+              <li class="list-group-item"><strong>Comunidad activa:</strong> Amplia documentación y soporte.</li>
             </ul>
-            
-            <h4>Ejemplo básico (TensorFlow):</h4>
+            <h4 class="h6 text-gray-800">Ejemplo básico (TensorFlow):</h4>
             <pre><code class="lang-python">import tensorflow as tf
 
 model = tf.keras.Sequential([
@@ -268,39 +266,43 @@ model = tf.keras.Sequential([
 
 model.compile(optimizer='adam', loss='mse')
 model.fit(X_train, y_train, epochs=10)</code></pre>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
-<h2>Recursos de aprendizaje</h2>
-
-<div class="card">
-    <div class="grid-container">
-        <div>
-            <h3>Documentación oficial</h3>
-            <ul class="feature-list">
-                <li><a href="https://docs.djangoproject.com/" target="_blank">Documentación de Django</a></li>
-                <li><a href="https://flask.palletsprojects.com/" target="_blank">Documentación de Flask</a></li>
-                <li><a href="https://fastapi.tiangolo.com/" target="_blank">Documentación de FastAPI</a></li>
-                <li><a href="https://docs.pylonsproject.org/projects/pyramid/en/latest/" target="_blank">Documentación de Pyramid</a></li>
-            </ul>
-            
-            <h3 class="mt-4">Cursos y tutoriales</h3>
-            <ul class="feature-list">
-                <li><a href="https://www.udemy.com/course/python-django-the-practical-guide/" target="_blank">Django: The Practical Guide (Udemy)</a></li>
-                <li><a href="https://www.udemy.com/course/flask-bootcamp/" target="_blank">Flask Bootcamp (Udemy)</a></li>
-                <li><a href="https://www.udemy.com/course/fastapi-the-complete-course/" target="_blank">FastAPI: The Complete Course (Udemy)</a></li>
-            </ul>
-        </div>
-        
-        <div>
-            <h3>Libros recomendados</h3>
-            <ul class="feature-list">
-                <li>"Two Scoops of Django" - Daniel Roy Greenfeld & Audrey Roy Greenfeld</li>
-                <li>"Flask Web Development" - Miguel Grinberg</li>
-                <li>"Building APIs with FastAPI" - William S. Vincent</li>
-                <li>"Python for Data Analysis" - Wes McKinney</li>
-            </ul>
-        </div>
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h2 class="h4 mb-0 text-gray-800">Recursos de aprendizaje</h2>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Documentación oficial</h3>
+        <ul class="list-group list-group-flush mb-2">
+          <li class="list-group-item"><a href="https://docs.djangoproject.com/" target="_blank">Documentación de Django</a></li>
+          <li class="list-group-item"><a href="https://flask.palletsprojects.com/" target="_blank">Documentación de Flask</a></li>
+          <li class="list-group-item"><a href="https://fastapi.tiangolo.com/" target="_blank">Documentación de FastAPI</a></li>
+          <li class="list-group-item"><a href="https://docs.pylonsproject.org/projects/pyramid/en/latest/" target="_blank">Documentación de Pyramid</a></li>
+        </ul>
+        <h3 class="mt-4">Cursos y tutoriales</h3>
+        <ul class="list-group list-group-flush mb-2">
+          <li class="list-group-item"><a href="https://www.udemy.com/course/python-django-the-practical-guide/" target="_blank">Django: The Practical Guide (Udemy)</a></li>
+          <li class="list-group-item"><a href="https://www.udemy.com/course/flask-bootcamp/" target="_blank">Flask Bootcamp (Udemy)</a></li>
+          <li class="list-group-item"><a href="https://www.udemy.com/course/fastapi-the-complete-course/" target="_blank">FastAPI: The Complete Course (Udemy)</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h3>Libros recomendados</h3>
+        <ul class="list-group list-group-flush mb-2">
+          <li class="list-group-item">"Two Scoops of Django" - Daniel Roy Greenfeld & Audrey Roy Greenfeld</li>
+          <li class="list-group-item">"Flask Web Development" - Miguel Grinberg</li>
+          <li class="list-group-item">"Building APIs with FastAPI" - William S. Vincent</li>
+          <li class="list-group-item">"Python for Data Analysis" - Wes McKinney</li>
+        </ul>
+      </div>
     </div>
+  </div>
 </div>
